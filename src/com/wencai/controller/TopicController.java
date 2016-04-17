@@ -5,20 +5,22 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
-import android.annotation.SuppressLint;
-import android.content.ContentValues;
-import android.content.Context;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
-
 import com.wencai.adapter.TopicFragmentCallBacks;
 import com.wencai.adapter.TopicPagerAdapter;
+import com.wencai.app.ExamFragment;
 import com.wencai.model.ExamResultService;
 import com.wencai.model.QuestionBankService;
 import com.wencai.model.TempTableService;
 import com.wencai.util.SharedPreferencesUtil;
+
+import android.annotation.SuppressLint;
+import android.content.ContentValues;
+import android.content.Context;
+import android.os.Message;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 @SuppressLint("UseSparseArrays")
 public class TopicController {
@@ -53,7 +55,7 @@ public class TopicController {
 	//考试
 	private int wrongCount;
 	private int rightCount;
-	
+ 
 	public TopicController(Context context, int mode, int subClass) {
 		questionBankService = new QuestionBankService();
 		examResultService = new ExamResultService();
@@ -133,7 +135,7 @@ public class TopicController {
 	public ArrayList<Map<String,Object>> neverdoSearch(){
 		return questionBankService.neverdoSearch(context);
 	}
-
+	 
 	public ArrayList<Map<String, Object>> collectedSearch() {
 		return questionBankService.collectedSearch(context);
 	}
@@ -410,7 +412,7 @@ public class TopicController {
 				break;
 			case MODE_INTENSIFY:
 				//未做题
-				topicList=neverdoSearch();
+				topicList=neverdoSearch();				 
 				break;
 			case MODE_PRACTICE_TEST:
 				topicList = testSearch();

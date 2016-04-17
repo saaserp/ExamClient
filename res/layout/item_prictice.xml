@@ -68,11 +68,11 @@
                             android:layout_height="5dp"
                             android:background="@color/sxlx" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="20dp"
-                            android:text="0" />
+                       <ImageView
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:src="@drawable/ks_sx" 
+                           />
                     </LinearLayout>
 
                     <LinearLayout
@@ -130,11 +130,11 @@
                             android:layout_height="5dp"
                             android:background="@color/sjlx" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="20dp"
-                            android:text="0" />
+                         <ImageView
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:src="@drawable/ks_sj" 
+                           />
                     </LinearLayout>
 
                     <LinearLayout
@@ -192,11 +192,11 @@
                             android:layout_height="5dp"
                             android:background="@color/zxlx" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="20dp"
-                            android:text="0" />
+                        <ImageView
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:src="@drawable/ks_zx" 
+                           />
                     </LinearLayout>
 
                     <LinearLayout
@@ -228,7 +228,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="20dp"
-                    android:text="未做题" />
+                    android:text="未做题目" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -255,6 +255,7 @@
                             android:background="@color/wzt" />
 
                         <TextView
+                            android:id="@+id/tv_wzt"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="20dp"

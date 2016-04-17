@@ -13,6 +13,7 @@ import com.wencai.parse.JSONParser;
 import com.wencai.util.CallBack;
 import com.wencai.util.DBHelper;
 import com.wencai.util.DBUtil;
+import com.wencai.util.NetWorkUtil;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -60,6 +61,7 @@ public class GetDataTask extends AsyncTask<Void, Void, Boolean> {
 		msg.what=10;
 		map.put("uid", LoginActivity.uid);
 		 map.put("dbName", DBUtil.dbName);
+		 map.put("mac", NetWorkUtil.getMacFromWifi(context));
 		msg.sendToTarget();
 		String res = MySocketClient.getInstance().send("GetInfo", map);
 		

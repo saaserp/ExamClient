@@ -8,6 +8,7 @@ import com.wencai.controller.MainTabController;
 import com.wencai.controller.TopicController;
 import com.wencai.gidance.GuidanceActivity;
 import com.wencai.login.LoginActivity;
+import com.wencai.model.QuestionBankService;
 import com.wencai.project.ProjectConfig;
 import com.wencai.util.FileUtil;
 import com.wencai.util.UiUtil;
@@ -85,8 +86,8 @@ implements MoreListFragment.Callbacks, ClassicsListFragment.Callbacks ,OnClickLi
 		} else {
 			switchPage(page);
 		}
-
-		 
+		
+		
 	}
 
 	private void switchPage(int position) {
@@ -169,7 +170,7 @@ implements MoreListFragment.Callbacks, ClassicsListFragment.Callbacks ,OnClickLi
 			startActivity(intent);
 		}
 	}
-
+	
 	@Override
 	public void onClassicsIdSelected(int classicsId) {
 		Intent intent = new Intent(this, ClassicsActivity.class);
@@ -335,11 +336,11 @@ implements MoreListFragment.Callbacks, ClassicsListFragment.Callbacks ,OnClickLi
 		});
 	}
 
-	private void setDatabase() {
-		SharedPreferences sp = getSharedPreferences("db", MODE_PRIVATE);
-		String dbName = sp.getString("dbName", "data.db");// 获取设定的数据库
-
-	}
+//	private void setDatabase() {
+//		SharedPreferences sp = getSharedPreferences("db", MODE_PRIVATE);
+//		String dbName = sp.getString("dbName", "data.db");// 获取设定的数据库
+//
+//	}
 	
 	boolean login() {
 		SharedPreferences sp = getSharedPreferences("user", MODE_PRIVATE);

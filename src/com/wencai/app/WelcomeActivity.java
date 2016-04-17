@@ -117,6 +117,7 @@ public class WelcomeActivity extends BaseActivity {
 							dialog.dismiss();
 							context.getSharedPreferences("tiku", Activity.MODE_PRIVATE).edit()
 							.putString("tiku", CustomDialog.Builder.selectedKey).commit();
+							DBUtil.dbName = CustomDialog.Builder.selectedKey ;
 							thread.start();
 							
 							

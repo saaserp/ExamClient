@@ -13,6 +13,8 @@ import org.apache.http.params.HttpParams;
 import org.apache.http.util.EntityUtils;
 
 import android.content.Context;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -97,4 +99,20 @@ public class NetWorkUtil {
 			}
 		}.start();
 	}	
+	
+	/**
+	 * 通过wifiManager获取mac地址
+	 * @attention Wifi
+	 * @return Mac Address
+	 */
+	public static String getMacFromWifi(Context context){
+        WifiManager wifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);   
+        if (!wifiManager.isWifiEnabled()) {   
+        	wifiManager.setWifiEnabled(true);    
+        }   
+        WifiInfo wifiInfo = wifiManager.getConnectionInfo();       
+        String mResult = wifiInfo.getMacAddress();
+        
+        return mResult;
+	}
 }

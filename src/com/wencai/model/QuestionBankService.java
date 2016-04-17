@@ -13,6 +13,11 @@ import android.content.Context;
 public class QuestionBankService extends CommonEntryDao {
 	private HashMap<Integer, Integer> examMap;
 
+	public int getAllCount(Context context) {
+		//String whereClause = "type<=2";
+		return super.getEntryList(context, null).size();
+	}
+	
 	public ArrayList<Map<String, Object>> sequentialSearch(Context context) {
 		String whereClause = "type<=2";
 		return super.getEntryList(context, whereClause);
@@ -42,7 +47,17 @@ public class QuestionBankService extends CommonEntryDao {
 		return returnList;
 		
 	}
-	
+	public int getShouchangCount(Context context){
+		return getCollectedEntryList(context).size();
+	}
+	public int getWrongCount(Context context){
+		 
+		return errorBookSearch(context).size();
+	}
+	public int getNeverDoCount(Context context){
+		 
+		return neverdoSearch(context).size();
+	}
 
 	public ArrayList<Map<String, Object>> collectedSearch(Context context) {
 		String whereClause = "collectedFlag=1";
