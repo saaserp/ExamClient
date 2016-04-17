@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ScrollView1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1" >
+
+            <Button
+                android:id="@+id/btn_main_exam_sequence"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="80dp"
+                android:onClick="toSequence"
+                android:text="顺序练习" />
+
+            <Button
+                android:id="@+id/btn_main_exam_random"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="80dp"
+                android:onClick="toRandom"
+                android:text="随机练习" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1" >
+
+            <Button
+                android:id="@+id/btn_main_exam_practice_test"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="模拟考试"
+                android:onClick="toPracticeTest" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1" >
+
+            <Button
+                android:id="@+id/btn_main_exam_chapters"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="44dp"
+                android:onClick="toChapters"
+                android:text="专项练习" />
+
+            <Button
+                android:id="@+id/btn_main_exam_intensify"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="44dp"
+                android:onClick="toIntensify"
+                android:text="未做题目" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1" >
+
+            <Button
+                android:id="@+id/btn_main_exam_statistics"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:onClick="toStatistics"
+                android:text="统计" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/RelativeLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" >
+
+            <Button
+                android:id="@+id/btn_main_exam_wrong_topic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:onClick="toWrongTopic"
+                android:text="错题集" />
+
+            <Button
+                android:id="@+id/btn_main_exam_collect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="4dp"
+                android:layout_toLeftOf="@id/btn_main_exam_wrong_topic"
+                android:onClick="toCollect"
+                android:text="我的收藏" />
+
+            <Button
+                android:id="@+id/btn_main_exam_record"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="4dp"
+                android:layout_toRightOf="@id/btn_main_exam_wrong_topic"
+                android:onClick="toRecord"
+                android:text="考试记录" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</ScrollView>

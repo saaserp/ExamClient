@@ -1,0 +1,52 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <include layout="@layout/layout_title_style_1" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:text="@string/db_select_hint"
+        android:textColor="@color/transparent" />
+
+    <RadioGroup
+        android:id="@+id/radiogroup_database"
+        android:checkedButton="@+id/rb_duozhou"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <RadioButton
+            android:id="@+id/rb_duozhou"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:button="@drawable/radio"
+            android:text="@string/db_duozhou" />
+
+        <RadioButton
+            android:id="@+id/rb_gudingyi"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:button="@drawable/radio"
+            android:text="@string/db_gudingyi" />
+
+        <RadioButton
+            android:id="@+id/xuanzhuanzhou"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:button="@drawable/radio"
+            android:text="@string/db_xuanzhuanzhou" />
+    </RadioGroup>
+
+    <Button
+        android:layout_width="fill_parent"
+        android:textColor="@color/white"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@drawable/btn4_selector"
+        android:text="设定题库" />
+
+</LinearLayout>

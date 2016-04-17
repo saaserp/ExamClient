@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_topic"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:background="@drawable/zx"
+    android:layout_alignParentLeft="true"
+      >
+
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+       android:background="@drawable/btn1_selector"
+        android:onClick="toPreTopic"
+        android:textColor="@color/white"
+        android:text="@string/topic_preTopic"
+        android:textSize="12sp" />
+
+    <Button
+        android:id="@+id/btn_switch_answer_show"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+         android:textColor="@color/white"
+         android:background="@drawable/btn2_selector"
+        android:onClick="toSwitchAnswerShow"
+        android:text="@string/topic_answer_show"
+        android:textSize="12sp" />
+
+    <ImageButton
+        android:id="@+id/btn_seek"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@drawable/btn3_selector"
+        android:contentDescription="@string/tab_image_description"
+        android:onClick="toSeek"
+        android:src="@drawable/tab_topic_seek"
+        android:layout_gravity="center"
+        android:textColor="#fff" />
+
+    <Button
+        android:id="@+id/btn_topic_changeLabel"
+        android:layout_width="0dp"
+         android:textColor="@color/white"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+       	android:background="@drawable/btn4_selector"
+        android:onClick="toChangeLabel"
+        android:text="@string/topic_set_collect"
+        android:textSize="12sp" />
+
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+         android:textColor="@color/white"
+        android:background="@drawable/btn5_selector"
+        android:onClick="toNextTopic"
+        android:text="@string/topic_nextTopic"
+        android:textSize="12sp" />
+
+</LinearLayout>

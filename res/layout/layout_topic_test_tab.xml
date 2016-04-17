@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_topic"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/zx"
+    android:layout_alignParentBottom="true"
+     >
+
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+         android:textColor="@color/white"
+        android:onClick="toPreTopic"
+        android:background="@drawable/btn1_selector"
+        android:text="@string/topic_preTopic"
+        android:textSize="12sp" />
+
+    <Button
+        android:id="@+id/btn_topic_changeLabel"
+        android:layout_width="0dp"
+         android:textColor="@color/white"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@drawable/btn2_selector"
+        android:onClick="toChangeLabel"
+        android:text="@string/topic_set_collect"
+        android:textSize="12sp" />
+
+    <ImageButton
+        android:id="@+id/btn_seek"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:background="@drawable/btn3_selector"
+        android:contentDescription="@string/tab_image_description"
+        android:onClick="toSeek"
+        android:src="@drawable/tab_topic_seek"
+        android:textColor="#fff" />
+
+    <Button
+        android:id="@+id/btn_topic_test_submit"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+         android:textColor="@color/white"
+        android:onClick="toSubmit"
+        android:background="@drawable/btn4_selector"
+        android:text="@string/topic_test_submit"
+        android:textSize="12sp" />
+
+    <Button
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+         android:textColor="@color/white"
+        android:onClick="toNextTopic"
+        android:background="@drawable/btn5_selector"
+        android:text="@string/topic_nextTopic"
+        android:textSize="12sp" />
+
+</LinearLayout>

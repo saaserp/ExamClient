@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 通用 -->
+    <string name="app_name">能飞考试系统</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_image_description"></string>
+    <string name="tab_image_description"></string>
+    <string name="text_blank"></string>
+    <string name="data_not_exist">亲，还没有相关数据呢~</string>
+    <string name="please_wait">很抱歉亲，功能还在开发中，敬请期待哦</string>
+    <string name="cancel">取消</string>
+    <string name="ok">确定</string>
+    <string name="back">返回</string>
+    <string name="exit">退出账号</string>
+    <!-- 微博 -->
+    <string name="weibo_auth_success">授权成功</string>
+    <string name="weibo_auth_fail">授权失败</string>
+    <string name="weibo_end_session_query">重新认证需要退出当前账户，确定？</string>
+    <string name="sina_weibo">新浪微博</string>
+    <string name="tencent_weibo">腾讯微博</string>
+    <string name="send_weibo_wait">让数据先飞会吧~</string>
+    <string name="send_weibo_fail">发送成功</string>
+    <string name="send_weibo_success">发送成功</string>
+    <!-- Classisc question -->
+    <string name="classics_title">经典例题</string>
+    <string name="classics_show_answer">显示答案</string>
+    <string name="classics_not_show_answer">隐藏答案</string>
+    <!-- Record -->
+    <string name="clear_all_record">清除所有记录</string>
+    <string name="record_title">考试记录</string>
+    <string name="btn_clear_record">清除记录</string>
+    <string name="text_record_times">次数</string>
+    <string name="text_record_datatime">日期</string>
+    <string name="record_times">第</string>
+    <string name="record_exam">次考试</string>
+    <string name="record_score">分</string>
+    <string name="details_title">查看考试详情</string>
+    <!-- DetailsRecord -->
+    <string name="clear_record">清除记录</string>
+    <string name="detail_this_exam">本次成绩</string>
+    <string name="detail_this_record">考试成绩</string>
+    <string name="detail_datiqingkuang">答题情况</string>
+    <string name="detail_text_date">日期：</string>
+    <string name="detail_text_usetime">用时：</string>
+    <string name="detail_allaswer">答题：</string>
+    <string name="detail_total">共</string>
+    <string name="detail_answer">题</string>
+    <string name="detail_right">答对：</string>
+    <string name="detail_wrong">答错：</string>
+    <string name="detail_correct">正确率：</string>
+    <string name="detail_qw">%</string>
+    <string name="detail_text_score">成绩：</string>
+    <string name="detail_point">分</string>
+    <!-- Weclome -->
+    <string name="welcome">欢迎来到无人机考试系统</string>
+
+    <!-- MainTab -->
+    <string-array name="main_title">
+        <item name="exam">练习与考试</item>
+        <item name="classics">经典例题</item>
+        <item name="more">更多</item>
+    </string-array>
+    <string-array name="db_list">
+        <item name="db1">data.db</item>
+        <item name="db2">zh.db</item>
+    </string-array>
+    <!-- 统计 -->
+    <string name="statistics_topic">考题练习</string>
+    <string name="statistics_test">模拟考试</string>
+    <string name="statistics_zero_test">您还没有考试过~</string>
+
+    <string-array name="statistics_status">
+        <item name="statistics_undo">未做</item>
+        <item name="statistics_right_always">一直对（正确率100%）</item>
+        <item name="statistics_right_often">经常对（正确率大于等于50%）</item>
+        <item name="statistics_wrong_always">总是错（正确率为0%）</item>
+        <item name="statistics_wrong_often">经常错（正确率低于50%）</item>
+    </string-array>
+    <string-array name="statistics_test_rate">
+        <item name="statistics_test_best">很好(满分)</item>
+        <item name="statistics_test_better">还不错（分数在80~100之间（左含））</item>
+        <item name="statistics_test_justsoso">马马虎虎（分数在60~80之间（左含））</item>
+        <item name="statistics_test_bad">不太好要加油了（分数在40~60之间（左含））</item>
+        <item name="statistics_test_worse">真的要加油了（分数在20~40之间（左含））</item>
+        <item name="statistics_test_worst">你想让我对你说些什么呢？（分数小于20）</item>
+    </string-array>
+
+    <string name="main_exit_prompt">再按一次退出程序</string>
+
+    <!-- Topic -->
+    <string-array name="topic_title">
+        <item name="exam_sequence">顺序练习</item>
+        <item name="exam_random">随机练习</item>
+        <item name="exam_chapters">专项练习</item>
+        <item name="exam_intensify">强化练习</item>
+        <item name="practice_test">模拟测试</item>
+        <item name="exam_wrong_topic">错题本</item>
+        <item name="exam_collect">我的收藏</item>
+    </string-array>
+
+    <string name="topic_last_question">已经是最后一题了</string>
+    <string name="topic_first_question">已经是第一题了</string>
+    <string name="topic_preTopic">上一题</string>
+    <string name="topic_nextTopic">下一题</string>
+    <string name="topic_answer_show">查看答案</string>
+    <string name="topic_answer_hide">答题模式</string>
+    <string name="topic_set_collect">收藏此题</string>
+    <string name="topic_cancel_collect">取消收藏</string>
+    <string name="topic_seek">题目跳转</string>
+    <string name="topic_del_wrong">移出此题</string>
+    <string name="topic_add_wrong">取消移出</string>
+    <string name="topic_exit_exam">是否确定退出考试？</string>
+    <string name="topic_test_submit">提交试卷</string>
+    <!-- More -->
+    <string-array name="more_items">
+
+        <!-- <item name="information">个人信息</item> -->
+        <item name="agreement">用户协议</item>
+        <!-- <item name="shareSetting">分享设置</item> -->
+        <item name="feedback">问题反馈</item>
+        <item name="copyright">关于版权</item>
+    </string-array>
+    <string-array name="more_details">
+        <item name="more_agreement">"       "请您在使用本软件前仔细阅读如下条款。包括免除或者限制作者责任的免责条款及对用户的权利限制。您的安装使用行为将视为对本《协议》的接受，并同意接受本《协议》各项条款的约束。\n
+   					 \n
+一、本《协议》授予您下列权利：\n
+   "       "您可安装无限制数量的本软件产品来使用。
+          您可以复制、分发和传播无限制数量的软件产品，但您必须保证每一份复制、分发和传播都必须是完整和真实的，
+          包括所有有关本软件产品的软件、版权、亦包括本协议。\n
+					\n
+二、用户无权实施包括但不限于下列行为：\n
+   "      "不得通过反编译等手段任意修改本软件的代码并随意传播（目的仅是开发爱好者用于交流的除外），任何对于本软件修改的公开发布，均必须由本软件作者完成。本软件作者保留对侵权行为采取法律允许的措施的权利。\n
+         用户不得利用本软件误导、欺骗他人。\n
+        \n
+三、本软件以学习交流为目的，承诺不会有以下（包括但不局限于）获取您的隐私或产生费用的行为，请您放心使用!:)\n
+   1、发送短信;\n
+   2、拨打电话;\n
+   3、监听通话;\n
+   4、获取通话状态;\n
+   5、读取短信记录;\n
+   6、读取联系人记录;\n
+   7、读取通话记录;\n
+   8、讨厌的广告推送。\n
+   \n
+四、 免责声明\n
+"       "任何使用盗版软件造成的问题均与本软件作者无关。\n </item>
+        <item name="more_feedback">"        "如果您在使用时遇到任何问题，或者对本软件的代码有任何优化意见，欢迎联系本软件的作者:\n
+        \n
+"       "新浪微博：\n
+"       "腾讯微博： \n</item>
+        <item name="more_copyright">" "软件名:无人机考试练习系统\n
+	版本号：1.0.9911\n</item>
+    </string-array>
+
+    <!-- Share Friend -->
+    <string name="share_friend">分享给好友</string>
+    <string name="share_app_to_friend">感觉还不错，推荐给好友~</string>
+    <string name="recommendation">我正在使用无人机考试练习系统，感觉还不错，下载地址：http://www.baidu.com</string>
+    <string name="thanks_for_recommend">谢谢您的推荐</string>
+    <!-- 登陆注册 -->
+    <string name="idtxthint">手机号码</string>
+    <string name="pwdtxthint">密码</string>
+    <string name="codetxthint">输入验证码</string>
+    <string name="loginbtntext">登录</string>
+    <string name="registbtntext">注册</string>
+    <string name="codebtntext">获取验证码</string>
+    <string name="forgot_pwd">忘记密码？</string>
+    <string name="loading">正在登录</string>
+    <string name="title_activity_regist">账号注册</string>
+    <string name="title_activity_chapter_select">章节练习</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_database_select">DatabaseSelectActivity</string>
+    <string name="db_select_hint">温馨提示:初次运行，根据您考试内容不同，需要选择一个题库。</string>
+    <string name="db_duozhou">多轴题库</string>
+    <string name="db_gudingyi">固定翼题库</string>
+    <string name="db_xuanzhuanzhou">旋转轴题库</string>
+    <string name="title_alert">提示信息</string>
+
+</resources>

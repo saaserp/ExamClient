@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="transparent">#7f000000</color>
+    <!-- 透明的 -->
+    <color name="white">#ffffff</color>
+    <color name="title_color">#7cdb9d</color>
+	<color name="main_back_color">#f3f7fa</color>
+		<color name="black">#000000</color>
+	
+</resources>

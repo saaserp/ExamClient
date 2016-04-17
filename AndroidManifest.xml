@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.wencai.app"
+    android:versionCode="2"
+    android:versionName="1.0.9911" >
+
+    <uses-sdk
+        android:minSdkVersion="11"
+        android:targetSdkVersion="17" />
+
+    <uses-permission android:name="android.permission.INTERNET" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.READ_LOGS" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.WAKE_LOCK" >
+    </uses-permission>
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/logo"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".WelcomeActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainTabActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".ShareFriendActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".TopicActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".MoreDetailsActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".RecordActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".DetailsRecordActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".ClassicsActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".StatisticsActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".StatisticsTopicTab"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".StatisticsTestTab"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".ShareSettingActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.wencai.social.SinaWeiboOAuthV2"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.wencai.social.TencentWeiboOAuthV2"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.tencent.weibo.webview.OAuthV2AuthorizeWebView"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.wencai.gidance.GuidanceActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.wencai.login.LoginActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.wencai.regist.RegistActivity"
+            android:label="@string/title_activity_regist" >
+        </activity>
+        <activity
+            android:name=".ChapterSelectActivity"
+            android:label="@string/title_activity_chapter_select" >
+        </activity>
+        <activity
+            android:name=".DatabaseSelectActivity"
+            android:label="@string/title_activity_database_select" >
+        </activity>
+    </application>
+
+</manifest>

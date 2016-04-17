@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/popup_seek"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:background="@drawable/bg_seek" >
+
+    <TextView
+        android:id="@+id/tv_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="@string/topic_seek"
+        android:textSize="20sp" >
+    </TextView>
+
+    <SeekBar
+        android:id="@+id/sb_seek"
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:max="100" >
+    </SeekBar>
+
+    <ImageButton
+        android:id="@+id/ib_seek_ok"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:paddingLeft="30dp"
+        android:layout_marginTop="88dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/app_name"
+          >
+    </ImageButton>
+
+    <ImageButton
+        android:id="@+id/ib_seek_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:paddingRight="30dp"
+        android:layout_marginTop="88dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="@string/app_name"
+      
+          />
+
+</RelativeLayout>

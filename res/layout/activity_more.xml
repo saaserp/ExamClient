@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/main_back_color"
+    android:orientation="vertical" >
+    <ListView
+        android:id="@+id/listview_morelist"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        />
+    <Button
+        android:id="@+id/exit"
+        android:background="@drawable/btn4_selector"
+        android:layout_width="fill_parent"
+        android:textColor="@color/white"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/exit"
+        />
+
+</LinearLayout>
