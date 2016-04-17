@@ -7,5 +7,13 @@
     <color name="title_color">#7cdb9d</color>
 	<color name="main_back_color">#f3f7fa</color>
 		<color name="black">#000000</color>
+		<color name="sxlx">#48bdfc</color>
+		<color name="sjlx">#fbc055</color>
+		<color name="zxlx">#fc5c52</color>
+		<color name="wzt">#378d69</color>
+		<color name="split">#f8f8f8</color>
+		<color name="bg_main">#f2f7fa</color>
+		 
+		
 	
 </resources>
