@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+   android:background="@color/main_back_color"
+    android:layout_height="match_parent" >
+ 
+<RelativeLayout 
+    android:id="@+id/kstj"
+       android:onClick="onClick"
+     android:clickable="true"
+    android:layout_marginTop="15dp"
+     android:background="@drawable/bg_selector"
+     android:layout_width="match_parent"
+      android:layout_height="match_parent" 
+      
+    >
+ 
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="10dp"
+        android:layout_centerVertical="true"
+        android:src="@drawable/ks_tj" />
+
+    <LinearLayout
+        android:id="@+id/la1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_toRightOf="@+id/img"
+        android:orientation="vertical"
+        android:paddingLeft="10dp" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="考试统计"
+            android:textColor="@color/black" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_centerVertical="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="5dp"
+        android:src="@drawable/zx" />
+</RelativeLayout>
+</LinearLayout>

@@ -59,24 +59,27 @@ public class ExamFragment  extends Fragment implements OnItemClickListener{
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		//return inflater.inflate(R.layout.page_main_exam, container, false);
-		View view=inflater.inflate(R.layout.fragment_menus, container,false);
-		List<Map<String,String>>data=new ArrayList<Map<String,String>>();
-		for(int i=0;i<items.length;i++){
-			Map<String,String> map=new HashMap<String, String>();
-			map.put("item", items[i]);
-			map.put("image", String.valueOf(images[i]));
-			data.add(map);
-		}
-		lv=(ListView)view.findViewById(R.id.listview_menu);
-		lv.setAdapter(new SimpleAdapter(getActivity(), data, R.layout.item_menu, from,to));
-		lv.setOnItemClickListener(this);
-		mtc = new MainTabController(getActivity());
-		return view;
+		
+//		View view=inflater.inflate(R.layout.fragment_menus, container,false);
+//		List<Map<String,String>>data=new ArrayList<Map<String,String>>();
+//		for(int i=0;i<items.length;i++){
+//			Map<String,String> map=new HashMap<String, String>();
+//			map.put("item", items[i]);
+//			map.put("image", String.valueOf(images[i]));
+//			data.add(map);
+//		}
+//		lv=(ListView)view.findViewById(R.id.listview_menu);
+//		lv.setAdapter(new SimpleAdapter(getActivity(), data, R.layout.item_menu, from,to));
+//		lv.setOnItemClickListener(this);
+//		mtc = new MainTabController(getActivity());
+//		
+		
+		
+		 return inflater.inflate(R.layout.mainpage, container, false);
+	//return view;
 	}
 
-
-
+	
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 		// TODO Auto-generated method stub

@@ -24,7 +24,9 @@
                <include
 			    layout="@layout/item_other"
 			    />
-                
+                <include
+			    layout="@layout/item_chart"
+			    />
              
             </LinearLayout>
         </ScrollView>

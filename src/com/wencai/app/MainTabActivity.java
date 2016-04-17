@@ -4,13 +4,11 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import com.wencai.adapter.MainTabPagerAdapter;
-import com.wencai.backup.PullDataTask;
 import com.wencai.controller.MainTabController;
 import com.wencai.controller.TopicController;
 import com.wencai.gidance.GuidanceActivity;
 import com.wencai.login.LoginActivity;
 import com.wencai.project.ProjectConfig;
-import com.wencai.util.CallBack;
 import com.wencai.util.FileUtil;
 import com.wencai.util.UiUtil;
 import com.wencai.widget.IconPageIndicator;
@@ -18,6 +16,7 @@ import com.wencai.widget.IconPageIndicator;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+ 
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
@@ -28,12 +27,13 @@ import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainTabActivity extends FragmentActivity
-implements MoreListFragment.Callbacks, ClassicsListFragment.Callbacks {
+implements MoreListFragment.Callbacks, ClassicsListFragment.Callbacks ,OnClickListener{
 	static int FLAGE_GAI = 1;// 引导页
 	static int FLAGE_LOGIN = 2;// 登录
 
@@ -191,6 +191,88 @@ implements MoreListFragment.Callbacks, ClassicsListFragment.Callbacks {
 			bm.recycle();
 		}
 	}
+	public void onClick(View v){
+		Intent intent;
+		switch(v.getId()){
+		case R.id.sxlx:
+			//顺序练习
+			  intent = new Intent(this, TopicActivity.class);
+			intent.putExtra("mode", TopicController.MODE_SEQUENCE);
+			startActivity(intent);
+			break;
+		case R.id.sjlx:
+			//随机练习
+			
+			  intent = new Intent(this, TopicActivity.class);
+			intent.putExtra("mode", TopicController.MODE_RANDOM);
+			startActivity(intent);
+			break;
+		case R.id.zxlx:
+			//专项练习
+			if (ProjectConfig.TOPIC_MODE_CHAPTERS_SUPPORT) {
+				// Intent intent = new Intent(this, TopicActivity.class);
+				// intent.putExtra("mode", TopicController.MODE_CHAPTERS);
+				// startActivity(intent);
+				  intent = new Intent(this, ChapterSelectActivity.class);
+
+				startActivity(intent);
+
+			} else {
+				UiUtil.showToastShort(this, R.string.please_wait);
+			}
+			break;
+		case R.id.wzt:
+			//未做题
+			if (ProjectConfig.TOPIC_MODE_INTENSIFY_SUPPORT) {
+				  intent = new Intent(this, TopicActivity.class);
+				intent.putExtra("mode", TopicController.MODE_INTENSIFY);
+				startActivity(intent);
+			} else {
+				UiUtil.showToastShort(this, R.string.please_wait);
+			}
+			break;
+		case R.id.mnks:
+		 
+			//模拟考试
+			  intent = new Intent(this, TopicActivity.class);
+			intent.putExtra("mode", TopicController.MODE_PRACTICE_TEST);
+			startActivity(intent);
+			break;
+			 
+		case R.id.wdsc:
+			//收藏
+			if (mtc.checkCollectedDataExist()) {
+				  intent = new Intent(this, TopicActivity.class);
+				intent.putExtra("mode", TopicController.MODE_COLLECT);
+				startActivity(intent);
+			} else {
+				UiUtil.showToastShort(this, R.string.data_not_exist);
+			}
+			break;
+		case R.id.wdct:
+			//我的错题
+			if (mtc.checkCollectedDataExist()) {
+				  intent = new Intent(this, TopicActivity.class);
+				intent.putExtra("mode", TopicController.MODE_WRONG_TOPIC);
+				startActivity(intent);
+			} else {
+				UiUtil.showToastShort(this, R.string.data_not_exist);
+			}
+			break;
+		case R.id.ksjl:
+			//考试记录
+			  intent = new Intent(this, RecordActivity.class);
+			startActivity(intent);
+			break;
+			 
+		case R.id.kstj:
+			//考试统计
+			  intent = new Intent(this, StatisticsActivity.class);
+			startActivity(intent);
+			break;
+		 
+		}
+	}
 
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
@@ -218,17 +300,7 @@ implements MoreListFragment.Callbacks, ClassicsListFragment.Callbacks {
 			}else{
 				
 				if(!LoginActivity.uid.equals("anonymous")){
-//				new PullDataTask(this,new CallBack(){
-//
-//					@Override
-//					public String done() {
-//						// TODO Auto-generated method stub
-//					//	UiUtil.showToastShort(MainTabActivity.this, "数据已同步");
-//						System.exit(0);
-//						return null;
-//					}
-//					
-//				}).execute();
+ 			 
 					this.finish();
 					System.exit(0);
 				}else{
@@ -239,87 +311,6 @@ implements MoreListFragment.Callbacks, ClassicsListFragment.Callbacks {
 			}
 		}
 		return false;
-	}
-
-	// 顺序练习
-	public void toSequence(View v) {
-		Intent intent = new Intent(this, TopicActivity.class);
-		intent.putExtra("mode", TopicController.MODE_SEQUENCE);
-		startActivity(intent);
-	}
-
-	// 随机练习
-	public void toRandom(View v) {
-		Intent intent = new Intent(this, TopicActivity.class);
-		intent.putExtra("mode", TopicController.MODE_RANDOM);
-		startActivity(intent);
-	}
-
-	// 练习
-	public void toPracticeTest(View v) {
-		Intent intent = new Intent(this, TopicActivity.class);
-		intent.putExtra("mode", TopicController.MODE_PRACTICE_TEST);
-		startActivity(intent);
-	}
-
-	// 专项目练习
-	public void toChapters(View v) {
-		if (ProjectConfig.TOPIC_MODE_CHAPTERS_SUPPORT) {
-			// Intent intent = new Intent(this, TopicActivity.class);
-			// intent.putExtra("mode", TopicController.MODE_CHAPTERS);
-			// startActivity(intent);
-			Intent intent = new Intent(this, ChapterSelectActivity.class);
-
-			startActivity(intent);
-
-		} else {
-			UiUtil.showToastShort(this, R.string.please_wait);
-		}
-	}
-
-	// 未做题
-	public void toIntensify(View v) {
-		if (ProjectConfig.TOPIC_MODE_INTENSIFY_SUPPORT) {
-			Intent intent = new Intent(this, TopicActivity.class);
-			intent.putExtra("mode", TopicController.MODE_INTENSIFY);
-			startActivity(intent);
-		} else {
-			UiUtil.showToastShort(this, R.string.please_wait);
-		}
-	}
-
-	// 统计
-	public void toStatistics(View v) {
-		Intent intent = new Intent(this, StatisticsActivity.class);
-		startActivity(intent);
-	}
-
-	// 错题集
-	public void toWrongTopic(View v) {
-		if (mtc.checkWrongDataExist()) {
-			Intent intent = new Intent(this, TopicActivity.class);
-			intent.putExtra("mode", TopicController.MODE_WRONG_TOPIC);
-			startActivity(intent);
-		} else {
-			UiUtil.showToastShort(this, R.string.data_not_exist);
-		}
-
-	}
-	//收藏
-	public void toCollect(View v) {
-		if (mtc.checkCollectedDataExist()) {
-			Intent intent = new Intent(this, TopicActivity.class);
-			intent.putExtra("mode", TopicController.MODE_COLLECT);
-			startActivity(intent);
-		} else {
-			UiUtil.showToastShort(this, R.string.data_not_exist);
-		}
-
-	}
-	//考试记录
-	public void toRecord(View v) {
-		Intent intent = new Intent(MainTabActivity.this, RecordActivity.class);
-		startActivity(intent);
 	}
 
 	private OnPageChangeListener getOnPageChangeListener() {
@@ -407,6 +398,8 @@ implements MoreListFragment.Callbacks, ClassicsListFragment.Callbacks {
 		}
 
 	}
+
+	 
 
 
 }
