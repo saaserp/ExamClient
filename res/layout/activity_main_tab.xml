@@ -19,7 +19,7 @@
         android:layout_height="0dp"
         android:layout_weight="8" />
 
-    <com.wencai.widget.IconPageIndicator
+    <com.nengfei.widget.IconPageIndicator
          
         android:id="@+id/main_tab_icon_indicator"
         android:layout_width="match_parent"

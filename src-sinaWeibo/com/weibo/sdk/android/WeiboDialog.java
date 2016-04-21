@@ -6,8 +6,8 @@ import java.io.InputStream;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
+import com.nengfei.app.R;
 import com.weibo.sdk.android.util.Utility;
-import com.wencai.app.R;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
