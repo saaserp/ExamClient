@@ -10,6 +10,7 @@ import com.nengfei.parse.LoginTask;
 import com.nengfei.parse.TaskCallBack;
 import com.nengfei.regist.RegistActivity;
 import com.nengfei.util.CallBack;
+import com.nengfei.util.NetWorkUtil;
 import com.nengfei.util.Tools;
 
 import android.app.Activity;
@@ -81,7 +82,7 @@ OnItemClickListener, OnDismissListener {
 	public static void logout(){
 		LoginActivity.uid="";
 
-		JPushInterface.setAlias(m, "", null);
+		//JPushInterface.setAlias(m, "", null);
 
 	}
 	@Override
@@ -278,6 +279,8 @@ OnItemClickListener, OnDismissListener {
 				Toast.makeText(LoginActivity.this, "密码不为空！", Toast.LENGTH_SHORT)
 				.show();
 			} else {
+				
+				//Toast.makeText(this, NetWorkUtil.getCPUSerial() , Toast.LENGTH_LONG).show();
 				new LoginTask(LoginActivity.this,mIdString, mPwdString, new TaskCallBack() {
 
 					@Override
@@ -285,18 +288,12 @@ OnItemClickListener, OnDismissListener {
 						// TODO Auto-generated method stub
 						closeLoginingDlg();
 						if(b){
-
-
 							new GetDataTask(LoginActivity.this,new CallBack(){
 
 								@Override
 								public String done(boolean b) {
 									// TODO Auto-generated method stub
-
 									boolean mIsSave = true;
-
-
-
 									try {
 										for (User user : mUsers) {
 											if (user.getId().equals(mIdString)) {

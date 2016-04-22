@@ -1,5 +1,6 @@
 package com.nengfei.util;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.LineNumberReader;
@@ -20,6 +21,7 @@ import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 
 public class NetWorkUtil {
 	// IP地址
@@ -117,35 +119,52 @@ public class NetWorkUtil {
         
         return mResult;
 	}
+	
+	public static String getMacAddress() {
+        String result = "";
+        String Mac = "";
+        result = callCmd("busybox ifconfig", "HWaddr");
+ 
+        if (result == null) {
+            return "网络出错，请检查网络";
+        }
+        if (result.length() > 0 && result.contains("HWaddr")) {
+            Mac = result.substring(result.indexOf("HWaddr") + 6, result.length() - 1);
+            if (Mac.length() > 1) {
+                result = Mac.toLowerCase();
+            }
+        }
+        return result.trim();
+    }
+	public static String callCmd(String cmd,String filter) { 
+		String result = ""; 
+		String line = ""; 
+		try {
+		Process proc = Runtime.getRuntime().exec(cmd);
+		InputStreamReader is = new InputStreamReader(proc.getInputStream()); 
+		BufferedReader br = new BufferedReader (is); 
+
+		//执行命令cmd，只取结果中含有filter的这一行
+		while ((line = br.readLine ()) != null && line.contains(filter)== false) { 
+		//result += line;
+		Log.i("test","line: "+line);
+		}
+
+		result = line;
+		Log.i("test","result: "+result);
+		} 
+		catch(Exception e) { 
+		e.printStackTrace(); 
+		} 
+		return result; 
+		}
 	public static String getCPUSerial() {   
-        String str = "", strCPU = "", cpuAddress = "no00000000000000000no";    
-        try {     
-            //读取CPU信息     
-            Process pp = Runtime.getRuntime().exec("cat /proc/cpuinfo");      
-            InputStreamReader ir = new InputStreamReader(pp.getInputStream());    
-            LineNumberReader input = new LineNumberReader(ir);    
-            //查找CPU序列号   
-            for (int i = 1; i < 100; i++) {   
-                str = input.readLine();   
-                if (str != null) {   
-                    //查找到序列号所在行   
-                    if (str.indexOf("Serial") > -1) {   
-                        //提取序列号   
-                        strCPU = str.substring(str.indexOf(":") + 1,   
-                        str.length());   
-                        //去空格   
-                        cpuAddress = strCPU.trim()+"22";   
-                        break;   
-                    }   
-                } else {   
-                    //文件结尾   
-                    break;   
-                }   
-            }   
-        } catch (Exception ex) {   
-            //赋予默认值   
-            ex.printStackTrace();   
-        }   
-        return cpuAddress;   
+		String s=getMacAddress() ;
+		if(s.equals("")){
+			return android.os.Build.MANUFACTURER;
+		}else
+		{
+			return s.replace(":", "");
+		}
    } 
 }

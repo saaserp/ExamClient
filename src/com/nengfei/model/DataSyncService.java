@@ -88,7 +88,7 @@ public class DataSyncService extends SimplifyDao {
 
 			ContentValues c = new ContentValues();
 			for (String key : keys) {
-
+				if(!key.equals("_id"))
 				c.put(key, list.get(i).get(key));
 			}
 			if (tableName.equals("ExamResult")) {
