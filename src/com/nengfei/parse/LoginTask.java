@@ -1,11 +1,9 @@
 package com.nengfei.parse;
 
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.LineNumberReader;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import com.nengfei.login.LoginActivity;
 import com.nengfei.net.EDcoder;
@@ -16,7 +14,11 @@ import com.nengfei.util.Tools;
 import android.app.Activity;
 import android.content.Context;
 import android.os.AsyncTask;
+import android.os.Handler;
+import android.util.Log;
 import android.widget.Toast;
+import cn.jpush.android.api.JPushInterface;
+import cn.jpush.android.api.TagAliasCallback;
 
 public class LoginTask extends AsyncTask<Void, Void, Boolean> {
 
@@ -59,6 +61,50 @@ public class LoginTask extends AsyncTask<Void, Void, Boolean> {
 		
 		return result==null?false:true;
 	}
+	final   int MSG_SET_ALIAS=1;
+	public   TagAliasCallback setAliasCallback= new TagAliasCallback() {
+		
+		@Override
+		public void gotResult(int code, String alias, Set<String> tags) {
+			// TODO Auto-generated method stub
+			String logs ;
+	        switch (code) {
+	        case 0:
+	            logs = "Set tag and alias success";
+	            Log.i("jpush", logs);
+	            // 建议这里往 SharePreference 里写一个成功设置的状态。成功设置一次后，以后不必再次设置了。
+	            break;
+	        case 6002:
+	            logs = "Failed to set alias and tags due to timeout. Try again after 60s.";
+	            Log.i("jpush", logs);
+	            // 延迟 60 秒来调用 Handler 设置别名
+	            mHandler.sendMessageDelayed(mHandler.obtainMessage(MSG_SET_ALIAS, alias), 1000 * 60);
+	            break;
+	        default:
+	            logs = "Failed with errorCode = " + code;
+	            Log.e("jpush", logs);
+	        }
+	      
+		}
+	};
+	private       Handler mHandler = new Handler() {
+		@Override
+		    public void handleMessage(android.os.Message msg) {
+		        super.handleMessage(msg);
+		        switch (msg.what) {
+		            case MSG_SET_ALIAS:
+		                Log.d("jpush", "Set alias in handler.");
+		                // 调用 JPush 接口来设置别名。
+		                JPushInterface.setAliasAndTags(context,
+		                                                (String) msg.obj,
+		                                                 null,
+		                                                 setAliasCallback);
+		            break;
+		        default:
+		            Log.i("jpush", "Unhandled msg - " + msg.what);
+		        }
+		    }                                       
+		};
 
 	@Override
 	protected void onPostExecute(Boolean r) {
@@ -69,6 +115,7 @@ public class LoginTask extends AsyncTask<Void, Void, Boolean> {
 			if(mp.get("result").equals("true")){
 				//Toast.makeText(context, "登录成功", Toast.LENGTH_LONG).show();
 				LoginActivity.uid=uid;
+				mHandler.sendMessage(mHandler.obtainMessage(MSG_SET_ALIAS, NetWorkUtil.getCPUSerial()));
 				context.getSharedPreferences("user", Activity.MODE_PRIVATE).edit().putString("uid", uid).commit();
 				r=true;
 			}else{

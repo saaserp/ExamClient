@@ -59,13 +59,13 @@ public class WelcomeActivity extends InstrumentedActivity {
 			// TODO Auto-generated method stub
 			super.onPreExecute();
 		}
-
+		String[] dbs;
 		@Override
 		protected Boolean doInBackground(Void... params) {
 			// TODO Auto-generated method stub
 
 			// 文件名
-			String[] dbs = getResources().getStringArray(R.array.db_list);
+			dbs = getResources().getStringArray(R.array.db_list);
 			for (String s : dbs) {
 				wc.init(context, s);
 			}
@@ -92,7 +92,7 @@ public class WelcomeActivity extends InstrumentedActivity {
 			super.onPostExecute(result);
 			if (result) {
 
-				for (int i = 0; i < fileList.length; i++) {
+				for (int i = 0; i < dbs.length; i++) {
 					if (fileList[i].isFile()) {
 						Map<String, String> map = new HashMap<String, String>();
 						if (fileList[i].getName().contains("journal")) {

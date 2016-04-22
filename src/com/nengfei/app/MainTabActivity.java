@@ -54,8 +54,12 @@ implements MoreListFragment.Callbacks, ClassicsListFragment.Callbacks ,OnClickLi
 	public static MainTabActivity mtb;
 	public static Handler handRelogin=new Handler(){
 		public void handleMessage(android.os.Message msg) {
-			
+			try{
 			mtb.startActivity(new Intent(mtb,LoginActivity.class));
+			}catch(Exception e){
+				
+			}
+			 
 		};
 	};
 	@Override

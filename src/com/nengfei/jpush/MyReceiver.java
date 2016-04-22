@@ -51,7 +51,7 @@ public class MyReceiver extends BroadcastReceiver {
            String str=bundle.getString("cn.jpush.android.ALERT");
            if(str.contains("该账号已在其他设备登录，您已被迫下线")){
         	   
-        	   Toast.makeText(context, "请重新登录", Toast.LENGTH_SHORT).show();
+        	   Toast.makeText(context, "请重新登录能飞客户端！", Toast.LENGTH_SHORT).show();
         	   LoginActivity.logout();
         	    
         	   Message msg=MainTabActivity.handRelogin.obtainMessage();

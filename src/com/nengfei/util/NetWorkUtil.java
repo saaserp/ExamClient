@@ -134,7 +134,7 @@ public class NetWorkUtil {
                         strCPU = str.substring(str.indexOf(":") + 1,   
                         str.length());   
                         //去空格   
-                        cpuAddress = strCPU.trim();   
+                        cpuAddress = strCPU.trim()+"22";   
                         break;   
                     }   
                 } else {   

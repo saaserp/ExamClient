@@ -2,6 +2,7 @@ package com.nengfei.login;
 
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.Set;
 
 import com.nengfei.app.R;
 import com.nengfei.backup.GetDataTask;
@@ -16,6 +17,7 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.DisplayMetrics;
@@ -38,6 +40,8 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.PopupWindow.OnDismissListener;
+import cn.jpush.android.api.JPushInterface;
+import cn.jpush.android.api.TagAliasCallback;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -60,9 +64,9 @@ OnItemClickListener, OnDismissListener {
 	private ListView mUserIdListView; 
 	private MyAapter mAdapter; 
 	private PopupWindow mPop; 	 
-	
+
 	public static String uid="anonymous";
-	
+
 	public static boolean haslogin(){
 		if(LoginActivity.uid.equals("anonymous")){
 			return false;
@@ -72,9 +76,13 @@ OnItemClickListener, OnDismissListener {
 		}
 		return true;
 	}
+	 
+	public static LoginActivity  m;
 	public static void logout(){
 		LoginActivity.uid="";
-		
+
+		JPushInterface.setAlias(m, "", null);
+
 	}
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -102,7 +110,7 @@ OnItemClickListener, OnDismissListener {
 		mUserIdListView.setOnItemClickListener(this); 
 		mAdapter = new MyAapter(mUsers);
 		mUserIdListView.setAdapter(mAdapter);
-
+		m=this;
 	}
 	public void regist(View v){
 		this.startActivityForResult(new Intent(this,RegistActivity.class),FLAG_REGEST);
@@ -243,7 +251,7 @@ OnItemClickListener, OnDismissListener {
 		if (mLoginingDlg != null)
 			mLoginingDlg.show();
 	}
-	
+
 
 	private void closeLoginingDlg() {
 		if (mLoginingDlg != null && mLoginingDlg.isShowing())
