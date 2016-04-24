@@ -49,10 +49,10 @@ public class MyReceiver extends BroadcastReceiver {
             int notifactionId = bundle.getInt(JPushInterface.EXTRA_NOTIFICATION_ID);
             Log.d(TAG, "[MyReceiver] 接收到推送下来的通知的ID: " + notifactionId);
            String str=bundle.getString("cn.jpush.android.ALERT");
-           if(str.contains("该账号已在其他设备登录，您已被迫下线")){
+           if(str.contains("该账号已在其他设备登录，您已被迫下线")&& LoginActivity.haslogin()){
         	   
         	   Toast.makeText(context, "请重新登录能飞客户端！", Toast.LENGTH_SHORT).show();
-        	   LoginActivity.logout();
+        	   
         	    
         	   Message msg=MainTabActivity.handRelogin.obtainMessage();
         	   msg.sendToTarget();

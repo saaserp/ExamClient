@@ -66,12 +66,15 @@ OnItemClickListener, OnDismissListener {
 	private MyAapter mAdapter; 
 	private PopupWindow mPop; 	 
 
-	public static String uid="anonymous";
+	public static String uid="";
 
 	public static boolean haslogin(){
-		if(LoginActivity.uid.equals("anonymous")){
+		if(LoginActivity.uid==null){
 			return false;
 		}
+		 if(LoginActivity.uid.equals("anonymous")){
+			 return false;
+		 }
 		if(LoginActivity.uid.equals("")){
 			return false;
 		}
@@ -81,8 +84,8 @@ OnItemClickListener, OnDismissListener {
 	public static LoginActivity  m;
 	public static void logout(){
 		LoginActivity.uid="";
-
-		//JPushInterface.setAlias(m, "", null);
+		
+		 
 
 	}
 	@Override

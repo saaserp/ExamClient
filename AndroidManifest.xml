@@ -58,13 +58,14 @@
     </uses-permission>
 
     <application
-        android:name="com.nengfei.app.NFApplication"
+        
         android:allowBackup="true"
         android:icon="@drawable/logo"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.nengfei.app.WelcomeActivity"
+            android:name=".WelcomeActivity"
+            android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -73,47 +74,47 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.nengfei.app.MainTabActivity"
+            android:name=".MainTabActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.nengfei.app.ShareFriendActivity"
+            android:name=".ShareFriendActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.nengfei.app.TopicActivity"
+            android:name=".TopicActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.nengfei.app.MoreDetailsActivity"
+            android:name=".MoreDetailsActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.nengfei.app.RecordActivity"
+            android:name=".RecordActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.nengfei.app.DetailsRecordActivity"
+            android:name=".DetailsRecordActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.nengfei.app.ClassicsActivity"
+            android:name=".ClassicsActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.nengfei.app.StatisticsActivity"
+            android:name=".StatisticsActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.nengfei.app.StatisticsTopicTab"
+            android:name=".StatisticsTopicTab"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.nengfei.app.StatisticsTestTab"
+            android:name=".StatisticsTestTab"
             android:label="@string/app_name" >
         </activity>
         <activity
-            android:name="com.nengfei.app.ShareSettingActivity"
+            android:name=".ShareSettingActivity"
             android:label="@string/app_name" >
         </activity>
         <activity
@@ -141,14 +142,19 @@
             android:label="@string/title_activity_regist" >
         </activity>
         <activity
-            android:name="com.nengfei.app.ChapterSelectActivity"
+            android:name=".ChapterSelectActivity"
             android:label="@string/title_activity_chapter_select" >
         </activity>
         <activity
-            android:name="com.nengfei.app.DatabaseSelectActivity"
+            android:name=".DatabaseSelectActivity"
             android:label="@string/title_activity_database_select" >
         </activity>
 
+        <service android:name="com.nengfei.service.CheckWifi" >
+            <intent-filter>
+                <action android:name="com.fix.service.CHECKWIFI" />
+            </intent-filter>
+        </service>
         <!-- Rich push 核心功能 since 2.0.6 -->
         <activity
             android:name="cn.jpush.android.ui.PopWinActivity"
@@ -254,7 +260,10 @@
         <meta-data
             android:name="JPUSH_APPKEY"
             android:value="94e1c44ecbc3274ec36fe586" /> <!-- </>值来自开发者平台取得的AppKey -->
-
+        <activity
+            android:name="com.nengfei.web.WebActivity"
+            android:label="@string/title_activity_main" >
+        </activity>
     </application>
 
 </manifest>

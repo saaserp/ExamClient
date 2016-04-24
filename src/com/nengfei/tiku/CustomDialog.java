@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.nengfei.app.R;
+import com.nengfei.util.DBUtil;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -29,7 +30,7 @@ public class CustomDialog extends Dialog {
 		super(context, theme);
 		this.setCancelable(false);
 	}
-	public static String selectedKey="";
+ 
 	public static class Builder {
 		private Context context;
 		private String title;
@@ -40,7 +41,7 @@ public class CustomDialog extends Dialog {
 	
 		 
 
-		 
+		 boolean b=true;
 
 		RadioGroup rg;
 		List<Map<String,String>>list;
@@ -141,32 +142,34 @@ public class CustomDialog extends Dialog {
 			View layout = inflater.inflate(R.layout.dialog_normal_layout, null);
 			rg=(RadioGroup) layout.findViewById(R.id.radiogroup_database);
 			  
-			int i=0;
+			 int i=0;
 			for(Map<String,String>mp:list){
 				 RadioButton tempButton = new RadioButton(context);  
 				  //  tempButton.setBackgroundResource(R.drawable.xxx);   // 设置RadioButton的背景图片  
 				    tempButton.setButtonDrawable(R.drawable.radio);           // 设置按钮的样式  
 				    tempButton.setPadding(80, 0, 0, 0);                 // 设置文字距离按钮四周的距离   
 				    tempButton.setText(mp.get("value")); 
-				     
-				   
+				    tempButton.setId(i++);
 				    rg.addView(tempButton, LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT); 
-				    rg.setSelected(true);
+				    
 				  
 				   
 			}
 			
 			//selectedKey= list.get(0).get("key");
-			 
+			
 			rg.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 				
 				@Override
 				public void onCheckedChanged(RadioGroup group, int checkedId) {
-					// TODO Auto-generated method stub
-					//  Toast.makeText(context, ((checkedId%list.size()))+"", Toast.LENGTH_LONG).show();
-				 	 CustomDialog.selectedKey= list.get(list.size()-(checkedId%list.size())-1).get("key");
-					 
-				 	//Toast.makeText(context,selectedKey, Toast.LENGTH_LONG).show();
+					if(b){
+				 	
+				 	 b=false;
+					}else{
+						 DBUtil.dbName= list.get((checkedId%list.size())).get("key");
+						
+					}
+				 	 
 					
 					
 					 

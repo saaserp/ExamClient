@@ -33,11 +33,11 @@ public class MySocketClient {
     private MySocketClient() {
         try {
            
-            String ip = "192.168.1.202";
+            String ip = "malloto.com";
             Log.i("ipp", ip);
             socket = new Socket(ip, 6000);
 
-            socket.setSoTimeout(14000);
+            socket.setSoTimeout(120000);
 
 
         } catch (UnknownHostException e) {

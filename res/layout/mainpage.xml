@@ -27,7 +27,15 @@
                 <include
 			    layout="@layout/item_chart"
 			    />
-             
+                <include 
+                    layout="@layout/adv_layout_1"
+                    />
+              <include 
+                    layout="@layout/adv_layout_2"
+                    />
+               <include 
+                    layout="@layout/adv_layout_3"
+                   />
             </LinearLayout>
         </ScrollView>
 

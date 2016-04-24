@@ -130,6 +130,7 @@ public class LoginTask extends AsyncTask<Void, Void, Boolean> {
 		}else{
 			//登录失败
 			Toast.makeText(context, "网络连接失败", Toast.LENGTH_SHORT).show();
+			 
 			
 		}
 		taskCallBack.todo(r,mp);

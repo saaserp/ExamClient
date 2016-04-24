@@ -1,6 +1,5 @@
 package com.nengfei.app;
 
-import com.nengfei.controller.MainTabController;
 import com.nengfei.login.LoginActivity;
 import com.nengfei.model.QuestionBankService;
 
@@ -18,7 +17,7 @@ import android.widget.TextView;
 public class ExamFragment  extends Fragment implements OnItemClickListener{
 	ListView lv;
 
-	private MainTabController mtc;
+	 
 	QuestionBankService qs;
 	public ExamFragment( ){
 		qs=new QuestionBankService();

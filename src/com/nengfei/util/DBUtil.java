@@ -10,13 +10,7 @@ import android.os.Environment;
 
 public class DBUtil {
 	public static String dbName="data.db";
-	public static String getDbName() {
-		return dbName;
-	}
 
-	public static void setDbName(String dbName) {
-		DBUtil.dbName = dbName;
-	}
 
 	private Context context;
 	private final int BUFFER_SIZE = 1024;
@@ -35,11 +29,11 @@ public class DBUtil {
 
 	public void openDatabase(String d) {
 		//设置全局的数据库名字
-		if(d==null||d.equals("")){
+		if(d==null || d.equals("")){
 			//默认的数据库名字，不动
 			d=DBUtil.dbName;
 		}else{
-			DBUtil.setDbName(d);
+			DBUtil.dbName=d;
 		}
 		File dir = new File(DB_PATH);
 		if (!dir.exists()) {

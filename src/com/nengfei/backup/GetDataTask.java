@@ -50,19 +50,18 @@ public class GetDataTask extends AsyncTask<Void, Void, Boolean> {
 		super.onPreExecute();
 		
 	}
-	int progress=50;
+	int progress=0;
 	Message msg;
 	@Override
 	protected Boolean doInBackground(Void... params) {
 		// TODO Auto-generated method stub
 		
 		Map<String, String> map = new HashMap<String, String>();
-		msg=hand.obtainMessage();
-		msg.what=10;
-		map.put("uid", LoginActivity.uid);
-		 map.put("dbName", DBUtil.dbName);
 		 
-		msg.sendToTarget();
+		map.put("uid", LoginActivity.uid);
+		map.put("dbName", DBUtil.dbName);
+		 
+	 
 		String res = MySocketClient.getInstance().send("GetInfo", map);
 		
 		new Thread(new Runnable() {
@@ -70,7 +69,7 @@ public class GetDataTask extends AsyncTask<Void, Void, Boolean> {
 			@Override
 			public void run() {
 				// TODO Auto-generated method stub
-				while(progress<80){
+				while(progress<99){
 					
 				msg=hand.obtainMessage();
 				msg.what=progress;
@@ -102,10 +101,11 @@ public class GetDataTask extends AsyncTask<Void, Void, Boolean> {
 		
 		 
 		List<Map<String, String>> ls;
+	
 		for (int i = 0; i < data.size(); i++) {
-				progress+=3;
+				 
 				msg=hand.obtainMessage();
-				msg.what=progress;
+				msg.what=progress++;
 				msg.sendToTarget();
 				if (data.get(i).get("tableName").equals("ExamResult")) {
 					ls = new JSONParser(data.get(i).get("list")).parse();
@@ -116,10 +116,7 @@ public class GetDataTask extends AsyncTask<Void, Void, Boolean> {
 				}else {
 					bb=false;
 				}
-				progress+=5;
-				msg=hand.obtainMessage();
-				msg.what=progress;
-				msg.sendToTarget();
+			 
 		}
 	 
 	 

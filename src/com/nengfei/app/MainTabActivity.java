@@ -4,14 +4,18 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import com.nengfei.adapter.MainTabPagerAdapter;
+import com.nengfei.backup.PullDataTask;
 import com.nengfei.controller.MainTabController;
 import com.nengfei.controller.TopicController;
 import com.nengfei.gidance.GuidanceActivity;
 import com.nengfei.login.LoginActivity;
 import com.nengfei.project.ProjectConfig;
 import com.nengfei.tiku.CustomDialog;
+import com.nengfei.util.CallBack;
+import com.nengfei.util.DBUtil;
 import com.nengfei.util.FileUtil;
 import com.nengfei.util.UiUtil;
+import com.nengfei.web.WebActivity;
 import com.nengfei.widget.IconPageIndicator;
 
 import android.app.Activity;
@@ -52,13 +56,37 @@ implements MoreListFragment.Callbacks, ClassicsListFragment.Callbacks ,OnClickLi
 	private static Boolean isExit = false;
 	private static Boolean hasTask = false;
 	public static MainTabActivity mtb;
+	static String tpuid;
 	public static Handler handRelogin=new Handler(){
 		public void handleMessage(android.os.Message msg) {
-			try{
-			mtb.startActivity(new Intent(mtb,LoginActivity.class));
-			}catch(Exception e){
-				
-			}
+			 
+			
+			
+			new PullDataTask(mtb,new CallBack(){
+
+				@Override
+				public String done(boolean b) {
+					// TODO Auto-generated method stub
+
+					 
+					if(b){
+						
+						tpuid=LoginActivity.uid;
+						mtb.getSharedPreferences("user", Activity.MODE_PRIVATE).edit().putString("uid", "anonymous").commit();
+						mtb.startActivity(new Intent(mtb,LoginActivity.class));
+						 
+						LoginActivity.logout();
+					}else{
+						//数据恢复
+						Toast.makeText(mtb, "无法退出当前账户", Toast.LENGTH_SHORT).show();
+						mtb.getSharedPreferences("user", Activity.MODE_PRIVATE).edit().putString("uid", tpuid).commit();
+						LoginActivity.uid=tpuid;
+					}
+					return null;
+				}
+
+			},true).execute();
+			 
 			 
 		};
 	};
@@ -70,7 +98,7 @@ implements MoreListFragment.Callbacks, ClassicsListFragment.Callbacks ,OnClickLi
 
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_main_tab);
-
+		
 		SharedPreferences sp = getSharedPreferences("user", MODE_PRIVATE);
 		String uid = sp.getString("uid", "anonymous");
 		//设置用户名
@@ -147,16 +175,38 @@ implements MoreListFragment.Callbacks, ClassicsListFragment.Callbacks ,OnClickLi
 				public void onClick(DialogInterface dialog, int which) {//确定按钮的响应事件  
 
 					// TODO Auto-generated method stub  
-					getSharedPreferences("first", MODE_PRIVATE).edit()
-					.putBoolean("isFirst", false).commit();
-					MainTabActivity.this.getSharedPreferences("tiku", Activity.MODE_PRIVATE).edit()
-					.putString("tiku",  "").commit();
-					MainTabActivity.this.getSharedPreferences("tiku", Activity.MODE_PRIVATE).edit().putString("tiku", "").commit();
-					CustomDialog.selectedKey="";
-					startActivity(new Intent(MainTabActivity.this,WelcomeActivity.class));
-					MainTabActivity.this.finish();
-					//Toast.makeText(MainTabActivity.this, "重设成功，请手动重新启动", Toast.LENGTH_LONG).show();
+					if(LoginActivity.haslogin()){
+					//先保存数据,回调
+					new PullDataTask(MainTabActivity.this,new CallBack() {
+						
+						@Override
+						public String done(boolean b) {
+							// TODO Auto-generated method stub
+							getSharedPreferences("first", MODE_PRIVATE).edit()
+							.putBoolean("isFirst", false).commit();
+							MainTabActivity.this.getSharedPreferences("tiku", Activity.MODE_PRIVATE).edit()
+							.putString("tiku",  "").commit();
+											
+							DBUtil.dbName="";
+							startActivity(new Intent(MainTabActivity.this,WelcomeActivity.class) );
+							MainTabActivity.this.finish();
+							//Toast.makeText(MainTabActivity.this, "重设成功，请手动重新启动", Toast.LENGTH_LONG).show();
 
+							return null;
+						}
+					}).execute();
+					}
+					else{
+						 login();
+						
+					}
+					
+					
+					 
+					
+					
+					
+				
 
 				}  
 
@@ -231,7 +281,6 @@ implements MoreListFragment.Callbacks, ClassicsListFragment.Callbacks ,OnClickLi
 				break;
 			case R.id.sjlx:
 				//随机练习
-
 				intent = new Intent(this, TopicActivity.class);
 				intent.putExtra("mode", TopicController.MODE_RANDOM);
 				startActivity(intent);
@@ -239,9 +288,7 @@ implements MoreListFragment.Callbacks, ClassicsListFragment.Callbacks ,OnClickLi
 			case R.id.zxlx:
 				//专项练习
 				if (ProjectConfig.TOPIC_MODE_CHAPTERS_SUPPORT) {
-					// Intent intent = new Intent(this, TopicActivity.class);
-					// intent.putExtra("mode", TopicController.MODE_CHAPTERS);
-					// startActivity(intent);
+			 
 					intent = new Intent(this, ChapterSelectActivity.class);
 
 					startActivity(intent);
@@ -299,8 +346,27 @@ implements MoreListFragment.Callbacks, ClassicsListFragment.Callbacks ,OnClickLi
 				intent = new Intent(this, StatisticsActivity.class);
 				startActivity(intent);
 				break;
-
+			case R.id.ad1:
+				//视频教学
+				intent=new Intent(this,WebActivity.class);
+				intent.putExtra("url", "http://m.gdgdpowerfly.webportal.cc/col.jsp?id=107");
+				startActivity(intent);
+				break;
+			case R.id.ad2:
+				//能飞航空
+				intent=new Intent(this,WebActivity.class);
+				intent.putExtra("url", "http://m.gdgdpowerfly.webportal.cc");
+				startActivity(intent);
+				break;
+			case R.id.ad3:
+				//无人机培训报名
+				intent=new Intent(this,WebActivity.class);
+				intent.putExtra("url", "http://m.gdgdpowerfly.webportal.cc");
+				startActivity(intent);
+				break;
+			
 			}
+			
 		}
 	}
 
@@ -329,7 +395,7 @@ implements MoreListFragment.Callbacks, ClassicsListFragment.Callbacks ,OnClickLi
 				}){}.start();
 			}else{
 
-				if(!LoginActivity.uid.equals("anonymous")){
+				if(LoginActivity.haslogin()){
 
 					this.finish();
 					System.exit(0);
@@ -375,7 +441,7 @@ implements MoreListFragment.Callbacks, ClassicsListFragment.Callbacks ,OnClickLi
 		SharedPreferences sp = getSharedPreferences("user", MODE_PRIVATE);
 		String uid = sp.getString("uid", "anonymous");
 		LoginActivity.uid=uid;
-		if (uid.equals("anonymous")||uid==""||uid==null) {
+		if (!LoginActivity.haslogin()) {
 			// 还没有登录
 			startActivityForResult(new Intent(this, LoginActivity.class), FLAGE_LOGIN);
 			return false;

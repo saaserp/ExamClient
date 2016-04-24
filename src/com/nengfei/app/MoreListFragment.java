@@ -96,7 +96,6 @@ public class MoreListFragment extends Fragment implements OnItemClickListener {
 			contents.add(items[i]);
 		}
 
-
 		contents.add(getActivity().getResources().getString(R.string.share_app_to_friend));
 		contents.add("重新选择数据库");
 		// TODO: replace with a real list adapter.
@@ -108,7 +107,6 @@ public class MoreListFragment extends Fragment implements OnItemClickListener {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-
 
 				if (isExit == false) {
 					isExit = true;
@@ -124,35 +122,37 @@ public class MoreListFragment extends Fragment implements OnItemClickListener {
 								// TODO Auto-generated catch block
 								e.printStackTrace();
 							}
-							isExit=false;
+							isExit = false;
 						}
 					}).start();
-					if(LoginActivity.uid==null||LoginActivity.uid.equals("")||LoginActivity.uid.equals("anonymous")){
+					if (!LoginActivity.haslogin()) {
 						Toast.makeText(getActivity(), "再按一次跳转至登录", Toast.LENGTH_SHORT).show();
-					}else{
+					} else {
 						Toast.makeText(getActivity(), "再按一次退出账号", Toast.LENGTH_SHORT).show();
 					}
 				} else if (isExit == true) {
-					if(LoginActivity.uid==null||LoginActivity.uid.equals("")||LoginActivity.uid.equals("anonymous")){
-						getActivity().getSharedPreferences("user", Activity.MODE_PRIVATE).edit().putString("uid", "anonymous").commit();
-	
-						getActivity().startActivity(new Intent(getActivity() ,LoginActivity.class));
+					if (LoginActivity.uid == null || LoginActivity.uid.equals("")
+							|| LoginActivity.uid.equals("anonymous")) {
+						getActivity().getSharedPreferences("user", Activity.MODE_PRIVATE).edit()
+								.putString("uid", "anonymous").commit();
 
-					}else{
-						new PullDataTask(getActivity(),new CallBack(){
+						getActivity().startActivity(new Intent(getActivity(), LoginActivity.class));
+
+					} else {
+
+						new PullDataTask(getActivity(), new CallBack() {
 
 							@Override
 							public String done(boolean b) {
 								// TODO Auto-generated method stub
 
-								//UiUtil.showToastShort(getActivity(), "数");
-								if(b){
-									
-								
-								getActivity().getSharedPreferences("user", Activity.MODE_PRIVATE).edit().putString("uid", "anonymous").commit();
-								getActivity().startActivity(new Intent(getActivity() ,LoginActivity.class));
-								LoginActivity.uid="";
-								}else{
+								if (b) {
+
+									getActivity().getSharedPreferences("user", Activity.MODE_PRIVATE).edit()
+											.putString("uid", "anonymous").commit();
+									getActivity().startActivity(new Intent(getActivity(), LoginActivity.class));
+									LoginActivity.uid = "";
+								} else {
 									Toast.makeText(getActivity(), "无法退出当前账户", Toast.LENGTH_SHORT).show();
 								}
 								return null;

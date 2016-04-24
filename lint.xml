@@ -3,5 +3,6 @@
     <issue id="CutPasteId" severity="ignore" />
     <issue id="HandlerLeak" severity="ignore" />
     <issue id="InflateParams" severity="ignore" />
+    <issue id="SetJavaScriptEnabled" severity="ignore" />
     <issue id="TrulyRandom" severity="ignore" />
 </lint>

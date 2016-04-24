@@ -22,6 +22,7 @@ public class PullDataTask extends AsyncTask<Void,Void,Boolean> {
 	List<Map<String,String>>list2;
 	ProgressDialog pd;
 	CallBack cb;
+	boolean isbg=false;
 	public PullDataTask(Context context,CallBack cb){
 		this.context=context;
 		list1=new ArrayList<Map<String,String>>();
@@ -32,10 +33,22 @@ public class PullDataTask extends AsyncTask<Void,Void,Boolean> {
 		pd.setMessage("正在同步数据");
 		this.cb=cb;
 	}
+	
+	public PullDataTask(Context context,CallBack cb,boolean isbg){
+		this.context=context;
+		list1=new ArrayList<Map<String,String>>();
+		list2=new ArrayList<Map<String,String>>();
+		 
+		this.cb=cb;
+		this.isbg=isbg;
+	}
+	
+	
 	@Override
 	protected void onPreExecute() {
 		// TODO Auto-generated method stub
 		super.onPreExecute();
+		if(!isbg)
 		pd.show();
 		 
 	}
@@ -100,6 +113,7 @@ public class PullDataTask extends AsyncTask<Void,Void,Boolean> {
 			
 		}
 		 cb.done(result);
+		 if(!isbg)
 		pd.dismiss();
 		
 	}

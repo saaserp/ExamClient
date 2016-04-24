@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="125dp"
+    android:background="@color/main_back_color"
+    android:orientation="vertical"
+    android:paddingBottom="5dp" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="120dp"
+        android:background="@drawable/bg_selector" >
+
+        <ImageView
+            android:id="@+id/ad3"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:onClick="onClick"
+            android:padding="2px"
+            android:src="@drawable/adv1" >
+        </ImageView>
+    </LinearLayout>
+
+</LinearLayout>

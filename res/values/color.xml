@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="transparent">#7f000000</color>
+    <color name="transparent">#F9F9F9</color>
     <!-- 透明的 -->
     <color name="white">#ffffff</color>
     <color name="title_color">#7cdb9d</color>

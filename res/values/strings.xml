@@ -156,7 +156,7 @@
     <!-- Share Friend -->
     <string name="share_friend">分享给好友</string>
     <string name="share_app_to_friend">感觉还不错，推荐给好友~</string>
-    <string name="recommendation">我正在使用无人机考试练习系统，感觉还不错，下载地址：http://www.baidu.com</string>
+    <string name="recommendation">我正在使用能飞无人机考试练习系统，感觉还不错，下载地址：http://www.baidu.com</string>
     <string name="thanks_for_recommend">谢谢您的推荐</string>
     <!-- 登陆注册 -->
     <string name="idtxthint">手机号码</string>
@@ -176,5 +176,6 @@
     <string name="db_gudingyi">固定翼题库</string>
     <string name="db_xuanzhuanzhou">旋转轴题库</string>
     <string name="title_alert">提示信息</string>
+    <string name="title_activity_main">MainActivity</string>
 
 </resources>

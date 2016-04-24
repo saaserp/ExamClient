@@ -2,17 +2,19 @@
 <LinearLayout
      xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:paddingBottom="5dp"
    android:background="@color/main_back_color"
-    android:layout_height="match_parent" >
+    android:layout_height="70dp" >
  
 <RelativeLayout 
     android:id="@+id/kstj"
        android:onClick="onClick"
      android:clickable="true"
+     
     android:layout_marginTop="15dp"
      android:background="@drawable/bg_selector"
      android:layout_width="match_parent"
-      android:layout_height="match_parent" 
+      android:layout_height="68dp" 
       
     >
  
@@ -28,13 +30,15 @@
     <LinearLayout
         android:id="@+id/la1"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="64dp"
         android:layout_centerInParent="true"
         android:layout_toRightOf="@+id/img"
         android:orientation="vertical"
         android:paddingLeft="10dp" >
 
         <TextView
+            android:padding="10dp"
+            android:layout_gravity="center_vertical"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="考试统计"
@@ -49,4 +53,5 @@
         android:layout_marginRight="5dp"
         android:src="@drawable/zx" />
 </RelativeLayout>
+
 </LinearLayout>

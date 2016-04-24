@@ -6,8 +6,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.nengfei.backup.GetDataTask;
 import com.nengfei.controller.WelcomeController;
+import com.nengfei.login.LoginActivity;
 import com.nengfei.tiku.CustomDialog;
+import com.nengfei.util.CallBack;
 import com.nengfei.util.DBUtil;
 import com.nengfei.util.PackageUtil;
 
@@ -40,7 +43,7 @@ public class WelcomeActivity extends InstrumentedActivity {
 	public final int LOGIN = 0;
 	Button btn_login;
 	private int alpha = 255;
-
+	 
 	private int b = 0;
 
 	class ShowDialogTask extends AsyncTask<Void, Void, Boolean> {
@@ -118,12 +121,33 @@ public class WelcomeActivity extends InstrumentedActivity {
 
 				builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int which) {
-						if (CustomDialog.selectedKey != null || !CustomDialog.selectedKey.equals("")) {
+						if (DBUtil.dbName != null &&! DBUtil.dbName.equals("")) {
 							dialog.dismiss();
-							context.getSharedPreferences("tiku", Activity.MODE_PRIVATE).edit()
-							.putString("tiku", CustomDialog.selectedKey).commit();
-							DBUtil.dbName = CustomDialog.selectedKey;
-							thread.start();
+							if(LoginActivity.haslogin())
+							{
+								//如果需要更新数据
+								new GetDataTask(WelcomeActivity.this,new CallBack(){
+
+									@Override
+									public String done(boolean b) {
+										// TODO Auto-generated method stub
+
+										context.getSharedPreferences("tiku", Activity.MODE_PRIVATE).edit()
+										.putString("tiku", DBUtil.dbName).commit();
+										wc.init(context,DBUtil.dbName);
+										thread.start();
+
+
+										return null;
+									}}).execute();
+
+							}else{
+
+								context.getSharedPreferences("tiku", Activity.MODE_PRIVATE).edit()
+								.putString("tiku", DBUtil.dbName).commit();
+								wc.init(context,DBUtil.dbName);
+								thread.start();
+							}
 
 						} else {
 
@@ -223,13 +247,25 @@ public class WelcomeActivity extends InstrumentedActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+	 
+		 
+
 		// FullScreen
 		//getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
-//		// 极光推送
-//		JPushInterface.setDebugMode(true);
-//		// 极光推送
-//		JPushInterface.init(this);
+
+		Intent intent = new Intent();  
+		intent.setAction("com.fix.service.CHECKWIFI");  
+		startService(intent);  
+		JPushInterface.setDebugMode(false); 	// 设置开启日志,发布时请关闭日志
+		JPushInterface.init(this);     		// 初始化 JPush
+
+
+
+		//		// 极光推送
+		//		JPushInterface.setDebugMode(true);
+		//		// 极光推送
+		//		JPushInterface.init(this);
 		// 极光推送
 		registerMessageReceiver(); // used for receive msg
 
