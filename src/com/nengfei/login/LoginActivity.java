@@ -98,7 +98,7 @@ OnItemClickListener, OnDismissListener {
 		setListener();
 		mLoginLinearLayout.startAnimation(mTranslate); 
 
-
+		
 		mUsers = Utils.getUserList(LoginActivity.this);
 
 		if (mUsers.size() > 0) {

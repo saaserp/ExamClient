@@ -1,57 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-     xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:paddingBottom="5dp"
-   android:background="@color/main_back_color"
-    android:layout_height="70dp" >
- 
-<RelativeLayout 
-    android:id="@+id/kstj"
-       android:onClick="onClick"
-     android:clickable="true"
-     
-    android:layout_marginTop="15dp"
-     android:background="@drawable/bg_selector"
-     android:layout_width="match_parent"
-      android:layout_height="68dp" 
-      
-    >
- 
-    <ImageView
-        android:id="@+id/img"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="10dp"
-        android:layout_centerVertical="true"
-        android:src="@drawable/ks_tj" />
+    android:layout_height="70dp"
+    android:background="@color/main_back_color"
+    android:paddingBottom="5dp" >
 
-    <LinearLayout
-        android:id="@+id/la1"
-        android:layout_width="wrap_content"
-        android:layout_height="64dp"
-        android:layout_centerInParent="true"
-        android:layout_toRightOf="@+id/img"
-        android:orientation="vertical"
-        android:paddingLeft="10dp" >
+    <RelativeLayout
+        android:id="@+id/kstj"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/bg_selector"
+        android:clickable="true"
+        android:onClick="onClick" >
 
-        <TextView
-            android:padding="10dp"
-            android:layout_gravity="center_vertical"
+        <ImageView
+            android:id="@+id/img"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/ks_tj" />
+
+        <LinearLayout
+            android:id="@+id/la1"
+            android:layout_width="wrap_content"
+            android:layout_height="64dp"
+            android:layout_centerInParent="true"
+            android:layout_toRightOf="@+id/img"
+            android:orientation="vertical"
+            android:paddingLeft="10dp" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="考试统计"
+                android:textColor="@color/black" />
+
+        </LinearLayout>
+
+        <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="考试统计"
-            android:textColor="@color/black" />
-    </LinearLayout>
-
-    <ImageView
-        android:layout_centerVertical="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="5dp"
-        android:src="@drawable/zx" />
-</RelativeLayout>
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"
+            android:src="@drawable/zx" />
+    </RelativeLayout>
 
 </LinearLayout>

@@ -33,7 +33,8 @@ public class MySocketClient {
     private MySocketClient() {
         try {
            
-            String ip = "malloto.com";
+          //  String ip = "nengfei.date";
+        	String ip="192.168.1.203";
             Log.i("ipp", ip);
             socket = new Socket(ip, 6000);
 

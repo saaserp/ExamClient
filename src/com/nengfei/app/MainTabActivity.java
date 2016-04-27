@@ -148,16 +148,17 @@ implements MoreListFragment.Callbacks, ClassicsListFragment.Callbacks ,OnClickLi
 		switch (position) {
 		case 0:
 			//用户协议
-		case 1:
-			//问题反馈
-		case 2:
 			intent = new Intent(this, MoreDetailsActivity.class);
-			intent.putExtra("position", position);
+			intent.putExtra("position", 0);
 			break;
-		case 3:
+		case 1:
+			intent = new Intent(this, MoreDetailsActivity.class);
+			intent.putExtra("position", 1);
+			break;
+		case 2:
 			intent = new Intent(this, ShareSettingActivity.class);
 			break;
-		case 4:
+		case 3:
 		{
 
 

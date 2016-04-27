@@ -3,6 +3,8 @@ import java.util.Map;
 
 import com.nengfei.model.QuestionBankService;
 
+import android.R.color;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -31,9 +33,13 @@ public class ClassicsActivity extends BaseActivity {
 		btn_classics_show_answer = (Button) findViewById(R.id.btn_classics_show_answer);
 		tv_title.setText(getResources().getString(R.string.classics_title));
 		tv_classics_question.setText(enerty.get("question").toString());
-		tv_classics_question.setTextSize(22);
+		tv_classics_question.setTextColor(Color.BLACK);
+		tv_classics_question.setTextSize(18);
+	
 		tv_classics_answer.setText(enerty.get("answer").toString());
-		tv_classics_answer.setTextSize(18);
+		
+		tv_classics_answer.setTextColor(Color.GREEN);
+		tv_classics_answer.setTextSize(16);
 		tv_classics_answer.setVisibility(LinearLayout.INVISIBLE);
 	}
 

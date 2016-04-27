@@ -51,7 +51,7 @@ public class LoginTask extends AsyncTask<Void, Void, Boolean> {
 		map.put("uid", uid);
 		map.put("password",  EDcoder.getMD5Str( password));
 		//result=new HttpClientTool("www.malloto.com").send("Login", map);
-		map.put("mac",NetWorkUtil.getCPUSerial());
+		map.put("mac",NetWorkUtil.getCPUSerial(context));
 		
 		String s=MySocketClient.getInstance().send("LoginProcesser",map);
 		if(s==null||s.equals("")){
@@ -119,7 +119,7 @@ public class LoginTask extends AsyncTask<Void, Void, Boolean> {
 			if(mp.get("result").equals("true")){
 				//Toast.makeText(context, "登录成功", Toast.LENGTH_LONG).show();
 				LoginActivity.uid=uid;
-				mHandler.sendMessage(mHandler.obtainMessage(MSG_SET_ALIAS, NetWorkUtil.getCPUSerial()));
+				mHandler.sendMessage(mHandler.obtainMessage(MSG_SET_ALIAS, NetWorkUtil.getCPUSerial(context)));
 				context.getSharedPreferences("user", Activity.MODE_PRIVATE).edit().putString("uid", uid).commit();
 				r=true;
 			}else{

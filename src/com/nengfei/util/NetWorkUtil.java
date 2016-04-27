@@ -120,22 +120,37 @@ public class NetWorkUtil {
         return mResult;
 	}
 	
-	public static String getMacAddress() {
-        String result = "";
-        String Mac = "";
-        result = callCmd("busybox ifconfig", "HWaddr");
- 
-        if (result == null) {
-            return "网络出错，请检查网络";
-        }
-        if (result.length() > 0 && result.contains("HWaddr")) {
-            Mac = result.substring(result.indexOf("HWaddr") + 6, result.length() - 1);
-            if (Mac.length() > 1) {
-                result = Mac.toLowerCase();
-            }
-        }
-        return result.trim();
-    }
+//	public static String getMacAddress() {
+//        String result = "";
+//        String Mac = "";
+//        result = callCmd("busybox ifconfig", "HWaddr");
+// 
+//        if (result == null) {
+//            return "网络出错，请检查网络";
+//        }
+//        if (result.length() > 0 && result.contains("HWaddr")) {
+//            Mac = result.substring(result.indexOf("HWaddr") + 6, result.length() - 1);
+//            if (Mac.length() > 1) {
+//                result = Mac.toLowerCase();
+//            }
+//        }
+//        return result.trim();
+//    }
+	
+	
+	public static String getMacAddress(Context context){
+		
+		//在wifi未开启状态下，仍然可以获取MAC地址，但是IP地址必须在已连接状态下否则为0
+		String macAddress = null, ip = null;
+		WifiManager wifiMgr = (WifiManager)context.getSystemService(Context.WIFI_SERVICE);
+		WifiInfo info = (null == wifiMgr ? null : wifiMgr.getConnectionInfo());
+		if (null != info) {
+		    macAddress = info.getMacAddress();
+		   
+		}
+		return macAddress==null?"virture":macAddress;
+
+	}
 	public static String callCmd(String cmd,String filter) { 
 		String result = ""; 
 		String line = ""; 
@@ -158,8 +173,8 @@ public class NetWorkUtil {
 		} 
 		return result; 
 		}
-	public static String getCPUSerial() {   
-		String s=getMacAddress() ;
+	public static String getCPUSerial(Context context) {   
+		String s=getMacAddress(context) ;
 		if(s.equals("")){
 			return android.os.Build.MANUFACTURER;
 		}else

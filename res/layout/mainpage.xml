@@ -4,39 +4,40 @@
     android:layout_height="match_parent"
     android:background="@color/bg_main"
     android:orientation="vertical" >
+
     <ScrollView
-        android:layout_height="match_parent"
-        android:layout_width="match_parent">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:background="#888888" >
-           
-			<include
-			   
-			    layout="@layout/item_prictice"
-			    />
-               <include
-			    layout="@layout/item_exam"
-			    />
-               <include
-			    layout="@layout/item_other"
-			    />
-                <include
-			    layout="@layout/item_chart"
-			    />
-                <include 
-                    layout="@layout/adv_layout_1"
-                    />
-              <include 
-                    layout="@layout/adv_layout_2"
-                    />
-               <include 
-                    layout="@layout/adv_layout_3"
-                   />
-            </LinearLayout>
-        </ScrollView>
+            android:background="#888888"
+            android:orientation="vertical" >
+
+            <include layout="@layout/item_prictice" />
+
+            <include layout="@layout/item_exam" />
+
+            <include layout="@layout/item_other" />
+
+            <include layout="@layout/item_chart" />
+
+            <include
+                android:id="@+id/adv1"
+                layout="@layout/adv_layout_1"
+                android:visibility="gone" />
+
+            <include
+                android:id="@+id/adv2"
+                layout="@layout/adv_layout_2"
+                android:visibility="gone" />
+
+            <include
+                android:id="@+id/adv3"
+                layout="@layout/adv_layout_3"
+                android:visibility="gone" />
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>
