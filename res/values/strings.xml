@@ -14,7 +14,7 @@
     <string name="back">返回</string>
     <string name="exit">退出账号</string>
     <!-- 微博 -->
-    <string name="weibo_auth_success">授权成功</string>
+    <string name="weibo_auth_success">分享成功</string>
     <string name="weibo_auth_fail">授权失败</string>
     <string name="weibo_end_session_query">重新认证需要退出当前账户，确定？</string>
     <string name="sina_weibo">新浪微博</string>
