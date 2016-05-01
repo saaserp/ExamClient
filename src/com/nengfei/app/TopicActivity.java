@@ -172,6 +172,7 @@ public class TopicActivity extends FragmentActivity {
 			return;
 		}
 		int currentItem = topic_pager.getCurrentItem();
+		btn_switch_answer_show.setTypeface(MainTabActivity.font_cartoon);
 		if (answerShowFlag) {
 			answerShowFlag = false;
 			btn_switch_answer_show.setText(R.string.topic_answer_show);
@@ -205,6 +206,8 @@ public class TopicActivity extends FragmentActivity {
 		sb_seek = (SeekBar) seekView.findViewById(R.id.sb_seek);
 		tv_progress = (TextView) seekView.findViewById(R.id.tv_progress);
 		final String topic_seek = getString(R.string.topic_seek);
+		tv_progress.setTypeface(MainTabActivity.font_apple);
+		tv_progress.setTextSize(18);
 		tv_progress.setText(topic_seek + "     " + nowTopic + "/" + totalTopic);
 		sb_seek.setMax(totalTopic - 1);
 		sb_seek.setProgress(nowTopic - 1);

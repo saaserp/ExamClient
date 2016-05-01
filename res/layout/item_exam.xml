@@ -51,13 +51,13 @@
                         android:layout_width="fill_parent"
                         android:layout_height="20dp"
                         android:layout_weight="3"
-                        android:background="@color/white" />
+                        android:background="@drawable/bg_selector" />
 
                     <LinearLayout
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
                         android:layout_weight="3"
-                        android:background="@color/white"
+                      android:background="@drawable/bg_selector"
                         android:gravity="center"
                         android:orientation="vertical" >
 
@@ -71,7 +71,7 @@
                         android:layout_width="fill_parent"
                         android:layout_height="20dp"
                         android:layout_weight="3"
-                        android:background="@color/white" />
+                       android:background="@drawable/bg_selector"/>
                 </LinearLayout>
             </LinearLayout>
 
@@ -107,13 +107,13 @@
                         android:layout_width="fill_parent"
                         android:layout_height="20dp"
                         android:layout_weight="3"
-                        android:background="@color/white" />
+                        android:background="@drawable/bg_selector" />
 
                     <LinearLayout
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
                         android:layout_weight="3"
-                        android:background="@color/white"
+                        android:background="@drawable/bg_selector"
                         android:gravity="center"
                         android:orientation="vertical" >
 
@@ -127,7 +127,7 @@
                         android:layout_width="fill_parent"
                         android:layout_height="20dp"
                         android:layout_weight="3"
-                        android:background="@color/white" />
+                       android:background="@drawable/bg_selector" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -169,7 +169,7 @@
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
                         android:layout_weight="3"
-                        android:background="@color/white"
+                        android:background="@drawable/bg_selector"
                         android:gravity="center"
                         android:orientation="vertical" >
 
@@ -183,7 +183,7 @@
                         android:layout_width="fill_parent"
                         android:layout_height="20dp"
                         android:layout_weight="3"
-                        android:background="@color/white" />
+                        android:background="@drawable/bg_selector" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -219,13 +219,13 @@
                         android:layout_width="fill_parent"
                         android:layout_height="20dp"
                         android:layout_weight="3"
-                        android:background="@color/white" />
+                        android:background="@drawable/bg_selector"/>
 
                     <LinearLayout
                         android:layout_width="fill_parent"
                         android:layout_height="fill_parent"
                         android:layout_weight="3"
-                        android:background="@color/white"
+                     android:background="@drawable/bg_selector"
                         android:gravity="center"
                         android:orientation="vertical" >
 
@@ -239,7 +239,7 @@
                         android:layout_width="fill_parent"
                         android:layout_height="20dp"
                         android:layout_weight="3"
-                        android:background="@color/white" />
+                        android:background="@drawable/bg_selector"/>
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>

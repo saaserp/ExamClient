@@ -9,7 +9,7 @@ import android.content.res.AssetManager;
 import android.os.Environment;
 
 public class DBUtil {
-	public static String dbName="data.db";
+	public static String dbName="";
 
 
 	private Context context;

@@ -92,7 +92,7 @@ public class ExamFragment  extends Fragment implements OnItemClickListener{
 		tvHasdo=(TextView)view.findViewById(R.id.yizuoti);
 		freashData();
 		return view;
-		//return view;
+	 
 	}
 	TextView tvNever;
 	TextView tvALl;
@@ -130,92 +130,12 @@ public class ExamFragment  extends Fragment implements OnItemClickListener{
 		freashData();
 	}
 
+
 	@Override
 	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 		// TODO Auto-generated method stub
-//		Intent intent;
-//		if(((MainTabActivity)getActivity()).login()){
-//			//如果登录了，就要取出uid
-//
-//			switch(position){
-//			case 0:
-//				//顺序练习
-//				intent = new Intent(getActivity(), TopicActivity.class);
-//				intent.putExtra("mode", TopicController.MODE_SEQUENCE);
-//				startActivity(intent);
-//				break;
-//			case 1:
-//				//随机练习
-//				intent = new Intent(getActivity(), TopicActivity.class);
-//				intent.putExtra("mode", TopicController.MODE_RANDOM);
-//				startActivity(intent);
-//				break;
-//			case 2:
-//				//专项练习
-//				if (ProjectConfig.TOPIC_MODE_CHAPTERS_SUPPORT) {
-//					// Intent intent = new Intent(this, TopicActivity.class);
-//					// intent.putExtra("mode", TopicController.MODE_CHAPTERS);
-//					// startActivity(intent);
-//					intent = new Intent(getActivity(), ChapterSelectActivity.class);
-//
-//					startActivity(intent);
-//
-//				} else {
-//					UiUtil.showToastShort(getActivity(), R.string.please_wait);
-//				}
-//				break;
-//			case 3:
-//				//未做题
-//				if (ProjectConfig.TOPIC_MODE_INTENSIFY_SUPPORT) {
-//					intent = new Intent(getActivity(), TopicActivity.class);
-//					intent.putExtra("mode", TopicController.MODE_INTENSIFY);
-//					startActivity(intent);
-//				} else {
-//					UiUtil.showToastShort(getActivity(), R.string.please_wait);
-//				}
-//				break;
-//			case 4:
-//				//模拟考试
-//				intent = new Intent(getActivity(), TopicActivity.class);
-//				intent.putExtra("mode", TopicController.MODE_PRACTICE_TEST);
-//				startActivity(intent);
-//				break;
-//			case 5:
-//				//考试统计
-//				intent = new Intent(getActivity(), StatisticsActivity.class);
-//				startActivity(intent);
-//				break;
-//			case 6:
-//				//收藏
-//				if (mtc.checkCollectedDataExist()) {
-//					intent = new Intent(getActivity(), TopicActivity.class);
-//					intent.putExtra("mode", TopicController.MODE_COLLECT);
-//					startActivity(intent);
-//				} else {
-//					UiUtil.showToastShort(getActivity(), R.string.data_not_exist);
-//				}
-//				break;
-//			case 7:
-//				//我的错题
-//				if (mtc.checkCollectedDataExist()) {
-//					intent = new Intent( getActivity(), TopicActivity.class);
-//					intent.putExtra("mode", TopicController.MODE_WRONG_TOPIC);
-//					startActivity(intent);
-//				} else {
-//					UiUtil.showToastShort(getActivity(), R.string.data_not_exist);
-//				}
-//
-//				break;
-//			case 8:
-//				//考试记录
-//				intent = new Intent(getActivity(), RecordActivity.class);
-//				startActivity(intent);
-//				break;
-//			default:
-//				Toast.makeText(getActivity(), "非法操作！", Toast.LENGTH_SHORT).show();
-//				break;
-//
-//			}
-//		}
+		
 	}
+
+	 
 }

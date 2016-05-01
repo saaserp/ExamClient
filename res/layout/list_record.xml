@@ -6,6 +6,7 @@
     android:orientation="vertical" >
 
     <RelativeLayout
+        android:layout_marginTop="4dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
 
@@ -16,7 +17,7 @@
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:layout_marginLeft="16dp"
-            android:src="@drawable/item_icon" />
+            android:src="@drawable/saturn__jiakao_faxian_shai_icon_chengji" />
 
         <TextView
             android:id="@+id/record_times"

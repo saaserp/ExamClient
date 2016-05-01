@@ -7,13 +7,13 @@
     <ListView
         android:id="@+id/listview_morelist"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="300dp"
         />
     <Button
         android:id="@+id/exit"
-        android:background="@drawable/btn4_selector"
+        android:background="@drawable/btn2_selector"
         android:layout_width="fill_parent"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="@string/exit"

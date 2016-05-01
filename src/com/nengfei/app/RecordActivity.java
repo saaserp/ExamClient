@@ -39,7 +39,7 @@ public class RecordActivity extends BaseActivity {
 		int count=1;
 		for (Map<String, Object> entry : getEntryList) {
 			Map<String, Object> itemMap = new HashMap<String, Object>();
-			itemMap.put("image", R.drawable.record);
+			itemMap.put("image", R.drawable.saturn__jiakao_faxian_shai_icon_chengji);
 			itemMap.put(
 					"content",
 					getString(R.string.record_times) + count

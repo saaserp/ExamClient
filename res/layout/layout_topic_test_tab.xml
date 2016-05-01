@@ -2,30 +2,32 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/layout_topic"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@drawable/zx"
+    android:layout_height="50dp"
     android:layout_alignParentBottom="true"
-     >
+      android:background="@color/bg_control_panner"
+    android:padding="3dp" >
 
     <Button
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_margin="2dp"
         android:layout_weight="1"
-         android:textColor="@color/white"
-        android:onClick="toPreTopic"
         android:background="@drawable/btn1_selector"
+        android:onClick="toPreTopic"
         android:text="@string/topic_preTopic"
+        android:textColor="@color/black"
         android:textSize="12sp" />
 
     <Button
         android:id="@+id/btn_topic_changeLabel"
         android:layout_width="0dp"
-         android:textColor="@color/white"
         android:layout_height="wrap_content"
+        android:layout_margin="2dp"
         android:layout_weight="1"
-        android:background="@drawable/btn2_selector"
+        android:background="@drawable/btn1_selector"
         android:onClick="toChangeLabel"
         android:text="@string/topic_set_collect"
+        android:textColor="@color/black"
         android:textSize="12sp" />
 
     <ImageButton
@@ -33,32 +35,35 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_margin="2dp"
         android:layout_weight="1"
-        android:background="@drawable/btn3_selector"
+        android:background="@drawable/btn1_selector"
         android:contentDescription="@string/tab_image_description"
         android:onClick="toSeek"
-        android:src="@drawable/tab_topic_seek"
+        android:src="@drawable/saturn__pop_menu_more"
         android:textColor="#fff" />
 
     <Button
         android:id="@+id/btn_topic_test_submit"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_margin="2dp"
         android:layout_weight="1"
-         android:textColor="@color/white"
+        android:background="@drawable/btn1_selector"
         android:onClick="toSubmit"
-        android:background="@drawable/btn4_selector"
         android:text="@string/topic_test_submit"
+        android:textColor="@color/black"
         android:textSize="12sp" />
 
     <Button
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_margin="2dp"
         android:layout_weight="1"
-         android:textColor="@color/white"
+        android:background="@drawable/btn1_selector"
         android:onClick="toNextTopic"
-        android:background="@drawable/btn5_selector"
         android:text="@string/topic_nextTopic"
+        android:textColor="@color/black"
         android:textSize="12sp" />
 
 </LinearLayout>

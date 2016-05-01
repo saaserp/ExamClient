@@ -69,6 +69,7 @@ OnItemClickListener, OnDismissListener {
 	public static String uid="";
 
 	public static boolean haslogin(){
+		 
 		if(LoginActivity.uid==null){
 			return false;
 		}

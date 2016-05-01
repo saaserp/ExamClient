@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bg_control_panner"
     android:orientation="vertical" >
 
     <include
@@ -23,8 +24,9 @@
         android:id="@+id/btn_clear_record"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/record_style_red"
+        android:background="@drawable/btn1_selector"
         android:onClick="clearRecord"
+        android:padding="5dp"
         android:text="@string/clear_all_record" />
 
 </LinearLayout>

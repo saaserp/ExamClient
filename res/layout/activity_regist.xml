@@ -3,10 +3,17 @@
     android:layout_height="match_parent"
     android:background="#e7e7e7"
     android:orientation="vertical" >
-<include layout="@layout/layout_title_style_1"
-    android:layout_height="wrap_content"
-    android:layout_width="fill_parent"
-    />
+
+    <include
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        layout="@layout/layout_title_style_1" />
+ <LinearLayout
+        android:layout_width="fill_parent"
+        android:orientation="vertical"
+        android:layout_height="0dp"
+        android:layout_weight="10" >
     <ImageView
         android:layout_width="132dp"
         android:layout_height="132dp"
@@ -38,15 +45,16 @@
                 android:orientation="horizontal" >
 
                 <!-- android:ems="10"表示EditText内最多只显示10个字符，超出不显示 -->
-				<!-- android:singleLine="true"表示不能全部显示时，后面用“…”来表示 -->
+                <!-- android:singleLine="true"表示不能全部显示时，后面用“…”来表示 -->
+
                 <EditText
                     android:id="@+id/regist_edtId"
                     android:layout_width="0dp"
                     android:layout_height="44dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="5dp"
                     android:layout_weight="8"
                     android:background="@null"
-                    android:layout_marginRight="5dp"
-                    android:layout_gravity="center_vertical"
                     android:ems="10"
                     android:hint="@string/idtxthint"
                     android:paddingLeft="15dp"
@@ -54,35 +62,29 @@
                     android:singleLine="true"
                     android:textColorHint="#999999"
                     android:textSize="18sp" >
-
-                   
                 </EditText>
 
                 <Button
-                    
                     android:id="@+id/btn_get_code"
                     android:layout_width="0dp"
                     android:layout_height="44dp"
-                   
-                    android:layout_weight="5"                     
-                   android:layout_gravity="center_vertical"
+                    android:layout_gravity="center_vertical"
                     android:layout_marginRight="5dp"
+                    android:layout_weight="5"
                     android:background="@drawable/login_button_style"
                     android:text="@string/codebtntext"
-                   
                     android:textColor="#FFFFFF"
                     android:textSize="19sp" />
-
             </LinearLayout>
 
-           <!-- 横线  -->
+            <!-- 横线 -->
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
                 android:background="#CACDD1" />
-          
-               
-<EditText
+
+            <EditText
                 android:id="@+id/edit_regist_code"
                 android:layout_width="match_parent"
                 android:layout_height="44dp"
@@ -93,13 +95,14 @@
                 android:singleLine="true"
                 android:textColorHint="#999999"
                 android:textSize="18sp" />
- 
-<!-- 横线  -->
+
+            <!-- 横线 -->
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
                 android:background="#CACDD1" />
-            
+
             <EditText
                 android:id="@+id/rege_edtPwd"
                 android:layout_width="match_parent"
@@ -130,7 +133,5 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:orientation="vertical" />
-
-    
-
+</LinearLayout>
 </LinearLayout>

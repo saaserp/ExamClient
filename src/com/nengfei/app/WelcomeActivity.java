@@ -104,11 +104,11 @@ public class WelcomeActivity extends InstrumentedActivity {
 						if (fileList[i].getName().contains("zh")) {
 
 							map.put("key", fileList[i].getName());
-							map.put("value", "综合题库（部分）");
+							map.put("value", "无人机考试题库1");
 						}
-						if (fileList[i].getName().contains("data")) {
+						if (fileList[i].getName().contains("zh2")) {
 							map.put("key", fileList[i].getName());
-							map.put("value", "测试题库（完整）");
+							map.put("value", "无人机考试题库2");
 						}
 
 						list.add(map);

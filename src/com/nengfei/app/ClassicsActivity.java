@@ -33,6 +33,8 @@ public class ClassicsActivity extends BaseActivity {
 		btn_classics_show_answer = (Button) findViewById(R.id.btn_classics_show_answer);
 		tv_title.setText(getResources().getString(R.string.classics_title));
 		tv_classics_question.setText(enerty.get("question").toString());
+		tv_classics_question.setTypeface(MainTabActivity.font_apple);
+		tv_classics_question.setPadding(4, 5, 4, 10);
 		tv_classics_question.setTextColor(Color.BLACK);
 		tv_classics_question.setTextSize(18);
 	
@@ -44,6 +46,7 @@ public class ClassicsActivity extends BaseActivity {
 	}
 
 	public void showAnswer(View view) {
+		tv_classics_answer.setTypeface(MainTabActivity.font_cartoon);
 		if (bl_answer) {
 			btn_classics_show_answer.setText(getResources().getString(
 					R.string.classics_not_show_answer));
@@ -55,6 +58,7 @@ public class ClassicsActivity extends BaseActivity {
 			tv_classics_answer.setVisibility(LinearLayout.INVISIBLE);
 			bl_answer = true;
 		}
+		btn_classics_show_answer.setTextColor(Color.RED);
 	}
 
 	

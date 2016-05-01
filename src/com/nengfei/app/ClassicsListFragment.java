@@ -4,13 +4,16 @@ package com.nengfei.app;
 import java.util.ArrayList;
 import java.util.Map;
 
+import com.nengfei.adapter.MyTextAdapter;
 import com.nengfei.controller.MainTabController;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.ListView;
 
 /**
@@ -71,19 +74,20 @@ public class ClassicsListFragment  extends ListFragment {
 	 */
 	public ClassicsListFragment() {
 	}
-
+	ArrayList<String> contents;
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		mtc=new MainTabController(getActivity());
 		classicsEntryList=mtc.getClassicsEntryList();
-		ArrayList<String> contents=new ArrayList<String>();
+		 contents=new ArrayList<String>();
 		for(int i=0;i<classicsEntryList.size();i++){
 			contents.add((i+1)+". "+(String.valueOf(classicsEntryList.get(i).get("question"))));
 		}
-		setListAdapter(new ArrayAdapter<String>(getActivity(),
-				android.R.layout.simple_list_item_activated_1,
-				android.R.id.text1, contents));
+//		setListAdapter(new ArrayAdapter<String>(getActivity(),
+//				android.R.layout.simple_list_item_activated_1,
+//				android.R.id.text1, contents));
+		setListAdapter(new MyTextAdapter(getActivity(), contents));
 	}
 
 	@Override

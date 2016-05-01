@@ -10,7 +10,6 @@ import com.nengfei.controller.TopicController;
 import com.nengfei.gidance.GuidanceActivity;
 import com.nengfei.login.LoginActivity;
 import com.nengfei.project.ProjectConfig;
-import com.nengfei.tiku.CustomDialog;
 import com.nengfei.util.CallBack;
 import com.nengfei.util.DBUtil;
 import com.nengfei.util.FileUtil;
@@ -24,6 +23,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.FragmentActivity;
@@ -67,8 +68,7 @@ implements MoreListFragment.Callbacks, ClassicsListFragment.Callbacks ,OnClickLi
 				@Override
 				public String done(boolean b) {
 					// TODO Auto-generated method stub
-
-					 
+ 
 					if(b){
 						
 						tpuid=LoginActivity.uid;
@@ -85,17 +85,29 @@ implements MoreListFragment.Callbacks, ClassicsListFragment.Callbacks ,OnClickLi
 					return null;
 				}
 
-			},true).execute();
+			},true,true).execute();
 			 
 			 
 		};
 	};
+	public static Typeface font_cartoon;
+	public static Typeface font_kaiti;
+	public static Typeface font_apple;
+	public static Typeface font_yahei;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
 		
-
+		font_cartoon= Typeface.createFromAsset(getAssets(),
+                "fonts/cartoon.ttf");
+		font_kaiti= Typeface.createFromAsset(getAssets(),
+                "fonts/kaiti.ttf");
+		font_apple=Typeface.createFromAsset(getAssets(),
+				"fonts/apple.ttf");
+		font_yahei=Typeface.createFromAsset(getAssets(),
+				"fonts/yahei.ttf");
+		
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_main_tab);
 		
@@ -103,7 +115,7 @@ implements MoreListFragment.Callbacks, ClassicsListFragment.Callbacks ,OnClickLi
 		String uid = sp.getString("uid", "anonymous");
 		//设置用户名
 		LoginActivity.uid=uid;
-
+		
 
 		// 引导页
 
@@ -137,6 +149,7 @@ implements MoreListFragment.Callbacks, ClassicsListFragment.Callbacks ,OnClickLi
 		main_tab_pager.setCurrentItem(position);
 
 		tv_title.setText(mtpa.getTitles().get(position));
+		tv_title.setTypeface(font_apple);
 		main_tab_pager.setOnPageChangeListener(getOnPageChangeListener());
 	}
 
@@ -317,6 +330,7 @@ implements MoreListFragment.Callbacks, ClassicsListFragment.Callbacks ,OnClickLi
 				break;
 
 			case R.id.wdsc:
+			case R.id.wodeshouchang:
 				//收藏
 				if (mtc.checkCollectedDataExist()) {
 					intent = new Intent(this, TopicActivity.class);
@@ -327,8 +341,9 @@ implements MoreListFragment.Callbacks, ClassicsListFragment.Callbacks ,OnClickLi
 				}
 				break;
 			case R.id.wdct:
+			case R.id.wodecuoti:
 				//我的错题
-				if (mtc.checkCollectedDataExist()) {
+				if (mtc.checkWrongDataExist()) {
 					intent = new Intent(this, TopicActivity.class);
 					intent.putExtra("mode", TopicController.MODE_WRONG_TOPIC);
 					startActivity(intent);
@@ -337,6 +352,7 @@ implements MoreListFragment.Callbacks, ClassicsListFragment.Callbacks ,OnClickLi
 				}
 				break;
 			case R.id.ksjl:
+				
 				//考试记录
 				intent = new Intent(this, RecordActivity.class);
 				startActivity(intent);
@@ -365,6 +381,13 @@ implements MoreListFragment.Callbacks, ClassicsListFragment.Callbacks ,OnClickLi
 				intent.putExtra("url", "http://m.gdgdpowerfly.webportal.cc");
 				startActivity(intent);
 				break;
+				
+			
+				
+				 
+			
+				 
+				
 			
 			}
 			
@@ -417,6 +440,9 @@ implements MoreListFragment.Callbacks, ClassicsListFragment.Callbacks ,OnClickLi
 			public void onPageSelected(int position) {
 				// TODO Auto-generated method stub
 				tv_title.setText(mtpa.getTitles().get(position));
+				tv_title.setTextSize(20);
+				tv_title.setTextColor(Color.BLACK);
+				tv_title.setTypeface(font_apple);
 				main_tab_icon_indicator.setCurrentItem(position);
 			}
 

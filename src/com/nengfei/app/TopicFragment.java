@@ -4,8 +4,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.nengfei.adapter.TopicFragmentCallBacks;
+import com.nengfei.backup.SleepTask;
 import com.nengfei.controller.TopicController;
 import com.nengfei.project.ProjectConfig;
+import com.nengfei.util.CallBack;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -117,7 +119,9 @@ public class TopicFragment extends Fragment {
 		topicLayout.setOrientation(LinearLayout.VERTICAL);
 		// 题目生成
 		final TextView tv_topic = new TextView(context);
-		tv_topic.setTextSize(24);
+		tv_topic.setPadding(4, 5, 4, 5);
+		tv_topic.setTextSize(20);
+		tv_topic.setTypeface(MainTabActivity.font_apple);
 		tv_topic.setText(String.valueOf(mPosition + 1) + "."
 				+ String.valueOf(dataMap.get("question")));
 		topicLayout.addView(tv_topic, lp);
@@ -138,8 +142,10 @@ public class TopicFragment extends Fragment {
 		switch (type) {
 		// 选择题
 		case TopicController.TYPE_CHOICE: {
+			 
+			
 			RadioButton[] rbs = new RadioButton[4];
-			for (int i = 0; i < 4; i++) {
+			for (int i = 0; i < 3; i++) {
 				rbs[i] = new RadioButton(context);
 			 
 				rbs[i].setButtonDrawable(R.drawable.radio);
@@ -147,10 +153,14 @@ public class TopicFragment extends Fragment {
 						+ "."
 						+ String.valueOf(dataMap.get(topicController
 								.getItemValue(orderMap.get(PRESUFFIX[i])))));
+				 
+				rbs[i].setTypeface(MainTabActivity.font_yahei);
 				rg_topic.addView(rbs[i], lp);
 			}
 			break;
 		}
+		 
+				 
 		// 判断题
 		case TopicController.TYPE_RW: {
 			RadioButton[] rbs = new RadioButton[2];
@@ -160,6 +170,7 @@ public class TopicFragment extends Fragment {
 						+ "."
 						+ String.valueOf(dataMap.get(topicController
 								.getItemValue(orderMap.get(PRESUFFIX[i])))));
+				rbs[i].setTypeface(MainTabActivity.font_yahei);
 				rg_topic.addView(rbs[i], lp);
 			}
 			break;
@@ -211,10 +222,19 @@ public class TopicFragment extends Fragment {
 					topicController.addRightCount(topicController
 							.getDaoId(mPosition + 1));
 					tempRb.setTextColor(Color.GREEN);
-					snapToScreen(mPosition + 1);
-					if (topicMode == TopicController.MODE_PRACTICE_TEST) {
-						topicController.countRight();
-					}
+					new SleepTask(getActivity(), rg_topic, new CallBack(){
+
+						@Override
+						public String done(boolean b) {
+							// TODO Auto-generated method stub
+							snapToScreen(mPosition + 1);
+							if (topicMode == TopicController.MODE_PRACTICE_TEST) {
+								topicController.countRight();
+							}
+							return null;
+						}}).execute();
+					 
+					
 				}
 				// 选择错误时处理
 				else {
@@ -225,7 +245,15 @@ public class TopicFragment extends Fragment {
 					if (topicMode == TopicController.MODE_PRACTICE_TEST) {
 						topicController.countWrong();
 						tempRb.setTextColor(Color.GREEN);
-						snapToScreen(mPosition + 1);
+						new SleepTask(getActivity(), rg_topic, new CallBack(){
+
+							@Override
+							public String done(boolean b) {
+								// TODO Auto-generated method stub
+								snapToScreen(mPosition + 1);
+								return null;
+							}}).execute();
+						
 					} else {
 						tempRb.setTextColor(Color.RED);
 						topicController.getCorrectRadioButton(rg_topic,
@@ -238,7 +266,7 @@ public class TopicFragment extends Fragment {
 				}
 			}
 		});
-
+		
 		topicLayout.addView(rg_topic, lp);
 		if (ProjectConfig.TOPIC_EXPLAIN_SHOW) {
 			TextView tv_explain = new TextView(context);

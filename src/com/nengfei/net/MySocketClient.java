@@ -33,9 +33,9 @@ public class MySocketClient {
     private MySocketClient() {
         try {
            
-          //  String ip = "nengfei.date";
-        	String ip="192.168.1.203";
-            Log.i("ipp", ip);
+            String ip = "nengfei.date";
+        	//String ip="127.0.0.1";
+           
             socket = new Socket(ip, 6000);
 
             socket.setSoTimeout(120000);

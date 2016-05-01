@@ -62,7 +62,7 @@
         <item name="more">更多</item>
     </string-array>
     <string-array name="db_list">
-        <item name="db1">data.db</item>
+        <item name="db1">zh2.db</item>
         <item name="db2">zh.db</item>
     </string-array>
     <!-- 统计 -->
@@ -149,7 +149,7 @@
 		
        
         <item name="more_copyright">" "软件名:无人机驾校宝典\n
-				"       "版本号：2.0.9911\n
+				版本号：2.0.9911\n
 	 
 	Copyright © 2016-2021, 能飞科技,All Rights Reserved .\n
 	</item>
@@ -162,8 +162,8 @@
 
     <!-- Share Friend -->
     <string name="share_friend">分享给好友</string>
-    <string name="share_app_to_friend">感觉还不错，推荐给好友~</string>
-    <string name="recommendation">我正在使用能飞无人机考试练习系统，感觉还不错，下载地址：http://www.baidu.com</string>
+    <string name="share_app_to_friend">我要分享</string>
+    <string name="recommendation">我正在使用能飞无人机驾校宝典，感觉还不错，下载地址：http://android.myapp.com/myapp/detail.htm?apkName=com.nengfei.app</string>
     <string name="thanks_for_recommend">谢谢您的推荐</string>
     <!-- 登陆注册 -->
     <string name="idtxthint">手机号码</string>

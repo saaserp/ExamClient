@@ -41,11 +41,14 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/wodecuoti"
                 android:layout_width="0dp"
                 android:layout_height="fill_parent"
                 android:layout_marginLeft="2dp"
                 android:layout_weight="1"
                 android:background="@drawable/bg_selector"
+                android:clickable="true"
+                android:onClick="onClick"
                 android:orientation="vertical"
                 android:paddingLeft="5dp"
                 android:paddingTop="5dp" >
@@ -96,12 +99,15 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/wodeshouchang"
                 android:layout_width="0dp"
                 android:layout_height="fill_parent"
                 android:layout_marginLeft="2dp"
                 android:layout_marginTop="2dp"
                 android:layout_weight="1"
                 android:background="@drawable/bg_selector"
+                android:clickable="true"
+                android:onClick="onClick"
                 android:orientation="vertical"
                 android:paddingLeft="5dp"
                 android:paddingTop="5dp" >

@@ -3,6 +3,8 @@
     android:id="@+id/LinearLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
+    
     android:orientation="vertical" >
 
     <include
@@ -13,6 +15,7 @@
         layout="@layout/layout_title_style_1" />
 
     <LinearLayout
+        android:background="@color/white"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="9" >
@@ -223,7 +226,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/detail_text_score"
                         android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:textSize="40sp" />
+                        android:textSize="25sp" />
 
                     <TextView
                         android:id="@+id/detail_score"
@@ -246,7 +249,8 @@
         android:layout_height="0dp"
         android:textColor="@color/white"
         android:layout_weight="1"
-        android:background="@drawable/btn3_selector"
+        android:layout_margin="5dp"
+        android:background="@drawable/btn1_selector"
         android:onClick="deleteRecord"
         android:text="@string/clear_record" />
 

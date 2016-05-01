@@ -27,8 +27,16 @@ public class GetDataTask extends AsyncTask<Void, Void, Boolean> {
 	Context context;
 	CallBack cb;
 	ProgressDialog pd;
+	public boolean isbackaground=false;
+	public GetDataTask( Context context){
+		isbackaground=true;
+		data = new ArrayList<Map<String, String>>();
+		this.context = context;
+		
+	}
 	public GetDataTask(Context context, CallBack cb) {
 		data = new ArrayList<Map<String, String>>();
+		isbackaground=false;
 		this.context = context;
 		this.cb = cb;
 		pd=new ProgressDialog(context);
@@ -48,78 +56,80 @@ public class GetDataTask extends AsyncTask<Void, Void, Boolean> {
 	protected void onPreExecute() {
 		// TODO Auto-generated method stub
 		super.onPreExecute();
-		
+
 	}
 	int progress=0;
 	Message msg;
 	@Override
 	protected Boolean doInBackground(Void... params) {
 		// TODO Auto-generated method stub
-		
+
 		Map<String, String> map = new HashMap<String, String>();
-		 
+
 		map.put("uid", LoginActivity.uid);
 		map.put("dbName", DBUtil.dbName);
-		 
-	 
+
+
 		String res = MySocketClient.getInstance().send("GetInfo", map);
-		
+		if(!isbackaground){
 		new Thread(new Runnable() {
-			
+
 			@Override
 			public void run() {
 				// TODO Auto-generated method stub
 				while(progress<99){
-					
-				msg=hand.obtainMessage();
-				msg.what=progress;
-				msg.sendToTarget();
-				try {
-					Thread.sleep(200);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+
+					msg=hand.obtainMessage();
+					msg.what=progress;
+					msg.sendToTarget();
+					try {
+						Thread.sleep(200);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 					progress++;
 				}
 			}
 		}){}.start();
-		
+		}
+
 		if (res == null)
 			return false;
-		 
+
 		data=new JSONParser(res).parse();
 		DataSyncService ds = new DataSyncService(context);
 		if (data == null || data.size() == 0) {
-			
+
 			//抹掉所有数据
-			 
+
 			return ds.removeAllRecode();
 		}
-		 
+
 		boolean bb = false;
-		
-		 
+
+
 		List<Map<String, String>> ls;
-	
+
 		for (int i = 0; i < data.size(); i++) {
-				 
-				msg=hand.obtainMessage();
-				msg.what=progress++;
-				msg.sendToTarget();
-				if (data.get(i).get("tableName").equals("ExamResult")) {
-					ls = new JSONParser(data.get(i).get("list")).parse();
-					bb = ds.setAllToExamResult(ls);
-				} else if(data.get(i).get("tableName").equals("QuestionBank")) {
-					ls = new JSONParser(data.get(i).get("list")).parse();
-					bb = ds.setAllToQuestion(ls);
-				}else {
-					bb=false;
-				}
-			 
+			if(!isbackaground){
+			msg=hand.obtainMessage();
+			msg.what=progress++;
+			msg.sendToTarget();
+			}
+			if (data.get(i).get("tableName").equals("ExamResult")) {
+				ls = new JSONParser(data.get(i).get("list")).parse();
+				bb = ds.setAllToExamResult(ls);
+			} else if(data.get(i).get("tableName").equals("QuestionBank")) {
+				ls = new JSONParser(data.get(i).get("list")).parse();
+				bb = ds.setAllToQuestion(ls);
+			}else {
+				bb=false;
+			}
+
 		}
-	 
-	 
+
+
 		return bb;
 	}
 
@@ -129,18 +139,22 @@ public class GetDataTask extends AsyncTask<Void, Void, Boolean> {
 		super.onPostExecute(result);
 		if (result) {
 			//Toast.makeText(context, "同步成功", Toast.LENGTH_SHORT).show();
-			 
-			
+
+
 		} else {
-		
+			if(!isbackaground){
 			Toast.makeText(context, "同步失败，请与管理员联系", Toast.LENGTH_SHORT).show();
+			}
 			System.exit(0);
 		}
-		msg=hand.obtainMessage();
-		msg.what=99;
-		msg.sendToTarget();
-		pd.dismiss();
-		cb.done(result);
+		if(!isbackaground){
+			msg=hand.obtainMessage();
+			msg.what=99;
+			msg.sendToTarget();
+			pd.dismiss();
+			cb.done(result);
+		} 
+		
 
 	}
 

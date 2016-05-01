@@ -50,6 +50,7 @@ public class TopicController {
 	public static final int MODE_WRONG_TOPIC = 5;//错题集
 	public static final int MODE_COLLECT = 6;//收藏
 	public static final int TYPE_CHOICE = 1;
+	public static final int TYPE_CHOICE2 = 13;//三个选项的选择题
 	public static final int TYPE_RW = 2;
 
 	//考试
@@ -369,7 +370,7 @@ public class TopicController {
 			tempList.add(1);
 			tempList.add(2);
 			tempList.add(3);
-			tempList.add(4);
+			//tempList.add(4);
 			Random random = new Random();
 			int size = tempList.size();
 			int sizeNumber;
@@ -384,7 +385,10 @@ public class TopicController {
 				size = tempList.size();
 				count++;
 			}
-		} else {
+		} 
+		 
+		
+		else {
 			orderMap.put("A", 1);
 			orderMap.put("B", 2);
 		}

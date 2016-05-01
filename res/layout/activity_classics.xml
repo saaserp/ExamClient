@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_main"
+     android:background="@color/bg_control_panner"
     android:orientation="vertical" >
 
     <include
@@ -13,6 +13,7 @@
         layout="@layout/layout_title_style_1" />
 
     <ScrollView
+        android:background="@color/white"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="9" >
@@ -35,12 +36,13 @@
     </ScrollView>
 
     <Button
+        android:layout_margin="5dp"
         android:id="@+id/btn_classics_show_answer"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:textColor="@color/white"
-        android:background="@drawable/btn5_selector"
+        android:background="@drawable/btn1_selector"
         android:onClick="showAnswer"
         android:text="@string/classics_show_answer" />
 
