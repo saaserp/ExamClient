@@ -135,16 +135,17 @@ public class IconPageIndicator extends HorizontalScrollView implements PageIndic
 		int count = iconAdapter.getCount();
 		WindowManager wm = (WindowManager) getContext().getSystemService(Context.WINDOW_SERVICE);
 		int width = wm.getDefaultDisplay().getWidth();
+		int height=wm.getDefaultDisplay().getHeight();
 		for (int i = 0; i < count; i++) {
 			LinearLayout layout = new LinearLayout(getContext());
 			layout.setOrientation(LinearLayout.VERTICAL);
-			layout.setLayoutParams(new LayoutParams(width / count, LinearLayout.LayoutParams.WRAP_CONTENT));
+			layout.setLayoutParams(new LayoutParams(width / count, LinearLayout.LayoutParams.MATCH_PARENT));
 			layout.setGravity(Gravity.CENTER);
-			layout.setPadding(10, 10, 10, 5);
+			layout.setPadding(10, 2, 2, 5);
 			ImageView view = new ImageView(getContext(), null, R.attr.vpiIconPageIndicatorStyle);
 			view.setImageResource(iconAdapter.getIconResId(i));
 
-			view.setLayoutParams(new LayoutParams(39, 39));
+			view.setLayoutParams(new LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT ));
 
 			TextView txt = new TextView(getContext());
 			txt.setText(iconAdapter.getTextResId(i));
@@ -163,7 +164,7 @@ public class IconPageIndicator extends HorizontalScrollView implements PageIndic
 
 			layout.addView(view);
 			layout.addView(txt);
-
+		
 			mIconsLayout.addView(layout);
 		}
 		if (mSelectedIndex > count) {

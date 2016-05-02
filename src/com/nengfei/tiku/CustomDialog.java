@@ -10,6 +10,8 @@ import com.nengfei.util.DBUtil;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.Color;
+import android.opengl.Visibility;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
@@ -19,6 +21,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class CustomDialog extends Dialog {
 
@@ -147,9 +150,11 @@ public class CustomDialog extends Dialog {
 				 RadioButton tempButton = new RadioButton(context);  
 				  //  tempButton.setBackgroundResource(R.drawable.xxx);   // 设置RadioButton的背景图片  
 				    tempButton.setButtonDrawable(R.drawable.radio);           // 设置按钮的样式  
-				    tempButton.setPadding(80, 0, 0, 0);                 // 设置文字距离按钮四周的距离   
+				    tempButton.setPadding(80, 2, 0, 0);                 // 设置文字距离按钮四周的距离   
 				    tempButton.setText(mp.get("value")); 
 				    tempButton.setId(i++);
+				    tempButton.setTextColor(Color.BLACK);
+				    tempButton.setVisibility(View.VISIBLE);
 				    rg.addView(tempButton, LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT); 
 				    
 				  
@@ -167,7 +172,7 @@ public class CustomDialog extends Dialog {
 				 	 b=false;
 					}else{
 						 DBUtil.dbName= list.get((checkedId%list.size())).get("key");
-						
+						//Toast.makeText(context,list.get((checkedId%list.size())).get("value"), Toast.LENGTH_SHORT).show();
 					}
 				 	 
 					

@@ -88,13 +88,15 @@ public class MoreListFragment extends Fragment implements OnItemClickListener {
 		super.onCreate(savedInstanceState);
 
 	}
-	ArrayList<String> contents ;
+
+	ArrayList<String> contents;
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
 		View view = LayoutInflater.from(getActivity()).inflate(R.layout.activity_more, null);
 		listview = (ListView) view.findViewById(R.id.listview_morelist);
-		contents= new ArrayList<String>();
+		contents = new ArrayList<String>();
 
 		String[] items = getActivity().getResources().getStringArray(R.array.more_items);
 		for (int i = 0; i < items.length; i++) {
@@ -104,11 +106,13 @@ public class MoreListFragment extends Fragment implements OnItemClickListener {
 		contents.add(getActivity().getResources().getString(R.string.share_app_to_friend));
 		contents.add("重新选择题库");
 		// TODO: replace with a real list adapter.
-		//listview.setAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_activated_1,
-			//	android.R.id.text1, contents));
-		
-		listview.setAdapter( new MyTextAdapter(getActivity(), contents));
+		// listview.setAdapter(new ArrayAdapter<String>(getActivity(),
+		// android.R.layout.simple_list_item_activated_1,
+		// android.R.id.text1, contents));
+
+		listview.setAdapter(new MyTextAdapter(getActivity(), contents));
 		listview.setOnItemClickListener(this);
+		listview.setPadding(0, 5, 0, 0);
 		view.findViewById(R.id.exit).setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -145,7 +149,6 @@ public class MoreListFragment extends Fragment implements OnItemClickListener {
 
 						getActivity().startActivity(new Intent(getActivity(), LoginActivity.class));
 
-						
 					} else {
 
 						new PullDataTask(getActivity(), new CallBack() {
@@ -160,9 +163,7 @@ public class MoreListFragment extends Fragment implements OnItemClickListener {
 											.putString("uid", "anonymous").commit();
 									getActivity().startActivity(new Intent(getActivity(), LoginActivity.class));
 									LoginActivity.uid = "";
-									
-									
-									
+
 								} else {
 									Toast.makeText(getActivity(), "无法退出当前账户", Toast.LENGTH_SHORT).show();
 								}
@@ -175,7 +176,7 @@ public class MoreListFragment extends Fragment implements OnItemClickListener {
 				}
 			}
 		});
-		
+
 		return view;
 
 	}

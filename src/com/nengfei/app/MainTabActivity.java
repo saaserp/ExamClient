@@ -125,8 +125,8 @@ implements MoreListFragment.Callbacks, ClassicsListFragment.Callbacks ,OnClickLi
 
 		main_tab_pager = (ViewPager) findViewById(R.id.main_tab_pager);
 		main_tab_icon_indicator = (IconPageIndicator) findViewById(R.id.main_tab_icon_indicator);
-		main_tab_icon_indicator.setBackgroundResource(R.drawable.zx);
-
+		//main_tab_icon_indicator.setBackgroundResource(R.drawable.zx);
+		main_tab_icon_indicator.setBackgroundColor(Color.WHITE);
 		mtpa = mtc.getPagerAdapter(getSupportFragmentManager());
 		main_tab_pager.setAdapter(mtpa);
 

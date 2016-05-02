@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
      android:background="@color/bg_control_panner"
+    
     android:orientation="vertical" >
 
     <include
@@ -13,6 +14,7 @@
         layout="@layout/layout_title_style_1" />
 
     <ScrollView
+         android:layout_marginTop="15dp"
         android:background="@color/white"
         android:layout_width="match_parent"
         android:layout_height="0dp"
