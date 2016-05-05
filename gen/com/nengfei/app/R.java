@@ -253,6 +253,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int edit_regist_code=0x7f0a0031;
         public static final int exit=0x7f0a0029;
         public static final int guidance_vp=0x7f0a0019;
+        public static final int host=0x7f0a007c;
         public static final int ib_seek_cancel=0x7f0a007b;
         public static final int ib_seek_ok=0x7f0a007a;
         public static final int image=0x7f0a0065;
@@ -273,7 +274,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int listview_userid=0x7f0a0068;
         public static final int ll=0x7f0a001a;
         public static final int ll_share=0x7f0a0034;
-        public static final int ll_statistics=0x7f0a007c;
+        public static final int ll_statistics=0x7f0a007d;
         public static final int login_btnLogin=0x7f0a0024;
         public static final int login_delete_user=0x7f0a0069;
         public static final int login_edtId=0x7f0a0021;
@@ -289,7 +290,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int message=0x7f0a0043;
         public static final int mnks=0x7f0a004a;
         public static final int negativeButton=0x7f0a0045;
-        public static final int pcv_statistics=0x7f0a007d;
+        public static final int pcv_statistics=0x7f0a007e;
         public static final int point_1=0x7f0a001b;
         public static final int point_2=0x7f0a001c;
         public static final int point_3=0x7f0a001d;
@@ -383,8 +384,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int mainpage=0x7f030028;
         public static final int page_main_exam=0x7f030029;
         public static final int popup_window_seek=0x7f03002a;
-        public static final int tap_statistics=0x7f03002b;
-        public static final int userifo_listview=0x7f03002c;
+        public static final int table_static=0x7f03002b;
+        public static final int tap_statistics=0x7f03002c;
+        public static final int userifo_listview=0x7f03002d;
     }
     public static final class string {
         public static final int action_settings=0x7f080001;

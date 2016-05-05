@@ -12,7 +12,7 @@
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
  
-       
+       	android:textSize="14sp" 
         android:textColor="@color/black"
         android:contentDescription="@string/title_image_description"
         android:drawableLeft="@drawable/btn_back_selector"
@@ -28,6 +28,6 @@
         android:layout_centerInParent="true"
         android:textColor="@color/black"
         android:textIsSelectable="false"
-        android:textSize="24sp" />
+        android:textSize="14sp" />
 
 </RelativeLayout>

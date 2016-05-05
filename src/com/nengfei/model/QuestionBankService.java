@@ -156,8 +156,14 @@ public class QuestionBankService extends CommonEntryDao {
 	}
 
 	public int getCollectedFlag(Context context, int id) {
-		return (Integer) super.getEntry(context, "_id=" + id).get(
+		int flag=0;
+		try{
+		flag=(Integer) super.getEntry(context, "_id=" + id).get(
 				"collectedFlag");
+		}catch(NullPointerException e){
+			flag=0;
+		}
+		return flag;
 	}
 
 	public void setCollectedFlag(Context context, int id) {

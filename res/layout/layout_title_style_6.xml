@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
+        android:textSize="14sp" 
         android:layout_marginLeft="5dp"
         android:clickable="true"
         android:contentDescription="@string/title_image_description"
@@ -27,7 +28,7 @@
         android:layout_centerInParent="true"
        android:textColor="@color/black"
         android:textIsSelectable="false"
-        android:textSize="24sp" />
+        android:textSize="14sp"  />
 
     <TextView
         android:layout_width="wrap_content"
@@ -37,7 +38,7 @@
         android:clickable="true"
         android:onClick="regist"
         android:paddingRight="10dp"
-        android:textSize="22dp"
+        android:textSize="14sp" 
         android:text="注册"
         android:textColor="@color/red"
         android:textIsSelectable="false" />

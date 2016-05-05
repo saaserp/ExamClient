@@ -18,6 +18,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.RadioButton;
@@ -109,24 +110,55 @@ public class TopicFragment extends Fragment {
 		outState.putInt(KEY_POSITION, mPosition);
 	}
 
+	public int getDrawableID(String name){
+		Class<com.nengfei.app.R.drawable> cls = R.drawable.class;  
+		int value = 0 ;
+		try {  
+			value= cls.getDeclaredField(name).getInt(null); 
+		}catch(Exception e){
+
+		}
+		return value;
+
+	}
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		LayoutParams lp = new LinearLayout.LayoutParams(
 				LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+		LayoutParams lp1 = new LinearLayout.LayoutParams(
+				LayoutParams.MATCH_PARENT, 25);
 		ScrollView scrollView = new ScrollView(context);
 		LinearLayout topicLayout = new LinearLayout(context);
 		topicLayout.setOrientation(LinearLayout.VERTICAL);
 		// 题目生成
 		final TextView tv_topic = new TextView(context);
-		tv_topic.setPadding(4, 5, 4, 5);
-		tv_topic.setTextSize(20);
+		tv_topic.setPadding(8, 5, 8,10);
+		tv_topic.setTextSize(18);
 		tv_topic.setTypeface(MainTabActivity.font_apple);
-		tv_topic.setText(String.valueOf(mPosition + 1) + "."
-				+ String.valueOf(dataMap.get("question")));
-		topicLayout.addView(tv_topic, lp);
-		final LinearLayout explainLayout = new LinearLayout(context);
+		String timusrc=String.valueOf(mPosition + 1) + "."
+				+ String.valueOf(dataMap.get("question"));
+		String img;
+		String timu;
+		int imgPostion=timusrc.indexOf("[img]=");
+		ImageView imageView=new ImageView(context);
+		if(imgPostion!=-1){
+			timu=timusrc.substring(0, imgPostion);
+			img=timusrc.substring(imgPostion+6);
+			imageView.setImageResource(getDrawableID(img));
+			tv_topic.setText(timu);
+			topicLayout.addView(tv_topic, lp);
+			topicLayout.addView(imageView,lp);
+		}else{
+			timu=timusrc;
+			tv_topic.setText(timu);
+			topicLayout.addView(tv_topic, lp);
+		}
 
+
+
+		final LinearLayout explainLayout = new LinearLayout(context);
+		 
 		// 根据题型形成选项
 		int type = Integer.valueOf(String.valueOf(dataMap.get("type")));
 		HashMap<String, Integer> savedOrderMap = topicController
@@ -142,25 +174,29 @@ public class TopicFragment extends Fragment {
 		switch (type) {
 		// 选择题
 		case TopicController.TYPE_CHOICE: {
-			 
-			
+
+
 			RadioButton[] rbs = new RadioButton[4];
 			for (int i = 0; i < 3; i++) {
 				rbs[i] = new RadioButton(context);
-			 
+
 				rbs[i].setButtonDrawable(R.drawable.radio);
+				 
 				rbs[i].setText(PRESUFFIX[i]
 						+ "."
 						+ String.valueOf(dataMap.get(topicController
 								.getItemValue(orderMap.get(PRESUFFIX[i])))));
-				 
+				
 				rbs[i].setTypeface(MainTabActivity.font_yahei);
+				 
+								
 				rg_topic.addView(rbs[i], lp);
+				 
 			}
 			break;
 		}
-		 
-				 
+
+
 		// 判断题
 		case TopicController.TYPE_RW: {
 			RadioButton[] rbs = new RadioButton[2];
@@ -171,7 +207,9 @@ public class TopicFragment extends Fragment {
 						+ String.valueOf(dataMap.get(topicController
 								.getItemValue(orderMap.get(PRESUFFIX[i])))));
 				rbs[i].setTypeface(MainTabActivity.font_yahei);
+				
 				rg_topic.addView(rbs[i], lp);
+				 
 			}
 			break;
 		}
@@ -186,7 +224,7 @@ public class TopicFragment extends Fragment {
 			}
 			topicController.getCorrectRadioButton(rg_topic, orderMap,
 					(String) dataMap.get("answer")).setTextColor(
-					Color.GREEN);
+							Color.GREEN);
 			topicController.setRadioButtonState(rg_topic, false);
 		}else{
 			// 已答
@@ -198,12 +236,12 @@ public class TopicFragment extends Fragment {
 				} else {
 					topicController.getCorrectRadioButton(rg_topic, orderMap,
 							(String) dataMap.get("answer")).setTextColor(
-							Color.GREEN);
+									Color.GREEN);
 				}
 				topicController.setRadioButtonState(rg_topic, false);
 			}
 		}
-		
+
 		// 单选框绑定事件
 		rg_topic.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 			@Override
@@ -214,7 +252,7 @@ public class TopicFragment extends Fragment {
 				String tempString = tempRb.getText().toString();
 				tempString = tempString.substring(0, tempString.indexOf("."));
 				topicController.setSelecetedChoice(mPosition, tempString);
-				
+
 				// 选择正确时处理
 				if (String.valueOf(orderMap.get(tempString)).equals(
 						dataMap.get("answer"))) {
@@ -233,8 +271,8 @@ public class TopicFragment extends Fragment {
 							}
 							return null;
 						}}).execute();
-					 
-					
+
+
 				}
 				// 选择错误时处理
 				else {
@@ -253,12 +291,12 @@ public class TopicFragment extends Fragment {
 								snapToScreen(mPosition + 1);
 								return null;
 							}}).execute();
-						
+
 					} else {
 						tempRb.setTextColor(Color.RED);
 						topicController.getCorrectRadioButton(rg_topic,
 								orderMap, (String) dataMap.get("answer"))
-								.setTextColor(Color.GREEN);
+						.setTextColor(Color.GREEN);
 						if (ProjectConfig.TOPIC_EXPLAIN_SHOW){
 							explainLayout.setVisibility(LinearLayout.VISIBLE);
 						}		
@@ -266,7 +304,7 @@ public class TopicFragment extends Fragment {
 				}
 			}
 		});
-		
+
 		topicLayout.addView(rg_topic, lp);
 		if (ProjectConfig.TOPIC_EXPLAIN_SHOW) {
 			TextView tv_explain = new TextView(context);

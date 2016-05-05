@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="5dp"
+        android:textSize="14sp" 
         android:layout_centerVertical="true"
         android:clickable="true"
         android:contentDescription="@string/title_image_description"
@@ -26,6 +27,6 @@
         android:layout_centerInParent="true"
         android:textColor="@color/black"
         android:textIsSelectable="false"
-        android:textSize="24sp" />
+        android:textSize="14sp" />
 
 </RelativeLayout>

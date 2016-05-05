@@ -102,7 +102,7 @@ public class BaseDao  {
 	private Map<String, Object> getMapByCursor(Cursor cursor)
 	{
 		ArrayList<?> mapList = getMapListByCursor(cursor);
-		if (mapList.isEmpty()) {
+		if (mapList.isEmpty()||mapList.size()==0) {
 			return null;
 		}
 		return (Map<String, Object>)mapList.get(0);

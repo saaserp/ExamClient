@@ -3,20 +3,16 @@
     android:id="@+id/rl_title"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/title_bar_background"
-     
-     >
+    android:background="@drawable/title_bar_background" >
 
-        <TextView
-            android:id="@+id/tv_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-           	android:textSize="20dp"
-            android:textIsSelectable="false"
-             android:textColor="@color/black"
-          />
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textColor="@color/black"
+        android:textIsSelectable="false"
+        android:textSize="14sp"
+        />
 
-        
-
-    </RelativeLayout>
+</RelativeLayout>

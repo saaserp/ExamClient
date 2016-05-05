@@ -15,12 +15,14 @@ public class StatisticsActivity extends TabActivity {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);// 去掉标题栏
-		setContentView(R.layout.activity_statistics);
+		 setContentView(R.layout.activity_statistics);
 
-		TabHost tabHost = getTabHost();
+//		TabHost tabHost = getTabHost();
+		 TabHost tabHost = (TabHost) findViewById(R.id.host);
 		
-		LayoutInflater.from(this).inflate(R.layout.activity_statistics,
-				tabHost.getTabContentView(), true);
+//		LayoutInflater.from(this).inflate(R.layout.table_static,
+//				tabHost.getTabContentView(), true);
+//		LayoutInflater.from(this).inflate(R.layout.table_static, null);
 		intent=new Intent(StatisticsActivity.this, StatisticsTopicTab.class);
 		
 		tabHost.addTab(tabHost.newTabSpec("tab1")

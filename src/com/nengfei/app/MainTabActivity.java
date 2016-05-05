@@ -147,7 +147,7 @@ implements MoreListFragment.Callbacks, ClassicsListFragment.Callbacks ,OnClickLi
 
 		tv_title = (TextView) findViewById(R.id.tv_title);
 		main_tab_pager.setCurrentItem(position);
-
+		tv_title.setTextSize(14);
 		tv_title.setText(mtpa.getTitles().get(position));
 		tv_title.setTypeface(font_apple);
 		main_tab_pager.setOnPageChangeListener(getOnPageChangeListener());
