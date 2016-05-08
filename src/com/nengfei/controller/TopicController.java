@@ -100,9 +100,15 @@ public class TopicController {
 	public void countWrong(){
 		wrongCount++;
 	}
-	
+	public void subWrong(){
+		if(wrongCount>0)
+		wrongCount--;
+	}
 	public void countRight(){
 		rightCount++;
+	}
+	public void subRight(){
+		rightCount--;
 	}
 	public ArrayList<Map<String, Object>> getTopicList() {
 		return topicList;
@@ -251,7 +257,10 @@ public class TopicController {
 		questionBankService.addWrongTime(context, id);
 		questionBankService.setInWrongFlag(context, id);
 	}
-
+	public void RemoveWrongCount(int id) {
+		questionBankService.removeWrongTime(context, id);
+		questionBankService.setBackInWrongFlag(context, id);
+	}
 	public String getAnswer(int id) {
 		return questionBankService.getAnswer(context, id);
 	}
@@ -335,6 +344,7 @@ public class TopicController {
 			RadioButton rb_item2 = (RadioButton) rg.getChildAt(1);
 			rb_item1.setEnabled(bl);
 			rb_item2.setEnabled(bl);
+			 
 			break;
 		}
 		case 4: {
@@ -346,6 +356,7 @@ public class TopicController {
 			rb_item2.setEnabled(bl);
 			rb_item3.setEnabled(bl);
 			rb_item4.setEnabled(bl);
+			 
 			break;
 		}
 		default:

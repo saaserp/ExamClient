@@ -127,7 +127,7 @@ public class TopicFragment extends Fragment {
 		LayoutParams lp = new LinearLayout.LayoutParams(
 				LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
 		LayoutParams lp1 = new LinearLayout.LayoutParams(
-				LayoutParams.MATCH_PARENT, 25);
+				LayoutParams.WRAP_CONTENT, 90);
 		ScrollView scrollView = new ScrollView(context);
 		LinearLayout topicLayout = new LinearLayout(context);
 		topicLayout.setOrientation(LinearLayout.VERTICAL);
@@ -158,7 +158,7 @@ public class TopicFragment extends Fragment {
 
 
 		final LinearLayout explainLayout = new LinearLayout(context);
-		 
+
 		// 根据题型形成选项
 		int type = Integer.valueOf(String.valueOf(dataMap.get("type")));
 		HashMap<String, Integer> savedOrderMap = topicController
@@ -181,17 +181,17 @@ public class TopicFragment extends Fragment {
 				rbs[i] = new RadioButton(context);
 
 				rbs[i].setButtonDrawable(R.drawable.radio);
-				 
+
 				rbs[i].setText(PRESUFFIX[i]
 						+ "."
 						+ String.valueOf(dataMap.get(topicController
 								.getItemValue(orderMap.get(PRESUFFIX[i])))));
-				
+
 				rbs[i].setTypeface(MainTabActivity.font_yahei);
-				 
-								
-				rg_topic.addView(rbs[i], lp);
-				 
+
+
+				rg_topic.addView(rbs[i], lp1);
+
 			}
 			break;
 		}
@@ -207,9 +207,9 @@ public class TopicFragment extends Fragment {
 						+ String.valueOf(dataMap.get(topicController
 								.getItemValue(orderMap.get(PRESUFFIX[i])))));
 				rbs[i].setTypeface(MainTabActivity.font_yahei);
-				
-				rg_topic.addView(rbs[i], lp);
-				 
+
+				rg_topic.addView(rbs[i], lp1);
+
 			}
 			break;
 		}
@@ -242,33 +242,78 @@ public class TopicFragment extends Fragment {
 			}
 		}
 
+
 		// 单选框绑定事件
 		rg_topic.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 			@Override
 			public void onCheckedChanged(RadioGroup group, int checkedId) {
+
+
 				topicController.setSelectedFlag(mPosition, true);
 				RadioButton tempRb = (RadioButton) activity
 						.findViewById(checkedId);
 				String tempString = tempRb.getText().toString();
 				tempString = tempString.substring(0, tempString.indexOf("."));
-				topicController.setSelecetedChoice(mPosition, tempString);
+
+				String oldChoice="";
+				try{
+					oldChoice=topicController.getSelecetedChoice(mPosition);
+				}catch(Exception e){
+					oldChoice="";
+				}finally {
+					if(oldChoice==null){
+						oldChoice="";
+					}
+				}
 
 				// 选择正确时处理
 				if (String.valueOf(orderMap.get(tempString)).equals(
 						dataMap.get("answer"))) {
+
+
+
 					topicController.setRadioButtonState(rg_topic, false);
 					topicController.addRightCount(topicController
 							.getDaoId(mPosition + 1));
 					tempRb.setTextColor(Color.GREEN);
+					if (topicMode == TopicController.MODE_PRACTICE_TEST) {
+						int code=-1;
+						try{
+							code=orderMap.get(oldChoice);
+						}catch(Exception e){
+							code=-1;
+						}
+
+
+						if((String.valueOf(code)).equals(dataMap.get("answer"))){
+							//上次对了， 这次也对了
+
+
+						}else{
+							//上次错了，或者是第一次做，这次对了
+							if(code==-1){
+								//code==-1表示是第一次做
+
+								topicController.countRight();
+								
+							}else{
+								//不是第一次做，上次错了，这次对了
+								topicController.RemoveWrongCount(topicController
+										.getDaoId(mPosition + 1));
+								topicController.subWrong();
+								topicController.countRight();
+							}
+						}
+
+					}
+
 					new SleepTask(getActivity(), rg_topic, new CallBack(){
 
 						@Override
 						public String done(boolean b) {
 							// TODO Auto-generated method stub
 							snapToScreen(mPosition + 1);
-							if (topicMode == TopicController.MODE_PRACTICE_TEST) {
-								topicController.countRight();
-							}
+
 							return null;
 						}}).execute();
 
@@ -278,19 +323,50 @@ public class TopicFragment extends Fragment {
 				else {
 					// 比较选项和正确答案
 					topicController.setRadioButtonState(rg_topic, false);
-					topicController.addWrongCount(topicController
-							.getDaoId(mPosition + 1));
+
 					if (topicMode == TopicController.MODE_PRACTICE_TEST) {
-						topicController.countWrong();
+						int code=-1;
+						try{
+							code=orderMap.get(oldChoice);
+						}catch(Exception e){
+							code=-1;
+						}
+
+
+						if((String.valueOf(code)).equals(dataMap.get("answer"))){
+							//上次对了， 这次做错了
+							
+							
+							//错的++
+							topicController.addWrongCount(topicController
+									.getDaoId(mPosition + 1));
+							topicController.countWrong();
+
+							//对的--
+							topicController.subRight();
+						}else{
+							//上次错了，或者第一次，这次错了
+							if(code==-1){
+								//第一次来
+								topicController.countWrong();
+								topicController.addWrongCount(topicController
+										.getDaoId(mPosition + 1));
+							}
+
+						}
+
 						tempRb.setTextColor(Color.GREEN);
+
 						new SleepTask(getActivity(), rg_topic, new CallBack(){
 
 							@Override
 							public String done(boolean b) {
 								// TODO Auto-generated method stub
 								snapToScreen(mPosition + 1);
+
 								return null;
 							}}).execute();
+
 
 					} else {
 						tempRb.setTextColor(Color.RED);
@@ -302,7 +378,11 @@ public class TopicFragment extends Fragment {
 						}		
 					}
 				}
+
+
+				topicController.setSelecetedChoice(mPosition, tempString);
 			}
+
 		});
 
 		topicLayout.addView(rg_topic, lp);

@@ -37,6 +37,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0"
+                               android:textSize="14dp"
                     android:textColor="@color/black" />
             </LinearLayout>
 
@@ -64,6 +65,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0"
+                            android:textSize="14dp"
                     android:textColor="#ff0000" />
             </LinearLayout>
         </LinearLayout>
@@ -88,6 +90,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="已做题"
+                   
                     android:textColor="@color/black" />
 
                 <TextView
@@ -95,6 +98,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0"
+                     android:textSize="14dp"
                     android:textColor="#999999" />
             </LinearLayout>
 
@@ -123,6 +127,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="0"
+                     android:textSize="14dp"
                     android:textColor="#00ff00" />
             </LinearLayout>
         </LinearLayout>

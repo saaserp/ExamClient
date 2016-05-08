@@ -9,7 +9,7 @@ public class DBHelper extends SQLiteOpenHelper
 	private static String dbName;
 	private static String olddb="";
   @SuppressWarnings("unused")
-private static final int VERSION = 5;
+private static final int VERSION = 6;
   private static SQLiteDatabase db = null;
 
   static SQLiteDatabase openOrGetDB(Context context,String mdbName) {

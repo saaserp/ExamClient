@@ -2,7 +2,6 @@ package com.nengfei.login;
 
 import java.util.ArrayList;
 import java.util.Map;
-import java.util.Set;
 
 import com.nengfei.app.R;
 import com.nengfei.backup.GetDataTask;
@@ -10,7 +9,6 @@ import com.nengfei.parse.LoginTask;
 import com.nengfei.parse.TaskCallBack;
 import com.nengfei.regist.RegistActivity;
 import com.nengfei.util.CallBack;
-import com.nengfei.util.NetWorkUtil;
 import com.nengfei.util.Tools;
 
 import android.app.Activity;
@@ -18,7 +16,6 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.DisplayMetrics;
@@ -41,8 +38,6 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.PopupWindow.OnDismissListener;
-import cn.jpush.android.api.JPushInterface;
-import cn.jpush.android.api.TagAliasCallback;
 import android.widget.TextView;
 import android.widget.Toast;
 

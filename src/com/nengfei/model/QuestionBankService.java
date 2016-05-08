@@ -114,7 +114,7 @@ public class QuestionBankService extends CommonEntryDao {
 			backList.add(tempList.get(sizeNumber));
 			tempList.remove(sizeNumber);
 			size = tempList.size();
-			if (count == 50) {
+			if (count == 100) {
 				break;
 			}
 			count++;
@@ -150,7 +150,17 @@ public class QuestionBankService extends CommonEntryDao {
 		String whereClause = "_id=" + id;
 		super.update(context, setValues, whereClause);
 	}
-	 
+	public void removeWrongTime(Context context, int id) {
+		ContentValues setValues = new ContentValues();
+		int useId = (Integer) super.getEntry(context, "_id=" + id).get(
+				"wrongTime");
+		setValues.put("wrongTime", useId -1);
+		useId = (Integer) super.getEntry(context, "_id=" + id).get(
+				"answeredTime");
+		setValues.put("answeredTime", useId -1);
+		String whereClause = "_id=" + id;
+		super.update(context, setValues, whereClause);
+	} 
 	public String getAnswer(Context context, int id) {
 		return (String) super.getEntry(context, "_id=" + id).get("answer");
 	}
@@ -186,7 +196,12 @@ public class QuestionBankService extends CommonEntryDao {
 		String whereClause = "_id=" + id;
 		super.update(context, setValues, whereClause);
 	}
-
+	public void setBackInWrongFlag(Context context, int id) {
+		ContentValues setValues = new ContentValues();
+		setValues.put("inWrongFlag", 0);
+		String whereClause = "_id=" + id;
+		super.update(context, setValues, whereClause);
+	}
 	public void resetInWrongFlag(Context context, int id) {
 		ContentValues setValues = new ContentValues();
 		setValues.put("inWrongFlag", 0);
