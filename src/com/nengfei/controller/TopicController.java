@@ -70,7 +70,7 @@ public class TopicController {
 		itemMap.put(1, "opt1");
 		itemMap.put(2, "opt2");
 		itemMap.put(3, "opt3");
-		itemMap.put(4, "opt4");
+		//itemMap.put(4, "opt4");
 
 		totalTopicItemsMap = new HashMap<Integer, HashMap<String, Integer>>();
 		selecetedChoice = new HashMap<Integer, String>();
@@ -374,28 +374,46 @@ public class TopicController {
 //		return examResultService.getThisTestScore();
 //	}
 
+//	public HashMap<String, Integer> getOrderMap(int topicType) {
+//		HashMap<String, Integer> orderMap = new HashMap<String, Integer>();
+//		ArrayList<Integer> tempList = new ArrayList<Integer>();
+//		if (topicType == TYPE_CHOICE) {
+//			tempList.add(1);
+//			tempList.add(2);
+//			tempList.add(3);
+//			//tempList.add(4);
+//			Random random = new Random();
+//			int size = tempList.size();
+//			int sizeNumber;
+//			int tempInt;
+//			int count = 1;
+//			while (size > 0) {
+//				sizeNumber = random.nextInt(size);
+//				tempInt = count + 64;
+//				orderMap.put(String.valueOf((char) tempInt),
+//						tempList.get(sizeNumber));
+//				tempList.remove(sizeNumber);
+//				size = tempList.size();
+//				count++;
+//			}
+//		} 
+//		 
+//		
+//		else {
+//			orderMap.put("A", 1);
+//			orderMap.put("B", 2);
+//		}
+//
+//		return orderMap;
+//	}
 	public HashMap<String, Integer> getOrderMap(int topicType) {
 		HashMap<String, Integer> orderMap = new HashMap<String, Integer>();
 		ArrayList<Integer> tempList = new ArrayList<Integer>();
 		if (topicType == TYPE_CHOICE) {
-			tempList.add(1);
-			tempList.add(2);
-			tempList.add(3);
-			//tempList.add(4);
-			Random random = new Random();
-			int size = tempList.size();
-			int sizeNumber;
-			int tempInt;
-			int count = 1;
-			while (size > 0) {
-				sizeNumber = random.nextInt(size);
-				tempInt = count + 64;
-				orderMap.put(String.valueOf((char) tempInt),
-						tempList.get(sizeNumber));
-				tempList.remove(sizeNumber);
-				size = tempList.size();
-				count++;
-			}
+			orderMap.put("A", 1);
+			orderMap.put("B", 2);
+			orderMap.put("C", 3);
+			
 		} 
 		 
 		
@@ -406,7 +424,6 @@ public class TopicController {
 
 		return orderMap;
 	}
-
 	public String getItemValue(Integer tempInt) {
 		return itemMap.get(tempInt);
 	}

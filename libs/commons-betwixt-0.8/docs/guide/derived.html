@@ -1,0 +1,258 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html><head><title>Derived Beans - Betwixt</title><style type="text/css" media="all">
+          @import url("../style/maven-base.css");
+          
+          @import url("../style/maven-theme.css");@import url("../style/project.css");</style><link rel="stylesheet" href="../style/print.css" type="text/css" media="print"></link><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"></meta><meta name="author" content="Robert Burrell Donkin"></meta><meta name="email" content="rdonkin at apache dot org"></meta></head><body class="composite"><div id="banner"><a href="http://jakarta.apache.org" id="organizationLogo"><img alt="The Apache Software Foundation" src="http://jakarta.apache.org/images/original-jakarta-logo.gif"></img></a><a href="http://jakarta.apache.org/commons/betwixt/" id="projectLogo"><img alt="Betwixt" src="../images/logo.png"></img></a><div class="clear"><hr></hr></div></div><div id="breadcrumbs"><div class="xleft">Last published: 21 December 2006
+                <span class="separator">|</span> Doc for  0.8
+                </div><div class="xright">
+        
+        <a href="http://jakarta.apache.org/commons/" class="externalLink" title="External Link">Jakarta Commons</a>
+      </div><div class="clear"><hr></hr></div></div><div id="leftColumn"><div id="navcolumn"><div id="menuCommons_Betwixt"><h5>Commons Betwixt</h5><ul><li class="none"><a href="../index.html">Overview</a></li><li class="none"><a href="../faq.html">FAQ</a></li><li class="none"><a href="../apidocs/index.html">Javadoc</a></li><li class="none"><a href="../mail-lists.html">Mailing lists</a></li><li class="none"><a href="../team-list.html">Team</a></li><li class="none"><a href="../community.html">Community</a></li><li class="none"><a href="../powered.html">Powered By</a></li><li class="none"><a href="../tasks.html">Tasks</a></li><li class="none"><a href="http://svn.apache.org/viewcvs.cgi/jakarta/commons/proper/betwixt/trunk/" class="externalLink" title="External Link">View SVN</a></li><li class="none"><a href="http://svn.apache.org/repos/asf/jakarta/commons/proper/betwixt/" class="externalLink" title="External Link">SVN</a></li></ul></div><div id="menuUser_guide"><h5>User guide</h5><ul><li class="none"><a href="../guide/start.html">Getting Started</a></li><li class="none"><a href="../guide/binding.html">Binding Beans</a></li><li class="none"><strong><a href="../guide/derived.html">Derived Bindings</a></strong></li><li class="none"><a href="../guide/writing.html">Writing Beans(Advanced)</a></li><li class="none"><a href="../guide/output.html">Outputting The Results</a></li><li class="none"><a href="../guide/reading.html">Reading Beans(Advanced)</a></li><li class="none"><a href="../guide/integration.html">Integrating</a></li><li class="none"><a href="../guide/examples.html">Examples</a></li><li class="none"><a href="../guide/tutorial.html">Tutorial</a></li></ul></div><div id="menuRelease_Documentation"><h5>Release Documentation</h5><ul><li class="none"><a href="http://jakarta.apache.org/commons/betwixt/betwixt-0.7" class="externalLink" title="External Link">0.7</a></li><li class="none"><a href="http://jakarta.apache.org/commons/betwixt/betwixt-0.6" class="externalLink" title="External Link">0.6</a></li><li class="none"><a href="http://jakarta.apache.org/commons/betwixt/betwixt-0.5" class="externalLink" title="External Link">0.5</a></li></ul></div><div id="menuProject_Documentation"><h5>Project Documentation</h5><ul><li class="none"><a href="../index.html">About</a></li><li class="collapsed"><a href="../project-info.html">Project Info</a></li><li class="collapsed"><a href="../maven-reports.html">Project Reports</a></li><li class="none"><a href="http://jakarta.apache.org/commons/charter.html" class="externalLink" title="External Link">Development Process</a></li></ul></div><div id="menuCommons"><h5>Commons</h5><ul><li class="none"><a href="http://jakarta.apache.org/commons/" class="externalLink" title="External Link">Home</a></li><li class="collapsed"><a href="http://jakarta.apache.org/commons/components.html" class="externalLink" title="External Link">Components</a></li><li class="collapsed"><a href="http://jakarta.apache.org/commons/sandbox/index.html" class="externalLink" title="External Link">Sandbox</a></li><li class="collapsed"><a href="http://jakarta.apache.org/commons/dormant/index.html" class="externalLink" title="External Link">Dormant</a></li><li class="none"><a href="http://jakarta.apache.org/commons/volunteering.html" class="externalLink" title="External Link">Volunteering</a></li><li class="none"><a href="http://jakarta.apache.org/commons/patches.html" class="externalLink" title="External Link">Contributing Patches</a></li><li class="none"><a href="http://jakarta.apache.org/commons/building.html" class="externalLink" title="External Link">Building Components</a></li><li class="none"><a href="http://jakarta.apache.org/commons/releases/index.html" class="externalLink" title="External Link">Releasing Components</a></li><li class="none"><a href="http://wiki.apache.org/jakarta-commons/FrontPage" class="externalLink" title="External Link">Wiki</a></li></ul></div><div id="legend"><h5>Legend</h5><ul><li class="externalLink">External Link</li><li class="newWindow">Opens in a new window</li></ul></div><a href="http://maven.apache.org/" title="Built by Maven" id="poweredBy"><img alt="Built by Maven" src="../images/logos/maven-feather.png"></img></a></div></div><div id="bodyColumn"><div class="contentBox"><div class="section"><a name="Derived_Beans"></a><h2>Derived Beans</h2>
+        <div class="subsection"><a name="What_Is_A_Derived_Bean_"></a><h3>What Is A Derived Bean?</h3>
+            <p>
+A derived bean is one whose runtime class differs from the mapped property type
+(as determined during introspection).
+                </p>
+    </div>   
+</div><div class="section"><a name="Specifying_The_Bind_Time_Type"></a><h2>Specifying The Bind Time Type</h2>
+        <div class="subsection"><a name="Using_An_Attribute_To_Specify_Class"></a><h3>Using An Attribute To Specify Class</h3>
+            <p>
+An easy way to specify the class to be loaded is for the class name to be 
+specified by an xml attribute. By default, the <code>className</code> attribute
+(if present) is assumed to contain the name of the class to be loaded. 
+        </p>
+            <p>
+For example the following xml:
+        </p>
+
+    <div class="source"><pre>
+    &lt;Animals&gt; 
+        &lt;animal className='org.apache.commons.betwixt.io.read.FerretBean'&gt; 
+            &lt;call&gt;Dook&lt;/call&gt;
+            &lt;colour&gt;albino&lt;/colour&gt; 
+            &lt;latinName&gt;Mustela putoris furo&lt;/latinName&gt;
+            &lt;name&gt;Lector&lt;/name&gt; 
+        &lt;/animal&gt; 
+        &lt;animal className='org.apache.commons.betwixt.io.read.CatBean'&gt; 
+            &lt;call&gt;Meow&lt;/call&gt;
+            &lt;colour&gt;black&lt;/colour&gt; 
+            &lt;latinName&gt;Felis catus&lt;/latinName&gt;
+            &lt;name&gt;Sam&lt;/name&gt; 
+        &lt;/animal&gt; 
+        &lt;animal className='org.apache.commons.betwixt.io.read.DogBean'&gt; 
+            &lt;breed&gt;mongrol&lt;/breed&gt;
+            &lt;call&gt;Woof&lt;/call&gt;
+            &lt;latinName&gt;Canis familiaris&lt;/latinName&gt; 
+            &lt;name&gt;Bobby&lt;/name&gt;
+            &lt;pedigree&gt;false&lt;/pedigree&gt; 
+        &lt;/animal&gt; 
+    &lt;/Animals&gt;
+
+</pre></div>
+  
+            <p>
+will construct objects of type <code>FerretBean</code>, <code>CatBean</code> and 
+<code>DogBean</code>.
+        </p>
+            <p>
+The attribute which contains the fully qualified class name can be configured through
+the <code>classNameAttribute</code> property of the <code>BindingConfiguration</code>.
+        </p>
+            <p>
+The classname mapping is implemented by a <code>ChainedBeanCreator</code>. If this
+feature is not required, a custom bean creation chain should be used.
+        </p>
+    </div>
+        <div class="subsection"><a name="Mapping_An_Element_To_A_Class_Name"></a><h3>Mapping An Element To A Class Name</h3>
+            <p>
+A common variation on the above occurs when the java and the xml should be decoupled.
+So, no attributes with class names permitted. A common use case requires that different
+elements are associated with different types of bean. For example:  
+        </p>
+
+    <div class="source"><pre>
+    &lt;animals&gt; 
+        &lt;ferret&gt; 
+            &lt;call&gt;Dook&lt;/call&gt;
+            &lt;colour&gt;albino&lt;/colour&gt; 
+            &lt;latinName&gt;Mustela putoris furo&lt;/latinName&gt;
+            &lt;name&gt;Lector&lt;/name&gt; 
+        &lt;/ferret&gt; 
+        &lt;cat&gt; 
+            &lt;call&gt;Meow&lt;/call&gt;
+            &lt;colour&gt;black&lt;/colour&gt; 
+            &lt;latinName&gt;Felis catus&lt;/latinName&gt;
+            &lt;name&gt;Sam&lt;/name&gt; 
+        &lt;/cat&gt; 
+        &lt;dog&gt; 
+            &lt;breed&gt;mongrol&lt;/breed&gt;
+            &lt;call&gt;Woof&lt;/call&gt;
+            &lt;latinName&gt;Canis familiaris&lt;/latinName&gt; 
+            &lt;name&gt;Bobby&lt;/name&gt;
+            &lt;pedigree&gt;false&lt;/pedigree&gt; 
+        &lt;/dog&gt; 
+    &lt;/animals&gt;
+
+</pre></div>
+  
+          <p>
+To read this xml, the class corresponding to each element must be known.
+Of course, this is a <a href="binding.html#Mixed%20Collections%20-%20Guessing%20Element%20Names">mixed collection</a>
+and so needs to be mapped as such. Then a suitable <a href="reading.html#Reading%20Polymorphic%20Mappings">polymophoric
+mapping</a> needs to be created. For example:
+      </p>
+
+    <div class="source"><pre>
+&lt;betwixt-config&gt;
+  &lt;class name='org.apache.commons.betwixt.io.read.Animals'&gt;
+    &lt;element name='animals'&gt;
+&lt;!--
+Note that an adder must be set but addDefaults will add a name
+(and so prevent a polymorphic mapping) and so should be avoided.
+--&gt;
+      &lt;element property='animals' updater='addAnimal'/&gt;
+    &lt;/element&gt;
+  &lt;/class&gt;
+  &lt;class name='org.apache.commons.betwixt.io.read.FerretBean'&gt;
+    &lt;element name='ferret'&gt;
+      &lt;addDefaults/&gt;
+    &lt;/element&gt;
+  &lt;/class&gt;
+  &lt;class name='org.apache.commons.betwixt.io.read.CatBean'&gt;
+    &lt;element name='cat'&gt;
+      &lt;addDefaults/&gt;
+    &lt;/element&gt;
+  &lt;/class&gt;
+  &lt;class name='org.apache.commons.betwixt.io.read.DogBean'&gt;
+    &lt;element name='dog'&gt;
+      &lt;addDefaults/&gt;
+    &lt;/element&gt;
+  &lt;/class&gt;
+&lt;/betwixt-config&gt;
+
+</pre></div>
+  
+          <p>
+This <a href="binding.html#Multi%20Mapping">multi mapping</a> should be registered with
+the <code>XMLIntrospector</code> before the beans are written or read. For example (read):
+        </p>
+
+    <div class="source"><pre>
+   BeanReader reader = new BeanReader();
+   ...
+   reader.getXMLIntrospector().register(new InputSource(new StringReader(MAPPING)));
+   reader.registerBeanClass(Animals.class);
+   Animals animals = (Animals) reader.parse(in);
+
+</pre></div>
+  
+    </div>
+</div><div class="section"><a name="Mapping_Derived_Beans"></a><h2>Mapping Derived Beans</h2>
+        <div class="subsection"><a name="Bind_Time_Type_Verses_Introspection_Time_Type"></a><h3>Bind Time Type Verses Introspection Time Type</h3>
+            <p>
+The introspection time type is the (expected) type as discovered during introspection.
+The bind time type is the actual type of the object found as Betwixt runs. For example,
+a property might have type <code>Animal</code> but when the getter of that property is 
+called, the object returned might be a subclass (if <code>Animal</code> is a class) 
+or an implementation (if <code>Animal</code> is an interface) - <code>Cat</code>, say.
+In this case, <code>Animal</code> would be the introspection time type but <code>Cat</code>
+the bind time type.
+        </p>
+            <p>
+There are two approaches to deal with this situation: either the object can be mapped 
+on the basis of it's bind time type (the actual class of the object) or on the basis
+of it's introspection time type. In the first case, all the properties present will be 
+mapped, in the second only a subset.
+        </p>    
+            <p>
+For example, say that <code>Animal</code> has properties <code>latinName</code>
+and <code>call</code> and that <code>Cat</code> is a subclass with an additional
+<code>colour</code> property. Consider a bean with a property returning an <code>Animal</code>.
+If the introspection time type is used, only the <code>latinName</code>
+and <code>call</code> properties of a<code>Cat</code> bean will be read and written
+whereas when bind time typing is used, all properties will be.
+        </p>
+            <p>
+There are typical use cases which demonstrate the need for each approach. Betwixt 
+supports both in a flexible way, for both reading and writing but defaults to 
+bind time typing (which is typically more intuitive).
+        </p>
+    </div>
+        <div class="subsection"><a name="Configuring_Mapping_Derivation"></a><h3>Configuring Mapping Derivation</h3>
+            <p>
+Whether the bind time type or the introspection time type should determine the mapping
+is configurable in two different ways. The <code>MappingDerivationStrategy</code> 
+implementation set on the introspection configuration allows powerful but course-grained
+control over which types of property should have their mappings determine in which ways.
+Per-element control is also available through the dot betwixt document. This is typically
+used for more finely grained refinements. The dot betwixt settings override the strategy.
+        </p>
+            <p>
+For example, the following code snippet configures an <code>XMLIntrospector</code> 
+so that (unless overridden by a dot betwixt document setting), introspection time types
+will determine the mapping:
+        </p>
+
+    <div class="source"><pre>
+        XMLIntrospector xmlIntrospector = ...;
+        xmlIntrospector.getConfiguration()
+            .setMappingDerivationStrategy(
+                MappingDerivationStrategy.USE_INTROSPECTION_TIME_TYPE);
+}	
+</pre></div>
+  
+            <p>
+The optional <code>mappingDerivation</code> attribute on an <code>&lt;element&gt;</code> element.
+This attribute takes two enumerated values: <code>bind</code> and <code>introspection</code>.
+As might be expected, <code>bind</code> indicates that the element should use 
+the bind time type whereas <code>introspection</code> indicates that the introspection time
+type should be used.
+        </p>
+            <p>
+For example, when the following dot betwixt document is used, the <code>pet</code>
+property's mapping will be determined by the introspection time type mapping.
+        </p>
+
+    <div class="source"><pre>
+    &lt;?xml version='1.0'?&gt;
+    &lt;info&gt;
+        &lt;element name='pet-record'&gt;
+            &lt;element name='pet' property='pet' mappingDerivation='introspection'/&gt;" +
+        &lt;/element&gt;
+    &lt;/info&gt;"
+}	
+</pre></div>
+  
+
+            <p>
+Note that the mapping derivations are added together with all of the other defaults
+and so all elements without the <code>mappingDerivation</code> attribute will
+default to bind time typing unless and <code>addDefaults</code> is present.
+        </p>
+    </div>
+</div><div class="section"><a name="Default_Mapping_For_Collections_Implementations"></a><h2>Default Mapping For Collections Implementations</h2>
+	<p>
+The default mapping for a collection is the one created automatically
+by Betwixt. This is controlled by a number of general configuration settings.
+For some classes (including <code>Collection</code> implementations)
+special rules are applied. For collection implementations, these special
+rules ensure that the contents are written and polymorphism is supported
+for reading.
+	</p>
+	<p>
+For example, suppose <code>AlphaList extends ArrayList</code>. It usually
+contains <code>BetaBean</code>'s and <code>GammaBean</code>'s. Use a 
+<a href="binding.html#Multi Mapping Document Format">multi-mapping</a> contain
+mappings for just <code>BetaBean</code> and <code>GammaBean</code> and not
+<code>AlphaList</code>. This will force the default mapping to be used. 
+When reading, <code>AlphaList</code> should be registered after the 
+multimapping thus:
+	</p>
+
+    <div class="source"><pre>
+	BeanReader reader = ...
+	...
+	reader.registerMultiMapping(...);
+    reader.registerBeanClass(AlphaList.class);
+</pre></div>
+  
+</div></div></div><div class="clear"><hr></hr></div><div id="footer"><div class="xright">© 2002-2006, The Apache Software Foundation</div><div class="clear"><hr></hr></div></div></body></html>

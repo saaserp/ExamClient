@@ -104,11 +104,9 @@ public class MoreListFragment extends Fragment implements OnItemClickListener {
 		}
 
 		contents.add(getActivity().getResources().getString(R.string.share_app_to_friend));
-		contents.add("重新选择题库");
-		// TODO: replace with a real list adapter.
-		// listview.setAdapter(new ArrayAdapter<String>(getActivity(),
-		// android.R.layout.simple_list_item_activated_1,
-		// android.R.id.text1, contents));
+		//这里是重新选择数据库的代码
+	//	contents.add("重新选择题库");
+	 
 
 		listview.setAdapter(new MyTextAdapter(getActivity(), contents));
 		listview.setOnItemClickListener(this);

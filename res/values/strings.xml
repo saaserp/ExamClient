@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
 
     <!-- 通用 -->
     <string name="app_name">无人机驾校宝典</string>
@@ -62,8 +62,8 @@
         <item name="more">更多</item>
     </string-array>
     <string-array name="db_list">
-        <item name="db1">zh2.db</item>
-        <item name="db2">zh.db</item>
+        <item name="db1">nf6.db</item>
+         
     </string-array>
     <!-- 统计 -->
     <string name="statistics_topic">考题练习</string>
@@ -149,7 +149,7 @@
 		
        
         <item name="more_copyright">" "软件名:无人机驾校宝典\n
-				版本号：2.0.9911\n
+				版本号：13.1\n
 	 
 	Copyright © 2016-2021, 能飞科技,All Rights Reserved .\n
 	</item>

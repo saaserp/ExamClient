@@ -5,9 +5,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.json.JSONArray;
+
 import com.nengfei.login.LoginActivity;
 import com.nengfei.model.DataSyncService;
-import com.nengfei.net.MySocketClient;
+import com.nengfei.parse.HttpClientTool;
 import com.nengfei.parse.JSONParser;
 import com.nengfei.util.CallBack;
 
@@ -80,9 +82,15 @@ public class PullDataTask extends AsyncTask<Void,Void,Boolean> {
 		List<Map<String,String>>listExam;
 		listQuestion=translate(l1);
 		listExam=translate(l2);
-		
-		String result2=MySocketClient.getInstance().send("PullInfo",listExam);
-		String result1=MySocketClient.getInstance().send("PullInfo",listQuestion);
+		Map<String ,String >map1=new HashMap<String,String>();
+		map1.put("info",new JSONArray(listExam).toString().replace("\"", "%22")  
+		        .replace("{", "%7b").replace("}", "%7d"));
+		Map<String ,String >map2=new HashMap<String,String>();
+		map2.put("info", new JSONArray(listQuestion).toString().replace("\"", "%22")  
+		        .replace("{", "%7b").replace("}", "%7d"));
+		 
+		String result2=HttpClientTool.getInstance().send("PullInfo",map1);
+		String result1=HttpClientTool.getInstance().post("PullInfo",map2);
 		if(result1==null||result2==null)
 		{
 			return false;
@@ -118,7 +126,7 @@ public class PullDataTask extends AsyncTask<Void,Void,Boolean> {
 					@Override
 					public void run() {
 						// TODO Auto-generated method stub
-						MySocketClient.getInstance().send("NotifyPush",mp);
+						HttpClientTool.getInstance().send("NotifyPush",mp);
 					}
 				}){}.start();
 			}

@@ -1,0 +1,683 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html><head><title>TODO - Betwixt</title><style type="text/css" media="all">
+          @import url("./style/maven-base.css");
+          
+          @import url("./style/maven-theme.css");@import url("./style/project.css");</style><link rel="stylesheet" href="./style/print.css" type="text/css" media="print"></link><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"></meta><meta name="author" content="James Strachan"></meta><meta name="email" content="jstrachan@apache.org"></meta></head><body class="composite"><div id="banner"><a href="http://jakarta.apache.org" id="organizationLogo"><img alt="The Apache Software Foundation" src="http://jakarta.apache.org/images/original-jakarta-logo.gif"></img></a><a href="http://jakarta.apache.org/commons/betwixt/" id="projectLogo"><img alt="Betwixt" src="./images/logo.png"></img></a><div class="clear"><hr></hr></div></div><div id="breadcrumbs"><div class="xleft">Last published: 21 December 2006
+                <span class="separator">|</span> Doc for  0.8
+                </div><div class="xright">
+        
+        <a href="http://jakarta.apache.org/commons/" class="externalLink" title="External Link">Jakarta Commons</a>
+      </div><div class="clear"><hr></hr></div></div><div id="leftColumn"><div id="navcolumn"><div id="menuCommons_Betwixt"><h5>Commons Betwixt</h5><ul><li class="none"><a href="index.html">Overview</a></li><li class="none"><a href="faq.html">FAQ</a></li><li class="none"><a href="apidocs/index.html">Javadoc</a></li><li class="none"><a href="mail-lists.html">Mailing lists</a></li><li class="none"><a href="team-list.html">Team</a></li><li class="none"><a href="community.html">Community</a></li><li class="none"><a href="powered.html">Powered By</a></li><li class="none"><strong><a href="tasks.html">Tasks</a></strong></li><li class="none"><a href="http://svn.apache.org/viewcvs.cgi/jakarta/commons/proper/betwixt/trunk/" class="externalLink" title="External Link">View SVN</a></li><li class="none"><a href="http://svn.apache.org/repos/asf/jakarta/commons/proper/betwixt/" class="externalLink" title="External Link">SVN</a></li></ul></div><div id="menuUser_guide"><h5>User guide</h5><ul><li class="none"><a href="guide/start.html">Getting Started</a></li><li class="none"><a href="guide/binding.html">Binding Beans</a></li><li class="none"><a href="guide/derived.html">Derived Bindings</a></li><li class="none"><a href="guide/writing.html">Writing Beans(Advanced)</a></li><li class="none"><a href="guide/output.html">Outputting The Results</a></li><li class="none"><a href="guide/reading.html">Reading Beans(Advanced)</a></li><li class="none"><a href="guide/integration.html">Integrating</a></li><li class="none"><a href="guide/examples.html">Examples</a></li><li class="none"><a href="guide/tutorial.html">Tutorial</a></li></ul></div><div id="menuRelease_Documentation"><h5>Release Documentation</h5><ul><li class="none"><a href="http://jakarta.apache.org/commons/betwixt/betwixt-0.7" class="externalLink" title="External Link">0.7</a></li><li class="none"><a href="http://jakarta.apache.org/commons/betwixt/betwixt-0.6" class="externalLink" title="External Link">0.6</a></li><li class="none"><a href="http://jakarta.apache.org/commons/betwixt/betwixt-0.5" class="externalLink" title="External Link">0.5</a></li></ul></div><div id="menuProject_Documentation"><h5>Project Documentation</h5><ul><li class="none"><a href="index.html">About</a></li><li class="collapsed"><a href="project-info.html">Project Info</a></li><li class="collapsed"><a href="maven-reports.html">Project Reports</a></li><li class="none"><a href="http://jakarta.apache.org/commons/charter.html" class="externalLink" title="External Link">Development Process</a></li></ul></div><div id="menuCommons"><h5>Commons</h5><ul><li class="none"><a href="http://jakarta.apache.org/commons/" class="externalLink" title="External Link">Home</a></li><li class="collapsed"><a href="http://jakarta.apache.org/commons/components.html" class="externalLink" title="External Link">Components</a></li><li class="collapsed"><a href="http://jakarta.apache.org/commons/sandbox/index.html" class="externalLink" title="External Link">Sandbox</a></li><li class="collapsed"><a href="http://jakarta.apache.org/commons/dormant/index.html" class="externalLink" title="External Link">Dormant</a></li><li class="none"><a href="http://jakarta.apache.org/commons/volunteering.html" class="externalLink" title="External Link">Volunteering</a></li><li class="none"><a href="http://jakarta.apache.org/commons/patches.html" class="externalLink" title="External Link">Contributing Patches</a></li><li class="none"><a href="http://jakarta.apache.org/commons/building.html" class="externalLink" title="External Link">Building Components</a></li><li class="none"><a href="http://jakarta.apache.org/commons/releases/index.html" class="externalLink" title="External Link">Releasing Components</a></li><li class="none"><a href="http://wiki.apache.org/jakarta-commons/FrontPage" class="externalLink" title="External Link">Wiki</a></li></ul></div><div id="legend"><h5>Legend</h5><ul><li class="externalLink">External Link</li><li class="newWindow">Opens in a new window</li></ul></div><a href="http://maven.apache.org/" title="Built by Maven" id="poweredBy"><img alt="Built by Maven" src="./images/logos/maven-feather.png"></img></a></div></div><div id="bodyColumn"><div class="contentBox"><div class="section"><a name="TODO_list"></a><h2>TODO list</h2>
+      <p>
+        The following is a list of items that need to be completed in
+        Betwixt.  Contributions are welcome! 
+      </p>
+    
+    <div class="subsection"><a name="High_priority"></a><h3>High priority</h3> 
+      <ul>
+        <li>
+<strong>Logging:</strong> create logging policy then review all code for compliance.
+        </li>
+        <li>
+<strong>FAQ:</strong> convert FAQ to maven plugin.
+        </li>
+        <li>
+<strong>Tasks:</strong> review.
+        </li>
+        <li>
+Change ElementRule so that updaters are automatically guessed (when not present).
+Add read-only attribute for properties to disable this behaviour.        
+        </li>
+        <li>
+          BeanWriter is writing too sloppy (empty elements, etc). Fixing it in a clean way
+          is almost impossible. 
+          Probably a refactor is best anyway to have a less "sloppy" api.. 
+        </li>
+        <li>
+          Get an overview of what .betwixt files should really do. 
+          Especially more complicated examples will cause very strange and unexpected results.
+        </li>
+        <li>
+            If an addFoo() method is found with no matching getFoos() then a warning should be generated.
+	</li>
+        <li>
+		  Consider allowing the parsing of XML to order the properties/elements in the XMLBeanInfo
+		  so that when the XML is output again it follows the same XML ordering again.
+		  There is an example describing this 
+		  <a href="http://mail-archives.apache.org/eyebrowse/ReadMsg?listName=commons-dev@jakarta.apache.org&amp;msgNo=8488" class="externalLink" title="External Link">here</a>.
+		  For example we could add a feature to parse the DTD and order the XMLBeanInfo according to the order in the DTD.		  
+	</li>
+        <li>
+		  Improved documentation! Improve package level documentation so that new developers can get up 
+          to speed more quickly. Ensure all betwixt features have good user documentation. 
+          More good code examples.
+        </li>
+        <li>
+            Add support for IDREF's to BeanReader. At the moment, round tripping break when cycles exist.
+        </li>
+        <li>
+           Add testcase for the BeanReader(SAXParser) and BeanReader(XMLReader). They should behave
+           the same in all cases.
+        </li>
+        <li>
+            <strong>Create test cases based on real xml examples.</strong>
+            This should help to shake out any problems and help to find out how the design can be improved.
+            These should also be used as a basis for improved documentation.
+        </li>
+        <li>
+            <strong>Improve internal design.</strong>
+            Betwixt is hard to understand and hard to create patches for.
+            An improved internal design would help more people to contribute.
+        </li>
+        <li>
+            <strong>Improve test coverage.</strong>
+            Run test coverage tool and improve coverage of key functionality.
+        </li>
+        <li>
+            <strong>Add dynabeans support.</strong> 
+            Dynabeans are a feature of <code>commons-beanutils</code> that allows data in non-beans to be
+            wrapped into pseudo-beans. If betwixt supported dynabeans then you could do cool stuff like 
+            SQL -&gt; DynaBeans -&gt; XML. Probably a good way to do this would be to ensure that all property
+            introspection is done by dyanbeans-aware methods of beanutils.
+        </li>
+        <li>
+            <strong>Update RSS example application.</strong>
+            The original betwixt documentation made use of a good example application based on RSS.
+            Unfortunately, this no longer works since the build was updated to maven.
+            The instructions and means of running are linked to the CVS version.
+            New instructions - and probably movement of some of the code - is needed to support
+            a release distribution. The example also needs some more work - better java docs and also
+            more features.
+        </li>
+        <li>
+            <strong>Review AbstractBeanWriter and SAXBeanWriter</strong>
+            AbstractBeanWriter and SAXBeanWriter were written very quickly (to support functionality
+            in maven). They need to be reviewed and properly documentated.
+        </li>
+       </ul>
+    </div>
+    
+    <div class="subsection"><a name="Medium_priority"></a><h3>Medium priority</h3> 
+      <ul>
+            <li>
+                <strong>Add support for constructors with arguments.</strong>
+                Currently, only beans with no-argument constructors can be read.
+            </li>
+            <li>
+                <strong>Create design documentation</strong>
+                This will help people understand the betwixt design.
+            </li>
+            <li>
+                <strong>Add verification for all xml writing tests.</strong>
+                At the moment, most of the xml writing tests do not test the output fully.
+                Need to add comparisons against reference xml documents.
+            </li>
+            <li>
+                <strong>Improve mapping for swing components</strong>
+                Swing classes have lots and lots of properties. 
+                Java 1.4 does a better job of persistance than betwixt for class that have lots of properties.
+            </li>
+            <li>
+                <strong>Binary Data Elements</strong>
+                Some properties should not be treated as beans and therefore mapped to a element graph.
+                These should be converted to body text of binary data.
+                A mechanism similar to BeanUtils.ConvertUtils might work.
+                For example, if you have a colormodel that get's written (an array with a lot of 
+                numbers and an xml-element per array element) betwixt will spend ages converting
+                it bit by bit.
+            </li>
+            <li>
+                <strong>Customizable ID/IDREF Mapping</strong>
+                Add per element customization for ID/IDREF mappings.
+                Extra attributes will be added to .betwixt file that specify the ID/IDREF names.
+            </li>
+            <li>
+                <strong>Attribute-Or-Element Strategy</strong>
+                At the moment, betwixt allows only an all-or-nothing for the choice between mapping to an
+                attribute or an element. This should be replaced by a strategy interface which allows the
+                mapping to the customized.
+            </li>
+      </ul>
+    </div>
+    
+    <div class="subsection"><a name="Low_priority"></a><h3>Low priority</h3> 
+      <ul>
+            <li>
+<strong>Improved Support For Interfaces (strategy)</strong>
+Create a strategy which allow general implementation rules to be specified.
+            </li>
+        <li>
+		  Create a W3C DOM implementation that acts as a facade on top of beans to allow beans to 
+		  be transformed in XSLT engines as XML.
+		</li>
+        <li>
+		  Add support for custom class loaders. Probably this means adding a classloader property
+                  to <code>XMLIntrospector</code> and then ensuring all class creation uses that. 
+                  The digestion rules which create the <code>XMLBeanInfo</code> from <code>.betwixt</code>
+                  files should use the <code>XMLBeanInfoDigester</code> classloader property which should
+                  be set by the <code>XMLIntrospector</code>.
+		</li>
+        <li>
+            Create utility methods in BeanWriter to write stuff like prologs and doctype definitions to the 
+            stream.
+        </li>
+        <li>
+            Create a funky image for the betwixt home page.
+        </li>
+        <li>
+            <strong>Element ordering strategies</strong>
+            The ordering of the elements for a bean which doesn't have a .betwixt file associated
+            is fixed by the order of the properties in the BeanInfo. If the class doesn't have a
+            custom BeanInfo class then this order is arbitrary. This is unfortunate since often xml
+            elements need a definite and predicatable ordering. Pluggable element ordering strategies
+            would order the elements according to some algorithm eg. alphabetic.
+        </li>
+        <li>
+            <strong>Support Mixed Content Round Tripping</strong>
+            This is actually has some conceptual problems. What happens when you have two text
+            descriptors mapped to properties next to each other?
+            This would probably require some enhancements to Digester.
+        </li>
+       </ul>
+    </div>
+</div><div class="section"><a name="Completed"></a><h2>Completed</h2>
+    <div class="subsection"><a name="0_8"></a><h3>0.8</h3>            
+        <ul>
+          <li>
+Added strategies for suppression of attributes and elements at introspection time.
+          </li>
+          <li>
+Improved support for natural polymorphic mappings of collection subclasses.
+          </li>
+          <li>
+Added support for option inheritance between parent and target mappings. Issue #37542.
+          </li>
+        	<li>
+Added <code>getInheritedOption</code> method to <code>Context</code> to assist
+with inheritance amongst options.
+        	</li>
+            <li>
+Added convenience constructor to DefaultIdStoringStrategy.
+This makes life easier for users that want to use object identity
+(rather than equality) when generating IDs.
+            </li>
+            <li>
+Fixed TextRule content bug. (Issue #36930).
+            </li>
+            <li>
+Fixed attribute ID name recognition bug. (Issue #36929). 
+            </li>
+            <li>
+Added support for text and options into multi-mappings.
+            </li>
+            <li>
+Improved support for subclasses of Java collective types
+by factoring collective type recognition into strategy.
+            </li>
+            <li>
+Added support for multiple contained polymorphic mappings.
+            </li>
+            <li>
+Added transcription strategy to allow flexbility for schema type names.
+            </li>
+            <li>
+Added package name property suppression strategy and make default property suppression strategy public
+nest so that it can be subclassed.
+            </li>
+            <li>
+Fixed bug when introspecting in secure environments.
+            </li>
+            <li>
+Fixed formatting bug when pretty printing elements with <code>endTagForEmptyElement</code> is true.
+            </li>
+            <li>
+Made intitial indent level used for pretty printing configurable.
+            </li>
+          <li>Added guess-name attribute to addDefaults element in dot betwixt file.
+          This allows mixed collections to be used with add-adders and addDefaults.</li>  
+        </ul>
+        <ul>
+            <li>Fixed map custom updater in dot betwixt file bug.</li>  
+        </ul>
+        <ul>
+        		<li>EOL in pretty printed xml now defaults to platform line separator.</li>
+        </ul>
+        <ul>
+        		<li>Added <code>ValueSuppressionStrategy.suppressElement</code>  to allow elements to be suppressed
+        		on the basis of the value of the property. Useful for Hibernate users.</li>
+        </ul>
+        <ul>
+            <li>Added <code>forceAccessible</code> to <code>element</code> tag in dot betwixt file.
+            This allows updater methods to be found that are not public.
+            </li>
+        </ul>
+    </div>
+    <div class="subsection"><a name="0_7"></a><h3>0.7</h3>
+        <ul>
+            <li>Fixed bug in nested element diagnosing empty elements.
+            </li>
+            <li>Added support for <strong>polymorphic mappings</strong>. 
+            This allows the type of a property to be guessed at bind time
+            (rather than at compile time).
+            </li>
+        	<li>Added <strong>options to context</strong>. This replaces direct flavour mechanism. 
+        	(Flavour becomes just a specific option).</li>
+        	<li>Factored out <strong>id storage</strong> into strategy</li>
+            <li><strong>anonymous collections</strong> now allowed in betwixt files</li>
+            <li><strong>Improved introspection support for DynaBeans</strong></li>
+            <li><strong>Improved introspection for interfaces</strong> superinterface 
+            properties now checked.</li>
+            <li><strong>Attribute suppression</strong> - Betwixt now allows the 
+            expression of certain values to be suppressed through a custom strategy.</li>  
+            <li><strong>Custom Dot Betwixt Documents</strong> - custom dot betwixt
+            documents can be passed in directly.</li>
+            <li><strong>Multi mapping</strong> documents allowing several mappings to be
+            specified within a single document.</li>
+            <li><strong>Improved support for derived beans</strong> bind time type
+            population now supported and enabled by default</li>
+            <li>All exceptions are now complex</li>
+            <li><strong>PropertySuppressionStrategy</strong> added which allows 
+            course grained control of those properties which should be ignored by Betwixt.</li>
+            <li>Improved support for <strong>java.util collections API implementations</strong>.
+            Betwixt now recognizes additional properties on custom collection implementations.</li>
+        </ul>
+    </div>
+    <div class="subsection"><a name="0_6"></a><h3>0.6</h3>
+        <ul>
+            <li><strong>Improved empty element rendering</strong></li>
+            <li>
+<strong>Extended betwixt file</strong> by adding two new properties 
+to &lt;addDefaults&gt; that allow matching properties or adders to be
+supressed.
+            </li>
+            <li>
+<strong>SimpleTypeMapper strategy</strong> for finely grained control over simple type (primitive) 
+binding.
+            </li>
+            <li>
+<strong>Improved support for reading arrays.</strong> In particular added code to support
+reading of array valued property setters and for array valued adders.
+            </li>
+        </ul>
+    </div>
+    <div class="subsection"><a name="0_5"></a><h3>0.5</h3>
+        <ul>
+            <li>
+                <strong>Added support for CDATA encoding</strong> through strategy
+                for mixed content encoding.
+            </li>
+            <li>
+                <strong>Created DTD for .betwixt files.</strong>
+            </li>
+            <li>
+                <strong>Added validity check for element and attribute names in .betwixt files</strong>
+                .betwixt files contain names for xml elements and attributes. Only certain names
+                for elements and attributes are allowed by the xml specification. Betwixt now
+                check to ensure that the names are appropraite and terminates processing with an 
+                Exception if they are not.
+            </li>
+            <li>
+                <strong>Created XMLUtils</strong>
+                Separated out basic xml utilty methods into a static utility class called XMLUtils.
+                This should allow them to be reused in isolation.
+            </li>
+            <li>
+                <strong>Improved digester integration</strong>
+                Improved integration with digester. <code>BeanRuleSet</code> is a digester ruleset
+                which sets up all the rules required to digester a bean. When a bean is registered,
+                a <code>BeanRuleSet</code> instance is used to set up the required rule on digester.
+                Standard digester rules can be added before and after registration.
+            </li>
+            <li>
+                <strong>Handle empty elements better.</strong> 
+                An option not to write empty elements has been added. This is required to correctly write 
+                some kinds of xml.
+                The RSS full round tripping will only work with this functionality.
+            </li>
+            <li>
+                <strong>Support Writing Mixed Content</strong> 
+                Mixed content elements contain elements and body text. Added support for adding
+                body text between child elements through the .betwixt file. This text can be
+                static or set from a property.
+            </li>
+            <li>
+                <strong>Allow customization for update from .betwixt file</strong>
+                Add updater attribute that allows the updater to be specified for an elements.
+            </li>
+            <li>
+                <strong>Added Reading for Composite Map Properties</strong>
+                Added code that reads entries for composite map properties and adds then correctly.
+                This code relies on the Betwixt map element mapping format.
+            </li>
+            <li>
+                <strong>Added setter for bean writing encoding type</strong>
+                Added an additional constructor which takes an encoding type which is used to set the 
+                encoding type on the output stream. This allows xml with different encoding types to
+                be written.
+            </li>
+            <li>
+                <strong>Fixed bug when writing Array's</strong>
+                When an array was pass to a write call, invalid XML used to be produced. This has been fixed.
+            </li>
+            <li>
+            <strong>Basic Support For Reading Mixed Content</strong>
+            This is the basic case where all of the content is read into a single property.
+            </li>
+            <li>
+            <strong>Basic Support For Writing DynaBeans</strong>
+            Basic support for writing DynaBeans has been added. This was implemented by using an additional 
+            layer of abstraction in the introspector. 
+            </li>
+            <li>
+            <strong>Support for converting output strings</strong>
+            ConvertUtils is now called to convert output strings (as well as input ones).
+            </li>
+            <li>
+            <strong>Refactored Object &lt;-&gt; String Conversion</strong>
+            This process has been factored out into a separate pluggable Strategy class 
+            (<code>ObjectStringConverter</code>). A pure <code>ConvertUtils</code> implementation
+            has been created (<code>ConvertUtilsObjectStringConverter</code>). The default implementation
+            (<code>DefaultsObjectStringConverter</code>) delegates most conversions to <code>ConvertUtils</code>
+            but contains a special case that allows the default setting to round trip java.util.Date's 
+            without breaking compatibility.
+            </li>
+                <li>
+<strong>Refactored creation of Bean For Elements In Reading</strong>
+Factored out the code that creates beans for elements (when reading) into separates classes uses the 
+<em>Chain Of Responsibility</em> pattern. This allows users to hook into the creation process and 
+add their own custom creation steps or replace the defaults with new functionality.
+            </li>
+            <li>
+<strong>Improved Support For Interfaces (.betwixt files)</strong>
+Added (optional) 'class' attribute to .betwixt files. The attribute value should be a fully qualfied java classname. 
+When set, the named class will be used to instantiate beans mapped to this element.
+            </li>
+            <li>
+<strong>Improved Support For Interfaces including Entity Beans (ClassNormalizer)</strong>
+Added ClassNormalizer strategy. This allows the Class introspector to differ from that of the Object.
+            </li>
+            <li>
+<strong>Added Support For Replacement Of Bad Characters</strong> to default mapping of element names.
+            </li>
+            <li>
+<strong>Added Options mechanism</strong> for communication behaviour hints to optional
+strategies.
+            </li>
+            <li>
+<strong>CDATA encoding support</strong> add support for flexible coding of body text as CDATA
+sections (in addition to character escaping).
+            </li>
+        </ul>
+    </div>
+</div><div class="section"><a name="Deprecated"></a><h2>Deprecated</h2>
+	<div class="subsection"><a name="0_8"></a><h3>0.8</h3>
+		<ul>
+			<li>IdStoringStrategy
+				<ul>
+					<li>IdStoringStrategy.DEFAULT should never have been a constant
+					since the implementation uses instance variables.
+					Using this constant will result in a memory leak.
+					Note: use proper factory methods 
+					rather than public constant fields in the future!
+					</li>
+				</ul>
+			</li>
+			<li>ElementRule added forceAccessible attribute
+				<ul>
+					<li>configureDescriptor replaced by private method with extra parameter</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<div class="subsection"><a name="0_7"></a><h3>0.7</h3>
+		<ul>
+			<li>ObjectStringConverter direct flavour replaced with use of options
+				<ul>
+					<li>objectToString replaced by method without flavour in signature</li>
+					<li>stringToObject replaced by method without flavour in signature</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+    <div class="subsection"><a name="0_6"></a><h3>0.6</h3>
+        <ul>
+                <li><strong>Refactoring (more declarative descriptors)</strong>
+            	<ul>
+            		<li><strong>ElementDescriptor</strong>
+            			<ul>
+            				<li><code>WrapCollectionsInElement</code> property removed</li>
+            				<li><code>PrimitiveType</code> property removed</li>            				
+            			</ul>
+            		</li>
+            		<li><strong>XMLIntrospectorHelper</strong> this will be deprecated.</li>
+            	</ul>
+            </li>
+            <li><strong>Refactored introspection configuration into separate class</strong>
+            	<ul>
+            		<li><strong>XMLIntrospector</strong>
+            			<ul>
+            				<li>useBeanInfoSearchPath property</li>
+            				<li>AttributeNameMapper property</li>
+            				<li>ElementNameMapper property</li>
+            				<li>PluralStemmer property</li>
+            				<li>WrapCollectionsInElement property</li>
+            				<li>AttributesForPrimitives property</li>
+            				<li>ClassNormalizer property</li>
+        				</ul>
+        			</li>
+            	</ul>
+            </li>
+        </ul>
+    </div>
+    <div class="subsection"><a name="0_5"></a><h3>0.5</h3>
+        <ul>
+            <li><strong>Adding context parameter to SAX style API</strong>
+                <ul>
+                    
+                </ul>
+            </li>
+            <li> 
+                <code>BeanWriter.escapeAttributeValue()</code> moved into XMLUtils
+            </li>
+            <li> 
+                <code>BeanWriter.escapeBodyValue()</code> moved into XMLUtils
+            </li>
+            <li> 
+                <code>BeanCreateRule</code> has been replaced by BeanRuleSet
+            </li>
+            <li> 
+                <code>Expression.update</code> has been replaced by Updater
+            </li>
+            <li><strong>Refactoring (new SAX inspired API)</strong>
+                <ul>
+                    <li><strong>AbstractBeanWriter</strong>
+                        <ul>
+                            <li><code>write</code> removed</li>
+                            <li><code>writeIDREFElement</code> removed</li>       
+                            <li><code>writeAttributes</code> removed</li>    
+                            <li><code>writeAttribute</code> removed</li>    
+                            <li><code>writeRestOfElement</code> removed</li>    
+                            <li><code>getIndentLevel</code> moved into BeanWriter</li>   
+                            <li><code>expressElementStart</code> removed</li>   
+                            <li><code>expressTagClose</code> removed</li>   
+                            <li><code>expressElementEnd</code> removed</li>
+                            <li><code>expressBodyText</code> removed</li>
+                            <li><code>expressAttribute</code> removed</li>
+                            <li><code>writeRestOfElement</code> removed</li>
+                            <li><code>writeContent</code> removed</li>
+                            <li><code>writePrintln</code> removed</li>
+                            <li><code>writeIndent</code> removed</li>
+                        </ul>
+                    </li>
+                    <li><strong>BeanWriter</strong>
+                        <ul>
+                            <li><code>writePrintln</code> removed</li>
+                            <li><code>writeIndent</code> removed</li>
+                            <li><code>expressElementStart</code> removed</li>   
+                            <li><code>expressTagClose</code> removed</li>   
+                            <li><code>expressElementEnd</code> removed</li>
+                            <li><code>expressBodyText</code> removed</li>
+                            <li><code>expressAttribute</code> removed</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><strong>Adding support for reading mixed content</strong>
+                <ul>	
+                    <li><strong>XMLIntrospectorHelper</strong>
+                        <ul>
+                            <li><code>createDescriptor</code> refactored into XMLIntrospector</li>
+                        </ul>
+                    </li>
+                    <li><strong>XMLIntrospector</strong>
+                        <ul>
+                            <li><code>addProperty</code> replaced by overloaded method</li>
+                            <li><code>addProperties</code> replaced by overloaded method</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div><div class="section"><a name="Backwards_Incompatible_Changes"></a><h2>Backwards Incompatible Changes</h2>
+    <div class="subsection"><a name="0_8"></a><h3>0.8</h3>
+        <ul>
+        </ul>
+    </div>
+    <div class="subsection"><a name="0_7"></a><h3>0.7</h3>
+        <ul>
+        </ul>
+    </div>
+    <div class="subsection"><a name="0_6"></a><h3>0.6</h3>
+        <ul>
+        </ul>
+    </div>
+</div><div class="section"><a name="Semantic_Changes"></a><h2>Semantic Changes</h2>
+    <div class="subsection"><a name="0_8"></a><h3>0.8</h3>
+        <ul>
+        </ul>
+    </div>
+    <div class="subsection"><a name="0_7"></a><h3>0.7</h3>
+        <ul>
+            <li>
+Betwixt now (by default) suppresses the expression of all empty attributes.
+The old behaviour can be restored by setting the <code>ValueSuppressionStrategy</code>
+of the <code>BindingConfiguration</code> used by the writer to 
+<code>ValueSuppressionStrategy.ALLOW_ALL_VALUES</code>.
+            </li>
+            <li>
+Betwixt now defaults to bind time type mapping. Now read beans will (by default)
+be populated by their bind time type (as opposed to their introspection time type).
+Most users should notice no negative effects from this change. The previous behaviour
+can be enabled by setting an introspection configuration property.
+            </li>
+            <li>
+All exceptions are now complex types. This is now more consistent but the default
+binding for exceptions in java.lang package have been changed from simple to complex.
+            </li>
+            <li>
+Properties on collection implementations are now recognized (rather than ignored)
+by Betwixt. Please use an appropriate <code>ClassNormalizer</code> for implementations
+that need to hide their extra properties.
+            </li>
+        </ul>
+    </div>
+    <div class="subsection"><a name="0_6"></a><h3>0.6</h3>
+        <ul>
+            <li>
+            	<strong>Introspection and ElementDescriptor</strong> changes in introspection and 
+            	ElementDescriptor to make them more declarative so that the logic required to
+            	read and write beans can be reduced. An explicit flag has been added to indicate
+            	which ElementDescriptors are hollow. The descriptors describing collective mappings
+            	(one-to-many). wrapCollectionInElement has been removed with the wrapping element
+            	descriptor becoming just a spacer (an xml element which is not mapped to a part of
+            	the object graph). The updater now needs to be placed on the hollow collective
+            	element rather than then parent spacer.
+            </li>
+            <li>
+            	<strong>ID assignment</strong> IDs are now not assigned to any element
+            	which are simple (do not have any children and no attributes) rather than just primitives.
+            	The concept of primitives is being phased out in favour of the more general
+            	concept of atomic mappings (object &lt;-&gt; string) and elements of simple type.
+            	ID generation is likely to be refactored soon so that it's performed within 
+            	the structure of the attribute references rather than as part of the writing
+            	algorithm.
+            </li>
+        </ul>
+    </div>
+    <div class="subsection"><a name="0_5"></a><h3>0.5</h3>
+        <ul>	
+            <li>
+                <strong>SAXBeanWriter now sets localName</strong>
+                SAXBeanWriter now sets localName as well as qName for each SAX call. The local name
+                is derived from the qualified name. Users whose names contain colons but which do not 
+                comply with the namespace dialect will need to set the NamespaceDialect property to 
+                false.
+            </li>
+            <li>
+                <strong>AbstractBeanWriter has been refactored</strong>
+                AbstractBeanWriter has been extensively refactored.
+                The public interface has been preserved but the protected API has been extensively modified.
+                In order to preserve backwards compatibility, methods have been deprecated but are no
+                longer called and so code that overrides then will break.
+            </li>
+            <li>
+                <strong>Cleaner API for SAXBeanWriter</strong>
+                The AbstractBeanWriter refactoring means that SAXBeanWriter now has a much cleaner
+                internal API. If anyone out there has been doing funky stuff by extending SAXBeanWriter
+                then i'm afraid that you'll need to rewrite.
+            </li>
+            <li>
+                <strong>Refactored Introspection</strong>
+                XMLIntrospector has been refactored to add an extra level of introspection indirection.
+                The results of introspection are now given in a BeanProperty. This allows support for
+                introspection alternatives to be added.
+            </li>
+            <li>
+                <strong>DynaBean Implementations</strong>
+                DynaBean's are now mapped using the properties found via the pseudo-introspection process
+                defined in BeanUtils. If you don't wish for DynaBeans implementations to be introspected
+                in this way then provide a <code>.betwixt</code> file to specify the mapping.
+            </li>
+            <li>
+                <strong>String To Object Conversions Now Use <code>ConvertUtils</code></strong>
+                <code>ConvertUtils</code> from commons-beanutils is now called to performt the object to 
+                string conversions. It is possible that in some circumstances, this change may effect the
+                output.
+            </li>
+            <li>
+                <strong><code>ConvertUtils</code> conversion now ignored (by default) for java.util.Date</strong>
+                If you use a custom <code>ConvertUtils</code> java.util.Date converter then see 
+                <a href="guide/binding.html#Converting Dates (And Other Objects)">the guide</a>.
+            </li>
+        </ul>
+    </div>
+</div><div class="section"><a name="Dependencies"></a><h2>Dependencies</h2>
+	    <div class="subsection"><a name="0_7"></a><h3>0.7</h3>
+        	<ul>
+	        </ul>
+    	</div>
+		<div class="subsection"><a name="0_7"></a><h3>0.7</h3>
+            <p>
+                <ul>
+                    <li>
+Upgraded <code>commons-beanutils</code> to <code>1.7.0</code>.
+                </li>
+                    <li>
+Upgraded <code>commons-digester</code> to <code>1.6</code>.
+                </li>
+            </ul>
+        </p>
+    </div>
+	<div class="subsection"><a name="0_5"></a><h3>0.5</h3>
+            <p>
+                <ul>
+                    <li>
+Upgraded <code>commons-beanutils</code> to <code>1.6.1</code>
+                </li>
+                    <li>
+Upgraded <code>commons-digester</code> to <code>1.5</code>
+                </li>
+            </ul>
+        </p>
+    </div>
+</div></div></div><div class="clear"><hr></hr></div><div id="footer"><div class="xright">© 2002-2006, The Apache Software Foundation</div><div class="clear"><hr></hr></div></div></body></html>

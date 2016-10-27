@@ -1,0 +1,245 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html><head><title>Best Practices for using Jakarta Commons "Discovery" Component - Discovery</title><style type="text/css" media="all">
+          @import url("./style/maven-base.css");
+          
+          @import url("./style/maven-theme.css");@import url("./style/project.css");</style><link rel="stylesheet" href="./style/print.css" type="text/css" media="print"></link><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"></meta></head><body class="composite"><div id="banner"><a href="http://jakarta.apache.org" id="organizationLogo"><img alt="The Apache Software Foundation" src="http://jakarta.apache.org/images/original-jakarta-logo.gif"></img></a><a href="http://jakarta.apache.org/commons/discovery/" id="projectLogo"><img alt="Discovery" src="./images/logo.png"></img></a><div class="clear"><hr></hr></div></div><div id="breadcrumbs"><div class="xleft">Last published: 29 November 2006
+                <span class="separator">|</span> Doc for  0.4
+                </div><div class="xright">
+        
+        <a href="http://www.apache.org" class="externalLink" title="External Link">Apache</a>
+      
+        
+          
+            <span class="separator">|</span>
+          
+        
+        <a href="http://jakarta.apache.org" class="externalLink" title="External Link">Jakarta</a>
+      
+        
+          
+            <span class="separator">|</span>
+          
+        
+        <a href="http://jakarta.apache.org/commons/" class="externalLink" title="External Link">Commons</a>
+      </div><div class="clear"><hr></hr></div></div><div id="leftColumn"><div id="navcolumn"><div id="menuDiscovery"><h5>Discovery</h5><ul><li class="none"><a href="index.html">Overview</a></li><li class="none"><a href="http://jakarta.apache.org/site/downloads/downloads_commons-discovery.cgi" class="externalLink" title="External Link">Download</a></li><li class="none"><strong><a href="best-practices.html">Best practices</a></strong></li><li class="none"><a href="adc-guidelines.html">Guidelines</a></li><li class="none"><a href="apidocs/index.html">Javadoc (0.4 release)</a></li></ul></div><div id="menuDevelopment"><h5>Development</h5><ul><li class="none"><a href="mail-lists.html">Mailing Lists</a></li><li class="none"><a href="issue-tracking.html">Issue Tracking</a></li><li class="none"><a href="cvs-usage.html">Source Repository</a></li><li class="none"><a href="building.html">Building</a></li></ul></div><div id="menuProject_Documentation"><h5>Project Documentation</h5><ul><li class="none"><a href="index.html">About</a></li><li class="collapsed"><a href="project-info.html">Project Info</a></li><li class="collapsed"><a href="maven-reports.html">Project Reports</a></li><li class="none"><a href="http://jakarta.apache.org/commons/charter.html" class="externalLink" title="External Link">Development Process</a></li></ul></div><div id="menuCommons"><h5>Commons</h5><ul><li class="none"><a href="http://jakarta.apache.org/commons/" class="externalLink" title="External Link">Home</a></li><li class="collapsed"><a href="http://jakarta.apache.org/commons/components.html" class="externalLink" title="External Link">Components</a></li><li class="collapsed"><a href="http://jakarta.apache.org/commons/sandbox/index.html" class="externalLink" title="External Link">Sandbox</a></li><li class="collapsed"><a href="http://jakarta.apache.org/commons/dormant/index.html" class="externalLink" title="External Link">Dormant</a></li><li class="none"><a href="http://jakarta.apache.org/commons/volunteering.html" class="externalLink" title="External Link">Volunteering</a></li><li class="none"><a href="http://jakarta.apache.org/commons/patches.html" class="externalLink" title="External Link">Contributing Patches</a></li><li class="none"><a href="http://jakarta.apache.org/commons/building.html" class="externalLink" title="External Link">Building Components</a></li><li class="none"><a href="http://jakarta.apache.org/commons/releases/index.html" class="externalLink" title="External Link">Releasing Components</a></li><li class="none"><a href="http://wiki.apache.org/jakarta-commons/FrontPage" class="externalLink" title="External Link">Wiki</a></li></ul></div><div id="legend"><h5>Legend</h5><ul><li class="externalLink">External Link</li><li class="newWindow">Opens in a new window</li></ul></div><a href="http://maven.apache.org/" title="Built by Maven" id="poweredBy"><img alt="Built by Maven" src="./images/logos/maven-feather.png"></img></a></div></div><div id="bodyColumn"><div class="contentBox"><div class="section"><a name="Best_Practices_for_using_Jakarta_Commons_&quot;Discovery&quot;_Component"></a><h2>Best Practices for using Jakarta Commons "Discovery" Component</h2>
+$Id: best-practices.xml 480374 2006-11-29 03:33:25Z niallp $<br></br>
+<a href="#Introduction">[Introduction]</a>
+<a href="#Discovery_Services">[Discovery Services]</a>
+<a href="#Additional_Tools">[Additional Tools]</a>
+  <a href="#Calling_Directly">[Calling Directly]</a>
+  <a href="#Integrating_into_Factories_:_Wrapping">[Integrating into Factories : Wrapping]</a>
+<br></br><br></br>
+
+
+
+<a name="Introduction"></a>
+
+<div class="subsection"><a name="1___INTRODUCTION"></a><h3>1.  INTRODUCTION</h3>
+
+<p>
+Best-practices are discussed.
+See the javadoc, starting with <code>DiscoverySingleton</code> and <code>DiscoverClass</code>,
+for detail on the API:
+where service implementations are looked for,
+the order in which those places are checked,
+which classloaders are used,
+and the order in which they are used.
+</p>
+
+
+<a name="Discovery_Services"></a>
+</div>
+<div class="subsection"><a name="2___DISCOVERY_SERVICES"></a><h3>2.  DISCOVERY SERVICES</h3>
+<a name="Additional_Tools"></a>
+</div>
+<div class="subsection"><a name="3___ADDITIONAL_TOOLS"></a><h3>3.  ADDITIONAL TOOLS</h3>
+
+<a name="Calling_Directly"></a>
+<h4>3.1.  CALLING DIRECTLY</h4>
+
+<a name="Finding_Singleton_Instances__Factories_"></a>
+<h5>3.1.1.  Finding Singleton Instances (Factories)</h5>
+
+<p>DiscoverSingleton finds, loads, and manages the lifecycle of a class implementing
+a given interface.  It only supports classes with default (zero-argument) constructors.
+DiscoverSingleton can pass a set of properties to the class
+(see <a href="#Service_Life_Cycle_Management">[Service Life Cycle Management]</a>).
+Use of the term singleton should be applied loosely:
+DiscoverSingleton will instantiate separate instances of a class if called with
+different:
+<ul>
+  <li>thread context class loaders
+      (for example, within different web applications in a J2EE managed environment)</li>
+  <li>group contexts
+      (maintain separation between different subsystems, if desired)</li>
+</ul>
+</p>
+
+<p>To call discovery directly from user-code:
+<ul>
+<pre>
+    import org.apache.commons.discovery.DiscoverSingleton;
+    import org.apache.commons.logging.LogFactory;
+    ...
+    LogFactory logFactory = (LogFactory)DiscoverSingleton.find(LogFactory.class);
+</pre>
+</ul>
+DiscoverSingleton looks for the value of the system property
+<code>org.apache.commons.logging.LogFactory</code>
+for the name of a class that implements the <code>LogFactory</code> (abstract) class.
+Failing that, it uses JDK1.3-style service discovery.
+</p>
+<p>
+DiscoverSingleton also allows a <code>java.util.Properties</code>
+parameter to be used for query for service implementation class name,
+as well as a default implementation class name:
+<ul>
+<pre>
+    LogFactory factory =
+        (LogFactory)DiscoverSingleton.find(LogFactory.class,
+                                           properties,
+                                           LogFactory.FACTORY_DEFAULT);
+</pre>
+</ul>
+</p>
+<p>
+The properties can also be specified as a resource name:
+<ul>
+<pre>
+    LogFactory factory =
+        (LogFactory)DiscoverSingleton.find(LogFactory.class,
+                                           LogFactory.FACTORY_PROPERTIES,
+                                           LogFactory.FACTORY_DEFAULT);
+</pre>
+</ul>
+This last form is equivalent in function
+to the original <code>LogFactory.getFactory()</code>
+method.
+</p>
+<p>
+There are a variety of <code>find</code> methods
+provided by <code>DiscoverSingleton</code>, review the javadoc for
+other forms and options available.
+</p>
+
+<a name="Finding_Classes"></a>
+<h5>3.1.2.  Finding Classes</h5>
+
+<p>DiscoverClass finds and loads a class implementing a given interface.
+DiscoverClass can pass a set of properties to the class if it implements
+the <code>Service</code> interface (which doesn't support full-lifecycle
+management as does the <code>SingletonService</code> interface).
+</p>
+
+<p>
+DiscoverClass provides API's that instantiate a class, though it currently
+supports only classes with default (zero-argument) constructors.
+Unlike <code>DiscoverySingleton</code>, class instances are not cached,
+so each call will result in a new object instance.
+</p>
+
+<p>
+DiscoverClass is more oriented toward calling multiple times within similar contexts,
+so it's use is slightly different than DiscoverSingleton: where as DiscoverSingleton provides
+a set of static methods (no state), DiscoverClass must be instantiated before it is
+used and maintains internal state.
+</p>
+
+<p>To find a class directly from user-code:
+[NEED BETTER EXAMPLE]
+<ul>
+<pre>
+    import org.apache.commons.discovery.DiscoverClass;
+    import org.apache.commons.logging.LogFactory;
+    ...
+    DiscoverClass discoverClass = new DiscoverClass();
+    Class logFactoryClass = (LogFactory)discoverClass.find(LogFactory.class);
+</pre>
+</ul>
+In this case, DiscoverClass looks for the value of the system property
+<code>org.apache.commons.logging.LogFactory</code>
+for the name of a class that implements the <code>LogFactory</code> (abstract) class.
+Failing that, it uses JDK1.3-style service discovery.
+</p>
+
+<p>To instantiate a class directly from user-code:
+[NEED BETTER EXAMPLE]
+<ul>
+<pre>
+    import org.apache.commons.discovery.DiscoverClass;
+    import org.apache.commons.logging.LogFactory;
+    ...
+    DiscoverClass discoverClass = new DiscoverClass();
+    LogFactory logFactoryClass = (LogFactory)discoverClass.newInstance(LogFactory.class);
+</pre>
+</ul>
+</p>
+<p>
+As with DiscoverSingleton, DiscoverClass provides methods that
+use <code>java.util.Properties</code> and a default implementation class name
+to help determine the name of the class.
+</p>
+
+<a name="Integrating_into_Factories_:_Wrapping"></a>
+<h4>3.2  INTEGRATING INTO FACTORIES : WRAPPING</h4>
+
+
+<p>In this example, a factory (such as is used in commons-logging)
+internalizes the discovery mechanism, passing appropriate defaults
+for a default properties file and a default implementation.
+In this case, the factory plays double duty as both the service
+to be discovered (abstract class), and the discovery mechanism.
+
+<ul>
+<pre>
+import java.util.Properties;
+import org.apache.commons.discovery.DiscoverSingleton;
+import org.apache.commons.discovery.DiscoveryException;
+
+public abstract class LogFactory
+{
+    protected static final String FACTORY_DEFAULT =
+        org.apache.commons.logging.impl.DefaultLogFactory.class.getName();
+
+    protected static final String FACTORY_PROPERTIES =
+        "commons-logging.properties";
+
+    /**
+     * Protected constructor that is not available for public use.
+     */
+    protected LogFactory() { }
+
+    public static LogFactory getFactory() throws ServiceException
+    {
+        return (LogFactory)DiscoverSingleton.find(LogFactory.class,
+                                                  LogFactory.class,
+                                                  FACTORY_PROPERTIES,
+                                                  FACTORY_DEFAULT);
+    }
+
+    public static LogFactory getFactory(Properties properties)
+        throws ServiceException
+    {
+        return (LogFactory)DiscoverSingleton.find(LogFactory.class,
+                                                  LogFactory.class,
+                                                  properties,
+                                                  FACTORY_DEFAULT);
+    }
+    ...
+}
+</pre>
+</ul>
+Note the addition of one extra parameter to the <code>find</code>
+method call.
+The first parameter is a <i>root wrapper class</i>,
+which delegates to the discovery mechanism.
+This is necessary to all <code>Discovery</code>
+to determine the correct class loaders to be used
+in loading an implementation class.
+The second parameter is the service interface/class
+for which <code>Discovery</code> will be looking for an implementation.
+In this example, they are the same class, as the LogFactory
+is providing helper methods that 'wrap' <code>Discovery</code>.
+</p>
+ 
+</div>
+</div></div></div><div class="clear"><hr></hr></div><div id="footer"><div class="xright">© 2002-2006, The Apache Software Foundation</div><div class="clear"><hr></hr></div></div></body></html>

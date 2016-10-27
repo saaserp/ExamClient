@@ -70,7 +70,7 @@ public class WelcomeActivity extends InstrumentedActivity {
 			// 文件名
 			dbs = getResources().getStringArray(R.array.db_list);
 			for (String s : dbs) {
-				wc.init(context, s);
+				wc.init(context, s);	
 			}
 
 			SharedPreferences sp = getSharedPreferences("tiku", MODE_PRIVATE);
@@ -95,75 +95,80 @@ public class WelcomeActivity extends InstrumentedActivity {
 			super.onPostExecute(result);
 			if (result) {
 
-				for (int i = 0; i < dbs.length; i++) {
-					if (fileList[i].isFile()) {
-						Map<String, String> map = new HashMap<String, String>();
-						if (fileList[i].getName().contains("journal")) {
-							continue;
-						}
-						if (fileList[i].getName().contains("zh")) {
+//				for (int i = 0; i < dbs.length; i++) {
+//					if (fileList[i].isFile()) {
+//						Map<String, String> map = new HashMap<String, String>();
+//						if (fileList[i].getName().contains("journal")) {
+//							continue;
+//						}
+//						if (fileList[i].getName().contains("zh")) {
+//
+//							map.put("key", fileList[i].getName());
+//							map.put("value", "无人机考试题库1");
+				
+//						}
+//						if (fileList[i].getName().contains("zh2")) {
+//							map.put("key", fileList[i].getName());
+//							map.put("value", "无人机考试题库2");
+//						}
+//
+//						list.add(map);
+//					}
+//				}
 
-							map.put("key", fileList[i].getName());
-							map.put("value", "无人机考试题库1");
-						}
-						if (fileList[i].getName().contains("zh2")) {
-							map.put("key", fileList[i].getName());
-							map.put("value", "无人机考试题库2");
-						}
+//				builder = new CustomDialog.Builder(context, list);
+//				builder.setMessage("请选择一个题库");
+//				builder.setTitle("温馨提示");
+//
+//				builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+//					public void onClick(DialogInterface dialog, int which) {
+//						if (DBUtil.dbName != null &&! DBUtil.dbName.equals("")) {
+//							dialog.dismiss();
+//							if(LoginActivity.haslogin())
+//							{
+//								//如果需要更新数据
+//								new GetDataTask(WelcomeActivity.this,new CallBack(){
+//
+//									@Override
+//									public String done(boolean b) {
+//										// TODO Auto-generated method stub
+//
+//										context.getSharedPreferences("tiku", Activity.MODE_PRIVATE).edit()
+//										.putString("tiku", DBUtil.dbName).commit();
+//										wc.init(context,DBUtil.dbName);
+//										thread.start();
+//
+//
+//										return null;
+//									}}).execute();
+//
+//							}else{
+//
+//								context.getSharedPreferences("tiku", Activity.MODE_PRIVATE).edit()
+//								.putString("tiku", DBUtil.dbName).commit();
+//								wc.init(context,DBUtil.dbName);
+//								thread.start();
+//							}
+//
+//						} else {
+//
+//							Toast.makeText(context, "请选择一个题库", Toast.LENGTH_SHORT).show();
+//
+//							// wc.init(WelcomeActivity.this,
+//							// CustomDialog.Builder.selectedKey);
+//
+//							return;
+//						}
+//
+//					}
+//				});
 
-						list.add(map);
-					}
-				}
-
-				builder = new CustomDialog.Builder(context, list);
-				builder.setMessage("请选择一个题库");
-				builder.setTitle("温馨提示");
-
-				builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
-					public void onClick(DialogInterface dialog, int which) {
-						if (DBUtil.dbName != null &&! DBUtil.dbName.equals("")) {
-							dialog.dismiss();
-							if(LoginActivity.haslogin())
-							{
-								//如果需要更新数据
-								new GetDataTask(WelcomeActivity.this,new CallBack(){
-
-									@Override
-									public String done(boolean b) {
-										// TODO Auto-generated method stub
-
-										context.getSharedPreferences("tiku", Activity.MODE_PRIVATE).edit()
-										.putString("tiku", DBUtil.dbName).commit();
-										wc.init(context,DBUtil.dbName);
-										thread.start();
-
-
-										return null;
-									}}).execute();
-
-							}else{
-
-								context.getSharedPreferences("tiku", Activity.MODE_PRIVATE).edit()
-								.putString("tiku", DBUtil.dbName).commit();
-								wc.init(context,DBUtil.dbName);
-								thread.start();
-							}
-
-						} else {
-
-							Toast.makeText(context, "请选择一个题库", Toast.LENGTH_SHORT).show();
-
-							// wc.init(WelcomeActivity.this,
-							// CustomDialog.Builder.selectedKey);
-
-							return;
-						}
-
-					}
-				});
-
-				builder.create().show();
-
+//				builder.create().show();
+				
+				DBUtil.dbName="nf6.db";
+				wc.init(context,DBUtil.dbName);
+				thread.start();
+				
 			} else {
 				if (DBUtil.dbName.equals("")) {
 					if (fileList == null || fileList.length == 0) {
@@ -177,6 +182,7 @@ public class WelcomeActivity extends InstrumentedActivity {
 					// 已经设置好题库了
 
 					thread.start();
+					
 				}
 			}
 		}

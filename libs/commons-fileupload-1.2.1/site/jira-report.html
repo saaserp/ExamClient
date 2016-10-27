@@ -1,0 +1,1677 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>FileUpload - </title>
+    <style type="text/css" media="all">
+      @import url("./css/maven-base.css");
+      @import url("./css/maven-theme.css");
+      @import url("./css/site.css");
+    </style>
+    <link rel="stylesheet" href="./css/print.css" type="text/css" media="print" />
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+      </head>
+  <body class="composite">
+    <div id="banner">
+                  <a href="../" id="bannerLeft">
+    
+                                            <img src="../images/logo.png" alt="" />
+    
+            </a>
+                        <a href="index.html" id="bannerRight">
+    
+                                            <img src="images/logo.png" alt="" />
+    
+            </a>
+            <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="breadcrumbs">
+          
+  
+
+  
+    
+            
+  
+    
+            <div class="xleft">
+        Last Published: 18 January 2008
+                  &nbsp;| Version: 1.2.1
+                      </div>
+            <div class="xright">            <a href="http://www.apachecon.com/" class="externalLink">ApacheCon</a>
+            |
+                <a href="http://www.apache.org" class="externalLink">Apache</a>
+            |
+                <a href="../">Commons</a>
+            
+  
+
+  
+    
+            
+  
+    
+  </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="leftColumn">
+      <div id="navcolumn">
+           
+  
+
+  
+    
+            
+  
+    
+                   <h5>Commons FileUpload</h5>
+            <ul>
+              
+    <li class="none">
+                    <a href="index.html">Overview</a>
+          </li>
+              
+    <li class="none">
+                    <a href="using.html">User guide</a>
+          </li>
+              
+    <li class="none">
+                    <a href="streaming.html">Streaming API</a>
+          </li>
+              
+    <li class="none">
+                    <a href="faq.html">FAQ</a>
+          </li>
+              
+    <li class="none">
+                    <a href="apidocs/index.html">Javadoc</a>
+          </li>
+              
+    <li class="none">
+                    <a href="mail-lists.html">Mailing lists</a>
+          </li>
+              
+    <li class="none">
+                    <a href="team-list.html">Team</a>
+          </li>
+              
+    <li class="none">
+                    <a href="tasks.html">Tasks</a>
+          </li>
+              
+    <li class="none">
+                    <a href="source-repository.html">SVN repository</a>
+          </li>
+          </ul>
+              <h5>Project Documentation</h5>
+            <ul>
+              
+                
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+        <li class="collapsed">
+                    <a href="project-info.html">Project Information</a>
+                </li>
+              
+                
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+            
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+            <li class="expanded">
+                    <a href="project-reports.html">Project Reports</a>
+                  <ul>
+                  
+    <li class="none">
+                    <a href="changes-report.html">Changes Report</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="checkstyle.html">Checkstyle</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="clirr-report.html">Clirr</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="cpd.html">CPD Report</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="apidocs/index.html">JavaDocs</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="jdepend-report.html">JDepend</a>
+          </li>
+                  
+    <li class="none">
+              <strong>Jira Report</strong>
+        </li>
+                  
+    <li class="none">
+                    <a href="surefire-report.html">Maven Surefire Report</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="pmd.html">PMD Report</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="rat-report.html">RAT Report</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="xref/index.html">Source Xref</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="testapidocs/index.html">Test JavaDocs</a>
+          </li>
+                  
+    <li class="none">
+                    <a href="xref-test/index.html">Test Source Xref</a>
+          </li>
+              </ul>
+        </li>
+          </ul>
+              <h5>Commons</h5>
+            <ul>
+              
+    <li class="none">
+                    <a href="../">Home</a>
+          </li>
+              
+                
+              
+      
+              
+        <li class="collapsed">
+                    <a href="../components.html">Components</a>
+                </li>
+              
+                
+              
+      
+              
+        <li class="collapsed">
+                    <a href="../sandbox/index.html">Sandbox</a>
+                </li>
+              
+                
+              
+      
+              
+        <li class="collapsed">
+                    <a href="../dormant/index.html">Dormant</a>
+                </li>
+              
+    <li class="none">
+                    <a href="../volunteering.html">Volunteering</a>
+          </li>
+              
+    <li class="none">
+                    <a href="../patches.html">Contributing Patches</a>
+          </li>
+              
+    <li class="none">
+                    <a href="../building.html">Building Components</a>
+          </li>
+              
+    <li class="none">
+                    <a href="../releases/index.html">Releasing Components</a>
+          </li>
+              
+    <li class="none">
+                    <a href="http://wiki.apache.org/commons/FrontPage" class="externalLink">Wiki</a>
+          </li>
+          </ul>
+              <h5>ASF</h5>
+            <ul>
+              
+    <li class="none">
+                    <a href="http://www.apache.org/foundation/sponsorship.html" class="externalLink">Sponsorship</a>
+          </li>
+              
+    <li class="none">
+                    <a href="http://www.apache.org/foundation/thanks.html" class="externalLink">Thanks</a>
+          </li>
+          </ul>
+                                           <a href="http://maven.apache.org/" title="Built by Maven" class="poweredBy">
+            <img alt="Built by Maven" src="./images/logos/maven-feather.png"></img>
+          </a>
+                       
+  
+
+  
+    
+            
+  
+    
+        </div>
+    </div>
+    <div id="bodyColumn">
+      <div id="contentBox">
+        <h2>Jira Report</h2>
+<table class="bodyTable"><tr class="a"><th>Key</th>
+<th>Summary</th>
+<th>Status</th>
+<th>Resolution</th>
+<th>By</th>
+</tr>
+<tr class="b"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-122
+">FILEUPLOAD-122
+</a>
+</td>
+<td>Filename may contain a full path
+</td>
+<td>Closed
+</td>
+<td>Invalid
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="a"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-118
+">FILEUPLOAD-118
+</a>
+</td>
+<td>Maven pom has invalid parent
+</td>
+<td>Closed
+</td>
+<td>Fixed
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="b"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-14
+">FILEUPLOAD-14
+</a>
+</td>
+<td>[fileupload] No items in list in uploaded objects
+</td>
+<td>Closed
+</td>
+<td>Incomplete
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="a"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-34
+">FILEUPLOAD-34
+</a>
+</td>
+<td>Requires field name of a part to be a quoted string - goes against HTTP specification
+</td>
+<td>Closed
+</td>
+<td>Incomplete
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="b"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-28
+">FILEUPLOAD-28
+</a>
+</td>
+<td>Cannot get FileUpload working with Tomcat 4.1
+</td>
+<td>Closed
+</td>
+<td>Incomplete
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="a"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-149
+">FILEUPLOAD-149
+</a>
+</td>
+<td>Intermittent file corruption on upload
+</td>
+<td>Open
+</td>
+<td>Unresolved
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="b"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-146
+">FILEUPLOAD-146
+</a>
+</td>
+<td>FileUpload I/O current, 1.2/1.3.2: charset problem surface again, appear to be unfixed
+</td>
+<td>Closed
+</td>
+<td>Incomplete
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="a"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-144
+">FILEUPLOAD-144
+</a>
+</td>
+<td>Parameters values are lost
+</td>
+<td>Open
+</td>
+<td>Unresolved
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="b"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-138
+">FILEUPLOAD-138
+</a>
+</td>
+<td>Fail to upload small files
+</td>
+<td>Resolved
+</td>
+<td>Duplicate
+</td>
+<td>Jochen Wiedmann
+</td>
+</tr>
+<tr class="a"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-136
+">FILEUPLOAD-136
+</a>
+</td>
+<td>FileUpload race condition with used with Jetty 6
+</td>
+<td>Resolved
+</td>
+<td>Won
+'
+t Fix
+</td>
+<td>Jochen Wiedmann
+</td>
+</tr>
+<tr class="b"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-119
+">FILEUPLOAD-119
+</a>
+</td>
+<td>The encryption
+&
+decryption of uploaded file
+</td>
+<td>Closed
+</td>
+<td>Won
+'
+t Fix
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="a"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-63
+">FILEUPLOAD-63
+</a>
+</td>
+<td>[fileupload] NativeHeap saturation with DeleteOnExit
+</td>
+<td>Closed
+</td>
+<td>Duplicate
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="b"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-60
+">FILEUPLOAD-60
+</a>
+</td>
+<td>[fileupload] Cannot set Repository location for DiskFileItemFactory
+</td>
+<td>Closed
+</td>
+<td>Cannot Reproduce
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="a"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-24
+">FILEUPLOAD-24
+</a>
+</td>
+<td>Size Threshold in Commons Upload not Working
+</td>
+<td>Closed
+</td>
+<td>Incomplete
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="b"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-32
+">FILEUPLOAD-32
+</a>
+</td>
+<td>[fileupload] MultipartStream\IE 5.5 error
+</td>
+<td>Closed
+</td>
+<td>Invalid
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="a"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-23
+">FILEUPLOAD-23
+</a>
+</td>
+<td>[fileupload] Opera-Fileupload-Items are not recognized if empty
+</td>
+<td>Closed
+</td>
+<td>Won
+'
+t Fix
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="b"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-11
+">FILEUPLOAD-11
+</a>
+</td>
+<td>FileUpload uploading files corrupt file size no matter in which OS youre using it
+</td>
+<td>Closed
+</td>
+<td>Won
+'
+t Fix
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="a"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-150
+">FILEUPLOAD-150
+</a>
+</td>
+<td>Text field containing an
+?
+(Euro) character will not be correctly evaluated, the character gets not recognized
+</td>
+<td>Closed
+</td>
+<td>Invalid
+</td>
+<td>Jochen Wiedmann
+</td>
+</tr>
+<tr class="b"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-148
+">FILEUPLOAD-148
+</a>
+</td>
+<td>FileItemFactory.setMaxStringLength()
+</td>
+<td>Closed
+</td>
+<td>Fixed
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="a"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-145
+">FILEUPLOAD-145
+</a>
+</td>
+<td>setFileSizeMax validation is happening after ENTIRE file gets uploaded
+</td>
+<td>Resolved
+</td>
+<td>Fixed
+</td>
+<td>Jochen Wiedmann
+</td>
+</tr>
+<tr class="b"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-143
+">FILEUPLOAD-143
+</a>
+</td>
+<td>"
+Stream ended unexpectedly
+"
+</td>
+<td>Reopened
+</td>
+<td>Unresolved
+</td>
+<td>Jochen Wiedmann
+</td>
+</tr>
+<tr class="a"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-141
+">FILEUPLOAD-141
+</a>
+</td>
+<td>Remove FileItems if FileUploadBase.parseRequest() fails
+</td>
+<td>Reopened
+</td>
+<td>Unresolved
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="b"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-140
+">FILEUPLOAD-140
+</a>
+</td>
+<td>Means to preserve text parameters when upload limit exceeded
+</td>
+<td>Resolved
+</td>
+<td>Fixed
+</td>
+<td>Jochen Wiedmann
+</td>
+</tr>
+<tr class="a"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-139
+">FILEUPLOAD-139
+</a>
+</td>
+<td>[fileupload] separator of boundary doesnt match rfc1867 examples
+</td>
+<td>Closed
+</td>
+<td>Fixed
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="b"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-137
+">FILEUPLOAD-137
+</a>
+</td>
+<td>MultipartStream public API broken
+</td>
+<td>Reopened
+</td>
+<td>Unresolved
+</td>
+<td>Jochen Wiedmann
+</td>
+</tr>
+<tr class="a"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-135
+">FILEUPLOAD-135
+</a>
+</td>
+<td>InputStream created with Streaming API returns EOF on first read() for short files uploaded from FireFox over HTTPS
+</td>
+<td>Resolved
+</td>
+<td>Fixed
+</td>
+<td>Jochen Wiedmann
+</td>
+</tr>
+<tr class="b"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-134
+">FILEUPLOAD-134
+</a>
+</td>
+<td>A factory-created DiskFileItem does not have an initialized dfos, causing NullPointerExceptions if getOutputStream() is not called.
+</td>
+<td>Resolved
+</td>
+<td>Fixed
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="a"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-132
+">FILEUPLOAD-132
+</a>
+</td>
+<td>How do we retrieve the HTTP Headers in the request?
+</td>
+<td>Resolved
+</td>
+<td>Fixed
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="b"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-131
+">FILEUPLOAD-131
+</a>
+</td>
+<td>MultipartStream always assumes transfer encoding to be BINARY
+</td>
+<td>Open
+</td>
+<td>Unresolved
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="a"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-128
+">FILEUPLOAD-128
+</a>
+</td>
+<td>move commons-fileupload to org.apache.commons.fileupload groupId in maven
+</td>
+<td>Closed
+</td>
+<td>Fixed
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="b"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-127
+">FILEUPLOAD-127
+</a>
+</td>
+<td>distribution mirrors looking for commons-fileupload-1.2.tar.gz but file is named commons-fileupload-1.2-bin.tar.gz
+</td>
+<td>Closed
+</td>
+<td>Fixed
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="a"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-125
+">FILEUPLOAD-125
+</a>
+</td>
+<td>new FileCleanerCleanup may lead to problems [PATCH]
+</td>
+<td>Closed
+</td>
+<td>Won
+'
+t Fix
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="b"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-124
+">FILEUPLOAD-124
+</a>
+</td>
+<td>Error while uploading the file - in Clusterd in Environment
+</td>
+<td>Closed
+</td>
+<td>Invalid
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="a"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-120
+">FILEUPLOAD-120
+</a>
+</td>
+<td>memory leak due to classloader leak (in commons.io)
+</td>
+<td>Closed
+</td>
+<td>Fixed
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="b"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-117
+">FILEUPLOAD-117
+</a>
+</td>
+<td>Check file upload size only if an upload limit has been imposed
+</td>
+<td>Closed
+</td>
+<td>Fixed
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="a"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-115
+">FILEUPLOAD-115
+</a>
+</td>
+<td>Filupload does no validation of accept attribute nor maxFileSize defined for the ExtensionFilter
+</td>
+<td>Closed
+</td>
+<td>Cannot Reproduce
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="b"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-113
+">FILEUPLOAD-113
+</a>
+</td>
+<td>uncomment ServletFileUpload.isMultipartContent()
+</td>
+<td>Closed
+</td>
+<td>Fixed
+</td>
+<td>Jochen Wiedmann
+</td>
+</tr>
+<tr class="a"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-112
+">FILEUPLOAD-112
+</a>
+</td>
+<td>Support for iterative parsing
+</td>
+<td>Closed
+</td>
+<td>Fixed
+</td>
+<td>Jochen Wiedmann
+</td>
+</tr>
+<tr class="b"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-106
+">FILEUPLOAD-106
+</a>
+</td>
+<td>parseRequest randomly throws Stream ended unexpectedly
+</td>
+<td>Closed
+</td>
+<td>Invalid
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="a"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-25
+">FILEUPLOAD-25
+</a>
+</td>
+<td>[fileupload] all filenames are lowercased
+</td>
+<td>Closed
+</td>
+<td>Incomplete
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="b"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-38
+">FILEUPLOAD-38
+</a>
+</td>
+<td>[fileupload] FileUploadException on processing multipart/form-data
+</td>
+<td>Closed
+</td>
+<td>Won
+'
+t Fix
+</td>
+<td>Jochen Wiedmann
+</td>
+</tr>
+<tr class="a"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-42
+">FILEUPLOAD-42
+</a>
+</td>
+<td>[fileupload] fails with transfer-encoding: chunked
+</td>
+<td>Closed
+</td>
+<td>Duplicate
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="b"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-20
+">FILEUPLOAD-20
+</a>
+</td>
+<td>[fileupload] Using getSize on DistFileItem after write returns 0 size
+</td>
+<td>Closed
+</td>
+<td>Fixed
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="a"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-47
+">FILEUPLOAD-47
+</a>
+</td>
+<td>[fileupload] Item Iterator found empty in second pass for the same request
+</td>
+<td>Closed
+</td>
+<td>Incomplete
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="b"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-62
+">FILEUPLOAD-62
+</a>
+</td>
+<td>[fileupload] Fails to apply fieldname
+</td>
+<td>Closed
+</td>
+<td>Cannot Reproduce
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="a"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-30
+">FILEUPLOAD-30
+</a>
+</td>
+<td>[fileupload] filename drops case
+</td>
+<td>Closed
+</td>
+<td>Fixed
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="b"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-12
+">FILEUPLOAD-12
+</a>
+</td>
+<td>[fileupload] Remove deprecations issued in IO 1.1
+</td>
+<td>Closed
+</td>
+<td>Fixed
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="a"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-29
+">FILEUPLOAD-29
+</a>
+</td>
+<td>[fileupload] Remove Javadoc warnings
+</td>
+<td>Closed
+</td>
+<td>Fixed
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="b"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-59
+">FILEUPLOAD-59
+</a>
+</td>
+<td>[fileupload] Memory Issue
+</td>
+<td>Closed
+</td>
+<td>Fixed
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="a"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-3
+">FILEUPLOAD-3
+</a>
+</td>
+<td>[fileupload] Stream ended unexpectedly - when used with Flash 8 file upload
+</td>
+<td>Closed
+</td>
+<td>Incomplete
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="b"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-6
+">FILEUPLOAD-6
+</a>
+</td>
+<td>[fileupload] Stream ended unexpectedly
+</td>
+<td>Closed
+</td>
+<td>Cannot Reproduce
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="a"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-71
+">FILEUPLOAD-71
+</a>
+</td>
+<td>[fileupload] FileUploadException: Processing of multipart/form-data request failed. Read timed out
+</td>
+<td>Open
+</td>
+<td>Unresolved
+</td>
+<td>Jochen Wiedmann
+</td>
+</tr>
+<tr class="b"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-54
+">FILEUPLOAD-54
+</a>
+</td>
+<td>[fileupload] Read timed out when a lengthy xml file to be uploaded
+</td>
+<td>Closed
+</td>
+<td>Duplicate
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="a"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-39
+">FILEUPLOAD-39
+</a>
+</td>
+<td>[fileupload] Content-Type with quoted boundary doesn
+'
+t work
+</td>
+<td>Closed
+</td>
+<td>Fixed
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="b"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-46
+">FILEUPLOAD-46
+</a>
+</td>
+<td>[fileupload] Default encoding issue running Tomcat on z/os
+</td>
+<td>Closed
+</td>
+<td>Fixed
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="a"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-13
+">FILEUPLOAD-13
+</a>
+</td>
+<td>[fileupload] Use the ServletRequest encoding as default
+</td>
+<td>Closed
+</td>
+<td>Fixed
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="b"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-68
+">FILEUPLOAD-68
+</a>
+</td>
+<td>[fileupload] Bug in FileUploadBase
+</td>
+<td>Closed
+</td>
+<td>Duplicate
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="a"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-48
+">FILEUPLOAD-48
+</a>
+</td>
+<td>[fileupload] Memory leak in DefaultFileItem
+</td>
+<td>Closed
+</td>
+<td>Fixed
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="b"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-45
+">FILEUPLOAD-45
+</a>
+</td>
+<td>[fileupload] Compiling a Portlet app requires the Servlet API
+</td>
+<td>Closed
+</td>
+<td>Won
+'
+t Fix
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="a"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-50
+">FILEUPLOAD-50
+</a>
+</td>
+<td>[fileupload] FileItem implements Serializable incorrectly
+</td>
+<td>Closed
+</td>
+<td>Fixed
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="b"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-1
+">FILEUPLOAD-1
+</a>
+</td>
+<td>Detemining content type
+</td>
+<td>Closed
+</td>
+<td>Duplicate
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="a"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-5
+">FILEUPLOAD-5
+</a>
+</td>
+<td>[fileupload] Determining content type
+</td>
+<td>Closed
+</td>
+<td>Fixed
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="b"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-33
+">FILEUPLOAD-33
+</a>
+</td>
+<td>[fileupload] FileUploadException, Stream ended unexpectedly
+</td>
+<td>Closed
+</td>
+<td>Incomplete
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="a"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-36
+">FILEUPLOAD-36
+</a>
+</td>
+<td>[fileupload] It is not expected for boundary to have quoted-string value
+</td>
+<td>Closed
+</td>
+<td>Duplicate
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="b"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-27
+">FILEUPLOAD-27
+</a>
+</td>
+<td>Otiose Code in ParameterParser
+</td>
+<td>Closed
+</td>
+<td>Incomplete
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="a"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-41
+">FILEUPLOAD-41
+</a>
+</td>
+<td>unexpected memory usage on fileupload
+</td>
+<td>Closed
+</td>
+<td>Incomplete
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="b"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-18
+">FILEUPLOAD-18
+</a>
+</td>
+<td>contentType comparisons should be case-insensitive
+</td>
+<td>Closed
+</td>
+<td>Fixed
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="a"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-65
+">FILEUPLOAD-65
+</a>
+</td>
+<td>Problems uploading image file using multipart form request
+</td>
+<td>Closed
+</td>
+<td>Incomplete
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="b"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-2
+">FILEUPLOAD-2
+</a>
+</td>
+<td>[PATCH]fileupload couldn
+'
+t treat escaped character
+</td>
+<td>Closed
+</td>
+<td>Won
+'
+t Fix
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="a"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-16
+">FILEUPLOAD-16
+</a>
+</td>
+<td>[fileupload][PATCH]
+Workaround for IE5 Mac type=image bug
+</td>
+<td>Closed
+</td>
+<td>Fixed
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="b"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-31
+">FILEUPLOAD-31
+</a>
+</td>
+<td>[PATCH] Added some tests
+</td>
+<td>Closed
+</td>
+<td>Fixed
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="a"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-44
+">FILEUPLOAD-44
+</a>
+</td>
+<td>NPE with default FileUpload constructor
+</td>
+<td>Closed
+</td>
+<td>Incomplete
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="b"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-53
+">FILEUPLOAD-53
+</a>
+</td>
+<td>UnknownSizeException with IE5.0 (due to IE5.0 bug)
+</td>
+<td>Closed
+</td>
+<td>Fixed
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="a"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-58
+">FILEUPLOAD-58
+</a>
+</td>
+<td>useless deleteOnExit make shutdown endless
+</td>
+<td>Closed
+</td>
+<td>Duplicate
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="b"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-51
+">FILEUPLOAD-51
+</a>
+</td>
+<td>browser still processing after exception
+</td>
+<td>Closed
+</td>
+<td>Incomplete
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="a"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-9
+">FILEUPLOAD-9
+</a>
+</td>
+<td>IE 5.2 on MacOsx throws Exception in multipart form data sending
+</td>
+<td>Closed
+</td>
+<td>Duplicate
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="b"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-4
+">FILEUPLOAD-4
+</a>
+</td>
+<td>[fileupload] The common upload functions do not work on z/OS WebSphere
+</td>
+<td>Closed
+</td>
+<td>Fixed
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="a"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-55
+">FILEUPLOAD-55
+</a>
+</td>
+<td>[fileupload] The current code assumes the platforms default encoding is iso-8859-1
+</td>
+<td>Closed
+</td>
+<td>Incomplete
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="b"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-15
+">FILEUPLOAD-15
+</a>
+</td>
+<td>the fileupload do not conform to the possible double quoting of the boundary
+</td>
+<td>Closed
+</td>
+<td>Duplicate
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="a"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-19
+">FILEUPLOAD-19
+</a>
+</td>
+<td>File Upload Not Compatible With IE 5.2.3 MacOS X
+</td>
+<td>Closed
+</td>
+<td>Duplicate
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="b"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-72
+">FILEUPLOAD-72
+</a>
+</td>
+<td>Java docs bug
+</td>
+<td>Closed
+</td>
+<td>Fixed
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="a"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-35
+">FILEUPLOAD-35
+</a>
+</td>
+<td>file upload can be very slow
+</td>
+<td>Closed
+</td>
+<td>Fixed
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="b"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-7
+">FILEUPLOAD-7
+</a>
+</td>
+<td>[fileupload] NullPointerException in DefaultFileItem
+</td>
+<td>Closed
+</td>
+<td>Duplicate
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="a"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-64
+">FILEUPLOAD-64
+</a>
+</td>
+<td>FileUpload default constructor doesn
+'
+t work
+</td>
+<td>Closed
+</td>
+<td>Won
+'
+t Fix
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="b"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-40
+">FILEUPLOAD-40
+</a>
+</td>
+<td>FileUploadBase does not handle quoted boundary specification, which is required by RFC 1521
+</td>
+<td>Closed
+</td>
+<td>Fixed
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="a"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-21
+">FILEUPLOAD-21
+</a>
+</td>
+<td>DefaultFileItem.write() throws NullPointerException if a stream cannot be created
+</td>
+<td>Closed
+</td>
+<td>Fixed
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="b"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-69
+">FILEUPLOAD-69
+</a>
+</td>
+<td>HTTPClient MultiPartPostMethod inconsistent behaviour compared to standard form upload
+</td>
+<td>Closed
+</td>
+<td>Incomplete
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="a"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-26
+">FILEUPLOAD-26
+</a>
+</td>
+<td>[fileupload] write() method can be invoked onl
+y once.
+</td>
+<td>Closed
+</td>
+<td>Won
+'
+t Fix
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="b"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-10
+">FILEUPLOAD-10
+</a>
+</td>
+<td>[fileupload] delete() method not working properly
+</td>
+<td>Closed
+</td>
+<td>Cannot Reproduce
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="a"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-52
+">FILEUPLOAD-52
+</a>
+</td>
+<td>[fileupload] setSizeThreshold not working as described in documentation
+</td>
+<td>Closed
+</td>
+<td>Duplicate
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="b"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-57
+">FILEUPLOAD-57
+</a>
+</td>
+<td>[fileupload] Sample code is not working
+</td>
+<td>Closed
+</td>
+<td>Fixed
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="a"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-8
+">FILEUPLOAD-8
+</a>
+</td>
+<td>Sample FileUpload application fails on z/OS platform
+</td>
+<td>Closed
+</td>
+<td>Won
+'
+t Fix
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="b"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-70
+">FILEUPLOAD-70
+</a>
+</td>
+<td>DefaultFileItem should not catch Exception
+</td>
+<td>Closed
+</td>
+<td>Fixed
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="a"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-66
+">FILEUPLOAD-66
+</a>
+</td>
+<td>DefaultFileItem issues
+</td>
+<td>Closed
+</td>
+<td>Fixed
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="b"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-17
+">FILEUPLOAD-17
+</a>
+</td>
+<td>[fileupload] FileItem.getName() returns filename plus path from Windows/IE
+</td>
+<td>Closed
+</td>
+<td>Incomplete
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="a"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-61
+">FILEUPLOAD-61
+</a>
+</td>
+<td>Temporary upload files are not being deleted
+</td>
+<td>Closed
+</td>
+<td>Fixed
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="b"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-43
+">FILEUPLOAD-43
+</a>
+</td>
+<td>Fails when request doesn
+'
+t end with boundary text
+</td>
+<td>Closed
+</td>
+<td>Incomplete
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="a"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-56
+">FILEUPLOAD-56
+</a>
+</td>
+<td>[FileUpload] uploading files with non-ASCII filenames
+</td>
+<td>Closed
+</td>
+<td>Fixed
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="b"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-153
+">FILEUPLOAD-153
+</a>
+</td>
+<td>Cannot run unit tests from Ant 1.7.0 (Sun) Java 1.3.1
+</td>
+<td>Resolved
+</td>
+<td>Fixed
+</td>
+<td>Unassigned
+</td>
+</tr>
+<tr class="a"><td><a class="externalLink" href="http://issues.apache.org/jira/browse/FILEUPLOAD-152
+">FILEUPLOAD-152
+</a>
+</td>
+<td>Unit incompatibility betweenFileUpload.setFileSizeMax and FileUploadBase$FileItemIteratorImpl
+</td>
+<td>Open
+</td>
+<td>Unresolved
+</td>
+<td>Unassigned
+</td>
+</tr>
+</table>
+
+      </div>
+    </div>
+    <div class="clear">
+      <hr/>
+    </div>
+    <div id="footer">
+      <div class="xright">&#169;  
+          2002-2008
+    
+          The Apache Software Foundation
+          
+  
+
+  
+    
+            
+  
+    
+  </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+  </body>
+</html>

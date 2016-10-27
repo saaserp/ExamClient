@@ -9,9 +9,7 @@ import android.content.res.AssetManager;
 import android.os.Environment;
 
 public class DBUtil {
-	public static String dbName="zh.db";
-
-
+	public static String dbName="nf6.db";
 	private Context context;
 	private final int BUFFER_SIZE = 1024;
 	// 保存的数据库文件名 与 DBHelper 统一

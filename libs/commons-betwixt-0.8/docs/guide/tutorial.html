@@ -1,0 +1,236 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html><head><title>Tutorial - Betwixt</title><style type="text/css" media="all">
+          @import url("../style/maven-base.css");
+          
+          @import url("../style/maven-theme.css");@import url("../style/project.css");</style><link rel="stylesheet" href="../style/print.css" type="text/css" media="print"></link><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"></meta><meta name="author" content="Robert Burrell Donkin"></meta><meta name="email" content="rdonkin@apache.org"></meta></head><body class="composite"><div id="banner"><a href="http://jakarta.apache.org" id="organizationLogo"><img alt="The Apache Software Foundation" src="http://jakarta.apache.org/images/original-jakarta-logo.gif"></img></a><a href="http://jakarta.apache.org/commons/betwixt/" id="projectLogo"><img alt="Betwixt" src="../images/logo.png"></img></a><div class="clear"><hr></hr></div></div><div id="breadcrumbs"><div class="xleft">Last published: 21 December 2006
+                <span class="separator">|</span> Doc for  0.8
+                </div><div class="xright">
+        
+        <a href="http://jakarta.apache.org/commons/" class="externalLink" title="External Link">Jakarta Commons</a>
+      </div><div class="clear"><hr></hr></div></div><div id="leftColumn"><div id="navcolumn"><div id="menuCommons_Betwixt"><h5>Commons Betwixt</h5><ul><li class="none"><a href="../index.html">Overview</a></li><li class="none"><a href="../faq.html">FAQ</a></li><li class="none"><a href="../apidocs/index.html">Javadoc</a></li><li class="none"><a href="../mail-lists.html">Mailing lists</a></li><li class="none"><a href="../team-list.html">Team</a></li><li class="none"><a href="../community.html">Community</a></li><li class="none"><a href="../powered.html">Powered By</a></li><li class="none"><a href="../tasks.html">Tasks</a></li><li class="none"><a href="http://svn.apache.org/viewcvs.cgi/jakarta/commons/proper/betwixt/trunk/" class="externalLink" title="External Link">View SVN</a></li><li class="none"><a href="http://svn.apache.org/repos/asf/jakarta/commons/proper/betwixt/" class="externalLink" title="External Link">SVN</a></li></ul></div><div id="menuUser_guide"><h5>User guide</h5><ul><li class="none"><a href="../guide/start.html">Getting Started</a></li><li class="none"><a href="../guide/binding.html">Binding Beans</a></li><li class="none"><a href="../guide/derived.html">Derived Bindings</a></li><li class="none"><a href="../guide/writing.html">Writing Beans(Advanced)</a></li><li class="none"><a href="../guide/output.html">Outputting The Results</a></li><li class="none"><a href="../guide/reading.html">Reading Beans(Advanced)</a></li><li class="none"><a href="../guide/integration.html">Integrating</a></li><li class="none"><a href="../guide/examples.html">Examples</a></li><li class="none"><strong><a href="../guide/tutorial.html">Tutorial</a></strong></li></ul></div><div id="menuRelease_Documentation"><h5>Release Documentation</h5><ul><li class="none"><a href="http://jakarta.apache.org/commons/betwixt/betwixt-0.7" class="externalLink" title="External Link">0.7</a></li><li class="none"><a href="http://jakarta.apache.org/commons/betwixt/betwixt-0.6" class="externalLink" title="External Link">0.6</a></li><li class="none"><a href="http://jakarta.apache.org/commons/betwixt/betwixt-0.5" class="externalLink" title="External Link">0.5</a></li></ul></div><div id="menuProject_Documentation"><h5>Project Documentation</h5><ul><li class="none"><a href="../index.html">About</a></li><li class="collapsed"><a href="../project-info.html">Project Info</a></li><li class="collapsed"><a href="../maven-reports.html">Project Reports</a></li><li class="none"><a href="http://jakarta.apache.org/commons/charter.html" class="externalLink" title="External Link">Development Process</a></li></ul></div><div id="menuCommons"><h5>Commons</h5><ul><li class="none"><a href="http://jakarta.apache.org/commons/" class="externalLink" title="External Link">Home</a></li><li class="collapsed"><a href="http://jakarta.apache.org/commons/components.html" class="externalLink" title="External Link">Components</a></li><li class="collapsed"><a href="http://jakarta.apache.org/commons/sandbox/index.html" class="externalLink" title="External Link">Sandbox</a></li><li class="collapsed"><a href="http://jakarta.apache.org/commons/dormant/index.html" class="externalLink" title="External Link">Dormant</a></li><li class="none"><a href="http://jakarta.apache.org/commons/volunteering.html" class="externalLink" title="External Link">Volunteering</a></li><li class="none"><a href="http://jakarta.apache.org/commons/patches.html" class="externalLink" title="External Link">Contributing Patches</a></li><li class="none"><a href="http://jakarta.apache.org/commons/building.html" class="externalLink" title="External Link">Building Components</a></li><li class="none"><a href="http://jakarta.apache.org/commons/releases/index.html" class="externalLink" title="External Link">Releasing Components</a></li><li class="none"><a href="http://wiki.apache.org/jakarta-commons/FrontPage" class="externalLink" title="External Link">Wiki</a></li></ul></div><div id="legend"><h5>Legend</h5><ul><li class="externalLink">External Link</li><li class="newWindow">Opens in a new window</li></ul></div><a href="http://maven.apache.org/" title="Built by Maven" id="poweredBy"><img alt="Built by Maven" src="../images/logos/maven-feather.png"></img></a></div></div><div id="bodyColumn"><div class="contentBox"><div class="section"><a name="Tutorial"></a><h2>Tutorial</h2>
+        <p>
+This is a simple step-by-step <code>Betwixt</code> tutorial focussing 
+on creating a mapping for an RSS 0.91 application. 
+    </p>
+    
+<div class="subsection"><a name="The_Object_Model"></a><h3>The Object Model</h3>
+        <p>
+<code>Betwixt</code> is a dynamic, start-from-java XML-object binder.
+For those unfamiliar with these terms, this means that it maps XML &lt;-&gt; objects 
+defining a binding from an existing group of java objects into xml (and back again)
+without the use of code generation.
+    </p>
+        <p>
+So, the place we'll start is with an 
+<a href="http://jakarta.apache.org/commons/betwixt/xref-test/org/apache/commons/betwixt/examples/rss/package-summary.html" class="externalLink" title="External Link">
+object model</a> for 
+RSS 0.91. This was originally created for 
+<a href="http://jakarta.apache.org/commons/digester/index.html" class="externalLink" title="External Link">Digester</a> 
+by Craig R. McClanahan and Ted Husted with a few amendments for this tutorial.
+There are only four main objects in the model: 
+    </p>
+        <ul>
+            <li>
+<a href="http://jakarta.apache.org/commons/betwixt/xref-test/org/apache/commons/betwixt/examples/rss/Channel.html" class="externalLink" title="External Link">
+Channel</a>
+        </li>
+            <li>
+<a href="http://jakarta.apache.org/commons/betwixt/xref-test/org/apache/commons/betwixt/examples/rss/Image.html" class="externalLink" title="External Link">
+Image</a>
+        </li>
+            <li>
+<a href="http://jakarta.apache.org/commons/betwixt/xref-test/org/apache/commons/betwixt/examples/rss/Item.html" class="externalLink" title="External Link">
+Item</a>
+        </li>
+            <li>
+<a href="http://jakarta.apache.org/commons/betwixt/xref-test/org/apache/commons/betwixt/examples/rss/TextInput.html" class="externalLink" title="External Link">
+TextInput</a>
+        </li>
+    </ul>
+        <p>
+The 
+<a href="http://jakarta.apache.org/commons/betwixt/xref-test/org/apache/commons/betwixt/examples/rss/RSSApplication.html" class="externalLink" title="External Link">
+application</a> simply processes an xml file in RSS format and creates a plain text version.
+This isn't really very useful but is a good demonstration of bean reading.
+    </p>
+</div>
+
+    <div class="subsection"><a name="The_XML"></a><h3>The XML</h3>
+        <p>
+RSS 0.91 is an XML vocabulary for describing metadata about websites commonly used
+to supply news channels. RSS 0.91 is a little elderly and has quite a simple 
+- but elegant - DTD:
+    </p>
+
+    <div class="source"><pre>
+
+&lt;!ELEMENT rss (channel)&gt;
+&lt;!ATTLIST rss
+          version     CDATA #REQUIRED&gt; &lt;!-- must be "0.91"&gt; --&gt;
+
+&lt;!ELEMENT channel (
+                    title | 
+                    description | 
+                    link | 
+                    language | 
+                    item+ | 
+                    rating? | 
+                    image? | 
+                    textinput? | 
+                    copyright? | 
+                    pubDate? | 
+                    lastBuildDate? | 
+                    docs? | 
+                    managingEditor? | 
+                    webMaster? | 
+                    skipHours? | 
+                    skipDays?)*&gt;
+&lt;!ELEMENT title (#PCDATA)&gt;
+&lt;!ELEMENT description (#PCDATA)&gt;
+&lt;!ELEMENT link (#PCDATA)&gt;
+&lt;!ELEMENT image (title | url | link | width? | height? | description?)*&gt;
+&lt;!ELEMENT url (#PCDATA)&gt;
+&lt;!ELEMENT item (title | link | description)*&gt;
+&lt;!ELEMENT textinput (title | description | name | link)*&gt;
+&lt;!ELEMENT name (#PCDATA)&gt;
+&lt;!ELEMENT rating (#PCDATA)&gt;
+&lt;!ELEMENT language (#PCDATA)&gt;
+&lt;!ELEMENT width (#PCDATA)&gt;
+&lt;!ELEMENT height (#PCDATA)&gt;
+&lt;!ELEMENT copyright (#PCDATA)&gt;
+&lt;!ELEMENT pubDate (#PCDATA)&gt;
+&lt;!ELEMENT lastBuildDate (#PCDATA)&gt;
+&lt;!ELEMENT docs (#PCDATA)&gt;
+&lt;!ELEMENT managingEditor (#PCDATA)&gt;
+&lt;!ELEMENT webMaster (#PCDATA)&gt;
+&lt;!ELEMENT hour (#PCDATA)&gt;
+&lt;!ELEMENT day (#PCDATA)&gt;
+&lt;!ELEMENT skipHours (hour+)&gt;
+&lt;!ELEMENT skipDays (day+)&gt;
+
+</pre></div>
+  
+        <p>
+Since <code>Betwixt</code> is start-from-java, a DTD is not required.
+This has many advantages during prototyping but this tutorial will
+concentrate on a target specified by DTD (since it's a little more instructive).
+What's probably needed in both cases is a good understanding of the xml
+that the object model maps to.
+    </p>
+</div>
+    
+    <div class="subsection"><a name="Mapping_Channel_and_Image"></a><h3>Mapping Channel and Image</h3>
+        <p>
+Every xml document has a root node. 
+Every <code>Betwixt</code> mapping starts from a root object.
+The process of creating a mapping between the xml document and the object model
+in <code>Betwixt</code> typically begins by working out the structural relationship
+between the elements in the xml and the objects in the property subgraph of that root object.
+    </p>
+        <p>
+<a href="http://jakarta.apache.org/commons/betwixt/xref-test/org/apache/commons/betwixt/examples/rss/Channel.html" class="externalLink" title="External Link">
+Channel</a> is the root object mapping to the <code>&lt;channel&gt;</code> root element
+of the xml. There are several ways that a mapping for an object can be defined in 
+<code>Betwixt</code>. In this case, a <code>.betwixt</code> xml file will be used.
+This following file is built into the jar in the package containing <code>Channel</code>:
+    </p>
+
+    <div class="source"><pre>
+
+&lt;?xml version="1.0" encoding="UTF-8" ?&gt;
+&lt;info primitiveTypes="element"&gt;
+  &lt;element name="rss"&gt;
+    &lt;attribute name="version" property="version"/&gt;
+    &lt;element name="channel"&gt;
+      &lt;element name="title"  property="title"/&gt;
+      &lt;element name="item"  property="items"/&gt;
+      &lt;element name="textinput"  property="textInput"/&gt;
+      &lt;element name="skipDays"&gt;
+        &lt;element name="day" property="skipDays"/&gt;
+      &lt;/element&gt;
+      &lt;element name="skipHours"&gt;
+        &lt;element name="hour" property="skipHours"/&gt;
+      &lt;/element&gt;
+      &lt;addDefaults/&gt;
+    &lt;/element&gt;
+  &lt;/element&gt;
+&lt;/info&gt;
+
+</pre></div>
+  
+        <p>
+This describes how elements and attributes in the xml are mapped to properties
+in a Channel object. <code>Betwixt</code> uses the type of the properties to
+determine how to map the sub-graph under an element mapped to a property. 
+So, for example the <code>textInput</code> property gets and sets a <code>TextInput</code>
+object so the mapping for <code>TextInput</code> is used.
+    </p>
+        <p>
+There are a number of collective properties: those that are mapped to a many 
+objects (rather than just one). For example, the 
+<a href="http://jakarta.apache.org/commons/betwixt/xref-test/org/apache/commons/betwixt/examples/rss/Channel.html#96" class="externalLink" title="External Link">items</a>
+property is backed by an <code>List</code> and is mapped to zero, one or more <code>&lt;item&gt;</code> tags.
+<code>Betwixt</code> looks for an adder method (something like <code>addItem</code>) which matches
+the collective property (which should return something like a Collection) 
+and uses that to add instances of the object created from the xml contained.
+This mechanism can be customized but the defaults are fine in this case.
+The standard mapping for the class contained with the collection is used.
+    </p>
+        <p>
+Notice the <code>&lt;addDefaults/&gt;</code> tag. This tells <code>Betwixt</code>
+to use it's introspection system to automagically determine the mappings
+for all other properties. <code>Betwixt</code> has a number of powerful
+strategy plugins which allow the introspection process to be controlled
+in a finely-grained manner but in this case, the default mappings of the
+remaining properties work fine :)
+    </p>
+        <p>
+See 
+<a href="http://jakarta.apache.org/commons/betwixt/guide/binding.html" class="externalLink" title="External Link">binding</a>
+for more details.
+    </p>
+        <p>
+Image uses a smaller <code>.betwixt</code> file:
+    </p>
+
+    <div class="source"><pre>
+
+&lt;?xml version="1.0" encoding="UTF-8" ?&gt;
+&lt;info primitiveTypes="element"&gt;
+  &lt;element name="image"&gt;
+    &lt;element name="url" property="URL"/&gt;
+    &lt;addDefaults/&gt;
+  &lt;/element&gt;
+&lt;/info&gt;
+
+</pre></div>
+  
+</div>    
+    <div class="subsection"><a name="Mapping_Item_and_TextInput"></a><h3>Mapping Item and TextInput</h3>    
+        <p>
+<a href="http://jakarta.apache.org/commons/betwixt/xref-test/org/apache/commons/betwixt/examples/rss/Item.html" class="externalLink" title="External Link">Item</a>
+is an example of the other (main) way that mappings are created for objects.
+There is no <code>.betwixt</code> file so <code>Betwixt</code> introspects the 
+class using reflection and determines a mapping based on the current introspector 
+configuration. In this case, it's exactly what's required so there's no need to change
+    </p>
+        <p>
+<a href="http://jakarta.apache.org/commons/betwixt/xref-test/org/apache/commons/betwixt/examples/rss/TextInput.html" class="externalLink" title="External Link">TextInput</a>
+is also mapped by using introspection.
+    </p>
+</div>
+
+    <div class="subsection"><a name="Reading_A_Bean_From_XML"></a><h3>Reading A Bean From XML</h3>
+        <p>
+<code>org.apache.commons.betwixt.io.BeanReader</code> reads beans from xml documents.
+The 
+<a href="http://jakarta.apache.org/commons/betwixt/xref-test/org/apache/commons/betwixt/examples/rss/RSSApplication.html" class="externalLink" title="External Link">
+tutorial application</a> reads an xml file (specified on the command line) 
+and prints a plain text version. The root object (in this case <code>Channel</code>) 
+needs to be 
+<a href="http://jakarta.apache.org/commons/betwixt/xref-test/org/apache/commons/betwixt/examples/rss/RSSApplication.html#104" class="externalLink" title="External Link">
+registered</a> first. Then 
+<a href="http://jakarta.apache.org/commons/betwixt/xref-test/org/apache/commons/betwixt/examples/rss/RSSApplication.html#112" class="externalLink" title="External Link">
+parse</a> can be used to parse an XML document and produce a bean.
+    </p>
+</div>
+</div></div></div><div class="clear"><hr></hr></div><div id="footer"><div class="xright">© 2002-2006, The Apache Software Foundation</div><div class="clear"><hr></hr></div></div></body></html>

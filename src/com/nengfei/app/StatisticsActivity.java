@@ -82,15 +82,14 @@ public class StatisticsActivity extends FragmentActivity {
 	private void InitTextView() {
 		voiceAnswer = (TextView) findViewById(R.id.tab_1);
 		healthPedia = (TextView) findViewById(R.id.tab_2);
-		//pDected = (TextView) findViewById(R.id.tab_3);
+		 
 
 		voiceAnswer.setTextColor(selectedColor);
 		healthPedia.setTextColor(unSelectedColor);
-//		pDected.setTextColor(unSelectedColor);
-
+ 
 		voiceAnswer.setText("普通练习");
 		healthPedia.setText("模拟测试");
-	//	pDected.setText("育儿检测");
+	 
 
 		voiceAnswer.setOnClickListener(new MyOnClickListener(0));
 		healthPedia.setOnClickListener(new MyOnClickListener(1));

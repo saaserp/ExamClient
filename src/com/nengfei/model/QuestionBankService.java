@@ -36,7 +36,7 @@ public class QuestionBankService extends CommonEntryDao {
 		return returnList;
 	}
 	public ArrayList<Map<String,Object>> neverdoSearch(Context context){
-		String whereCase="rightTime=0 and wrongTime=0";		
+		String whereCase="rightTime=0 and wrongTime=0 and type!=3";		
 		examMap=new HashMap<Integer,Integer>();
 		ArrayList<Map<String,Object>> returnList=super.getEntryList(context,whereCase);
 		int count=1;
@@ -129,14 +129,26 @@ public class QuestionBankService extends CommonEntryDao {
 
 	public void addRightTime(Context context, int id) {
 		ContentValues setValues = new ContentValues();
-		int useId = (Integer) super.getEntry(context, "_id=" + id).get(
-				"rightTime");
-		setValues.put("rightTime", useId + 1);
-		useId = (Integer) super.getEntry(context, "_id=" + id).get(
-				"answeredTime");
-		setValues.put("answeredTime", useId + 1);
-		String whereClause = "_id=" + id;
-		super.update(context, setValues, whereClause);
+		Map<String, Object>  map=super.getEntry(context, "_id=" + id);
+		if(map!=null)
+		{
+			int useId = (Integer) map.get(
+					"rightTime");
+			setValues.put("rightTime", useId + 1);
+			useId = (Integer) map.get(
+					"answeredTime");
+			setValues.put("answeredTime", useId + 1);
+			String whereClause = "_id=" + id;
+			super.update(context, setValues, whereClause);
+		}
+		else{
+			int useId=0;
+			setValues.put("rightTime", useId + 1);
+			 
+			setValues.put("answeredTime", useId + 1);
+			String whereClause = "_id=" + id;
+			super.update(context, setValues, whereClause);
+		}
 	}
 
 	public void addWrongTime(Context context, int id) {
@@ -265,7 +277,7 @@ public class QuestionBankService extends CommonEntryDao {
 	}
 	
 	public ArrayList<Map<String,Object>>getChapter(Context context,int chapterId){
-		String whereCase="classId="+chapterId;
+		String whereCase="classId="+chapterId+" and type!=3";
 		
 		examMap = new HashMap<Integer, Integer>();
 		ArrayList<Map<String, Object>> tempList = super.getEntryList(context, whereCase);

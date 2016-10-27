@@ -1,0 +1,8 @@
+org.apache.commons.discovery
+org.apache.commons.discovery.ant
+org.apache.commons.discovery.jdk
+org.apache.commons.discovery.log
+org.apache.commons.discovery.resource
+org.apache.commons.discovery.resource.classes
+org.apache.commons.discovery.resource.names
+org.apache.commons.discovery.tools

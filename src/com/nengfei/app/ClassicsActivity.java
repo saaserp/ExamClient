@@ -22,6 +22,7 @@ public class ClassicsActivity extends BaseActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
+		//经典例题
 		super.onCreate(savedInstanceState);
 		bl_answer = true;
 		setContentView(R.layout.activity_classics);

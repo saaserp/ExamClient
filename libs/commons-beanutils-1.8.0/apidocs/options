@@ -1,0 +1,24 @@
+-classpath 'C:/svn/commons/BEANUTILS_1_8_0_RC3/target/classes;C:/j/m2-repository/commons-collections/commons-collections/3.2.1/commons-collections-3.2.1.jar;C:/j/m2-repository/commons-logging/commons-logging/1.1.1/commons-logging-1.1.1.jar'
+ -encoding
+'ISO-8859-1'
+-protected
+-sourcepath
+'C:/svn/commons/BEANUTILS_1_8_0_RC3/src/java'
+-author
+-bottom
+'Copyright &#169; 2000-2008 <a href="http://www.apache.org/">The Apache Software Foundation</a>. All Rights Reserved.'
+-charset
+'ISO-8859-1'
+-d
+'C:/svn/commons/BEANUTILS_1_8_0_RC3/target/site/apidocs'
+-doctitle
+'Commons BeanUtils 1.8.0 API'
+-link
+'http://java.sun.com/j2se/1.4.2/docs/api'
+-link
+'http://commons.apache.org/collections/api-release'
+-linksource
+-use
+-version
+-windowtitle
+'Commons BeanUtils 1.8.0 API'

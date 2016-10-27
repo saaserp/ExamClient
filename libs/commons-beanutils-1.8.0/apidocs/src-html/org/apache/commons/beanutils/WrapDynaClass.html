@@ -1,0 +1,484 @@
+<HTML>
+<BODY BGCOLOR="white">
+<PRE>
+<FONT color="green">001</FONT>    /*<a name="line.1"></a>
+<FONT color="green">002</FONT>     * Licensed to the Apache Software Foundation (ASF) under one or more<a name="line.2"></a>
+<FONT color="green">003</FONT>     * contributor license agreements.  See the NOTICE file distributed with<a name="line.3"></a>
+<FONT color="green">004</FONT>     * this work for additional information regarding copyright ownership.<a name="line.4"></a>
+<FONT color="green">005</FONT>     * The ASF licenses this file to You under the Apache License, Version 2.0<a name="line.5"></a>
+<FONT color="green">006</FONT>     * (the "License"); you may not use this file except in compliance with<a name="line.6"></a>
+<FONT color="green">007</FONT>     * the License.  You may obtain a copy of the License at<a name="line.7"></a>
+<FONT color="green">008</FONT>     *<a name="line.8"></a>
+<FONT color="green">009</FONT>     *      http://www.apache.org/licenses/LICENSE-2.0<a name="line.9"></a>
+<FONT color="green">010</FONT>     *<a name="line.10"></a>
+<FONT color="green">011</FONT>     * Unless required by applicable law or agreed to in writing, software<a name="line.11"></a>
+<FONT color="green">012</FONT>     * distributed under the License is distributed on an "AS IS" BASIS,<a name="line.12"></a>
+<FONT color="green">013</FONT>     * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.<a name="line.13"></a>
+<FONT color="green">014</FONT>     * See the License for the specific language governing permissions and<a name="line.14"></a>
+<FONT color="green">015</FONT>     * limitations under the License.<a name="line.15"></a>
+<FONT color="green">016</FONT>     */<a name="line.16"></a>
+<FONT color="green">017</FONT>    <a name="line.17"></a>
+<FONT color="green">018</FONT>    package org.apache.commons.beanutils;<a name="line.18"></a>
+<FONT color="green">019</FONT>    <a name="line.19"></a>
+<FONT color="green">020</FONT>    <a name="line.20"></a>
+<FONT color="green">021</FONT>    import java.beans.PropertyDescriptor;<a name="line.21"></a>
+<FONT color="green">022</FONT>    import java.lang.ref.Reference;<a name="line.22"></a>
+<FONT color="green">023</FONT>    import java.lang.ref.SoftReference;<a name="line.23"></a>
+<FONT color="green">024</FONT>    import java.util.Collection;<a name="line.24"></a>
+<FONT color="green">025</FONT>    import java.util.HashMap;<a name="line.25"></a>
+<FONT color="green">026</FONT>    import java.util.Iterator;<a name="line.26"></a>
+<FONT color="green">027</FONT>    import java.util.Map;<a name="line.27"></a>
+<FONT color="green">028</FONT>    import java.util.Set;<a name="line.28"></a>
+<FONT color="green">029</FONT>    import java.util.WeakHashMap;<a name="line.29"></a>
+<FONT color="green">030</FONT>    <a name="line.30"></a>
+<FONT color="green">031</FONT>    <a name="line.31"></a>
+<FONT color="green">032</FONT>    /**<a name="line.32"></a>
+<FONT color="green">033</FONT>     * &lt;p&gt;Implementation of &lt;code&gt;DynaClass&lt;/code&gt; for DynaBeans that wrap<a name="line.33"></a>
+<FONT color="green">034</FONT>     * standard JavaBean instances.&lt;/p&gt;<a name="line.34"></a>
+<FONT color="green">035</FONT>     *<a name="line.35"></a>
+<FONT color="green">036</FONT>     * &lt;p&gt;<a name="line.36"></a>
+<FONT color="green">037</FONT>     * It is suggested that this class should not usually need to be used directly<a name="line.37"></a>
+<FONT color="green">038</FONT>     * to create new &lt;code&gt;WrapDynaBean&lt;/code&gt; instances. <a name="line.38"></a>
+<FONT color="green">039</FONT>     * It's usually better to call the &lt;code&gt;WrapDynaBean&lt;/code&gt; constructor directly.<a name="line.39"></a>
+<FONT color="green">040</FONT>     * For example:&lt;/p&gt;<a name="line.40"></a>
+<FONT color="green">041</FONT>     * &lt;code&gt;&lt;pre&gt;<a name="line.41"></a>
+<FONT color="green">042</FONT>     *   Object javaBean = ...;<a name="line.42"></a>
+<FONT color="green">043</FONT>     *   DynaBean wrapper = new WrapDynaBean(javaBean);<a name="line.43"></a>
+<FONT color="green">044</FONT>     * &lt;/pre&gt;&lt;/code&gt;<a name="line.44"></a>
+<FONT color="green">045</FONT>     * &lt;p&gt;<a name="line.45"></a>
+<FONT color="green">046</FONT>     *<a name="line.46"></a>
+<FONT color="green">047</FONT>     * @author Craig McClanahan<a name="line.47"></a>
+<FONT color="green">048</FONT>     * @version $Revision: 650215 $ $Date: 2008-04-21 19:05:18 +0100 (Mon, 21 Apr 2008) $<a name="line.48"></a>
+<FONT color="green">049</FONT>     */<a name="line.49"></a>
+<FONT color="green">050</FONT>    <a name="line.50"></a>
+<FONT color="green">051</FONT>    public class WrapDynaClass implements DynaClass {<a name="line.51"></a>
+<FONT color="green">052</FONT>    <a name="line.52"></a>
+<FONT color="green">053</FONT>    <a name="line.53"></a>
+<FONT color="green">054</FONT>        // ----------------------------------------------------------- Constructors<a name="line.54"></a>
+<FONT color="green">055</FONT>    <a name="line.55"></a>
+<FONT color="green">056</FONT>    <a name="line.56"></a>
+<FONT color="green">057</FONT>        /**<a name="line.57"></a>
+<FONT color="green">058</FONT>         * Construct a new WrapDynaClass for the specified JavaBean class.  This<a name="line.58"></a>
+<FONT color="green">059</FONT>         * constructor is private; WrapDynaClass instances will be created as<a name="line.59"></a>
+<FONT color="green">060</FONT>         * needed via calls to the &lt;code&gt;createDynaClass(Class)&lt;/code&gt; method.<a name="line.60"></a>
+<FONT color="green">061</FONT>         *<a name="line.61"></a>
+<FONT color="green">062</FONT>         * @param beanClass JavaBean class to be introspected around<a name="line.62"></a>
+<FONT color="green">063</FONT>         */<a name="line.63"></a>
+<FONT color="green">064</FONT>        private WrapDynaClass(Class beanClass) {<a name="line.64"></a>
+<FONT color="green">065</FONT>    <a name="line.65"></a>
+<FONT color="green">066</FONT>            this.beanClassRef = new SoftReference(beanClass);<a name="line.66"></a>
+<FONT color="green">067</FONT>            this.beanClassName = beanClass.getName();<a name="line.67"></a>
+<FONT color="green">068</FONT>            introspect();<a name="line.68"></a>
+<FONT color="green">069</FONT>    <a name="line.69"></a>
+<FONT color="green">070</FONT>        }<a name="line.70"></a>
+<FONT color="green">071</FONT>    <a name="line.71"></a>
+<FONT color="green">072</FONT>    <a name="line.72"></a>
+<FONT color="green">073</FONT>        // ----------------------------------------------------- Instance Variables<a name="line.73"></a>
+<FONT color="green">074</FONT>    <a name="line.74"></a>
+<FONT color="green">075</FONT>        /**<a name="line.75"></a>
+<FONT color="green">076</FONT>         * Name of the JavaBean class represented by this WrapDynaClass.<a name="line.76"></a>
+<FONT color="green">077</FONT>         */<a name="line.77"></a>
+<FONT color="green">078</FONT>        private String beanClassName = null;<a name="line.78"></a>
+<FONT color="green">079</FONT>    <a name="line.79"></a>
+<FONT color="green">080</FONT>        /**<a name="line.80"></a>
+<FONT color="green">081</FONT>         * Reference to the JavaBean class represented by this WrapDynaClass.<a name="line.81"></a>
+<FONT color="green">082</FONT>         */<a name="line.82"></a>
+<FONT color="green">083</FONT>        private Reference beanClassRef = null;<a name="line.83"></a>
+<FONT color="green">084</FONT>    <a name="line.84"></a>
+<FONT color="green">085</FONT>        /**<a name="line.85"></a>
+<FONT color="green">086</FONT>         * The JavaBean &lt;code&gt;Class&lt;/code&gt; which is represented by this<a name="line.86"></a>
+<FONT color="green">087</FONT>         * &lt;code&gt;WrapDynaClass&lt;/code&gt;.<a name="line.87"></a>
+<FONT color="green">088</FONT>         *<a name="line.88"></a>
+<FONT color="green">089</FONT>         * @deprecated No longer initialized, use getBeanClass() method instead<a name="line.89"></a>
+<FONT color="green">090</FONT>         */<a name="line.90"></a>
+<FONT color="green">091</FONT>        protected Class beanClass = null;<a name="line.91"></a>
+<FONT color="green">092</FONT>    <a name="line.92"></a>
+<FONT color="green">093</FONT>    <a name="line.93"></a>
+<FONT color="green">094</FONT>        /**<a name="line.94"></a>
+<FONT color="green">095</FONT>         * The set of PropertyDescriptors for this bean class.<a name="line.95"></a>
+<FONT color="green">096</FONT>         */<a name="line.96"></a>
+<FONT color="green">097</FONT>        protected PropertyDescriptor[] descriptors = null;<a name="line.97"></a>
+<FONT color="green">098</FONT>    <a name="line.98"></a>
+<FONT color="green">099</FONT>    <a name="line.99"></a>
+<FONT color="green">100</FONT>        /**<a name="line.100"></a>
+<FONT color="green">101</FONT>         * The set of PropertyDescriptors for this bean class, keyed by the<a name="line.101"></a>
+<FONT color="green">102</FONT>         * property name.  Individual descriptor instances will be the same<a name="line.102"></a>
+<FONT color="green">103</FONT>         * instances as those in the &lt;code&gt;descriptors&lt;/code&gt; list.<a name="line.103"></a>
+<FONT color="green">104</FONT>         */<a name="line.104"></a>
+<FONT color="green">105</FONT>        protected HashMap descriptorsMap = new HashMap();<a name="line.105"></a>
+<FONT color="green">106</FONT>    <a name="line.106"></a>
+<FONT color="green">107</FONT>    <a name="line.107"></a>
+<FONT color="green">108</FONT>        /**<a name="line.108"></a>
+<FONT color="green">109</FONT>         * The set of dynamic properties that are part of this DynaClass.<a name="line.109"></a>
+<FONT color="green">110</FONT>         */<a name="line.110"></a>
+<FONT color="green">111</FONT>        protected DynaProperty[] properties = null;<a name="line.111"></a>
+<FONT color="green">112</FONT>    <a name="line.112"></a>
+<FONT color="green">113</FONT>    <a name="line.113"></a>
+<FONT color="green">114</FONT>        /**<a name="line.114"></a>
+<FONT color="green">115</FONT>         * The set of dynamic properties that are part of this DynaClass,<a name="line.115"></a>
+<FONT color="green">116</FONT>         * keyed by the property name.  Individual descriptor instances will<a name="line.116"></a>
+<FONT color="green">117</FONT>         * be the same instances as those in the &lt;code&gt;properties&lt;/code&gt; list.<a name="line.117"></a>
+<FONT color="green">118</FONT>         */<a name="line.118"></a>
+<FONT color="green">119</FONT>        protected HashMap propertiesMap = new HashMap();<a name="line.119"></a>
+<FONT color="green">120</FONT>    <a name="line.120"></a>
+<FONT color="green">121</FONT>    <a name="line.121"></a>
+<FONT color="green">122</FONT>        // ------------------------------------------------------- Static Variables<a name="line.122"></a>
+<FONT color="green">123</FONT>    <a name="line.123"></a>
+<FONT color="green">124</FONT>    <a name="line.124"></a>
+<FONT color="green">125</FONT>        private static final ContextClassLoaderLocal CLASSLOADER_CACHE = <a name="line.125"></a>
+<FONT color="green">126</FONT>            new ContextClassLoaderLocal() {<a name="line.126"></a>
+<FONT color="green">127</FONT>                protected Object initialValue() {<a name="line.127"></a>
+<FONT color="green">128</FONT>                    return new WeakHashMap();<a name="line.128"></a>
+<FONT color="green">129</FONT>            }<a name="line.129"></a>
+<FONT color="green">130</FONT>        };<a name="line.130"></a>
+<FONT color="green">131</FONT>    <a name="line.131"></a>
+<FONT color="green">132</FONT>        /**<a name="line.132"></a>
+<FONT color="green">133</FONT>         * Get the wrap dyna classes cache<a name="line.133"></a>
+<FONT color="green">134</FONT>         */<a name="line.134"></a>
+<FONT color="green">135</FONT>        private static Map getDynaClassesMap() {<a name="line.135"></a>
+<FONT color="green">136</FONT>            return (Map)CLASSLOADER_CACHE.get();<a name="line.136"></a>
+<FONT color="green">137</FONT>        }<a name="line.137"></a>
+<FONT color="green">138</FONT>    <a name="line.138"></a>
+<FONT color="green">139</FONT>        /**<a name="line.139"></a>
+<FONT color="green">140</FONT>         * The set of &lt;code&gt;WrapDynaClass&lt;/code&gt; instances that have ever been<a name="line.140"></a>
+<FONT color="green">141</FONT>         * created, keyed by the underlying bean Class. The keys to this map<a name="line.141"></a>
+<FONT color="green">142</FONT>         * are Class objects, and the values are corresponding WrapDynaClass<a name="line.142"></a>
+<FONT color="green">143</FONT>         * objects.<a name="line.143"></a>
+<FONT color="green">144</FONT>         * &lt;p&gt;<a name="line.144"></a>
+<FONT color="green">145</FONT>         * This static variable is safe even when this code is deployed via a<a name="line.145"></a>
+<FONT color="green">146</FONT>         * shared classloader because it is keyed via a Class object. The same<a name="line.146"></a>
+<FONT color="green">147</FONT>         * class loaded via two different classloaders will result in different<a name="line.147"></a>
+<FONT color="green">148</FONT>         * entries in this map.<a name="line.148"></a>
+<FONT color="green">149</FONT>         * &lt;p&gt;<a name="line.149"></a>
+<FONT color="green">150</FONT>         * Note, however, that this HashMap can result in a memory leak. When<a name="line.150"></a>
+<FONT color="green">151</FONT>         * this class is in a shared classloader it will retain references to<a name="line.151"></a>
+<FONT color="green">152</FONT>         * classes loaded via a webapp classloader even after the webapp has been<a name="line.152"></a>
+<FONT color="green">153</FONT>         * undeployed. That will prevent the entire classloader and all the classes<a name="line.153"></a>
+<FONT color="green">154</FONT>         * it refers to and all their static members from being freed.<a name="line.154"></a>
+<FONT color="green">155</FONT>         *<a name="line.155"></a>
+<FONT color="green">156</FONT>         ************* !!!!!!!!!!!! PLEASE NOTE !!!!!!!!!!!! *************<a name="line.156"></a>
+<FONT color="green">157</FONT>         *<a name="line.157"></a>
+<FONT color="green">158</FONT>         * THE FOLLOWING IS A NASTY HACK TO SO THAT BEANUTILS REMAINS BINARY<a name="line.158"></a>
+<FONT color="green">159</FONT>         *              COMPATIBLE WITH PREVIOUS RELEASES.<a name="line.159"></a>
+<FONT color="green">160</FONT>         *<a name="line.160"></a>
+<FONT color="green">161</FONT>         * There are two issues here:<a name="line.161"></a>
+<FONT color="green">162</FONT>         * <a name="line.162"></a>
+<FONT color="green">163</FONT>         * 1) Memory Issues: The static HashMap caused memory problems (See BEANUTILS-59)<a name="line.163"></a>
+<FONT color="green">164</FONT>         *    to resolve this it has been moved into a ContextClassLoaderLocal instance<a name="line.164"></a>
+<FONT color="green">165</FONT>         *    (named CLASSLOADER_CACHE above) which holds one copy per<a name="line.165"></a>
+<FONT color="green">166</FONT>         *    ClassLoader in a WeakHashMap.<a name="line.166"></a>
+<FONT color="green">167</FONT>         * <a name="line.167"></a>
+<FONT color="green">168</FONT>         * 2) Binary Compatibility: As the "dynaClasses" static HashMap is "protected"<a name="line.168"></a>
+<FONT color="green">169</FONT>         *    removing it breaks BeanUtils binary compatibility with previous versions.<a name="line.169"></a>
+<FONT color="green">170</FONT>         *    To resolve this all the methods have been overriden to delegate to the<a name="line.170"></a>
+<FONT color="green">171</FONT>         *    Map for the ClassLoader in the ContextClassLoaderLocal.<a name="line.171"></a>
+<FONT color="green">172</FONT>         *<a name="line.172"></a>
+<FONT color="green">173</FONT>         * @deprecated The dynaClasses Map will be removed in a subsequent release<a name="line.173"></a>
+<FONT color="green">174</FONT>         */<a name="line.174"></a>
+<FONT color="green">175</FONT>        protected static HashMap dynaClasses = new HashMap() {<a name="line.175"></a>
+<FONT color="green">176</FONT>            public void clear() {<a name="line.176"></a>
+<FONT color="green">177</FONT>                getDynaClassesMap().clear();<a name="line.177"></a>
+<FONT color="green">178</FONT>            }<a name="line.178"></a>
+<FONT color="green">179</FONT>            public boolean containsKey(Object key) {<a name="line.179"></a>
+<FONT color="green">180</FONT>                return getDynaClassesMap().containsKey(key);<a name="line.180"></a>
+<FONT color="green">181</FONT>            }<a name="line.181"></a>
+<FONT color="green">182</FONT>            public boolean containsValue(Object value) {<a name="line.182"></a>
+<FONT color="green">183</FONT>                return getDynaClassesMap().containsValue(value);<a name="line.183"></a>
+<FONT color="green">184</FONT>            }<a name="line.184"></a>
+<FONT color="green">185</FONT>            public Set entrySet() {<a name="line.185"></a>
+<FONT color="green">186</FONT>                return getDynaClassesMap().entrySet();<a name="line.186"></a>
+<FONT color="green">187</FONT>            }<a name="line.187"></a>
+<FONT color="green">188</FONT>            public boolean equals(Object o) {<a name="line.188"></a>
+<FONT color="green">189</FONT>                return getDynaClassesMap().equals(o);<a name="line.189"></a>
+<FONT color="green">190</FONT>            }<a name="line.190"></a>
+<FONT color="green">191</FONT>            public Object get(Object key) {<a name="line.191"></a>
+<FONT color="green">192</FONT>                return getDynaClassesMap().get(key);<a name="line.192"></a>
+<FONT color="green">193</FONT>            }<a name="line.193"></a>
+<FONT color="green">194</FONT>            public int hashCode() {<a name="line.194"></a>
+<FONT color="green">195</FONT>                return getDynaClassesMap().hashCode();<a name="line.195"></a>
+<FONT color="green">196</FONT>            }<a name="line.196"></a>
+<FONT color="green">197</FONT>            public boolean isEmpty() {<a name="line.197"></a>
+<FONT color="green">198</FONT>                return getDynaClassesMap().isEmpty();<a name="line.198"></a>
+<FONT color="green">199</FONT>            }<a name="line.199"></a>
+<FONT color="green">200</FONT>            public Set keySet() {<a name="line.200"></a>
+<FONT color="green">201</FONT>                return getDynaClassesMap().keySet();<a name="line.201"></a>
+<FONT color="green">202</FONT>            }<a name="line.202"></a>
+<FONT color="green">203</FONT>            public Object put(Object key, Object value) {<a name="line.203"></a>
+<FONT color="green">204</FONT>                return getDynaClassesMap().put(key, value);<a name="line.204"></a>
+<FONT color="green">205</FONT>            }<a name="line.205"></a>
+<FONT color="green">206</FONT>            public void putAll(Map m) {<a name="line.206"></a>
+<FONT color="green">207</FONT>                getDynaClassesMap().putAll(m);<a name="line.207"></a>
+<FONT color="green">208</FONT>            }<a name="line.208"></a>
+<FONT color="green">209</FONT>            public Object remove(Object key) {<a name="line.209"></a>
+<FONT color="green">210</FONT>                return getDynaClassesMap().remove(key);<a name="line.210"></a>
+<FONT color="green">211</FONT>            }<a name="line.211"></a>
+<FONT color="green">212</FONT>            public int size() {<a name="line.212"></a>
+<FONT color="green">213</FONT>                return getDynaClassesMap().size();<a name="line.213"></a>
+<FONT color="green">214</FONT>            }<a name="line.214"></a>
+<FONT color="green">215</FONT>            public Collection values() {<a name="line.215"></a>
+<FONT color="green">216</FONT>                return getDynaClassesMap().values();<a name="line.216"></a>
+<FONT color="green">217</FONT>            }<a name="line.217"></a>
+<FONT color="green">218</FONT>        };<a name="line.218"></a>
+<FONT color="green">219</FONT>    <a name="line.219"></a>
+<FONT color="green">220</FONT>    <a name="line.220"></a>
+<FONT color="green">221</FONT>        // ------------------------------------------------------ DynaClass Methods<a name="line.221"></a>
+<FONT color="green">222</FONT>    <a name="line.222"></a>
+<FONT color="green">223</FONT>        /**<a name="line.223"></a>
+<FONT color="green">224</FONT>         * Return the class of the underlying wrapped bean.<a name="line.224"></a>
+<FONT color="green">225</FONT>         *<a name="line.225"></a>
+<FONT color="green">226</FONT>         * @return the class of the underlying wrapped bean<a name="line.226"></a>
+<FONT color="green">227</FONT>         */<a name="line.227"></a>
+<FONT color="green">228</FONT>        protected Class getBeanClass() {<a name="line.228"></a>
+<FONT color="green">229</FONT>            return (Class)beanClassRef.get();<a name="line.229"></a>
+<FONT color="green">230</FONT>        }<a name="line.230"></a>
+<FONT color="green">231</FONT>    <a name="line.231"></a>
+<FONT color="green">232</FONT>        /**<a name="line.232"></a>
+<FONT color="green">233</FONT>         * Return the name of this DynaClass (analogous to the<a name="line.233"></a>
+<FONT color="green">234</FONT>         * &lt;code&gt;getName()&lt;/code&gt; method of &lt;code&gt;java.lang.Class&lt;/code), which<a name="line.234"></a>
+<FONT color="green">235</FONT>         * allows the same &lt;code&gt;DynaClass&lt;/code&gt; implementation class to support<a name="line.235"></a>
+<FONT color="green">236</FONT>         * different dynamic classes, with different sets of properties.<a name="line.236"></a>
+<FONT color="green">237</FONT>         *<a name="line.237"></a>
+<FONT color="green">238</FONT>         * @return the name of the DynaClass<a name="line.238"></a>
+<FONT color="green">239</FONT>         */<a name="line.239"></a>
+<FONT color="green">240</FONT>        public String getName() {<a name="line.240"></a>
+<FONT color="green">241</FONT>    <a name="line.241"></a>
+<FONT color="green">242</FONT>            return beanClassName;<a name="line.242"></a>
+<FONT color="green">243</FONT>    <a name="line.243"></a>
+<FONT color="green">244</FONT>        }<a name="line.244"></a>
+<FONT color="green">245</FONT>    <a name="line.245"></a>
+<FONT color="green">246</FONT>    <a name="line.246"></a>
+<FONT color="green">247</FONT>        /**<a name="line.247"></a>
+<FONT color="green">248</FONT>         * Return a property descriptor for the specified property, if it exists;<a name="line.248"></a>
+<FONT color="green">249</FONT>         * otherwise, return &lt;code&gt;null&lt;/code&gt;.<a name="line.249"></a>
+<FONT color="green">250</FONT>         *<a name="line.250"></a>
+<FONT color="green">251</FONT>         * @param name Name of the dynamic property for which a descriptor<a name="line.251"></a>
+<FONT color="green">252</FONT>         *  is requested<a name="line.252"></a>
+<FONT color="green">253</FONT>         * @return The descriptor for the specified property<a name="line.253"></a>
+<FONT color="green">254</FONT>         *<a name="line.254"></a>
+<FONT color="green">255</FONT>         * @exception IllegalArgumentException if no property name is specified<a name="line.255"></a>
+<FONT color="green">256</FONT>         */<a name="line.256"></a>
+<FONT color="green">257</FONT>        public DynaProperty getDynaProperty(String name) {<a name="line.257"></a>
+<FONT color="green">258</FONT>    <a name="line.258"></a>
+<FONT color="green">259</FONT>            if (name == null) {<a name="line.259"></a>
+<FONT color="green">260</FONT>                throw new IllegalArgumentException<a name="line.260"></a>
+<FONT color="green">261</FONT>                        ("No property name specified");<a name="line.261"></a>
+<FONT color="green">262</FONT>            }<a name="line.262"></a>
+<FONT color="green">263</FONT>            return ((DynaProperty) propertiesMap.get(name));<a name="line.263"></a>
+<FONT color="green">264</FONT>    <a name="line.264"></a>
+<FONT color="green">265</FONT>        }<a name="line.265"></a>
+<FONT color="green">266</FONT>    <a name="line.266"></a>
+<FONT color="green">267</FONT>    <a name="line.267"></a>
+<FONT color="green">268</FONT>        /**<a name="line.268"></a>
+<FONT color="green">269</FONT>         * &lt;p&gt;Return an array of &lt;code&gt;ProperyDescriptors&lt;/code&gt; for the properties<a name="line.269"></a>
+<FONT color="green">270</FONT>         * currently defined in this DynaClass.  If no properties are defined, a<a name="line.270"></a>
+<FONT color="green">271</FONT>         * zero-length array will be returned.&lt;/p&gt;<a name="line.271"></a>
+<FONT color="green">272</FONT>         *<a name="line.272"></a>
+<FONT color="green">273</FONT>         * &lt;p&gt;&lt;strong&gt;FIXME&lt;/strong&gt; - Should we really be implementing<a name="line.273"></a>
+<FONT color="green">274</FONT>         * &lt;code&gt;getBeanInfo()&lt;/code&gt; instead, which returns property descriptors<a name="line.274"></a>
+<FONT color="green">275</FONT>         * and a bunch of other stuff?&lt;/p&gt;<a name="line.275"></a>
+<FONT color="green">276</FONT>         *<a name="line.276"></a>
+<FONT color="green">277</FONT>         * @return the set of properties for this DynaClass<a name="line.277"></a>
+<FONT color="green">278</FONT>         */<a name="line.278"></a>
+<FONT color="green">279</FONT>        public DynaProperty[] getDynaProperties() {<a name="line.279"></a>
+<FONT color="green">280</FONT>    <a name="line.280"></a>
+<FONT color="green">281</FONT>            return (properties);<a name="line.281"></a>
+<FONT color="green">282</FONT>    <a name="line.282"></a>
+<FONT color="green">283</FONT>        }<a name="line.283"></a>
+<FONT color="green">284</FONT>    <a name="line.284"></a>
+<FONT color="green">285</FONT>    <a name="line.285"></a>
+<FONT color="green">286</FONT>        /**<a name="line.286"></a>
+<FONT color="green">287</FONT>         * &lt;p&gt;Instantiates a new standard JavaBean instance associated with<a name="line.287"></a>
+<FONT color="green">288</FONT>         * this DynaClass and return it wrapped in a new WrapDynaBean   <a name="line.288"></a>
+<FONT color="green">289</FONT>         * instance. &lt;strong&gt;NOTE&lt;/strong&gt; the JavaBean should have a <a name="line.289"></a>
+<FONT color="green">290</FONT>         * no argument constructor.&lt;/p&gt;<a name="line.290"></a>
+<FONT color="green">291</FONT>         *<a name="line.291"></a>
+<FONT color="green">292</FONT>         * &lt;strong&gt;NOTE&lt;/strong&gt; - Most common use cases should not need to use<a name="line.292"></a>
+<FONT color="green">293</FONT>         * this method. It is usually better to create new<a name="line.293"></a>
+<FONT color="green">294</FONT>         * &lt;code&gt;WrapDynaBean&lt;/code&gt; instances by calling its constructor.<a name="line.294"></a>
+<FONT color="green">295</FONT>         * For example:&lt;/p&gt;<a name="line.295"></a>
+<FONT color="green">296</FONT>         * &lt;code&gt;&lt;pre&gt;<a name="line.296"></a>
+<FONT color="green">297</FONT>         *   Object javaBean = ...;<a name="line.297"></a>
+<FONT color="green">298</FONT>         *   DynaBean wrapper = new WrapDynaBean(javaBean);<a name="line.298"></a>
+<FONT color="green">299</FONT>         * &lt;/pre&gt;&lt;/code&gt;<a name="line.299"></a>
+<FONT color="green">300</FONT>         * &lt;p&gt;<a name="line.300"></a>
+<FONT color="green">301</FONT>         * (This method is needed for some kinds of &lt;code&gt;DynaBean&lt;/code&gt; framework.)<a name="line.301"></a>
+<FONT color="green">302</FONT>         * &lt;/p&gt;<a name="line.302"></a>
+<FONT color="green">303</FONT>         *<a name="line.303"></a>
+<FONT color="green">304</FONT>         * @return A new &lt;code&gt;DynaBean&lt;/code&gt; instance<a name="line.304"></a>
+<FONT color="green">305</FONT>         * @exception IllegalAccessException if the Class or the appropriate<a name="line.305"></a>
+<FONT color="green">306</FONT>         *  constructor is not accessible<a name="line.306"></a>
+<FONT color="green">307</FONT>         * @exception InstantiationException if this Class represents an abstract<a name="line.307"></a>
+<FONT color="green">308</FONT>         *  class, an array class, a primitive type, or void; or if instantiation<a name="line.308"></a>
+<FONT color="green">309</FONT>         *  fails for some other reason<a name="line.309"></a>
+<FONT color="green">310</FONT>         */<a name="line.310"></a>
+<FONT color="green">311</FONT>        public DynaBean newInstance()<a name="line.311"></a>
+<FONT color="green">312</FONT>                throws IllegalAccessException, InstantiationException {<a name="line.312"></a>
+<FONT color="green">313</FONT>    <a name="line.313"></a>
+<FONT color="green">314</FONT>            return new WrapDynaBean(getBeanClass().newInstance());<a name="line.314"></a>
+<FONT color="green">315</FONT>    <a name="line.315"></a>
+<FONT color="green">316</FONT>        }<a name="line.316"></a>
+<FONT color="green">317</FONT>    <a name="line.317"></a>
+<FONT color="green">318</FONT>    <a name="line.318"></a>
+<FONT color="green">319</FONT>        // --------------------------------------------------------- Public Methods<a name="line.319"></a>
+<FONT color="green">320</FONT>    <a name="line.320"></a>
+<FONT color="green">321</FONT>    <a name="line.321"></a>
+<FONT color="green">322</FONT>        /**<a name="line.322"></a>
+<FONT color="green">323</FONT>         * Return the PropertyDescriptor for the specified property name, if any;<a name="line.323"></a>
+<FONT color="green">324</FONT>         * otherwise return &lt;code&gt;null&lt;/code&gt;.<a name="line.324"></a>
+<FONT color="green">325</FONT>         *<a name="line.325"></a>
+<FONT color="green">326</FONT>         * @param name Name of the property to be retrieved<a name="line.326"></a>
+<FONT color="green">327</FONT>         * @return The descriptor for the specified property<a name="line.327"></a>
+<FONT color="green">328</FONT>         */<a name="line.328"></a>
+<FONT color="green">329</FONT>        public PropertyDescriptor getPropertyDescriptor(String name) {<a name="line.329"></a>
+<FONT color="green">330</FONT>    <a name="line.330"></a>
+<FONT color="green">331</FONT>            return ((PropertyDescriptor) descriptorsMap.get(name));<a name="line.331"></a>
+<FONT color="green">332</FONT>    <a name="line.332"></a>
+<FONT color="green">333</FONT>        }<a name="line.333"></a>
+<FONT color="green">334</FONT>    <a name="line.334"></a>
+<FONT color="green">335</FONT>    <a name="line.335"></a>
+<FONT color="green">336</FONT>        // --------------------------------------------------------- Static Methods<a name="line.336"></a>
+<FONT color="green">337</FONT>    <a name="line.337"></a>
+<FONT color="green">338</FONT>    <a name="line.338"></a>
+<FONT color="green">339</FONT>        /**<a name="line.339"></a>
+<FONT color="green">340</FONT>         * Clear our cache of WrapDynaClass instances.<a name="line.340"></a>
+<FONT color="green">341</FONT>         */<a name="line.341"></a>
+<FONT color="green">342</FONT>        public static void clear() {<a name="line.342"></a>
+<FONT color="green">343</FONT>    <a name="line.343"></a>
+<FONT color="green">344</FONT>            getDynaClassesMap().clear();<a name="line.344"></a>
+<FONT color="green">345</FONT>    <a name="line.345"></a>
+<FONT color="green">346</FONT>        }<a name="line.346"></a>
+<FONT color="green">347</FONT>    <a name="line.347"></a>
+<FONT color="green">348</FONT>    <a name="line.348"></a>
+<FONT color="green">349</FONT>        /**<a name="line.349"></a>
+<FONT color="green">350</FONT>         * Create (if necessary) and return a new &lt;code&gt;WrapDynaClass&lt;/code&gt;<a name="line.350"></a>
+<FONT color="green">351</FONT>         * instance for the specified bean class.<a name="line.351"></a>
+<FONT color="green">352</FONT>         *<a name="line.352"></a>
+<FONT color="green">353</FONT>         * @param beanClass Bean class for which a WrapDynaClass is requested<a name="line.353"></a>
+<FONT color="green">354</FONT>         * @return A new &lt;i&gt;Wrap&lt;/i&gt; {@link DynaClass}<a name="line.354"></a>
+<FONT color="green">355</FONT>         */<a name="line.355"></a>
+<FONT color="green">356</FONT>        public static WrapDynaClass createDynaClass(Class beanClass) {<a name="line.356"></a>
+<FONT color="green">357</FONT>    <a name="line.357"></a>
+<FONT color="green">358</FONT>                WrapDynaClass dynaClass =<a name="line.358"></a>
+<FONT color="green">359</FONT>                        (WrapDynaClass) getDynaClassesMap().get(beanClass);<a name="line.359"></a>
+<FONT color="green">360</FONT>                if (dynaClass == null) {<a name="line.360"></a>
+<FONT color="green">361</FONT>                    dynaClass = new WrapDynaClass(beanClass);<a name="line.361"></a>
+<FONT color="green">362</FONT>                    getDynaClassesMap().put(beanClass, dynaClass);<a name="line.362"></a>
+<FONT color="green">363</FONT>                }<a name="line.363"></a>
+<FONT color="green">364</FONT>                return (dynaClass);<a name="line.364"></a>
+<FONT color="green">365</FONT>    <a name="line.365"></a>
+<FONT color="green">366</FONT>        }<a name="line.366"></a>
+<FONT color="green">367</FONT>    <a name="line.367"></a>
+<FONT color="green">368</FONT>    <a name="line.368"></a>
+<FONT color="green">369</FONT>        // ------------------------------------------------------ Protected Methods<a name="line.369"></a>
+<FONT color="green">370</FONT>    <a name="line.370"></a>
+<FONT color="green">371</FONT>    <a name="line.371"></a>
+<FONT color="green">372</FONT>        /**<a name="line.372"></a>
+<FONT color="green">373</FONT>         * Introspect our bean class to identify the supported properties.<a name="line.373"></a>
+<FONT color="green">374</FONT>         */<a name="line.374"></a>
+<FONT color="green">375</FONT>        protected void introspect() {<a name="line.375"></a>
+<FONT color="green">376</FONT>    <a name="line.376"></a>
+<FONT color="green">377</FONT>            // Look up the property descriptors for this bean class<a name="line.377"></a>
+<FONT color="green">378</FONT>            Class beanClass = getBeanClass();<a name="line.378"></a>
+<FONT color="green">379</FONT>            PropertyDescriptor[] regulars =<a name="line.379"></a>
+<FONT color="green">380</FONT>                    PropertyUtils.getPropertyDescriptors(beanClass);<a name="line.380"></a>
+<FONT color="green">381</FONT>            if (regulars == null) {<a name="line.381"></a>
+<FONT color="green">382</FONT>                regulars = new PropertyDescriptor[0];<a name="line.382"></a>
+<FONT color="green">383</FONT>            }<a name="line.383"></a>
+<FONT color="green">384</FONT>            Map mappeds =<a name="line.384"></a>
+<FONT color="green">385</FONT>                    PropertyUtils.getMappedPropertyDescriptors(beanClass);<a name="line.385"></a>
+<FONT color="green">386</FONT>            if (mappeds == null) {<a name="line.386"></a>
+<FONT color="green">387</FONT>                mappeds = new HashMap();<a name="line.387"></a>
+<FONT color="green">388</FONT>            }<a name="line.388"></a>
+<FONT color="green">389</FONT>    <a name="line.389"></a>
+<FONT color="green">390</FONT>            // Construct corresponding DynaProperty information<a name="line.390"></a>
+<FONT color="green">391</FONT>            properties = new DynaProperty[regulars.length + mappeds.size()];<a name="line.391"></a>
+<FONT color="green">392</FONT>            for (int i = 0; i &lt; regulars.length; i++) {<a name="line.392"></a>
+<FONT color="green">393</FONT>                descriptorsMap.put(regulars[i].getName(),<a name="line.393"></a>
+<FONT color="green">394</FONT>                        regulars[i]);<a name="line.394"></a>
+<FONT color="green">395</FONT>                properties[i] =<a name="line.395"></a>
+<FONT color="green">396</FONT>                        new DynaProperty(regulars[i].getName(),<a name="line.396"></a>
+<FONT color="green">397</FONT>                                regulars[i].getPropertyType());<a name="line.397"></a>
+<FONT color="green">398</FONT>                propertiesMap.put(properties[i].getName(),<a name="line.398"></a>
+<FONT color="green">399</FONT>                        properties[i]);<a name="line.399"></a>
+<FONT color="green">400</FONT>            }<a name="line.400"></a>
+<FONT color="green">401</FONT>            int j = regulars.length;<a name="line.401"></a>
+<FONT color="green">402</FONT>            Iterator names = mappeds.keySet().iterator();<a name="line.402"></a>
+<FONT color="green">403</FONT>            while (names.hasNext()) {<a name="line.403"></a>
+<FONT color="green">404</FONT>                String name = (String) names.next();<a name="line.404"></a>
+<FONT color="green">405</FONT>                PropertyDescriptor descriptor =<a name="line.405"></a>
+<FONT color="green">406</FONT>                        (PropertyDescriptor) mappeds.get(name);<a name="line.406"></a>
+<FONT color="green">407</FONT>                properties[j] =<a name="line.407"></a>
+<FONT color="green">408</FONT>                        new DynaProperty(descriptor.getName(),<a name="line.408"></a>
+<FONT color="green">409</FONT>                                Map.class);<a name="line.409"></a>
+<FONT color="green">410</FONT>                propertiesMap.put(properties[j].getName(),<a name="line.410"></a>
+<FONT color="green">411</FONT>                        properties[j]);<a name="line.411"></a>
+<FONT color="green">412</FONT>                j++;<a name="line.412"></a>
+<FONT color="green">413</FONT>            }<a name="line.413"></a>
+<FONT color="green">414</FONT>    <a name="line.414"></a>
+<FONT color="green">415</FONT>        }<a name="line.415"></a>
+<FONT color="green">416</FONT>    <a name="line.416"></a>
+<FONT color="green">417</FONT>    <a name="line.417"></a>
+<FONT color="green">418</FONT>    }<a name="line.418"></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</PRE>
+</BODY>
+</HTML>

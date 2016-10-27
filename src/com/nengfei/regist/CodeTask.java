@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.nengfei.net.MySocketClient;
+import com.nengfei.parse.HttpClientTool;
 import com.nengfei.util.Tools;
 
 import android.content.Context;
@@ -26,6 +27,7 @@ public class CodeTask extends AsyncTask<Void,Void,Boolean>{
 		// TODO Auto-generated method stub
 		super.onPreExecute();
 		btn.setEnabled(false);
+		new SleepTask(context, btn).execute();
 		Toast.makeText(context, "获取验证码中,请等待3到5秒钟", Toast.LENGTH_LONG).show();
 		
 	}
@@ -34,10 +36,11 @@ public class CodeTask extends AsyncTask<Void,Void,Boolean>{
 		// TODO Auto-generated method stub
 		Map<String,String> map=new HashMap<String,String>();
 		map.put("phone", phone);
-		String s= MySocketClient.getInstance().send("GetCode",map);
+		String s= HttpClientTool.getInstance().send("GetCode",map);
 		if(s==null||s.equals("")){
 			return false;
 		}
+		
 		 m=Tools.JArrayToMap(s);
 		 
 		return true;
@@ -47,6 +50,7 @@ public class CodeTask extends AsyncTask<Void,Void,Boolean>{
 	protected void onPostExecute(Boolean result) {
 		// TODO Auto-generated method stub
 		super.onPostExecute(result);
+		
 		if(result){
 			if(m.get("result").equals("true")){
 				
@@ -60,8 +64,10 @@ public class CodeTask extends AsyncTask<Void,Void,Boolean>{
 			}
 			
 		}
-		btn.setEnabled(true);
+		
+		 
 	}
+	 
 	 
 
 }

@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html><head><title>Getting Started - Betwixt</title><style type="text/css" media="all">
+          @import url("../style/maven-base.css");
+          
+          @import url("../style/maven-theme.css");@import url("../style/project.css");</style><link rel="stylesheet" href="../style/print.css" type="text/css" media="print"></link><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"></meta><meta name="author" content="James Strachan"></meta><meta name="email" content="jstrachan@apache.org"></meta></head><body class="composite"><div id="banner"><a href="http://jakarta.apache.org" id="organizationLogo"><img alt="The Apache Software Foundation" src="http://jakarta.apache.org/images/original-jakarta-logo.gif"></img></a><a href="http://jakarta.apache.org/commons/betwixt/" id="projectLogo"><img alt="Betwixt" src="../images/logo.png"></img></a><div class="clear"><hr></hr></div></div><div id="breadcrumbs"><div class="xleft">Last published: 21 December 2006
+                <span class="separator">|</span> Doc for  0.8
+                </div><div class="xright">
+        
+        <a href="http://jakarta.apache.org/commons/" class="externalLink" title="External Link">Jakarta Commons</a>
+      </div><div class="clear"><hr></hr></div></div><div id="leftColumn"><div id="navcolumn"><div id="menuCommons_Betwixt"><h5>Commons Betwixt</h5><ul><li class="none"><a href="../index.html">Overview</a></li><li class="none"><a href="../faq.html">FAQ</a></li><li class="none"><a href="../apidocs/index.html">Javadoc</a></li><li class="none"><a href="../mail-lists.html">Mailing lists</a></li><li class="none"><a href="../team-list.html">Team</a></li><li class="none"><a href="../community.html">Community</a></li><li class="none"><a href="../powered.html">Powered By</a></li><li class="none"><a href="../tasks.html">Tasks</a></li><li class="none"><a href="http://svn.apache.org/viewcvs.cgi/jakarta/commons/proper/betwixt/trunk/" class="externalLink" title="External Link">View SVN</a></li><li class="none"><a href="http://svn.apache.org/repos/asf/jakarta/commons/proper/betwixt/" class="externalLink" title="External Link">SVN</a></li></ul></div><div id="menuUser_guide"><h5>User guide</h5><ul><li class="none"><strong><a href="../guide/start.html">Getting Started</a></strong></li><li class="none"><a href="../guide/binding.html">Binding Beans</a></li><li class="none"><a href="../guide/derived.html">Derived Bindings</a></li><li class="none"><a href="../guide/writing.html">Writing Beans(Advanced)</a></li><li class="none"><a href="../guide/output.html">Outputting The Results</a></li><li class="none"><a href="../guide/reading.html">Reading Beans(Advanced)</a></li><li class="none"><a href="../guide/integration.html">Integrating</a></li><li class="none"><a href="../guide/examples.html">Examples</a></li><li class="none"><a href="../guide/tutorial.html">Tutorial</a></li></ul></div><div id="menuRelease_Documentation"><h5>Release Documentation</h5><ul><li class="none"><a href="http://jakarta.apache.org/commons/betwixt/betwixt-0.7" class="externalLink" title="External Link">0.7</a></li><li class="none"><a href="http://jakarta.apache.org/commons/betwixt/betwixt-0.6" class="externalLink" title="External Link">0.6</a></li><li class="none"><a href="http://jakarta.apache.org/commons/betwixt/betwixt-0.5" class="externalLink" title="External Link">0.5</a></li></ul></div><div id="menuProject_Documentation"><h5>Project Documentation</h5><ul><li class="none"><a href="../index.html">About</a></li><li class="collapsed"><a href="../project-info.html">Project Info</a></li><li class="collapsed"><a href="../maven-reports.html">Project Reports</a></li><li class="none"><a href="http://jakarta.apache.org/commons/charter.html" class="externalLink" title="External Link">Development Process</a></li></ul></div><div id="menuCommons"><h5>Commons</h5><ul><li class="none"><a href="http://jakarta.apache.org/commons/" class="externalLink" title="External Link">Home</a></li><li class="collapsed"><a href="http://jakarta.apache.org/commons/components.html" class="externalLink" title="External Link">Components</a></li><li class="collapsed"><a href="http://jakarta.apache.org/commons/sandbox/index.html" class="externalLink" title="External Link">Sandbox</a></li><li class="collapsed"><a href="http://jakarta.apache.org/commons/dormant/index.html" class="externalLink" title="External Link">Dormant</a></li><li class="none"><a href="http://jakarta.apache.org/commons/volunteering.html" class="externalLink" title="External Link">Volunteering</a></li><li class="none"><a href="http://jakarta.apache.org/commons/patches.html" class="externalLink" title="External Link">Contributing Patches</a></li><li class="none"><a href="http://jakarta.apache.org/commons/building.html" class="externalLink" title="External Link">Building Components</a></li><li class="none"><a href="http://jakarta.apache.org/commons/releases/index.html" class="externalLink" title="External Link">Releasing Components</a></li><li class="none"><a href="http://wiki.apache.org/jakarta-commons/FrontPage" class="externalLink" title="External Link">Wiki</a></li></ul></div><div id="legend"><h5>Legend</h5><ul><li class="externalLink">External Link</li><li class="newWindow">Opens in a new window</li></ul></div><a href="http://maven.apache.org/" title="Built by Maven" id="poweredBy"><img alt="Built by Maven" src="../images/logos/maven-feather.png"></img></a></div></div><div id="bodyColumn"><div class="contentBox"><div class="section"><a name="Getting_Started"></a><h2>Getting Started</h2>
+    <p>
+    Probably the best way to get started is to look at some examples. 
+    <a href="examples.html#simple-example">Here</a> is some simple example code that reads and writes a bean (together
+    with some comments). It's a good place to start. 
+    </p>
+</div><div class="section"><a name="Mapping_beans_to_XML"></a><h2>Mapping beans to XML</h2>
+
+    <p>There are various ways of mapping beans to an XML structure. For example 
+    consider a simple bean</p>
+    
+
+    <div class="source"><pre>public class CustomerBean {
+    public String getName();
+    public Order[] getOrders();
+    public String[] getEmailAddresses();
+}</pre></div>
+  
+    
+    <p>This could be mapped to XML in various ways. 
+    A couple of examples of these different ways follow.</p>
+
+
+<div class="subsection"><a name="Example_1"></a><h3>Example 1</h3>
+    
+    <p>This example uses attributes for primitive types.</p>
+
+
+    <div class="source"><pre>&lt;CustomerBean name='James'&gt;
+    &lt;order id='1'&gt;...&lt;/order&gt;
+    &lt;order id='2'&gt;...&lt;/order&gt;
+    &lt;emailAddress&gt;jstrachan@apache.org&lt;/emailAddress&gt;
+&lt;/CustomerBean&gt;</pre></div>
+  
+</div>
+    
+    
+    <div class="subsection"><a name="Example_2"></a><h3>Example 2</h3>
+    
+    <p>This example uses elements for all properties and wraps collections in an 
+    extra element (which can be quite common in XML schemas). Also note that some 
+    element names have been changed.</p>
+    
+
+    <div class="source"><pre>&lt;customer&gt;
+    &lt;name&gt;James&lt;/name&gt;
+    &lt;orders&gt;
+        &lt;order id='1'&gt;...&lt;/order&gt;
+        &lt;order id='2'&gt;...&lt;/order&gt;
+    &lt;/orders&gt;
+    &lt;email-addresses&gt;
+        &lt;email-address&gt;jstrachan@apache.org&lt;/email-address&gt;
+    &lt;/email-addresses&gt;
+&lt;/customer&gt;    </pre></div>
+  
+    
+    <p>Betwixt aims to provide a diversity of possible mappings such that the 
+    developer can choose, if they wish, how their beans appear as XML to support 
+    whatever XML encoding scheme that is desired. If no particular mapping is 
+    provided then Betwixt will create a default mapping for you. Also the 
+    customization mechanism allows you to just override the parts you want to and 
+    let Betwixt default the rest. So if you just want to rename a property in XML 
+    for a certain type, thats all you need to do. No need to hand-code what Betwixt 
+    can deduce for itself. </p>
+</div>
+
+</div><div class="section"><a name="Customizing_the_mapping_of_a_bean_to_XML__basic_"></a><h2>Customizing the mapping of a bean to XML (basic)</h2>
+    
+<div class="subsection"><a name="_betwixt_files"></a><h3>.betwixt files</h3>
+
+    <p>The XMLIntrospector will look for files of the form <i>className.betwixt</i> 
+    on the classpath using the same ClassLoader used to load the given class and use 
+    that document to specify the mapping to XML. If this file does not exist 
+    then the default introspection rules are used. (Note that there are also various
+    more advanced ways to vary this rule. For more details see 
+    <a href="binding.html#Multi%20Mapping">multi mapping</a> for more details)</p>
+    <p>The simplest possible file may just set the name of the element. e.g.</p>
+    
+
+    <div class="source"><pre>&lt;?xml version='1.0' encoding='UTF-8' ?&gt;
+&lt;info&gt;
+&lt;element name='channel'/&gt;
+&lt;addDefaults/&gt;
+&lt;/info&gt;</pre></div>
+  
+    
+    <p>The above means to use the name 'channel' for the outer most element for the 
+    given type. The <code>&lt;addDefaults&gt;</code> means to add the defaults from the introspector. 
+    This allows you to just rename a few properties then let the introspector do the 
+    rest. There is also a <code>&lt;hide&gt;</code> element which allows one or more properties to be 
+    hidden. Also note that the <code>&lt;element&gt;</code> and 
+    <code>&lt;attribute&gt;</code> tags can be nested to any 
+    kind of depth allowing whatever XML structure you wish. This can be useful if 
+    you wish to wrap collections in some arbitrary collection tags or to group 
+    properties of a bean together in some XML structure. e.g.</p>
+    
+
+    <div class="source"><pre>&lt;?xml version='1.0' encoding='UTF-8' ?&gt;
+&lt;info primitiveTypes='attribute'&gt;
+&lt;hide property='something'/&gt;
+&lt;element name='channel'/&gt;
+    &lt;element name='customerList'&gt;
+    &lt;element name='customer' property='customers'/&gt;
+    &lt;/element&gt;
+    &lt;element name='foo'&gt;
+    &lt;attribute name='qqq' property='ppp'/&gt;
+    &lt;element name='bar' property='xyz'/&gt;
+    &lt;addDefaults/&gt;
+&lt;/element&gt;
+&lt;/info&gt;
+</pre></div>
+  
+    
+    <p>Note that the <code>.betwixt</code> file specifies the mapping for a single bean.
+    So, whilst you can add extra elements (as above), it can't be used to specify 
+    to names for child beans through nesting <code>element</code> elements.</p>
+    
+    <p>The primitiveTypes attribute in the <code>&lt;info&gt;</code> element is 
+    optional and can be used to specify whether primitive java types (strings, numbers, dates etc) are 
+    specified as attributes or elements by default.</p>
+    <p>Finally static text can be specified using a value attribute inside an 
+    <code>&lt;element&gt;</code> or <code>&lt;attribute&gt;</code> tag. 
+    e.g. to add constant attributes such as a version label to the 
+    generated XML...</p>
+    
+
+    <div class="source"><pre>&lt;?xml version='1.0' encoding='UTF-8' ?&gt;
+&lt;info primitiveTypes='element'&gt;
+&lt;element name='rss'/&gt;
+    &lt;attribute name='version' value='0.91'/&gt;
+    &lt;element name='channel'/&gt;
+    &lt;addDefaults/&gt;
+&lt;/element&gt;
+&lt;/info&gt;
+</pre></div>
+  
+
+	<p>The plain <code>&lt;addDefaults&gt;</code> tag adds default properties
+	and the adders (it can find) for all the properties (both explicitly 
+	described in the <code>.betwixt</code> file and the default ones discovered).
+	Usually, this is really pretty useful but sometimes more finely grained
+	control is needed. In this case, there are two properties that can be set
+	to given this extra control:</p>
+	
+	<ul>
+		<li><strong><code>add-properties</code></strong> If this property is set to any value
+		other than <code>true</code> the discovery of default properties will
+		be suppressed.</li>
+		<li><strong><code>add-adders</code></strong> if this property is set to
+		any value other than <code>true</code> the matching of adders will be suppressed.</li>
+		<li><strong><code>guess-name</code></strong> if this property is set to
+		any value other than <code>true</code> the guessing of names for elements without a name attribute
+    will be suppressed. Note that this may need to be set to <code>false</code> when mapping mixed
+    collections.
+    By default, Betwixt will guess names.</li>
+	</ul>
+	
+	<p>Using <code>&lt;addDefaults add-properties='false' add-adders='false'/&gt;</code>
+	doesn't really make any sense but no error will be thrown.</p>
+</div>
+
+</div></div></div><div class="clear"><hr></hr></div><div id="footer"><div class="xright">© 2002-2006, The Apache Software Foundation</div><div class="clear"><hr></hr></div></div></body></html>

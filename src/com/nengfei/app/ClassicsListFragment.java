@@ -65,6 +65,7 @@ public class ClassicsListFragment  extends ListFragment {
 	private static Callbacks sDummyCallbacks = new Callbacks() {
 		@Override
 		public void onClassicsIdSelected(int classicsId) {
+			
 		}
 	};
 
@@ -79,6 +80,7 @@ public class ClassicsListFragment  extends ListFragment {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		mtc=new MainTabController(getActivity());
+		//经典例题
 		classicsEntryList=mtc.getClassicsEntryList();
 		 contents=new ArrayList<String>();
 		for(int i=0;i<classicsEntryList.size();i++){

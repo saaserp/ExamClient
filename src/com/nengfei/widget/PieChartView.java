@@ -48,7 +48,7 @@ public class PieChartView extends View {
 	private int barWidth = 15;
 
 	private int textColor = 0xaa333333;
-	
+
 	public PieChartView(Context context) {
 		super(context);
 	}
@@ -171,49 +171,68 @@ public class PieChartView extends View {
 		backColor = color;
 	}
 
+	 
 	@SuppressLint("DefaultLocale")
 	@Override
 	protected void onDraw(Canvas canvas) {
+		//计算左边距
 		int paddingLeft = getPaddingLeft();
+		//计算右边距
 		int paddingRight = getPaddingRight();
+		//计算上边距
 		int paddingTop = getPaddingTop();
+		//计算下边距
 		int paddingBottom = getPaddingBottom();
-
+		//计算高度
 		int height = getHeight() - paddingTop - paddingBottom;
+		//计算宽度
 		int width = getWidth() - paddingLeft - paddingRight;
-
+		//如果数据不为空
 		if (data != null) {
+			//保存原有画布
 			canvas.save();
+			//设置画布的边距
 			canvas.translate(paddingLeft, paddingTop);
+			//设置画布的宽度高度
 			canvas.clipRect(0, 0,width,height);
 
 			//canvas.drawColor(backColor);
-
+			//计算扇形的宽度
 			int w = width - piePaddingLeft - piePaddingRight - rightSpace;
+			//计算扇形的高度
 			int h = height - piePaddingTop - piePaddingBottom;
-
+			//圆的半径
 			int r = w;
 			if (w > h)
 				r = h;
+			//半径为原来的3/4
 			r=r*3/4;
+			//矩形,设置边距
 			RectF rf = new RectF(piePaddingLeft, piePaddingTop, piePaddingLeft
 					+ r, piePaddingTop + r);
-
+			//画笔
 			Paint paint = new Paint();
+			//设置画笔为平滑
 			paint.setAntiAlias(true);
+			//设置画笔的风格为全屏
 			paint.setStyle(Paint.Style.FILL);
-
+			//设置角度
 			float ang = startAngle;
-
+			//百分比
 			float[] percent = new float[dataCount];
-
+			//遍历所有的数据
 			for (int i = 0; i < data.length; i++) {
+				//设置画笔颜色
 				paint.setColor(color[i]);
+				//设置偏移角度比例
 				float tmp = data[i] / (sumData * 1.0f);
+				//存储百分比
 				percent[i] = tmp;
+				//换算成角度
 				tmp = tmp * 360;
+				
 				float toang = Math.round(tmp);
-
+				
 				if (specialIndex == i) {
 					float ds = (ang + toang / 2);
 					float dy = (float) Math.abs((specialSpace * Math
@@ -233,17 +252,23 @@ public class PieChartView extends View {
 					RectF sf = new RectF(piePaddingLeft + dx, piePaddingTop
 							+ dy, piePaddingLeft + dx + r, piePaddingTop + r
 							+ dy);
+					//绘制图像
 					canvas.drawArc(sf, ang, toang, true, paint);
 				} else
+					//绘制图像
 					canvas.drawArc(rf, ang, toang, true, paint);
-				ang += toang;
+					ang += toang;
 			}
-
+			//字体
 			FontMetrics fm = paint.getFontMetrics();
+			//x维度的字体大小
 			float texty = piePaddingTop - fm.ascent;
 			float textx = piePaddingLeft + r + 35;
+			//最大字体的重量
 			int maxTextWeitht=0;
+			//实例化一个矩形
 			Rect textRect=new Rect();
+			//对每个数据
 			for (int i = 0; i < dataCount; i++) {
 				paint.setColor(color[i]);
 				canvas.drawRect(textx, texty, textx + barWidth, texty
@@ -258,25 +283,35 @@ public class PieChartView extends View {
 					maxTextWeitht=textRect.width();
 				}
 			}
-			
+			//标题
 			if (title != null) {
 				float titlex=0;
 				float titley=0;
+				//如果宽度小于高度
 				if(w<h){
+					//标题设置左边距
 					titlex= piePaddingLeft;
+					//标题的上边距
 					titley = Math.max(texty, piePaddingTop+r)+ 35;
+					//对于标题上的每一个字
 					for (int i = 0; i < title.length; i++) {
+						//设置画笔的颜色
 						paint.setColor(color[i]);
+						//绘制矩形
 						canvas.drawRect(titlex, titley, titlex + barWidth * 2,
 								titley + barWidth * 2, paint);
+						//设置颜色
 						paint.setColor(textColor);
+						//设置字体大小为20
 						paint.setTextSize(20);
+						//获取字体的属性
 						fm = paint.getFontMetrics();
 						canvas.drawText(title[i], titlex + barWidth * 2 + 10,
 								titley - fm.ascent + 5, paint);
 						titley += fm.descent - fm.ascent + 15;
 					}
 				}else{
+					//字体属性设置
 					titlex=textx + barWidth +maxTextWeitht+10;
 					titley=piePaddingTop-fm.ascent;;
 					for (int i = 0; i < title.length; i++) {
@@ -286,9 +321,10 @@ public class PieChartView extends View {
 						titley += fm.descent - fm.ascent + 15;
 					}
 				}
-			
-				
+
+
 			}
+			//如果绘制图像失败，将恢复到原来的数据
 			canvas.restore();
 		}
 	}

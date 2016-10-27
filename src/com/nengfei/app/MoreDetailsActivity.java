@@ -18,6 +18,7 @@ public class MoreDetailsActivity extends BaseActivity {
 		tv_title.setText(getResources().getStringArray(R.array.more_items)[position]);
 		tv_title.setTypeface(MainTabActivity.font_yahei);
 		tv_more_details.setText(getResources().getStringArray(R.array.more_details)[position]);
+		tv_more_details.setTextSize(12);
 		tv_more_details.setTypeface(MainTabActivity.font_apple);
 	}
 

@@ -16,7 +16,7 @@ public class DetailsRecordActivity extends BaseActivity {
 	TextView detail_sum_answer_right;// 答对题目数量
 	TextView detail_sum_anserquestion;// 答题数量
 	TextView detail_sum_answer_error;// 答错题目数量
-	TextView detail_accuracy;// 正确率
+	TextView detail_accuracy;// 准确率
 	TextView detail_score;// 成绩
 	ExamResultEntry entry;
 	ExamResultService examResultService;
@@ -70,9 +70,9 @@ public class DetailsRecordActivity extends BaseActivity {
 				+ entry.getTotalCount()
 				+ getResources().getString(R.string.detail_answer));
 		detail_accuracy.setText(""
-				+ (int) (100 * (float) entry.getRightCount() / (float) entry
-						.getTotalCount())
-				+ getResources().getString(R.string.detail_qw));
+				+ (int) (100 * (float) entry.getRightCount() / 100)
+				+ getResources().getString(R.string.detail_qw)+" 准确率:"+(int) (100 * (float) entry.getRightCount() / (float) entry
+						.getTotalCount())+getResources().getString(R.string.detail_qw));
 		detail_score.setText(entry.getTotalScore()
 				+ getResources().getString(R.string.detail_point));
 	}

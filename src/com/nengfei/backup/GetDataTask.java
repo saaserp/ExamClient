@@ -9,6 +9,7 @@ import com.nengfei.app.WelcomeActivity;
 import com.nengfei.login.LoginActivity;
 import com.nengfei.model.DataSyncService;
 import com.nengfei.net.MySocketClient;
+import com.nengfei.parse.HttpClientTool;
 import com.nengfei.parse.JSONParser;
 import com.nengfei.util.CallBack;
 import com.nengfei.util.DBHelper;
@@ -70,7 +71,8 @@ public class GetDataTask extends AsyncTask<Void, Void, Boolean> {
 		map.put("dbName", DBUtil.dbName);
 
 
-		String res = MySocketClient.getInstance().send("GetInfo", map);
+		//String res = MySocketClient.getInstance().send("GetInfo", map);
+		String res = HttpClientTool.getInstance().send("GetInfo", map);
 		if(!isbackaground){
 		new Thread(new Runnable() {
 

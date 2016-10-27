@@ -1,0 +1,105 @@
+$Id$
+
+
+                          Commons Discovery Package
+                                Version 0.4
+                               Release Notes
+
+
+INTRODUCTION
+============
+
+This is a minor bugfix and maintenance release. A few small features have been added.
+New projects are encouraged to use this release of discovery.
+
+The previous release of Commons Discovery was 0.2. The 0.3 release failed to happen, 
+though an SVN tag was created. Thus a version number of 0.4 is being used for this 
+release.
+
+IMPORTANT NOTES
+===============
+* The jakarta commons project has migrated to the Subversion version control system
+  (previously, CVS was used). Please see the jakarta commons
+  website for details (http://jakarta.apache.org/commons).
+
+* This release is done under the Apache Public License version 2.0; the
+  previous release was under the APL 1.1. All files have been updated with
+  the new license terms (including many files formerly missing license text).
+
+Dependencies
+=============
+Commons Discovery depends on Commons Logging. It is built against version 1.0.4.
+
+NEW FEATURES
+=============
+* maven build process improved
+* documentation moved from raw html format to xdoc format
+  (best-practices.html, adc-guidelines.html)
+
+FILES CHANGED
+=============
+* tools/ManagedProperties.java
+   --> fix NullPointerException in setProperty method.
+   --> added logging facilities to the class; debug output can now be
+       enabled if desired.
+   --> Hide SecurityException in getParent(ClassLoader)
+   --> Uses new JDKTools.getSystemProperty(String)
+
+* log/SimpleLog.java
+   --> if exception occurs on System.getProperty, use a default instead
+     of throwing an exception.
+
+* ResourceNameIterator.java
+   --> javadoc improvements only
+
+* resource/names/DiscoverNamesInManagedProperties.java
+  resource/names/DiscoverNamesInFile.java
+   -->Generalize qualification of resource/file-names by prefix/suffix;
+      add new constructors that take prefix and suffix strings
+      for the resource to be located.
+
+* resource/names/DiscoverServiceNames.java
+   -->Generalize qualification of resource/file-names by prefix/suffix.
+
+* resource/ResourceDiscoverImpl.java
+   -->Defer creation of ClassLoaders until we need them, and create a
+      useful default [non-null].
+
+* resource/DiscoverResources:
+   --> fix to compile under JDK1.5 (don't use reserved word "enum")
+
+* jdk/JDKHooks:
+   --> New getSystemProperty method added.
+
+* jdk/JDK12Hooks
+   --> AXIS-1227:
+       Added a try/catch for RuntimeExceptions in JDK12Hooks to avoid 
+       NullPointerExceptions from JBoss' UnifiedClassLoader.  Reloading
+       the Axis webapp after a redepoy of service classes then allows
+       things to work normally.
+   --> made class public (formerly, was package-scope only)
+       In newer JVM/compilers, runtime complains when we try to invoke 
+       setLog on a non-public class.
+   --> AXIS-2145:
+       Checks that it has the security permission to create a new 
+       classloader.
+   --> New getSystemProperty method added.
+
+* jdk/JDK11Hooks 
+   --> made class public (formerly, was package-scope only)
+       In newer JVM/compilers, runtime complains when we try to invoke 
+       setLog on a non-public class.
+   --> New getSystemProperty method added.
+
+BUGS FROM PREVIOUS RELEASE
+=========================
+
+JIRA Issues Addressed
+---------------------
+* AXIS-1227 (https://issues.apache.org/jira/browse/AXIS-1227)
+* AXIS-2145 (https://issues.apache.org/jira/browse/AXIS-2145)
+
+
+DEPRECATIONS
+============
+None

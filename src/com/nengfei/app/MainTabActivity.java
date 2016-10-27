@@ -251,9 +251,9 @@ implements MoreListFragment.Callbacks, ClassicsListFragment.Callbacks ,OnClickLi
 	}
 
 	@Override
-	public void onClassicsIdSelected(int classicsId) {
+	public void onClassicsIdSelected(int _id) {
 		Intent intent = new Intent(this, ClassicsActivity.class);
-		intent.putExtra("questionId", classicsId);
+		intent.putExtra("questionId", _id);
 		if(login()){
 			startActivity(intent);
 		} 
@@ -286,20 +286,18 @@ implements MoreListFragment.Callbacks, ClassicsListFragment.Callbacks ,OnClickLi
 	public void onClick(View v){
 		Intent intent;
 		if(login()){
-			switch(v.getId()){
-			case R.id.sxlx:
+			int id = v.getId();
+			if (id == R.id.sxlx) {
 				//顺序练习
 				intent = new Intent(this, TopicActivity.class);
 				intent.putExtra("mode", TopicController.MODE_SEQUENCE);
 				startActivity(intent);
-				break;
-			case R.id.sjlx:
+			} else if (id == R.id.sjlx) {
 				//随机练习
 				intent = new Intent(this, TopicActivity.class);
 				intent.putExtra("mode", TopicController.MODE_RANDOM);
 				startActivity(intent);
-				break;
-			case R.id.zxlx:
+			} else if (id == R.id.zxlx) {
 				//专项练习
 				if (ProjectConfig.TOPIC_MODE_CHAPTERS_SUPPORT) {
 			 
@@ -310,8 +308,7 @@ implements MoreListFragment.Callbacks, ClassicsListFragment.Callbacks ,OnClickLi
 				} else {
 					UiUtil.showToastShort(this, R.string.please_wait);
 				}
-				break;
-			case R.id.wzt:
+			} else if (id == R.id.wzt) {
 				//未做题
 				if (ProjectConfig.TOPIC_MODE_INTENSIFY_SUPPORT) {
 					intent = new Intent(this, TopicActivity.class);
@@ -320,17 +317,12 @@ implements MoreListFragment.Callbacks, ClassicsListFragment.Callbacks ,OnClickLi
 				} else {
 					UiUtil.showToastShort(this, R.string.please_wait);
 				}
-				break;
-			case R.id.mnks:
-
+			} else if (id == R.id.mnks) {
 				//模拟考试
 				intent = new Intent(this, TopicActivity.class);
 				intent.putExtra("mode", TopicController.MODE_PRACTICE_TEST);
 				startActivity(intent);
-				break;
-
-			case R.id.wdsc:
-			case R.id.wodeshouchang:
+			} else if (id == R.id.wdsc || id == R.id.wodeshouchang) {
 				//收藏
 				if (mtc.checkCollectedDataExist()) {
 					intent = new Intent(this, TopicActivity.class);
@@ -339,9 +331,7 @@ implements MoreListFragment.Callbacks, ClassicsListFragment.Callbacks ,OnClickLi
 				} else {
 					UiUtil.showToastShort(this, R.string.data_not_exist);
 				}
-				break;
-			case R.id.wdct:
-			case R.id.wodecuoti:
+			} else if (id == R.id.wdct || id == R.id.wodecuoti) {
 				//我的错题
 				if (mtc.checkWrongDataExist()) {
 					intent = new Intent(this, TopicActivity.class);
@@ -350,45 +340,29 @@ implements MoreListFragment.Callbacks, ClassicsListFragment.Callbacks ,OnClickLi
 				} else {
 					UiUtil.showToastShort(this, R.string.data_not_exist);
 				}
-				break;
-			case R.id.ksjl:
-				
+			} else if (id == R.id.ksjl) {
 				//考试记录
 				intent = new Intent(this, RecordActivity.class);
 				startActivity(intent);
-				break;
-
-			case R.id.kstj:
+			} else if (id == R.id.kstj) {
 				//考试统计
 				intent = new Intent(this, StatisticsActivity.class);
 				startActivity(intent);
-				break;
-			case R.id.ad1:
+			} else if (id == R.id.ad1) {
 				//视频教学
 				intent=new Intent(this,WebActivity.class);
 				intent.putExtra("url", "http://m.gdgdpowerfly.webportal.cc/col.jsp?id=107");
 				startActivity(intent);
-				break;
-			case R.id.ad2:
+			} else if (id == R.id.ad2) {
 				//能飞航空
 				intent=new Intent(this,WebActivity.class);
 				intent.putExtra("url", "http://m.gdgdpowerfly.webportal.cc");
 				startActivity(intent);
-				break;
-			case R.id.ad3:
+			} else if (id == R.id.ad3) {
 				//无人机培训报名
 				intent=new Intent(this,WebActivity.class);
 				intent.putExtra("url", "http://m.gdgdpowerfly.webportal.cc");
 				startActivity(intent);
-				break;
-				
-			
-				
-				 
-			
-				 
-				
-			
 			}
 			
 		}

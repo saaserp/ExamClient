@@ -1,0 +1,388 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html><head><title>Reading Beans (Advanced) - Betwixt</title><style type="text/css" media="all">
+          @import url("../style/maven-base.css");
+          
+          @import url("../style/maven-theme.css");@import url("../style/project.css");</style><link rel="stylesheet" href="../style/print.css" type="text/css" media="print"></link><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"></meta><meta name="author" content="James Strachan"></meta><meta name="email" content="jstrachan@apache.org"></meta></head><body class="composite"><div id="banner"><a href="http://jakarta.apache.org" id="organizationLogo"><img alt="The Apache Software Foundation" src="http://jakarta.apache.org/images/original-jakarta-logo.gif"></img></a><a href="http://jakarta.apache.org/commons/betwixt/" id="projectLogo"><img alt="Betwixt" src="../images/logo.png"></img></a><div class="clear"><hr></hr></div></div><div id="breadcrumbs"><div class="xleft">Last published: 21 December 2006
+                <span class="separator">|</span> Doc for  0.8
+                </div><div class="xright">
+        
+        <a href="http://jakarta.apache.org/commons/" class="externalLink" title="External Link">Jakarta Commons</a>
+      </div><div class="clear"><hr></hr></div></div><div id="leftColumn"><div id="navcolumn"><div id="menuCommons_Betwixt"><h5>Commons Betwixt</h5><ul><li class="none"><a href="../index.html">Overview</a></li><li class="none"><a href="../faq.html">FAQ</a></li><li class="none"><a href="../apidocs/index.html">Javadoc</a></li><li class="none"><a href="../mail-lists.html">Mailing lists</a></li><li class="none"><a href="../team-list.html">Team</a></li><li class="none"><a href="../community.html">Community</a></li><li class="none"><a href="../powered.html">Powered By</a></li><li class="none"><a href="../tasks.html">Tasks</a></li><li class="none"><a href="http://svn.apache.org/viewcvs.cgi/jakarta/commons/proper/betwixt/trunk/" class="externalLink" title="External Link">View SVN</a></li><li class="none"><a href="http://svn.apache.org/repos/asf/jakarta/commons/proper/betwixt/" class="externalLink" title="External Link">SVN</a></li></ul></div><div id="menuUser_guide"><h5>User guide</h5><ul><li class="none"><a href="../guide/start.html">Getting Started</a></li><li class="none"><a href="../guide/binding.html">Binding Beans</a></li><li class="none"><a href="../guide/derived.html">Derived Bindings</a></li><li class="none"><a href="../guide/writing.html">Writing Beans(Advanced)</a></li><li class="none"><a href="../guide/output.html">Outputting The Results</a></li><li class="none"><strong><a href="../guide/reading.html">Reading Beans(Advanced)</a></strong></li><li class="none"><a href="../guide/integration.html">Integrating</a></li><li class="none"><a href="../guide/examples.html">Examples</a></li><li class="none"><a href="../guide/tutorial.html">Tutorial</a></li></ul></div><div id="menuRelease_Documentation"><h5>Release Documentation</h5><ul><li class="none"><a href="http://jakarta.apache.org/commons/betwixt/betwixt-0.7" class="externalLink" title="External Link">0.7</a></li><li class="none"><a href="http://jakarta.apache.org/commons/betwixt/betwixt-0.6" class="externalLink" title="External Link">0.6</a></li><li class="none"><a href="http://jakarta.apache.org/commons/betwixt/betwixt-0.5" class="externalLink" title="External Link">0.5</a></li></ul></div><div id="menuProject_Documentation"><h5>Project Documentation</h5><ul><li class="none"><a href="../index.html">About</a></li><li class="collapsed"><a href="../project-info.html">Project Info</a></li><li class="collapsed"><a href="../maven-reports.html">Project Reports</a></li><li class="none"><a href="http://jakarta.apache.org/commons/charter.html" class="externalLink" title="External Link">Development Process</a></li></ul></div><div id="menuCommons"><h5>Commons</h5><ul><li class="none"><a href="http://jakarta.apache.org/commons/" class="externalLink" title="External Link">Home</a></li><li class="collapsed"><a href="http://jakarta.apache.org/commons/components.html" class="externalLink" title="External Link">Components</a></li><li class="collapsed"><a href="http://jakarta.apache.org/commons/sandbox/index.html" class="externalLink" title="External Link">Sandbox</a></li><li class="collapsed"><a href="http://jakarta.apache.org/commons/dormant/index.html" class="externalLink" title="External Link">Dormant</a></li><li class="none"><a href="http://jakarta.apache.org/commons/volunteering.html" class="externalLink" title="External Link">Volunteering</a></li><li class="none"><a href="http://jakarta.apache.org/commons/patches.html" class="externalLink" title="External Link">Contributing Patches</a></li><li class="none"><a href="http://jakarta.apache.org/commons/building.html" class="externalLink" title="External Link">Building Components</a></li><li class="none"><a href="http://jakarta.apache.org/commons/releases/index.html" class="externalLink" title="External Link">Releasing Components</a></li><li class="none"><a href="http://wiki.apache.org/jakarta-commons/FrontPage" class="externalLink" title="External Link">Wiki</a></li></ul></div><div id="legend"><h5>Legend</h5><ul><li class="externalLink">External Link</li><li class="newWindow">Opens in a new window</li></ul></div><a href="http://maven.apache.org/" title="Built by Maven" id="poweredBy"><img alt="Built by Maven" src="../images/logos/maven-feather.png"></img></a></div></div><div id="bodyColumn"><div class="contentBox"><div class="section"><a name="Interfaces_And_Abstract_Classes"></a><h2>Interfaces And Abstract Classes</h2>
+        <div class="subsection"><a name="Understanding_The_Problem"></a><h3>Understanding The Problem</h3>
+            <p>
+Betwixt uses the type of the corresponding mapped property to determine the class to be instantiated
+when reading xml. But what happens when the type of the mapped property is an interface or
+an abstract class and so cannot be instantiated? Well - unless steps are taken to solve this problem,
+the read will fail. 
+        </p>
+            <p>
+Betwixt provides a number of different ways to solve this problem. 
+One solution is to use <a href="derived.html">derived beans</a>. This is flexible but means coupling
+the xml to a java class structure. Another solution is to use <a href="#Customizing_Bean_Creation">custom
+bean creation</a> to ensure that an appropriate class is created.
+Other solutions follow in this section.
+        </p>
+    </div>
+        <div class="subsection"><a name="Specifying_An_Implementation_Class_In_The_Betwixt_File"></a><h3>Specifying An Implementation Class In The Betwixt File</h3>
+            <p>
+The class to be instantiated when a (mapped) element is read can be specified via the <code>class</code>
+attribute. When present, this should be a fully qualified java class name. A bean of this type
+will then be instantiated when the element is read.
+        </p>
+            <p>
+For example, here's a bean:
+
+    <div class="source"><pre>
+package org.apache.commons.betwixt.example;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class ExampleBean {
+    
+    private String name;
+    private List examples = new ArrayList();
+    
+    public ExampleBean() {}
+
+    public String getName() {
+        return name;
+    }
+    
+    public void setName(String name) {
+        this.name = name;
+    }
+    
+    public List getExamples() {
+        return examples;
+    }
+    
+    public void addExample(IExample example) {
+        examples.add(example);
+    }
+}
+</pre></div>
+  
+which contains a List whose contents each implement the <code>IExample</code> interface:
+
+    <div class="source"><pre>
+package org.apache.commons.betwixt.example;
+
+public interface IExample {
+
+    public int getId();
+    public void setId(int id);
+    public String getName();
+    public void setName(String id);
+}
+</pre></div>
+  
+Betwixt will create an instance of the following standard implementation:
+
+    <div class="source"><pre>
+package org.apache.commons.betwixt.example;
+
+public class ExampleImpl implements IExample {
+    
+    private int id;
+    private String name;
+    
+    public ExampleImpl() {}
+    
+    public int getId() {
+        return id;
+    }
+    public void setId(int id) {
+        this.id = id;
+    }
+    
+    public String getName() {
+        return name;
+    }
+    
+    public void setName(String name) {
+        this.name = name;
+    }
+}
+</pre></div>
+  
+for each <code>example</code> element if the following <code>ExampleBean.betwixt</code> file:
+
+
+    <div class="source"><pre>&lt;?xml version="1.0" encoding="UTF-8" ?&gt;
+&lt;info&gt;
+    &lt;element name='example-bean'&gt;
+        &lt;element name='example' property='examples' class='org.apache.commons.betwixt.example.ExampleImpl'/&gt;
+        &lt;addDefaults/&gt;
+    &lt;/element&gt;
+&lt;/info&gt;</pre></div>
+  
+is used.
+        </p>        
+    </div>
+</div><div class="section"><a name="Reading_Beans__Advanced_"></a><h2>Reading Beans (Advanced)</h2>
+<div class="subsection"><a name="Adding_Custom_Digestion_Rules"></a><h3>Adding Custom Digestion Rules</h3>
+    <p>
+    Betwixt builds on <code>Apache Digester</code> for bean reading. 
+    <code>BeanReader</code> extends <code>Digester</code> 
+    and this makes a wide range of functionality available.
+    </p>
+    
+    <p>
+    Digester uses <code>Rule</code>'s to specify the xml mapping (for more details see the 
+    <a href="http://jakarta.apache.org/commons/digester/index.html" class="externalLink" title="External Link">Digester documentation</a>).
+    Betwixt provides a custom ruleset (<code>BeanRuleSet</code>). This creates <code>Rule</code>'s that
+    implement the standard Betwixt mapping for a class. <code>BeanReader.registerBeanClass</code> 
+    uses this <code>RuleSet</code> to add these standard betwixt mapping <code>Rule</code>'s
+    for the bean class.
+    </p>
+    
+    <p>
+    These standard Betwixt mapping rules can be integrated with other Digester <code>Rule</code>'s.
+    <code>Rule</code>'s added before <code>registerBeanClass</code> is called will come before (in a 
+    Digester sense) the standard betwixt <code>Rule</code>'s. Those added after will come afterwards.
+    </p>
+    
+    <p>
+    <strong>Note</strong> that care must be taken with the patterns for additional <code>Rule</code>'s.
+    The standard Betwixt mapping will only work if all it's <code>Rule</code>'s are matched.
+    </p>
+    
+</div>
+<div class="subsection"><a name="Advanced_Updaters"></a><h3>Advanced Updaters</h3>
+    <p>
+Betwixt by default uses the property write method for standard properties 
+and matched stems for composite properties (for more details, see 
+<a href="#Using_adder_methods_for_composite_properties">here</a>) 
+to update property values when reading beans. 
+These approaches should be sufficient for most cases. 
+But this can be overruled on a per element basis.
+    </p>
+    <p>
+By using a .betwixt file, the method used to update the bean can be controlled on a per element basis.
+When the value of the <code>updater</code> attribute of an <code>&lt;element&gt;</code> element is set,
+Betwixt will try to find a bean method with a matching name which takes a single parameter.
+When such a matching method exists, this will be called to update the property value.
+    </p>
+    <p>
+For example, the following betwixt file fragment: 
+    
+
+    <div class="source"><pre>
+&lt;?xml version="1.0" encoding="UTF-8" ?&gt;
+&lt;info primitiveTypes="element"&gt;
+  &lt;element name="bean"&gt;
+        ...
+        &lt;element name='name' property='name' updater='nameSetter'/&gt;
+        ...
+  &lt;/element&gt;
+&lt;/info&gt;
+</pre></div>
+  
+
+will look for a method called 'nameSetter' and use that to update the value mapped to the 'name' element.
+    </p>
+</div>
+</div><div class="section"><a name="Reading_Beans_-_In_Depth"></a><h2>Reading Beans - In Depth</h2>
+    
+        <div class="subsection"><a name="Understanding_The_Class_Creation_Chain"></a><h3>Understanding The Class Creation Chain</h3>
+            <p>
+Betwixt uses the <em>Chain Of Responsibility</em> pattern to decide the object which should be created 
+for a particular element. The standard chain contains <code>ChainedBeanCreator</code>s which implement
+functionality such as standard bean creation based on the expected type and the returning of beans by ID.
+This allows users to easily insert their own <code>ChainedBeanCreator</code>s into the chain - or to 
+replace the standard Betwixt chain completely.
+        </p>
+    </div>
+    
+        <div class="subsection"><a name="Customizing_Bean_Creation"></a><h3>Customizing Bean Creation</h3>
+            <p>
+The chain used by the BeanReader is part of the <code>ReadConfiguration</code> and is accessed via the 
+BeanCreationChain property. For example the following sets a custom chain.
+
+    <div class="source"><pre>
+        BeanCreationChain chain = MyBeanCreationChain();
+        BeanReader reader = new BeanReader();
+        ...
+        reader.registerBeanClass("bean", Bean.class);
+        reader.getReadConfiguration().setBeanCreationChain(chain);
+        ...
+        Bean bean = (Bean) reader.parse(in);
+        ...
+</pre></div>
+  
+        </p>
+            <p>
+Betwixt provides a standard (list-backed) chain called BeanCreationList. This provides an easy methods to 
+register your own <code>ChainedBeanCreator</code>. It also provides a factory method which creates an instance
+with the standard betwixt chain already set. For example, the following inserts a custom in second place:
+
+    <div class="source"><pre>
+        BeanCreationList chain = BeanCreationList.createStandardChain();
+        BeanCreator creator = MyBeanCreator();
+        chain.insertBeanCreator(1, creator);
+</pre></div>
+  
+        </p>
+            <p>
+Another useful class is <code>ChainedBeanCreationFactory</code>. This contains factory methods for the 
+<code>BeanCreator</code>s used by Betwixt. This allows a user to easily mix custom and standard creators.
+        </p>
+    </div>
+    
+        <div class="subsection"><a name="Example:_Enums"></a><h3>Example: Enums</h3>
+            <p>
+Herein is contained a practical example demonstrating how custom bean creation may be used.
+        </p>
+            <p>
+A common java pattern is the use of strongly typed Enum classes. Let's say that you have the following class:
+
+    <div class="source"><pre>
+public class CompassPoint {
+
+    public static final CompassPoint NORTH = new CompassPoint("North");
+    public static final CompassPoint SOUTH = new CompassPoint("South");
+    public static final CompassPoint EAST = new CompassPoint("East");
+    public static final CompassPoint WEST = new CompassPoint("West");
+    
+    private String name;
+    
+    private CompassPoint(String name) {
+        this.name = name;
+    }
+    
+    public String getName() {
+        return name;
+    }
+}
+</pre></div>
+  
+and you have a bean which you would like to map to xml and back using Betwixt. Betwixt is bean-centric. 
+It aims to make mapping beans easy. But, <code>CompassPoint</code> objects are not beans and do not
+have the empty constructors that Betwixt requires.
+        </p>
+            <p>
+A good way to solve this problem is to create a custom BeanCreator which knows how to create an enum
+of the right type from the 'name' attribute value. For example:
+
+    <div class="source"><pre>
+public class CompassPointEnumCreator implements ChainedBeanCreator {
+    public Object create(ElementMapping mapping, ReadContext context, BeanCreationChain chain) {
+        if (CompassPoint.class.equals(mapping.getType())) {
+            String value = mapping.getAttributes().getValue("name");
+            if ("North".equals(value)) {
+                return CompassPoint.NORTH;
+            }
+            if ("South".equals(value)) {
+                return CompassPoint.SOUTH;
+            }
+            if ("East".equals(value)) {
+                return CompassPoint.EAST;
+            }
+            if ("West".equals(value)) {
+                return CompassPoint.WEST;
+            }
+        }
+        return chain.create(mapping, context);
+    }
+}
+</pre></div>
+  
+        </p>
+            <p>
+Once this class has been created, all that remains is to add this into the chain. In this case,
+it's probably most convenient to use the factory method to create a standard chain and then insert
+the BeanCreator at a suitable position:
+
+    <div class="source"><pre>
+    BeanCreationList chain = BeanCreationList.createStandardChain();
+    chain.insertBeanCreator(1, new EnumCreator());
+    ...
+    BeanReader reader = new BeanReader();
+    reader.getXMLIntrospector().setAttributesForPrimitives(true);
+    reader.getXMLIntrospector().setWrapCollectionsInElement(false);
+    reader.getReadConfiguration().setBeanCreationChain(chain);
+    ...
+</pre></div>
+  
+Now you're ready to start reading enums!
+        </p>
+    </div>
+    
+        <div class="subsection"><a name="Using_Bean_Includes"></a><h3>Using Bean Includes</h3>
+            <p>
+<code>IncludeBeanCreator</code> is a <code>ChainedBeanCreator</code> that implements a system
+of 'includes' files. Adding this class to the bean creation chain will load and read the file
+specified by the <code>include-file</code> attribute whenever it is encountered.
+The file will be loaded as a resource by the current <code>ClassLoader</code> using the standard rules.
+        </p>
+            <p>
+A similar effect could be accumplished through the using of xml entity's.
+There are occasions when this is inconvenient and so it's useful to have an alternative
+available.
+        </p>
+    </div>
+    	<div class="subsection"><a name="Reading_Polymorphic_Mappings"></a><h3>Reading Polymorphic Mappings</h3>
+    		<p>
+A polymorphic mapping is one where the decision about the element type and name
+is postponed from introspection time to bind time. This allows reading of
+collections containing mixed types distinguished by element name. For example:
+		</p>    		
+
+    <div class="source"><pre>
+&lt;?xml version="1.0" ?&gt;
+&lt;container&gt;
+  &lt;elementA/&gt;
+  &lt;elementB/&gt;
+&lt;/container&gt;
+</pre></div>
+  
+			<p>
+Polymorphic mappings should be set up using dot betwixt files. 
+The name attribute for the element should be omitted
+and mappings registered for the contained object types.
+It is usually more convenient to use a single file containing all the mappings.
+For example:
+		</p>
+
+    <div class="source"><pre>
+&lt;?xml version="1.0"?&gt;
+&lt;betwixt-config&gt;
+  &lt;class name='SomeContainer'&gt;
+    &lt;element name='container'&gt;
+      &lt;!-- Polymorphic so no name attribute --&gt;
+      &lt;element property='element'/&gt;
+    &lt;/element&gt;
+  &lt;/class&gt;
+  &lt;!-- Need to register mappings for types of contained elements 
+       (when Betwixt default strategy is used) --&gt;
+  &lt;class name='ContainedElementA'&gt;
+    &lt;element name='elementA'/&gt;
+  &lt;/class&gt;
+  &lt;class name='ContainedElementB'&gt;
+    &lt;element name='elementB'/&gt;
+  &lt;/class&gt;
+&lt;/betwixt-config&gt;
+</pre></div>
+  
+			<p>
+By default, in this circumstance Betwixt will try to guess the correct resolution
+by searching all registered <code>XMLBeanInfo</code>'s for an appropriate match.
+If more than one is found, an arbitrary one is used. 
+In many cases, this accords well with intuition. There are
+occasions when more finely grained control may be required. The resolution is
+therefore factored into <code>PolymorphicReferenceResolver</code> 
+(a pluggable strategy) on <code>XMLIntrospector</code>. 
+A custom resolver allows alternative algorithms for determining
+type to be used which can (for example) ignore the mappings registered.
+Note that the default implementation is provided by the default
+<code>XMLBeanInfoRegistry</code> implementation.
+Therefore, when using a custom registry a custom resolver must also
+be used.
+		</p>
+    <p>
+<strong>Note:</strong> when using mixed collections with dot betwixt files containing 
+<code>addDefaults</code> it may be necessary to set the <code>guess-names</code> 
+attribute to false. 
+    </p>
+    </div>
+</div></div></div><div class="clear"><hr></hr></div><div id="footer"><div class="xright">© 2002-2006, The Apache Software Foundation</div><div class="clear"><hr></hr></div></div></body></html>

@@ -1,0 +1,13 @@
+org.apache.commons.betwixt
+org.apache.commons.betwixt.digester
+org.apache.commons.betwixt.expression
+org.apache.commons.betwixt.io
+org.apache.commons.betwixt.io.id
+org.apache.commons.betwixt.io.read
+org.apache.commons.betwixt.registry
+org.apache.commons.betwixt.schema
+org.apache.commons.betwixt.schema.strategy
+org.apache.commons.betwixt.schema.strategy.impl
+org.apache.commons.betwixt.strategy
+org.apache.commons.betwixt.strategy.impl
+org.apache.commons.betwixt.strategy.impl.propertysuppression

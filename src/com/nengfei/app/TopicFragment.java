@@ -127,7 +127,7 @@ public class TopicFragment extends Fragment {
 		LayoutParams lp = new LinearLayout.LayoutParams(
 				LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
 		LayoutParams lp1 = new LinearLayout.LayoutParams(
-				LayoutParams.WRAP_CONTENT, 90);
+				LayoutParams.WRAP_CONTENT, 210);
 		ScrollView scrollView = new ScrollView(context);
 		LinearLayout topicLayout = new LinearLayout(context);
 		topicLayout.setOrientation(LinearLayout.VERTICAL);
@@ -151,6 +151,7 @@ public class TopicFragment extends Fragment {
 			topicLayout.addView(imageView,lp);
 		}else{
 			timu=timusrc;
+			tv_topic.getHeight();
 			tv_topic.setText(timu);
 			topicLayout.addView(tv_topic, lp);
 		}
@@ -188,7 +189,7 @@ public class TopicFragment extends Fragment {
 								.getItemValue(orderMap.get(PRESUFFIX[i])))));
 
 				rbs[i].setTypeface(MainTabActivity.font_yahei);
-
+				
 
 				rg_topic.addView(rbs[i], lp1);
 

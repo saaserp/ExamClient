@@ -23,7 +23,7 @@ import android.widget.ListView;
 public class ChapterSelectActivity extends BaseActivity implements OnItemClickListener{
 	private MainTabController mtc;
 	private ListView listview;
-	private List<Map<String,String>> list;//id,chapter
+	//private List<Map<String,String>> list;//id,chapter
 	private ArrayList<Map<String,Object>> classicsEntryList;
 
 
@@ -33,7 +33,7 @@ public class ChapterSelectActivity extends BaseActivity implements OnItemClickLi
 		super.onCreate(savedInstanceState);
 		mtc=new MainTabController(this);
 		setContentView(R.layout.activity_chapters);
-		list =new ArrayList<Map<String,String>>();
+		//list =new ArrayList<Map<String,String>>();
 		listview=(ListView) this.findViewById(R.id.lv_chapter);
 
 
@@ -41,9 +41,9 @@ public class ChapterSelectActivity extends BaseActivity implements OnItemClickLi
 		ArrayList<String> contents=new ArrayList<String>();
 		for(int i=0;i<classicsEntryList.size();i++){
 			contents.add((i+1)+". "+(String.valueOf(classicsEntryList.get(i).get("description"))));
-			Map<String,String> map=new HashMap<String,String>();
-			map.put("id", (String.valueOf(classicsEntryList.get(i).get("id"))));
-			list.add(map);
+			//Map<String,String> map=new HashMap<String,String>();
+			//map.put("id", (String.valueOf(classicsEntryList.get(i).get("_id"))));
+			//list.add(map);
 		}
 
 		

@@ -6,6 +6,7 @@ import java.util.Map;
 
 import com.nengfei.app.R;
 import com.nengfei.net.MySocketClient;
+import com.nengfei.parse.HttpClientTool;
 import com.nengfei.parse.JSONParser;
 import com.nengfei.util.CallBack;
 import com.nengfei.web.WebActivity;
@@ -60,7 +61,8 @@ public class GetSystemInfoTask extends AsyncTask<Void, Void, Boolean> {
 		version = getPackageInfo(context).versionName;
 		Map<String, String> mp = new HashMap<String, String>();
 		mp.put("version", version);
-		String result = MySocketClient.getInstance().send("GetSystemInfo", mp);
+	//	String result = MySocketClient.getInstance().send("GetSystemInfo", mp);
+		String result = HttpClientTool.getInstance().send("GetSystemInfo", mp);
 		if (result == null) {
 			return false;
 		}

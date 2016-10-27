@@ -1,0 +1,1989 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html><head><title>JDepend Source Code Analysis - Betwixt</title><style type="text/css" media="all">
+          @import url("./style/maven-base.css");
+          
+          @import url("./style/maven-theme.css");@import url("./style/project.css");</style><link rel="stylesheet" href="./style/print.css" type="text/css" media="print"></link><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"></meta><style type="text/css">.jdepend td ul, .jdepend td ul li { margin:0; padding:0; list-style-type: none; }</style></head><body class="jdepend"><div id="banner"><a href="http://jakarta.apache.org" id="organizationLogo"><img alt="The Apache Software Foundation" src="http://jakarta.apache.org/images/original-jakarta-logo.gif"></img></a><a href="http://jakarta.apache.org/commons/betwixt/" id="projectLogo"><img alt="Betwixt" src="./images/logo.png"></img></a><div class="clear"><hr></hr></div></div><div id="breadcrumbs"><div class="xleft">Last published: 21 December 2006
+                <span class="separator">|</span> Doc for  0.8
+                </div><div class="xright">
+        
+        <a href="http://jakarta.apache.org/commons/" class="externalLink" title="External Link">Jakarta Commons</a>
+      </div><div class="clear"><hr></hr></div></div><div id="leftColumn"><div id="navcolumn"><div id="menuCommons_Betwixt"><h5>Commons Betwixt</h5><ul><li class="none"><a href="index.html">Overview</a></li><li class="none"><a href="faq.html">FAQ</a></li><li class="none"><a href="apidocs/index.html">Javadoc</a></li><li class="none"><a href="mail-lists.html">Mailing lists</a></li><li class="none"><a href="team-list.html">Team</a></li><li class="none"><a href="community.html">Community</a></li><li class="none"><a href="powered.html">Powered By</a></li><li class="none"><a href="tasks.html">Tasks</a></li><li class="none"><a href="http://svn.apache.org/viewcvs.cgi/jakarta/commons/proper/betwixt/trunk/" class="externalLink" title="External Link">View SVN</a></li><li class="none"><a href="http://svn.apache.org/repos/asf/jakarta/commons/proper/betwixt/" class="externalLink" title="External Link">SVN</a></li></ul></div><div id="menuUser_guide"><h5>User guide</h5><ul><li class="none"><a href="guide/start.html">Getting Started</a></li><li class="none"><a href="guide/binding.html">Binding Beans</a></li><li class="none"><a href="guide/derived.html">Derived Bindings</a></li><li class="none"><a href="guide/writing.html">Writing Beans(Advanced)</a></li><li class="none"><a href="guide/output.html">Outputting The Results</a></li><li class="none"><a href="guide/reading.html">Reading Beans(Advanced)</a></li><li class="none"><a href="guide/integration.html">Integrating</a></li><li class="none"><a href="guide/examples.html">Examples</a></li><li class="none"><a href="guide/tutorial.html">Tutorial</a></li></ul></div><div id="menuRelease_Documentation"><h5>Release Documentation</h5><ul><li class="none"><a href="http://jakarta.apache.org/commons/betwixt/betwixt-0.7" class="externalLink" title="External Link">0.7</a></li><li class="none"><a href="http://jakarta.apache.org/commons/betwixt/betwixt-0.6" class="externalLink" title="External Link">0.6</a></li><li class="none"><a href="http://jakarta.apache.org/commons/betwixt/betwixt-0.5" class="externalLink" title="External Link">0.5</a></li></ul></div><div id="menuProject_Documentation"><h5>Project Documentation</h5><ul><li class="none"><a href="index.html">About</a></li><li class="collapsed"><a href="project-info.html">Project Info</a></li><li class="expanded"><a href="maven-reports.html">Project Reports</a><ul><li class="none"><a href="apidocs/index.html" class="newWindow" title="New Window" target="_blank">JavaDocs</a></li><li class="none"><a href="javadoc.html">JavaDoc Report</a></li><li class="none"><a href="javadoc-warnings-report.html">JavaDoc Warnings Report</a></li><li class="none"><strong><a href="jdepend-report.html">Metrics</a></strong></li><li class="none"><a href="junit-report.html">Unit Tests</a></li><li class="none"><a href="xref/index.html" class="newWindow" title="New Window" target="_blank">Source Xref</a></li><li class="none"><a href="xref-test/index.html" class="newWindow" title="New Window" target="_blank">Test Xref</a></li><li class="none"><a href="license.html">Project License</a></li><li class="none"><a href="task-list.html">Task List</a></li></ul></li><li class="none"><a href="http://jakarta.apache.org/commons/charter.html" class="externalLink" title="External Link">Development Process</a></li></ul></div><div id="menuCommons"><h5>Commons</h5><ul><li class="none"><a href="http://jakarta.apache.org/commons/" class="externalLink" title="External Link">Home</a></li><li class="collapsed"><a href="http://jakarta.apache.org/commons/components.html" class="externalLink" title="External Link">Components</a></li><li class="collapsed"><a href="http://jakarta.apache.org/commons/sandbox/index.html" class="externalLink" title="External Link">Sandbox</a></li><li class="collapsed"><a href="http://jakarta.apache.org/commons/dormant/index.html" class="externalLink" title="External Link">Dormant</a></li><li class="none"><a href="http://jakarta.apache.org/commons/volunteering.html" class="externalLink" title="External Link">Volunteering</a></li><li class="none"><a href="http://jakarta.apache.org/commons/patches.html" class="externalLink" title="External Link">Contributing Patches</a></li><li class="none"><a href="http://jakarta.apache.org/commons/building.html" class="externalLink" title="External Link">Building Components</a></li><li class="none"><a href="http://jakarta.apache.org/commons/releases/index.html" class="externalLink" title="External Link">Releasing Components</a></li><li class="none"><a href="http://wiki.apache.org/jakarta-commons/FrontPage" class="externalLink" title="External Link">Wiki</a></li></ul></div><div id="legend"><h5>Legend</h5><ul><li class="externalLink">External Link</li><li class="newWindow">Opens in a new window</li></ul></div><a href="http://maven.apache.org/" title="Built by Maven" id="poweredBy"><img alt="Built by Maven" src="./images/logos/maven-feather.png"></img></a></div></div><div id="bodyColumn"><div class="contentBox"><div class="section"><a name="Metric_Results"></a><h2>Metric Results</h2>
+      <p>[
+        <a href="#Summary">summary</a>] [
+        <a href="#Packages">packages</a>] [
+        <a href="#Cycles">cycles</a>] [
+        <a href="#Explanations">explanations</a>]</p>
+      <p>The following document contains the results of a
+        <a href="http://www.clarkware.com/software/JDepend.html" class="externalLink" title="External Link">JDepend</a>metric analysis. The various metrics are defined at the bottom of this document.</p>
+    </div><div class="section"><a name="Summary"></a><h2>Summary</h2>
+      <p>[
+        <a href="#Summary">summary</a>] [
+        <a href="#Packages">packages</a>] [
+        <a href="#Cycles">cycles</a>] [
+        <a href="#Explanations">explanations</a>]</p>
+      <table class="bodyTable">
+        <thead>
+          <tr class="b">
+            <th title="Package">Package</th>
+            <th style="text-align:right">
+              <acronym title="Total Classes">TC</acronym>
+            </th>
+            <th style="text-align:right">
+              <acronym title="Abstract Classes">AC</acronym>
+            </th>
+            <th style="text-align:right">
+              <acronym title="Concrete Classes">CC</acronym>
+            </th>
+            <th style="text-align:right">
+              <acronym title="Afferent Couplings">AC</acronym>
+            </th>
+            <th style="text-align:right">
+              <acronym title="Efferent Couplings">EC</acronym>
+            </th>
+            <th style="text-align:right">
+              <acronym title="Abstractness">A</acronym>
+            </th>
+            <th style="text-align:right">
+              <acronym title="Instability">I</acronym>
+            </th>
+            <th style="text-align:right">
+              <acronym title="Distance">D</acronym>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="a">
+            <td>
+              <a href="#org_apache_commons_betwixt">org.apache.commons.betwixt</a>
+            </td>
+            <td style="text-align:right">16</td>
+            <td style="text-align:right">2</td>
+            <td style="text-align:right">14</td>
+            <td style="text-align:right">9</td>
+            <td style="text-align:right">13</td>
+            <td style="text-align:right">0.12</td>
+            <td style="text-align:right">59%</td>
+            <td style="text-align:right">28%</td>
+          </tr>
+          <tr class="b">
+            <td>
+              <a href="#org_apache_commons_betwixt_digester">org.apache.commons.betwixt.digester</a>
+            </td>
+            <td style="text-align:right">17</td>
+            <td style="text-align:right">1</td>
+            <td style="text-align:right">16</td>
+            <td style="text-align:right">2</td>
+            <td style="text-align:right">12</td>
+            <td style="text-align:right">0.06</td>
+            <td style="text-align:right">86%</td>
+            <td style="text-align:right">8%</td>
+          </tr>
+          <tr class="a">
+            <td>
+              <a href="#org_apache_commons_betwixt_expression">org.apache.commons.betwixt.expression</a>
+            </td>
+            <td style="text-align:right">20</td>
+            <td style="text-align:right">3</td>
+            <td style="text-align:right">17</td>
+            <td style="text-align:right">5</td>
+            <td style="text-align:right">8</td>
+            <td style="text-align:right">0.15</td>
+            <td style="text-align:right">62%</td>
+            <td style="text-align:right">23%</td>
+          </tr>
+          <tr class="b">
+            <td>
+              <a href="#org_apache_commons_betwixt_io">org.apache.commons.betwixt.io</a>
+            </td>
+            <td style="text-align:right">17</td>
+            <td style="text-align:right">3</td>
+            <td style="text-align:right">14</td>
+            <td style="text-align:right">1</td>
+            <td style="text-align:right">17</td>
+            <td style="text-align:right">0.18</td>
+            <td style="text-align:right">94%</td>
+            <td style="text-align:right">12%</td>
+          </tr>
+          <tr class="a">
+            <td>
+              <a href="#org_apache_commons_betwixt_io_id">org.apache.commons.betwixt.io.id</a>
+            </td>
+            <td style="text-align:right">3</td>
+            <td style="text-align:right">1</td>
+            <td style="text-align:right">2</td>
+            <td style="text-align:right">1</td>
+            <td style="text-align:right">3</td>
+            <td style="text-align:right">0.33</td>
+            <td style="text-align:right">75%</td>
+            <td style="text-align:right">8%</td>
+          </tr>
+          <tr class="b">
+            <td>
+              <a href="#org_apache_commons_betwixt_io_read">org.apache.commons.betwixt.io.read</a>
+            </td>
+            <td style="text-align:right">20</td>
+            <td style="text-align:right">3</td>
+            <td style="text-align:right">17</td>
+            <td style="text-align:right">3</td>
+            <td style="text-align:right">11</td>
+            <td style="text-align:right">0.15</td>
+            <td style="text-align:right">79%</td>
+            <td style="text-align:right">6%</td>
+          </tr>
+          <tr class="a">
+            <td>
+              <a href="#org_apache_commons_betwixt_registry">org.apache.commons.betwixt.registry</a>
+            </td>
+            <td style="text-align:right">4</td>
+            <td style="text-align:right">2</td>
+            <td style="text-align:right">2</td>
+            <td style="text-align:right">3</td>
+            <td style="text-align:right">4</td>
+            <td style="text-align:right">0.5</td>
+            <td style="text-align:right">57%</td>
+            <td style="text-align:right">7%</td>
+          </tr>
+          <tr class="b">
+            <td>
+              <a href="#org_apache_commons_betwixt_schema">org.apache.commons.betwixt.schema</a>
+            </td>
+            <td style="text-align:right">16</td>
+            <td style="text-align:right">3</td>
+            <td style="text-align:right">13</td>
+            <td style="text-align:right">0</td>
+            <td style="text-align:right">7</td>
+            <td style="text-align:right">0.19</td>
+            <td style="text-align:right">100%</td>
+            <td style="text-align:right">19%</td>
+          </tr>
+          <tr class="a">
+            <td>
+              <a href="#org_apache_commons_betwixt_schema_strategy">org.apache.commons.betwixt.schema.strategy</a>
+            </td>
+            <td style="text-align:right">1</td>
+            <td style="text-align:right">1</td>
+            <td style="text-align:right">0</td>
+            <td style="text-align:right">2</td>
+            <td style="text-align:right">2</td>
+            <td style="text-align:right">1</td>
+            <td style="text-align:right">50%</td>
+            <td style="text-align:right">50%</td>
+          </tr>
+          <tr class="b">
+            <td>
+              <a href="#org_apache_commons_betwixt_schema_strategy_impl">org.apache.commons.betwixt.schema.strategy.impl</a>
+            </td>
+            <td style="text-align:right">3</td>
+            <td style="text-align:right">0</td>
+            <td style="text-align:right">3</td>
+            <td style="text-align:right">1</td>
+            <td style="text-align:right">3</td>
+            <td style="text-align:right">0</td>
+            <td style="text-align:right">75%</td>
+            <td style="text-align:right">25%</td>
+          </tr>
+          <tr class="a">
+            <td>
+              <a href="#org_apache_commons_betwixt_strategy">org.apache.commons.betwixt.strategy</a>
+            </td>
+            <td style="text-align:right">47</td>
+            <td style="text-align:right">14</td>
+            <td style="text-align:right">33</td>
+            <td style="text-align:right">8</td>
+            <td style="text-align:right">11</td>
+            <td style="text-align:right">0.3</td>
+            <td style="text-align:right">58%</td>
+            <td style="text-align:right">12%</td>
+          </tr>
+          <tr class="b">
+            <td>
+              <a href="#org_apache_commons_betwixt_strategy_impl">org.apache.commons.betwixt.strategy.impl</a>
+            </td>
+            <td style="text-align:right">1</td>
+            <td style="text-align:right">0</td>
+            <td style="text-align:right">1</td>
+            <td style="text-align:right">0</td>
+            <td style="text-align:right">3</td>
+            <td style="text-align:right">0</td>
+            <td style="text-align:right">100%</td>
+            <td style="text-align:right">0%</td>
+          </tr>
+          <tr class="a">
+            <td>
+              <a href="#org_apache_commons_betwixt_strategy_impl_propertysuppression">org.apache.commons.betwixt.strategy.impl.propertysuppression</a>
+            </td>
+            <td style="text-align:right">1</td>
+            <td style="text-align:right">0</td>
+            <td style="text-align:right">1</td>
+            <td style="text-align:right">0</td>
+            <td style="text-align:right">2</td>
+            <td style="text-align:right">0</td>
+            <td style="text-align:right">100%</td>
+            <td style="text-align:right">0%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div><div class="section"><a name="Packages"></a><h2>Packages</h2>
+      <p>[
+        <a href="#Summary">summary</a>] [
+        <a href="#Packages">packages</a>] [
+        <a href="#Cycles">cycles</a>] [
+        <a href="#Explanations">explanations</a>]</p>
+      <div class="subsection"><a name="org_apache_commons_betwixt"></a><h3>org.apache.commons.betwixt</h3>
+        <table class="bodyTable">
+          <thead>
+            <tr class="b">
+              <th>Afferent Couplings</th>
+              <th>Efferent Couplings</th>
+              <th>Abstractness</th>
+              <th>Instability</th>
+              <th>Distance</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="a">
+              <td>9</td>
+              <td>13</td>
+              <td>12%</td>
+              <td>59%</td>
+              <td>28%</td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="bodyTable">
+          <thead>
+            <tr class="b">
+              <th>Abstract Classes</th>
+              <th>Concrete Classes</th>
+              <th>Used by Packages</th>
+              <th>Uses Packages</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="a">
+              <td>
+                <ul>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/Descriptor.html">Descriptor</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/XMLIntrospector.html">XMLIntrospector$BeanType</a>
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/AttributeDescriptor.html">AttributeDescriptor</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/BeanProperty.html">BeanProperty</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/BindingConfiguration.html">BindingConfiguration</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/ElementDescriptor.html">ElementDescriptor</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/IntrospectionConfiguration.html">IntrospectionConfiguration</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/NodeDescriptor.html">NodeDescriptor</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/Options.html">Options</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/TextDescriptor.html">TextDescriptor</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/XMLBeanInfo.html">XMLBeanInfo</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/XMLIntrospector.html">XMLIntrospector</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/XMLIntrospector.html">XMLIntrospector$1</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/XMLIntrospector.html">XMLIntrospector$DynaClassBeanType</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/XMLIntrospector.html">XMLIntrospector$JavaBeanType</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/XMLUtils.html">XMLUtils</a>
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    <a href="#org_apache_commons_betwixt_digester">org.apache.commons.betwixt.digester</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_betwixt_expression">org.apache.commons.betwixt.expression</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_betwixt_io">org.apache.commons.betwixt.io</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_betwixt_io_read">org.apache.commons.betwixt.io.read</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_betwixt_registry">org.apache.commons.betwixt.registry</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_betwixt_schema">org.apache.commons.betwixt.schema</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_betwixt_schema_strategy">org.apache.commons.betwixt.schema.strategy</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_betwixt_schema_strategy_impl">org.apache.commons.betwixt.schema.strategy.impl</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_betwixt_strategy">org.apache.commons.betwixt.strategy</a>
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    <a href="#java_beans">java.beans</a>
+                  </li>
+                  <li>
+                    <a href="#java_io">java.io</a>
+                  </li>
+                  <li>
+                    <a href="#java_lang">java.lang</a>
+                  </li>
+                  <li>
+                    <a href="#java_lang_reflect">java.lang.reflect</a>
+                  </li>
+                  <li>
+                    <a href="#java_net">java.net</a>
+                  </li>
+                  <li>
+                    <a href="#java_util">java.util</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_beanutils">org.apache.commons.beanutils</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_betwixt_digester">org.apache.commons.betwixt.digester</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_betwixt_expression">org.apache.commons.betwixt.expression</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_betwixt_registry">org.apache.commons.betwixt.registry</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_betwixt_strategy">org.apache.commons.betwixt.strategy</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_logging">org.apache.commons.logging</a>
+                  </li>
+                  <li>
+                    <a href="#org_xml_sax">org.xml.sax</a>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="subsection"><a name="org_apache_commons_betwixt_digester"></a><h3>org.apache.commons.betwixt.digester</h3>
+        <table class="bodyTable">
+          <thead>
+            <tr class="b">
+              <th>Afferent Couplings</th>
+              <th>Efferent Couplings</th>
+              <th>Abstractness</th>
+              <th>Instability</th>
+              <th>Distance</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="a">
+              <td>2</td>
+              <td>12</td>
+              <td>6%</td>
+              <td>86%</td>
+              <td>8%</td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="bodyTable">
+          <thead>
+            <tr class="b">
+              <th>Abstract Classes</th>
+              <th>Concrete Classes</th>
+              <th>Used by Packages</th>
+              <th>Uses Packages</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="a">
+              <td>
+                <ul>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/digester/MappedPropertyRule.html">MappedPropertyRule</a>
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/digester/AddDefaultsRule.html">AddDefaultsRule</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/digester/AttributeRule.html">AttributeRule</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/digester/ClassRule.html">ClassRule</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/digester/CommonRuleSet.html">CommonRuleSet</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/digester/ConfigRule.html">ConfigRule</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/digester/ElementRule.html">ElementRule</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/digester/HideRule.html">HideRule</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/digester/InfoRule.html">InfoRule</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/digester/MultiMappingBeanInfoDigester.html">MultiMappingBeanInfoDigester</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/digester/OptionRule.html">OptionRule</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/digester/OptionRule.html">OptionRule$1</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/digester/OptionRule.html">OptionRule$2</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/digester/RuleSupport.html">RuleSupport</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/digester/TextRule.html">TextRule</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/digester/XMLBeanInfoDigester.html">XMLBeanInfoDigester</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/digester/XMLIntrospectorHelper.html">XMLIntrospectorHelper</a>
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    <a href="#org_apache_commons_betwixt">org.apache.commons.betwixt</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_betwixt_io">org.apache.commons.betwixt.io</a>
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    <a href="#java_beans">java.beans</a>
+                  </li>
+                  <li>
+                    <a href="#java_lang">java.lang</a>
+                  </li>
+                  <li>
+                    <a href="#java_lang_reflect">java.lang.reflect</a>
+                  </li>
+                  <li>
+                    <a href="#java_util">java.util</a>
+                  </li>
+                  <li>
+                    <a href="#javax_xml_parsers">javax.xml.parsers</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_betwixt">org.apache.commons.betwixt</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_betwixt_expression">org.apache.commons.betwixt.expression</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_betwixt_registry">org.apache.commons.betwixt.registry</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_betwixt_strategy">org.apache.commons.betwixt.strategy</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_digester">org.apache.commons.digester</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_logging">org.apache.commons.logging</a>
+                  </li>
+                  <li>
+                    <a href="#org_xml_sax">org.xml.sax</a>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="subsection"><a name="org_apache_commons_betwixt_expression"></a><h3>org.apache.commons.betwixt.expression</h3>
+        <table class="bodyTable">
+          <thead>
+            <tr class="b">
+              <th>Afferent Couplings</th>
+              <th>Efferent Couplings</th>
+              <th>Abstractness</th>
+              <th>Instability</th>
+              <th>Distance</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="a">
+              <td>5</td>
+              <td>8</td>
+              <td>15%</td>
+              <td>62%</td>
+              <td>23%</td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="bodyTable">
+          <thead>
+            <tr class="b">
+              <th>Abstract Classes</th>
+              <th>Concrete Classes</th>
+              <th>Used by Packages</th>
+              <th>Uses Packages</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="a">
+              <td>
+                <ul>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/expression/Expression.html">Expression</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/expression/TypedUpdater.html">TypedUpdater</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/expression/Updater.html">Updater</a>
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/expression/ClassNameExpression.html">ClassNameExpression</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/expression/CollectionUpdater.html">CollectionUpdater</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/expression/ConstantExpression.html">ConstantExpression</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/expression/Context.html">Context</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/expression/DynaBeanExpression.html">DynaBeanExpression</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/expression/DynaBeanUpdater.html">DynaBeanUpdater</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/expression/EmptyExpression.html">EmptyExpression</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/expression/IteratorExpression.html">IteratorExpression</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/expression/IteratorExpression.html">IteratorExpression$ArrayIterator</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/expression/IteratorExpression.html">IteratorExpression$EnumerationIterator</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/expression/MapEntryAdder.html">MapEntryAdder</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/expression/MapEntryAdder.html">MapEntryAdder$1</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/expression/MapEntryAdder.html">MapEntryAdder$2</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/expression/MethodExpression.html">MethodExpression</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/expression/MethodUpdater.html">MethodUpdater</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/expression/StringExpression.html">StringExpression</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/expression/VariableExpression.html">VariableExpression</a>
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    <a href="#org_apache_commons_betwixt">org.apache.commons.betwixt</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_betwixt_digester">org.apache.commons.betwixt.digester</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_betwixt_io">org.apache.commons.betwixt.io</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_betwixt_io_read">org.apache.commons.betwixt.io.read</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_betwixt_strategy">org.apache.commons.betwixt.strategy</a>
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    <a href="#java_lang">java.lang</a>
+                  </li>
+                  <li>
+                    <a href="#java_lang_reflect">java.lang.reflect</a>
+                  </li>
+                  <li>
+                    <a href="#java_util">java.util</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_beanutils">org.apache.commons.beanutils</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_betwixt">org.apache.commons.betwixt</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_betwixt_strategy">org.apache.commons.betwixt.strategy</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_collections">org.apache.commons.collections</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_logging">org.apache.commons.logging</a>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="subsection"><a name="org_apache_commons_betwixt_io"></a><h3>org.apache.commons.betwixt.io</h3>
+        <table class="bodyTable">
+          <thead>
+            <tr class="b">
+              <th>Afferent Couplings</th>
+              <th>Efferent Couplings</th>
+              <th>Abstractness</th>
+              <th>Instability</th>
+              <th>Distance</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="a">
+              <td>1</td>
+              <td>17</td>
+              <td>18%</td>
+              <td>94%</td>
+              <td>12%</td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="bodyTable">
+          <thead>
+            <tr class="b">
+              <th>Abstract Classes</th>
+              <th>Concrete Classes</th>
+              <th>Used by Packages</th>
+              <th>Uses Packages</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="a">
+              <td>
+                <ul>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/io/AbstractBeanWriter.html">AbstractBeanWriter</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/io/IDGenerator.html">IDGenerator</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/io/WriteContext.html">WriteContext</a>
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/io/AbstractBeanWriter.html">AbstractBeanWriter$1</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/io/AbstractBeanWriter.html">AbstractBeanWriter$ElementAttributes</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/io/AbstractBeanWriter.html">AbstractBeanWriter$IDElementAttributes</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/io/AbstractBeanWriter.html">AbstractBeanWriter$WriteContextImpl</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/io/BeanCreateRule.html">BeanCreateRule</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/io/BeanCreateRule.html">BeanCreateRule$1</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/io/BeanReader.html">BeanReader</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/io/BeanRuleSet.html">BeanRuleSet</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/io/BeanRuleSet.html">BeanRuleSet$1</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/io/BeanRuleSet.html">BeanRuleSet$ActionMappingRule</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/io/BeanRuleSet.html">BeanRuleSet$DigesterReadContext</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/io/BeanWriter.html">BeanWriter</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/io/CyclicReferenceException.html">CyclicReferenceException</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/io/SAXBeanWriter.html">SAXBeanWriter</a>
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    <a href="#org_apache_commons_betwixt_io_id">org.apache.commons.betwixt.io.id</a>
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    <a href="#java_beans">java.beans</a>
+                  </li>
+                  <li>
+                    <a href="#java_io">java.io</a>
+                  </li>
+                  <li>
+                    <a href="#java_lang">java.lang</a>
+                  </li>
+                  <li>
+                    <a href="#java_lang_reflect">java.lang.reflect</a>
+                  </li>
+                  <li>
+                    <a href="#java_util">java.util</a>
+                  </li>
+                  <li>
+                    <a href="#javax_xml_parsers">javax.xml.parsers</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_betwixt">org.apache.commons.betwixt</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_betwixt_digester">org.apache.commons.betwixt.digester</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_betwixt_expression">org.apache.commons.betwixt.expression</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_betwixt_io_id">org.apache.commons.betwixt.io.id</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_betwixt_io_read">org.apache.commons.betwixt.io.read</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_betwixt_strategy">org.apache.commons.betwixt.strategy</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_collections">org.apache.commons.collections</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_digester">org.apache.commons.digester</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_logging">org.apache.commons.logging</a>
+                  </li>
+                  <li>
+                    <a href="#org_xml_sax">org.xml.sax</a>
+                  </li>
+                  <li>
+                    <a href="#org_xml_sax_helpers">org.xml.sax.helpers</a>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="subsection"><a name="org_apache_commons_betwixt_io_id"></a><h3>org.apache.commons.betwixt.io.id</h3>
+        <table class="bodyTable">
+          <thead>
+            <tr class="b">
+              <th>Afferent Couplings</th>
+              <th>Efferent Couplings</th>
+              <th>Abstractness</th>
+              <th>Instability</th>
+              <th>Distance</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="a">
+              <td>1</td>
+              <td>3</td>
+              <td>33%</td>
+              <td>75%</td>
+              <td>8%</td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="bodyTable">
+          <thead>
+            <tr class="b">
+              <th>Abstract Classes</th>
+              <th>Concrete Classes</th>
+              <th>Used by Packages</th>
+              <th>Uses Packages</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="a">
+              <td>
+                <ul>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/io/id/AbstractIDGenerator.html">AbstractIDGenerator</a>
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/io/id/RandomIDGenerator.html">RandomIDGenerator</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/io/id/SequentialIDGenerator.html">SequentialIDGenerator</a>
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    <a href="#org_apache_commons_betwixt_io">org.apache.commons.betwixt.io</a>
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    <a href="#java_lang">java.lang</a>
+                  </li>
+                  <li>
+                    <a href="#java_util">java.util</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_betwixt_io">org.apache.commons.betwixt.io</a>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="subsection"><a name="org_apache_commons_betwixt_io_read"></a><h3>org.apache.commons.betwixt.io.read</h3>
+        <table class="bodyTable">
+          <thead>
+            <tr class="b">
+              <th>Afferent Couplings</th>
+              <th>Efferent Couplings</th>
+              <th>Abstractness</th>
+              <th>Instability</th>
+              <th>Distance</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="a">
+              <td>3</td>
+              <td>11</td>
+              <td>15%</td>
+              <td>79%</td>
+              <td>6%</td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="bodyTable">
+          <thead>
+            <tr class="b">
+              <th>Abstract Classes</th>
+              <th>Concrete Classes</th>
+              <th>Used by Packages</th>
+              <th>Uses Packages</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="a">
+              <td>
+                <ul>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/io/read/BeanCreationChain.html">BeanCreationChain</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/io/read/ChainedBeanCreator.html">ChainedBeanCreator</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/io/read/MappingAction.html">MappingAction</a>
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/io/read/ArrayBindAction.html">ArrayBindAction</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/io/read/ArrayBindAction.html">ArrayBindAction$BeanMapping</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/io/read/ArrayBindAction.html">ArrayBindAction$ListUpdater</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/io/read/BeanBindAction.html">BeanBindAction</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/io/read/BeanCreationList.html">BeanCreationList</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/io/read/BeanCreationList.html">BeanCreationList$ChainWorker</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/io/read/ChainedBeanCreatorFactory.html">ChainedBeanCreatorFactory</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/io/read/ChainedBeanCreatorFactory.html">ChainedBeanCreatorFactory$1</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/io/read/ChainedBeanCreatorFactory.html">ChainedBeanCreatorFactory$2</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/io/read/ChainedBeanCreatorFactory.html">ChainedBeanCreatorFactory$3</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/io/read/ElementMapping.html">ElementMapping</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/io/read/MappingAction.html">MappingAction$1</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/io/read/MappingAction.html">MappingAction$Base</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/io/read/MappingAction.html">MappingAction$Ignore</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/io/read/ReadConfiguration.html">ReadConfiguration</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/io/read/ReadContext.html">ReadContext</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/io/read/SimpleTypeBindAction.html">SimpleTypeBindAction</a>
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    <a href="#org_apache_commons_betwixt_io">org.apache.commons.betwixt.io</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_betwixt_registry">org.apache.commons.betwixt.registry</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_betwixt_strategy">org.apache.commons.betwixt.strategy</a>
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    <a href="#java_beans">java.beans</a>
+                  </li>
+                  <li>
+                    <a href="#java_lang">java.lang</a>
+                  </li>
+                  <li>
+                    <a href="#java_lang_reflect">java.lang.reflect</a>
+                  </li>
+                  <li>
+                    <a href="#java_util">java.util</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_betwixt">org.apache.commons.betwixt</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_betwixt_expression">org.apache.commons.betwixt.expression</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_betwixt_registry">org.apache.commons.betwixt.registry</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_betwixt_strategy">org.apache.commons.betwixt.strategy</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_collections">org.apache.commons.collections</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_logging">org.apache.commons.logging</a>
+                  </li>
+                  <li>
+                    <a href="#org_xml_sax">org.xml.sax</a>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="subsection"><a name="org_apache_commons_betwixt_registry"></a><h3>org.apache.commons.betwixt.registry</h3>
+        <table class="bodyTable">
+          <thead>
+            <tr class="b">
+              <th>Afferent Couplings</th>
+              <th>Efferent Couplings</th>
+              <th>Abstractness</th>
+              <th>Instability</th>
+              <th>Distance</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="a">
+              <td>3</td>
+              <td>4</td>
+              <td>50%</td>
+              <td>57%</td>
+              <td>7%</td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="bodyTable">
+          <thead>
+            <tr class="b">
+              <th>Abstract Classes</th>
+              <th>Concrete Classes</th>
+              <th>Used by Packages</th>
+              <th>Uses Packages</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="a">
+              <td>
+                <ul>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/registry/PolymorphicReferenceResolver.html">PolymorphicReferenceResolver</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/registry/XMLBeanInfoRegistry.html">XMLBeanInfoRegistry</a>
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/registry/DefaultXMLBeanInfoRegistry.html">DefaultXMLBeanInfoRegistry</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/registry/NoCacheRegistry.html">NoCacheRegistry</a>
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    <a href="#org_apache_commons_betwixt">org.apache.commons.betwixt</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_betwixt_digester">org.apache.commons.betwixt.digester</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_betwixt_io_read">org.apache.commons.betwixt.io.read</a>
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    <a href="#java_lang">java.lang</a>
+                  </li>
+                  <li>
+                    <a href="#java_util">java.util</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_betwixt">org.apache.commons.betwixt</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_betwixt_io_read">org.apache.commons.betwixt.io.read</a>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="subsection"><a name="org_apache_commons_betwixt_schema"></a><h3>org.apache.commons.betwixt.schema</h3>
+        <table class="bodyTable">
+          <thead>
+            <tr class="b">
+              <th>Afferent Couplings</th>
+              <th>Efferent Couplings</th>
+              <th>Abstractness</th>
+              <th>Instability</th>
+              <th>Distance</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="a">
+              <td>0</td>
+              <td>7</td>
+              <td>19%</td>
+              <td>100%</td>
+              <td>19%</td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="bodyTable">
+          <thead>
+            <tr class="b">
+              <th>Abstract Classes</th>
+              <th>Concrete Classes</th>
+              <th>Used by Packages</th>
+              <th>Uses Packages</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="a">
+              <td>
+                <ul>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/schema/ComplexType.html">ComplexType</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/schema/DataTypeMapper.html">DataTypeMapper</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/schema/Element.html">Element</a>
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/schema/Attribute.html">Attribute</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/schema/ComplexLocalElement.html">ComplexLocalElement</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/schema/DefaultDataTypeMapper.html">DefaultDataTypeMapper</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/schema/ElementReference.html">ElementReference</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/schema/GlobalComplexType.html">GlobalComplexType</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/schema/GlobalElement.html">GlobalElement</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/schema/LocalComplexType.html">LocalComplexType</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/schema/LocalElement.html">LocalElement</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/schema/Schema.html">Schema</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/schema/SchemaTranscriber.html">SchemaTranscriber</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/schema/SimpleLocalElement.html">SimpleLocalElement</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/schema/SimpleType.html">SimpleType</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/schema/TranscriptionConfiguration.html">TranscriptionConfiguration</a>
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <em>None</em>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    <a href="#java_beans">java.beans</a>
+                  </li>
+                  <li>
+                    <a href="#java_lang">java.lang</a>
+                  </li>
+                  <li>
+                    <a href="#java_util">java.util</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_betwixt">org.apache.commons.betwixt</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_betwixt_schema_strategy">org.apache.commons.betwixt.schema.strategy</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_betwixt_schema_strategy_impl">org.apache.commons.betwixt.schema.strategy.impl</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_betwixt_strategy">org.apache.commons.betwixt.strategy</a>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="subsection"><a name="org_apache_commons_betwixt_schema_strategy"></a><h3>org.apache.commons.betwixt.schema.strategy</h3>
+        <table class="bodyTable">
+          <thead>
+            <tr class="b">
+              <th>Afferent Couplings</th>
+              <th>Efferent Couplings</th>
+              <th>Abstractness</th>
+              <th>Instability</th>
+              <th>Distance</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="a">
+              <td>2</td>
+              <td>2</td>
+              <td>100%</td>
+              <td>50%</td>
+              <td>50%</td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="bodyTable">
+          <thead>
+            <tr class="b">
+              <th>Abstract Classes</th>
+              <th>Concrete Classes</th>
+              <th>Used by Packages</th>
+              <th>Uses Packages</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="a">
+              <td>
+                <ul>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/schema/strategy/SchemaTypeNamingStrategy.html">SchemaTypeNamingStrategy</a>
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <em>None</em>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    <a href="#org_apache_commons_betwixt_schema">org.apache.commons.betwixt.schema</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_betwixt_schema_strategy_impl">org.apache.commons.betwixt.schema.strategy.impl</a>
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    <a href="#java_lang">java.lang</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_betwixt">org.apache.commons.betwixt</a>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="subsection"><a name="org_apache_commons_betwixt_schema_strategy_impl"></a><h3>org.apache.commons.betwixt.schema.strategy.impl</h3>
+        <table class="bodyTable">
+          <thead>
+            <tr class="b">
+              <th>Afferent Couplings</th>
+              <th>Efferent Couplings</th>
+              <th>Abstractness</th>
+              <th>Instability</th>
+              <th>Distance</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="a">
+              <td>1</td>
+              <td>3</td>
+              <td>0%</td>
+              <td>75%</td>
+              <td>25%</td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="bodyTable">
+          <thead>
+            <tr class="b">
+              <th>Abstract Classes</th>
+              <th>Concrete Classes</th>
+              <th>Used by Packages</th>
+              <th>Uses Packages</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="a">
+              <td>
+                <em>None</em>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/schema/strategy/impl/ClassNameSchemaNamingStrategy.html">ClassNameSchemaNamingStrategy</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/schema/strategy/impl/ElementSchemaNamingStrategy.html">ElementSchemaNamingStrategy</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/schema/strategy/impl/QualifiedPropertyTypeSchemaNamingStrategy.html">QualifiedPropertyTypeSchemaNamingStrategy</a>
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    <a href="#org_apache_commons_betwixt_schema">org.apache.commons.betwixt.schema</a>
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    <a href="#java_lang">java.lang</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_betwixt">org.apache.commons.betwixt</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_betwixt_schema_strategy">org.apache.commons.betwixt.schema.strategy</a>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="subsection"><a name="org_apache_commons_betwixt_strategy"></a><h3>org.apache.commons.betwixt.strategy</h3>
+        <table class="bodyTable">
+          <thead>
+            <tr class="b">
+              <th>Afferent Couplings</th>
+              <th>Efferent Couplings</th>
+              <th>Abstractness</th>
+              <th>Instability</th>
+              <th>Distance</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="a">
+              <td>8</td>
+              <td>11</td>
+              <td>30%</td>
+              <td>58%</td>
+              <td>12%</td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="bodyTable">
+          <thead>
+            <tr class="b">
+              <th>Abstract Classes</th>
+              <th>Concrete Classes</th>
+              <th>Used by Packages</th>
+              <th>Uses Packages</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="a">
+              <td>
+                <ul>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/strategy/ActionMappingStrategy.html">ActionMappingStrategy</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/strategy/AttributeSuppressionStrategy.html">AttributeSuppressionStrategy</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/strategy/BaseMixedContentEncodingStrategy.html">BaseMixedContentEncodingStrategy</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/strategy/CollectiveTypeStrategy.html">CollectiveTypeStrategy</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/strategy/ElementSuppressionStrategy.html">ElementSuppressionStrategy</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/strategy/IdStoringStrategy.html">IdStoringStrategy</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/strategy/MappingDerivationStrategy.html">MappingDerivationStrategy</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/strategy/MixedContentEncodingStrategy.html">MixedContentEncodingStrategy</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/strategy/NameMapper.html">NameMapper</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/strategy/PluralStemmer.html">PluralStemmer</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/strategy/PropertySuppressionStrategy.html">PropertySuppressionStrategy</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/strategy/SimpleTypeMapper.html">SimpleTypeMapper</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/strategy/TypeBindingStrategy.html">TypeBindingStrategy</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/strategy/ValueSuppressionStrategy.html">ValueSuppressionStrategy</a>
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/strategy/AttributeSuppressionStrategy.html">AttributeSuppressionStrategy$1</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/strategy/BadCharacterReplacingNMapper.html">BadCharacterReplacingNMapper</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/strategy/CapitalizeNameMapper.html">CapitalizeNameMapper</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/strategy/ClassNormalizer.html">ClassNormalizer</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/strategy/CollectiveTypeStrategy.html">CollectiveTypeStrategy$Default</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/strategy/ConvertUtilsObjectStringConverter.html">ConvertUtilsObjectStringConverter</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/strategy/DecapitalizeNameMapper.html">DecapitalizeNameMapper</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/strategy/DefaultActionMappingStrategy.html">DefaultActionMappingStrategy</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/strategy/DefaultIdStoringStrategy.html">DefaultIdStoringStrategy</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/strategy/DefaultNameMapper.html">DefaultNameMapper</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/strategy/DefaultNameMapper.html">DefaultNameMapper$1</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/strategy/DefaultNameMapper.html">DefaultNameMapper$PlainMapper</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/strategy/DefaultObjectStringConverter.html">DefaultObjectStringConverter</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/strategy/DefaultPluralStemmer.html">DefaultPluralStemmer</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/strategy/ElementSuppressionStrategy.html">ElementSuppressionStrategy$1</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/strategy/HyphenatedNameMapper.html">HyphenatedNameMapper</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/strategy/ListedClassNormalizer.html">ListedClassNormalizer</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/strategy/ListedClassNormalizer.html">ListedClassNormalizer$ListEntry</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/strategy/MappingDerivationStrategy.html">MappingDerivationStrategy$1</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/strategy/MappingDerivationStrategy.html">MappingDerivationStrategy$2</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/strategy/MixedContentEncodingStrategy.html">MixedContentEncodingStrategy$1</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/strategy/MixedContentEncodingStrategy.html">MixedContentEncodingStrategy$2</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/strategy/MixedContentEncodingStrategy.html">MixedContentEncodingStrategy$3</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/strategy/NamespacePrefixMapper.html">NamespacePrefixMapper</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/strategy/ObjectStringConverter.html">ObjectStringConverter</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/strategy/PropertySuppressionStrategy.html">PropertySuppressionStrategy$Chain</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/strategy/PropertySuppressionStrategy.html">PropertySuppressionStrategy$Default</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/strategy/SimpleTypeMapper.html">SimpleTypeMapper$Binding</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/strategy/StandardSimpleTypeMapper.html">StandardSimpleTypeMapper</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/strategy/TypeBindingStrategy.html">TypeBindingStrategy$BindingType</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/strategy/TypeBindingStrategy.html">TypeBindingStrategy$Default</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/strategy/ValueSuppressionStrategy.html">ValueSuppressionStrategy$1</a>
+                  </li>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/strategy/ValueSuppressionStrategy.html">ValueSuppressionStrategy$2</a>
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    <a href="#org_apache_commons_betwixt">org.apache.commons.betwixt</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_betwixt_digester">org.apache.commons.betwixt.digester</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_betwixt_expression">org.apache.commons.betwixt.expression</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_betwixt_io">org.apache.commons.betwixt.io</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_betwixt_io_read">org.apache.commons.betwixt.io.read</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_betwixt_schema">org.apache.commons.betwixt.schema</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_betwixt_strategy_impl">org.apache.commons.betwixt.strategy.impl</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_betwixt_strategy_impl_propertysuppression">org.apache.commons.betwixt.strategy.impl.propertysuppression</a>
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    <a href="#java_beans">java.beans</a>
+                  </li>
+                  <li>
+                    <a href="#java_io">java.io</a>
+                  </li>
+                  <li>
+                    <a href="#java_lang">java.lang</a>
+                  </li>
+                  <li>
+                    <a href="#java_text">java.text</a>
+                  </li>
+                  <li>
+                    <a href="#java_util">java.util</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_beanutils">org.apache.commons.beanutils</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_betwixt">org.apache.commons.betwixt</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_betwixt_expression">org.apache.commons.betwixt.expression</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_betwixt_io_read">org.apache.commons.betwixt.io.read</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_logging">org.apache.commons.logging</a>
+                  </li>
+                  <li>
+                    <a href="#org_xml_sax">org.xml.sax</a>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="subsection"><a name="org_apache_commons_betwixt_strategy_impl"></a><h3>org.apache.commons.betwixt.strategy.impl</h3>
+        <table class="bodyTable">
+          <thead>
+            <tr class="b">
+              <th>Afferent Couplings</th>
+              <th>Efferent Couplings</th>
+              <th>Abstractness</th>
+              <th>Instability</th>
+              <th>Distance</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="a">
+              <td>0</td>
+              <td>3</td>
+              <td>0%</td>
+              <td>100%</td>
+              <td>0%</td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="bodyTable">
+          <thead>
+            <tr class="b">
+              <th>Abstract Classes</th>
+              <th>Concrete Classes</th>
+              <th>Used by Packages</th>
+              <th>Uses Packages</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="a">
+              <td>
+                <em>None</em>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/strategy/impl/OverrideCollectiveTypeStategy.html">OverrideCollectiveTypeStategy</a>
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <em>None</em>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    <a href="#java_lang">java.lang</a>
+                  </li>
+                  <li>
+                    <a href="#java_util">java.util</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_betwixt_strategy">org.apache.commons.betwixt.strategy</a>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="subsection"><a name="org_apache_commons_betwixt_strategy_impl_propertysuppression"></a><h3>org.apache.commons.betwixt.strategy.impl.propertysuppression</h3>
+        <table class="bodyTable">
+          <thead>
+            <tr class="b">
+              <th>Afferent Couplings</th>
+              <th>Efferent Couplings</th>
+              <th>Abstractness</th>
+              <th>Instability</th>
+              <th>Distance</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="a">
+              <td>0</td>
+              <td>2</td>
+              <td>0%</td>
+              <td>100%</td>
+              <td>0%</td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="bodyTable">
+          <thead>
+            <tr class="b">
+              <th>Abstract Classes</th>
+              <th>Concrete Classes</th>
+              <th>Used by Packages</th>
+              <th>Uses Packages</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="a">
+              <td>
+                <em>None</em>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    <a href="xref/org/apache/commons/betwixt/strategy/impl/propertysuppression/PackageSuppressor.html">PackageSuppressor</a>
+                  </li>
+                </ul>
+              </td>
+              <td>
+                <em>None</em>
+              </td>
+              <td>
+                <ul>
+                  <li>
+                    <a href="#java_lang">java.lang</a>
+                  </li>
+                  <li>
+                    <a href="#org_apache_commons_betwixt_strategy">org.apache.commons.betwixt.strategy</a>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div><div class="section"><a name="Cycles"></a><h2>Cycles</h2>
+      <p>[
+        <a href="#Summary">summary</a>] [
+        <a href="#Packages">packages</a>] [
+        <a href="#Cycles">cycles</a>] [
+        <a href="#Explanations">explanations</a>]</p>
+      <table class="bodyTable">
+        <thead>
+          <tr class="b">
+            <th>Package</th>
+            <th>Cyclic Dependencies</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="a">
+            <td>org.apache.commons.betwixt</td>
+            <td>
+              <ul>
+                <li>org.apache.commons.betwixt.strategy</li>
+                <li>org.apache.commons.betwixt.expression</li>
+                <li>org.apache.commons.betwixt.strategy</li>
+              </ul>
+            </td>
+          </tr>
+          <tr class="b">
+            <td>org.apache.commons.betwixt.digester</td>
+            <td>
+              <ul>
+                <li>org.apache.commons.betwixt</li>
+                <li>org.apache.commons.betwixt.strategy</li>
+                <li>org.apache.commons.betwixt.expression</li>
+                <li>org.apache.commons.betwixt.strategy</li>
+              </ul>
+            </td>
+          </tr>
+          <tr class="a">
+            <td>org.apache.commons.betwixt.expression</td>
+            <td>
+              <ul>
+                <li>org.apache.commons.betwixt.strategy</li>
+                <li>org.apache.commons.betwixt.expression</li>
+              </ul>
+            </td>
+          </tr>
+          <tr class="b">
+            <td>org.apache.commons.betwixt.io</td>
+            <td>
+              <ul>
+                <li>org.apache.commons.betwixt.expression</li>
+                <li>org.apache.commons.betwixt.strategy</li>
+                <li>org.apache.commons.betwixt.expression</li>
+              </ul>
+            </td>
+          </tr>
+          <tr class="a">
+            <td>org.apache.commons.betwixt.io.id</td>
+            <td>
+              <ul>
+                <li>org.apache.commons.betwixt.io</li>
+                <li>org.apache.commons.betwixt.expression</li>
+                <li>org.apache.commons.betwixt.strategy</li>
+                <li>org.apache.commons.betwixt.expression</li>
+              </ul>
+            </td>
+          </tr>
+          <tr class="b">
+            <td>org.apache.commons.betwixt.io.read</td>
+            <td>
+              <ul>
+                <li>org.apache.commons.betwixt</li>
+                <li>org.apache.commons.betwixt.strategy</li>
+                <li>org.apache.commons.betwixt.expression</li>
+                <li>org.apache.commons.betwixt.strategy</li>
+              </ul>
+            </td>
+          </tr>
+          <tr class="a">
+            <td>org.apache.commons.betwixt.registry</td>
+            <td>
+              <ul>
+                <li>org.apache.commons.betwixt</li>
+                <li>org.apache.commons.betwixt.strategy</li>
+                <li>org.apache.commons.betwixt.expression</li>
+                <li>org.apache.commons.betwixt.strategy</li>
+              </ul>
+            </td>
+          </tr>
+          <tr class="b">
+            <td>org.apache.commons.betwixt.schema</td>
+            <td>
+              <ul>
+                <li>org.apache.commons.betwixt.schema.strategy</li>
+                <li>org.apache.commons.betwixt</li>
+                <li>org.apache.commons.betwixt.strategy</li>
+                <li>org.apache.commons.betwixt.expression</li>
+                <li>org.apache.commons.betwixt.strategy</li>
+              </ul>
+            </td>
+          </tr>
+          <tr class="a">
+            <td>org.apache.commons.betwixt.schema.strategy</td>
+            <td>
+              <ul>
+                <li>org.apache.commons.betwixt</li>
+                <li>org.apache.commons.betwixt.strategy</li>
+                <li>org.apache.commons.betwixt.expression</li>
+                <li>org.apache.commons.betwixt.strategy</li>
+              </ul>
+            </td>
+          </tr>
+          <tr class="b">
+            <td>org.apache.commons.betwixt.schema.strategy.impl</td>
+            <td>
+              <ul>
+                <li>org.apache.commons.betwixt</li>
+                <li>org.apache.commons.betwixt.strategy</li>
+                <li>org.apache.commons.betwixt.expression</li>
+                <li>org.apache.commons.betwixt.strategy</li>
+              </ul>
+            </td>
+          </tr>
+          <tr class="a">
+            <td>org.apache.commons.betwixt.strategy</td>
+            <td>
+              <ul>
+                <li>org.apache.commons.betwixt.expression</li>
+                <li>org.apache.commons.betwixt.strategy</li>
+              </ul>
+            </td>
+          </tr>
+          <tr class="b">
+            <td>org.apache.commons.betwixt.strategy.impl</td>
+            <td>
+              <ul>
+                <li>org.apache.commons.betwixt.strategy</li>
+                <li>org.apache.commons.betwixt.expression</li>
+                <li>org.apache.commons.betwixt.strategy</li>
+              </ul>
+            </td>
+          </tr>
+          <tr class="a">
+            <td>org.apache.commons.betwixt.strategy.impl.propertysuppression</td>
+            <td>
+              <ul>
+                <li>org.apache.commons.betwixt.strategy</li>
+                <li>org.apache.commons.betwixt.expression</li>
+                <li>org.apache.commons.betwixt.strategy</li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div><div class="section"><a name="Explanations"></a><h2>Explanations</h2>
+      <p>[
+        <a href="#Summary">summary</a>] [
+        <a href="#Packages">packages</a>] [
+        <a href="#Cycles">cycles</a>] [
+        <a href="#Explanations">explanations</a>]</p>
+      <p>The following explanations are for quick reference and are lifted directly from the original
+        <a href="http://www.clarkware.com/software/JDepend.html" class="externalLink" title="External Link">JDepend documentation</a>.</p>
+      <table class="bodyTable">
+        <thead>
+          <tr class="b">
+            <th>Term</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="a">
+            <td>Number of Classes</td>
+            <td>The number of concrete and abstract classes (and interfaces) in the package is an indicator of the extensibility of the package.</td>
+          </tr>
+          <tr class="b">
+            <td>Afferent Couplings</td>
+            <td>The number of other packages that depend upon classes within the package is an indicator of the package's responsibility.</td>
+          </tr>
+          <tr class="a">
+            <td>Efferent Couplings</td>
+            <td>The number of other packages that the classes in the package depend upon is an indicator of the package's independence.</td>
+          </tr>
+          <tr class="b">
+            <td>Abstractness</td>
+            <td>The ratio of the number of abstract classes (and interfaces) in the analyzed package to the total number of classes in the analyzed package. The range for this metric is 0 to 1, with A=0 indicating a completely concrete package and A=1 indicating a completely abstract package.</td>
+          </tr>
+          <tr class="a">
+            <td>Instability</td>
+            <td>The ratio of efferent coupling (Ce) to total coupling (Ce / (Ce + Ca)). This metric is an indicator of the package's resilience to change. The range for this metric is 0 to 1, with I=0 indicating a completely stable package and I=1 indicating a completely instable package.</td>
+          </tr>
+          <tr class="b">
+            <td>Distance</td>
+            <td>The perpendicular distance of a package from the idealized line A + I = 1. This metric is an indicator of the package's balance between abstractness and stability. A package squarely on the main sequence is optimally balanced with respect to its abstractness and stability. Ideal packages are either completely abstract and stable (x=0, y=1) or completely concrete and instable (x=1, y=0). The range for this metric is 0 to 1, with D=0 indicating a package that is coincident with the main sequence and D=1 indicating a package that is as far from the main sequence as possible.</td>
+          </tr>
+          <tr class="a">
+            <td>Cycles</td>
+            <td>Packages participating in a package dependency cycle are in a deadly embrace with respect to reusability and their release cycle. Package dependency cycles can be easily identified by reviewing the textual reports of dependency cycles. Once these dependency cycles have been identified with JDepend, they can be broken by employing various object-oriented techniques.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div></div></div><div class="clear"><hr></hr></div><div id="footer"><div class="xright">© 2002-2006, The Apache Software Foundation</div><div class="clear"><hr></hr></div></div></body></html>

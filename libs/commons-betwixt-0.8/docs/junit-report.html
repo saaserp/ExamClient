@@ -1,0 +1,4751 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html><head><title>JUnit Test Results - Betwixt</title><style type="text/css" media="all">
+          @import url("./style/maven-base.css");
+          
+          @import url("./style/maven-theme.css");@import url("./style/project.css");</style><link rel="stylesheet" href="./style/print.css" type="text/css" media="print"></link><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"></meta></head><body class="composite"><div id="banner"><a href="http://jakarta.apache.org" id="organizationLogo"><img alt="The Apache Software Foundation" src="http://jakarta.apache.org/images/original-jakarta-logo.gif"></img></a><a href="http://jakarta.apache.org/commons/betwixt/" id="projectLogo"><img alt="Betwixt" src="./images/logo.png"></img></a><div class="clear"><hr></hr></div></div><div id="breadcrumbs"><div class="xleft">Last published: 21 December 2006
+                <span class="separator">|</span> Doc for  0.8
+                </div><div class="xright">
+        
+        <a href="http://jakarta.apache.org/commons/" class="externalLink" title="External Link">Jakarta Commons</a>
+      </div><div class="clear"><hr></hr></div></div><div id="leftColumn"><div id="navcolumn"><div id="menuCommons_Betwixt"><h5>Commons Betwixt</h5><ul><li class="none"><a href="index.html">Overview</a></li><li class="none"><a href="faq.html">FAQ</a></li><li class="none"><a href="apidocs/index.html">Javadoc</a></li><li class="none"><a href="mail-lists.html">Mailing lists</a></li><li class="none"><a href="team-list.html">Team</a></li><li class="none"><a href="community.html">Community</a></li><li class="none"><a href="powered.html">Powered By</a></li><li class="none"><a href="tasks.html">Tasks</a></li><li class="none"><a href="http://svn.apache.org/viewcvs.cgi/jakarta/commons/proper/betwixt/trunk/" class="externalLink" title="External Link">View SVN</a></li><li class="none"><a href="http://svn.apache.org/repos/asf/jakarta/commons/proper/betwixt/" class="externalLink" title="External Link">SVN</a></li></ul></div><div id="menuUser_guide"><h5>User guide</h5><ul><li class="none"><a href="guide/start.html">Getting Started</a></li><li class="none"><a href="guide/binding.html">Binding Beans</a></li><li class="none"><a href="guide/derived.html">Derived Bindings</a></li><li class="none"><a href="guide/writing.html">Writing Beans(Advanced)</a></li><li class="none"><a href="guide/output.html">Outputting The Results</a></li><li class="none"><a href="guide/reading.html">Reading Beans(Advanced)</a></li><li class="none"><a href="guide/integration.html">Integrating</a></li><li class="none"><a href="guide/examples.html">Examples</a></li><li class="none"><a href="guide/tutorial.html">Tutorial</a></li></ul></div><div id="menuRelease_Documentation"><h5>Release Documentation</h5><ul><li class="none"><a href="http://jakarta.apache.org/commons/betwixt/betwixt-0.7" class="externalLink" title="External Link">0.7</a></li><li class="none"><a href="http://jakarta.apache.org/commons/betwixt/betwixt-0.6" class="externalLink" title="External Link">0.6</a></li><li class="none"><a href="http://jakarta.apache.org/commons/betwixt/betwixt-0.5" class="externalLink" title="External Link">0.5</a></li></ul></div><div id="menuProject_Documentation"><h5>Project Documentation</h5><ul><li class="none"><a href="index.html">About</a></li><li class="collapsed"><a href="project-info.html">Project Info</a></li><li class="expanded"><a href="maven-reports.html">Project Reports</a><ul><li class="none"><a href="apidocs/index.html" class="newWindow" title="New Window" target="_blank">JavaDocs</a></li><li class="none"><a href="javadoc.html">JavaDoc Report</a></li><li class="none"><a href="javadoc-warnings-report.html">JavaDoc Warnings Report</a></li><li class="none"><a href="jdepend-report.html">Metrics</a></li><li class="none"><strong><a href="junit-report.html">Unit Tests</a></strong></li><li class="none"><a href="xref/index.html" class="newWindow" title="New Window" target="_blank">Source Xref</a></li><li class="none"><a href="xref-test/index.html" class="newWindow" title="New Window" target="_blank">Test Xref</a></li><li class="none"><a href="license.html">Project License</a></li><li class="none"><a href="task-list.html">Task List</a></li></ul></li><li class="none"><a href="http://jakarta.apache.org/commons/charter.html" class="externalLink" title="External Link">Development Process</a></li></ul></div><div id="menuCommons"><h5>Commons</h5><ul><li class="none"><a href="http://jakarta.apache.org/commons/" class="externalLink" title="External Link">Home</a></li><li class="collapsed"><a href="http://jakarta.apache.org/commons/components.html" class="externalLink" title="External Link">Components</a></li><li class="collapsed"><a href="http://jakarta.apache.org/commons/sandbox/index.html" class="externalLink" title="External Link">Sandbox</a></li><li class="collapsed"><a href="http://jakarta.apache.org/commons/dormant/index.html" class="externalLink" title="External Link">Dormant</a></li><li class="none"><a href="http://jakarta.apache.org/commons/volunteering.html" class="externalLink" title="External Link">Volunteering</a></li><li class="none"><a href="http://jakarta.apache.org/commons/patches.html" class="externalLink" title="External Link">Contributing Patches</a></li><li class="none"><a href="http://jakarta.apache.org/commons/building.html" class="externalLink" title="External Link">Building Components</a></li><li class="none"><a href="http://jakarta.apache.org/commons/releases/index.html" class="externalLink" title="External Link">Releasing Components</a></li><li class="none"><a href="http://wiki.apache.org/jakarta-commons/FrontPage" class="externalLink" title="External Link">Wiki</a></li></ul></div><div id="legend"><h5>Legend</h5><ul><li class="externalLink">External Link</li><li class="newWindow">Opens in a new window</li></ul></div><a href="http://maven.apache.org/" title="Built by Maven" id="poweredBy"><img alt="Built by Maven" src="./images/logos/maven-feather.png"></img></a></div></div><div id="bodyColumn"><div class="contentBox"><div class="section"><a name="Summary"></a><h2>Summary</h2>
+      <p>[
+        <a href="#Summary">summary</a>] [
+        <a href="#Package_List">package list</a>] [
+        <a href="#Test_Cases">test cases</a>]</p>
+      <table class="bodyTable">
+        <thead>
+          <tr class="b">
+            <th>Tests</th>
+            <th>Errors</th>
+            <th>Failures</th>
+            <th>Success rate</th>
+            <th>Time(s)</th>
+          </tr>
+        </thead>
+        <tr class="a">
+          <td>322</td>
+          <td>0</td>
+          <td>0</td>
+          <td>100.00%</td>
+          <td>127.96</td>
+        </tr>
+      </table>
+      <p>Note:
+        <i>failures</i>are anticipated and checked for with assertions while
+        <i>errors</i>are unanticipated.</p>
+    </div><div class="section"><a name="Package_List"></a><h2>Package List</h2>
+      <p>[
+        <a href="#Summary">summary</a>] [
+        <a href="#Package_List">package list</a>] [
+        <a href="#Test_Cases">test cases</a>]</p>
+      <table class="bodyTable">
+        <thead>
+          <tr class="b">
+            <th>Package</th>
+            <th>Tests</th>
+            <th>Errors</th>
+            <th>Failures</th>
+            <th>Success Rate</th>
+            <th>Time</th>
+          </tr>
+        </thead>
+        <tr class="a">
+          <td>
+            <a href="#org_apache_commons_betwixt_derived">org.apache.commons.betwixt.derived</a>
+          </td>
+          <td>3</td>
+          <td>0</td>
+          <td>0</td>
+          <td>100.00%</td>
+          <td>2.14</td>
+        </tr>
+        <tr class="b">
+          <td>
+            <a href="#org_apache_commons_betwixt_nowrap">org.apache.commons.betwixt.nowrap</a>
+          </td>
+          <td>1</td>
+          <td>0</td>
+          <td>0</td>
+          <td>100.00%</td>
+          <td>1.15</td>
+        </tr>
+        <tr class="a">
+          <td>
+            <a href="#org_apache_commons_betwixt_schema">org.apache.commons.betwixt.schema</a>
+          </td>
+          <td>23</td>
+          <td>0</td>
+          <td>0</td>
+          <td>100.00%</td>
+          <td>7.81</td>
+        </tr>
+        <tr class="b">
+          <td>
+            <a href="#org_apache_commons_betwixt_xmlunit">org.apache.commons.betwixt.xmlunit</a>
+          </td>
+          <td>10</td>
+          <td>0</td>
+          <td>0</td>
+          <td>100.00%</td>
+          <td>1.45</td>
+        </tr>
+        <tr class="a">
+          <td>
+            <a href="#org_apache_commons_betwixt_digester">org.apache.commons.betwixt.digester</a>
+          </td>
+          <td>9</td>
+          <td>0</td>
+          <td>0</td>
+          <td>100.00%</td>
+          <td>4.07</td>
+        </tr>
+        <tr class="b">
+          <td>
+            <a href="#org_apache_commons_betwixt_registry">org.apache.commons.betwixt.registry</a>
+          </td>
+          <td>3</td>
+          <td>0</td>
+          <td>0</td>
+          <td>100.00%</td>
+          <td>1.45</td>
+        </tr>
+        <tr class="a">
+          <td>
+            <a href="#org_apache_commons_betwixt_scarab">org.apache.commons.betwixt.scarab</a>
+          </td>
+          <td>1</td>
+          <td>0</td>
+          <td>0</td>
+          <td>100.00%</td>
+          <td>1.10</td>
+        </tr>
+        <tr class="b">
+          <td>
+            <a href="#org_apache_commons_betwixt_dotbetwixt">org.apache.commons.betwixt.dotbetwixt</a>
+          </td>
+          <td>25</td>
+          <td>0</td>
+          <td>0</td>
+          <td>100.00%</td>
+          <td>10.97</td>
+        </tr>
+        <tr class="a">
+          <td>
+            <a href="#org_apache_commons_betwixt_expression">org.apache.commons.betwixt.expression</a>
+          </td>
+          <td>7</td>
+          <td>0</td>
+          <td>0</td>
+          <td>100.00%</td>
+          <td>3.10</td>
+        </tr>
+        <tr class="b">
+          <td>
+            <a href="#org_apache_commons_betwixt_recursion">org.apache.commons.betwixt.recursion</a>
+          </td>
+          <td>9</td>
+          <td>0</td>
+          <td>0</td>
+          <td>100.00%</td>
+          <td>2.21</td>
+        </tr>
+        <tr class="a">
+          <td>
+            <a href="#org_apache_commons_betwixt_introspection">org.apache.commons.betwixt.introspection</a>
+          </td>
+          <td>23</td>
+          <td>0</td>
+          <td>0</td>
+          <td>100.00%</td>
+          <td>3.66</td>
+        </tr>
+        <tr class="b">
+          <td>
+            <a href="#org_apache_commons_betwixt_strategy_alt">org.apache.commons.betwixt.strategy.alt</a>
+          </td>
+          <td>4</td>
+          <td>0</td>
+          <td>0</td>
+          <td>100.00%</td>
+          <td>1.20</td>
+        </tr>
+        <tr class="a">
+          <td>
+            <a href="#org_apache_commons_betwixt_strategy_impl_propertysuppression">org.apache.commons.betwixt.strategy.impl.propertysuppression</a>
+          </td>
+          <td>2</td>
+          <td>0</td>
+          <td>0</td>
+          <td>100.00%</td>
+          <td>0.55</td>
+        </tr>
+        <tr class="b">
+          <td>
+            <a href="#org_apache_commons_betwixt_strategy">org.apache.commons.betwixt.strategy</a>
+          </td>
+          <td>71</td>
+          <td>0</td>
+          <td>0</td>
+          <td>100.00%</td>
+          <td>13.39</td>
+        </tr>
+        <tr class="a">
+          <td>
+            <a href="#org_apache_commons_betwixt_io_read">org.apache.commons.betwixt.io.read</a>
+          </td>
+          <td>32</td>
+          <td>0</td>
+          <td>0</td>
+          <td>100.00%</td>
+          <td>18.13</td>
+        </tr>
+        <tr class="b">
+          <td>
+            <a href="#org_apache_commons_betwixt_io">org.apache.commons.betwixt.io</a>
+          </td>
+          <td>19</td>
+          <td>0</td>
+          <td>0</td>
+          <td>100.00%</td>
+          <td>17.55</td>
+        </tr>
+        <tr class="a">
+          <td>
+            <a href="#org_apache_commons_betwixt_examples_rss">org.apache.commons.betwixt.examples.rss</a>
+          </td>
+          <td>1</td>
+          <td>0</td>
+          <td>0</td>
+          <td>100.00%</td>
+          <td>1.13</td>
+        </tr>
+        <tr class="b">
+          <td>
+            <a href="#org_apache_commons_betwixt">org.apache.commons.betwixt</a>
+          </td>
+          <td>68</td>
+          <td>0</td>
+          <td>0</td>
+          <td>100.00%</td>
+          <td>33.28</td>
+        </tr>
+        <tr class="a">
+          <td>
+            <a href="#org_apache_commons_betwixt_poly">org.apache.commons.betwixt.poly</a>
+          </td>
+          <td>6</td>
+          <td>0</td>
+          <td>0</td>
+          <td>100.00%</td>
+          <td>2.39</td>
+        </tr>
+        <tr class="b">
+          <td>
+            <a href="#org_apache_commons_betwixt_versioning">org.apache.commons.betwixt.versioning</a>
+          </td>
+          <td>5</td>
+          <td>0</td>
+          <td>0</td>
+          <td>100.00%</td>
+          <td>1.21</td>
+        </tr>
+      </table>
+      <p>Note: package statistics are not computed recursively, they only sum up all of its testsuites numbers.</p>
+      <a name="org_apache_commons_betwixt_derived">
+      </a>
+      <div class="subsection"><a name="org_apache_commons_betwixt_derived"></a><h3>org.apache.commons.betwixt.derived</h3>
+        <table class="bodyTable">
+          <thead>
+            <tr class="a">
+              <th colspan="2">Class</th>
+              <th>Tests</th>
+              <th>Errors</th>
+              <th>Failures</th>
+              <th>Success Rate</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tr class="b">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestWriteClass">TestWriteClass</a>
+            </td>
+            <td>2</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>1.103</td>
+          </tr>
+          <tr class="a">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestDerived">TestDerived</a>
+            </td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>1.040</td>
+          </tr>
+        </table>
+      </div>
+      <a name="org_apache_commons_betwixt_nowrap">
+      </a>
+      <div class="subsection"><a name="org_apache_commons_betwixt_nowrap"></a><h3>org.apache.commons.betwixt.nowrap</h3>
+        <table class="bodyTable">
+          <thead>
+            <tr class="b">
+              <th colspan="2">Class</th>
+              <th>Tests</th>
+              <th>Errors</th>
+              <th>Failures</th>
+              <th>Success Rate</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tr class="a">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestNoWrap">TestNoWrap</a>
+            </td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>1.151</td>
+          </tr>
+        </table>
+      </div>
+      <a name="org_apache_commons_betwixt_schema">
+      </a>
+      <div class="subsection"><a name="org_apache_commons_betwixt_schema"></a><h3>org.apache.commons.betwixt.schema</h3>
+        <table class="bodyTable">
+          <thead>
+            <tr class="b">
+              <th colspan="2">Class</th>
+              <th>Tests</th>
+              <th>Errors</th>
+              <th>Failures</th>
+              <th>Success Rate</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tr class="a">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestSchema">TestSchema</a>
+            </td>
+            <td>2</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>1.123</td>
+          </tr>
+          <tr class="b">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestSchemaTranscriber">TestSchemaTranscriber</a>
+            </td>
+            <td>6</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>0.955</td>
+          </tr>
+          <tr class="a">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestSchemaValidity">TestSchemaValidity</a>
+            </td>
+            <td>6</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>1.921</td>
+          </tr>
+          <tr class="b">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestDataTypeMapper">TestDataTypeMapper</a>
+            </td>
+            <td>2</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>0.711</td>
+          </tr>
+          <tr class="a">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestSchemaGeneration">TestSchemaGeneration</a>
+            </td>
+            <td>5</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>1.391</td>
+          </tr>
+          <tr class="b">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestRecursiveBeanSchemaGeneration">TestRecursiveBeanSchemaGeneration</a>
+            </td>
+            <td>2</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>1.710</td>
+          </tr>
+        </table>
+      </div>
+      <a name="org_apache_commons_betwixt_xmlunit">
+      </a>
+      <div class="subsection"><a name="org_apache_commons_betwixt_xmlunit"></a><h3>org.apache.commons.betwixt.xmlunit</h3>
+        <table class="bodyTable">
+          <thead>
+            <tr class="a">
+              <th colspan="2">Class</th>
+              <th>Tests</th>
+              <th>Errors</th>
+              <th>Failures</th>
+              <th>Success Rate</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tr class="b">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestXmlTestCase">TestXmlTestCase</a>
+            </td>
+            <td>10</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>1.448</td>
+          </tr>
+        </table>
+      </div>
+      <a name="org_apache_commons_betwixt_digester">
+      </a>
+      <div class="subsection"><a name="org_apache_commons_betwixt_digester"></a><h3>org.apache.commons.betwixt.digester</h3>
+        <table class="bodyTable">
+          <thead>
+            <tr class="a">
+              <th colspan="2">Class</th>
+              <th>Tests</th>
+              <th>Errors</th>
+              <th>Failures</th>
+              <th>Success Rate</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tr class="b">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestIDRead">TestIDRead</a>
+            </td>
+            <td>2</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>1.126</td>
+          </tr>
+          <tr class="a">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestOptionDigestion">TestOptionDigestion</a>
+            </td>
+            <td>3</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>0.603</td>
+          </tr>
+          <tr class="b">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestDigestMultiMapping">TestDigestMultiMapping</a>
+            </td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>0.857</td>
+          </tr>
+          <tr class="a">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestXMLIntrospectorHelper">TestXMLIntrospectorHelper</a>
+            </td>
+            <td>2</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>0.640</td>
+          </tr>
+          <tr class="b">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestDigestDotBetwixt">TestDigestDotBetwixt</a>
+            </td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>0.846</td>
+          </tr>
+        </table>
+      </div>
+      <a name="org_apache_commons_betwixt_registry">
+      </a>
+      <div class="subsection"><a name="org_apache_commons_betwixt_registry"></a><h3>org.apache.commons.betwixt.registry</h3>
+        <table class="bodyTable">
+          <thead>
+            <tr class="a">
+              <th colspan="2">Class</th>
+              <th>Tests</th>
+              <th>Errors</th>
+              <th>Failures</th>
+              <th>Success Rate</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tr class="b">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestRegistryPolymorphicResolution">TestRegistryPolymorphicResolution</a>
+            </td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>0.938</td>
+          </tr>
+          <tr class="a">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestXMLBeanInfoRegistry">TestXMLBeanInfoRegistry</a>
+            </td>
+            <td>2</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>0.511</td>
+          </tr>
+        </table>
+      </div>
+      <a name="org_apache_commons_betwixt_scarab">
+      </a>
+      <div class="subsection"><a name="org_apache_commons_betwixt_scarab"></a><h3>org.apache.commons.betwixt.scarab</h3>
+        <table class="bodyTable">
+          <thead>
+            <tr class="b">
+              <th colspan="2">Class</th>
+              <th>Tests</th>
+              <th>Errors</th>
+              <th>Failures</th>
+              <th>Success Rate</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tr class="a">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestScarabSettings">TestScarabSettings</a>
+            </td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>1.100</td>
+          </tr>
+        </table>
+      </div>
+      <a name="org_apache_commons_betwixt_dotbetwixt">
+      </a>
+      <div class="subsection"><a name="org_apache_commons_betwixt_dotbetwixt"></a><h3>org.apache.commons.betwixt.dotbetwixt</h3>
+        <table class="bodyTable">
+          <thead>
+            <tr class="b">
+              <th colspan="2">Class</th>
+              <th>Tests</th>
+              <th>Errors</th>
+              <th>Failures</th>
+              <th>Success Rate</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tr class="a">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestIntrospection">TestIntrospection</a>
+            </td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>0.870</td>
+          </tr>
+          <tr class="b">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestMixedCollections">TestMixedCollections</a>
+            </td>
+            <td>2</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>1.125</td>
+          </tr>
+          <tr class="a">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestMap">TestMap</a>
+            </td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>1.139</td>
+          </tr>
+          <tr class="b">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestCustomDotBetwixt">TestCustomDotBetwixt</a>
+            </td>
+            <td>4</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>1.138</td>
+          </tr>
+          <tr class="a">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestBeanToXml">TestBeanToXml</a>
+            </td>
+            <td>7</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>1.241</td>
+          </tr>
+          <tr class="b">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestMsgParser">TestMsgParser</a>
+            </td>
+            <td>2</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>1.113</td>
+          </tr>
+          <tr class="a">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestDotBetwixtNamespace">TestDotBetwixtNamespace</a>
+            </td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>1.087</td>
+          </tr>
+          <tr class="b">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestLoopType">TestLoopType</a>
+            </td>
+            <td>3</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>1.154</td>
+          </tr>
+          <tr class="a">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestMultiMap">TestMultiMap</a>
+            </td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>0.863</td>
+          </tr>
+          <tr class="b">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestXmlToBean">TestXmlToBean</a>
+            </td>
+            <td>3</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>1.237</td>
+          </tr>
+        </table>
+      </div>
+      <a name="org_apache_commons_betwixt_expression">
+      </a>
+      <div class="subsection"><a name="org_apache_commons_betwixt_expression"></a><h3>org.apache.commons.betwixt.expression</h3>
+        <table class="bodyTable">
+          <thead>
+            <tr class="a">
+              <th colspan="2">Class</th>
+              <th>Tests</th>
+              <th>Errors</th>
+              <th>Failures</th>
+              <th>Success Rate</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tr class="b">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestCollectionUpdater">TestCollectionUpdater</a>
+            </td>
+            <td>3</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>0.498</td>
+          </tr>
+          <tr class="a">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestContextOptions">TestContextOptions</a>
+            </td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>0.598</td>
+          </tr>
+          <tr class="b">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestContext">TestContext</a>
+            </td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>0.598</td>
+          </tr>
+          <tr class="a">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestDynaBeanUpdater">TestDynaBeanUpdater</a>
+            </td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>0.705</td>
+          </tr>
+          <tr class="b">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestUpdaters">TestUpdaters</a>
+            </td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>0.702</td>
+          </tr>
+        </table>
+      </div>
+      <a name="org_apache_commons_betwixt_recursion">
+      </a>
+      <div class="subsection"><a name="org_apache_commons_betwixt_recursion"></a><h3>org.apache.commons.betwixt.recursion</h3>
+        <table class="bodyTable">
+          <thead>
+            <tr class="a">
+              <th colspan="2">Class</th>
+              <th>Tests</th>
+              <th>Errors</th>
+              <th>Failures</th>
+              <th>Success Rate</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tr class="b">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestSharedIDGeneration">TestSharedIDGeneration</a>
+            </td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>0.973</td>
+          </tr>
+          <tr class="a">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestRecursion">TestRecursion</a>
+            </td>
+            <td>8</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>1.235</td>
+          </tr>
+        </table>
+      </div>
+      <a name="org_apache_commons_betwixt_introspection">
+      </a>
+      <div class="subsection"><a name="org_apache_commons_betwixt_introspection"></a><h3>org.apache.commons.betwixt.introspection</h3>
+        <table class="bodyTable">
+          <thead>
+            <tr class="b">
+              <th colspan="2">Class</th>
+              <th>Tests</th>
+              <th>Errors</th>
+              <th>Failures</th>
+              <th>Success Rate</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tr class="a">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestDeclarativeIntrospection">TestDeclarativeIntrospection</a>
+            </td>
+            <td>12</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>0.939</td>
+          </tr>
+          <tr class="b">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestDynaBeanIntrospection">TestDynaBeanIntrospection</a>
+            </td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>0.688</td>
+          </tr>
+          <tr class="a">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestXMLIntrospector">TestXMLIntrospector</a>
+            </td>
+            <td>8</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>1.159</td>
+          </tr>
+          <tr class="b">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestInterfaceIntrospection">TestInterfaceIntrospection</a>
+            </td>
+            <td>2</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>0.878</td>
+          </tr>
+        </table>
+      </div>
+      <a name="org_apache_commons_betwixt_strategy_alt">
+      </a>
+      <div class="subsection"><a name="org_apache_commons_betwixt_strategy_alt"></a><h3>org.apache.commons.betwixt.strategy.alt</h3>
+        <table class="bodyTable">
+          <thead>
+            <tr class="a">
+              <th colspan="2">Class</th>
+              <th>Tests</th>
+              <th>Errors</th>
+              <th>Failures</th>
+              <th>Success Rate</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tr class="b">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestElementsAlt">TestElementsAlt</a>
+            </td>
+            <td>4</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>1.202</td>
+          </tr>
+        </table>
+      </div>
+      <a name="org_apache_commons_betwixt_strategy_impl_propertysuppression">
+      </a>
+      <div class="subsection"><a name="org_apache_commons_betwixt_strategy_impl_propertysuppression"></a><h3>org.apache.commons.betwixt.strategy.impl.propertysuppression</h3>
+        <table class="bodyTable">
+          <thead>
+            <tr class="a">
+              <th colspan="2">Class</th>
+              <th>Tests</th>
+              <th>Errors</th>
+              <th>Failures</th>
+              <th>Success Rate</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tr class="b">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestPackageSuppressor">TestPackageSuppressor</a>
+            </td>
+            <td>2</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>0.553</td>
+          </tr>
+        </table>
+      </div>
+      <a name="org_apache_commons_betwixt_strategy">
+      </a>
+      <div class="subsection"><a name="org_apache_commons_betwixt_strategy"></a><h3>org.apache.commons.betwixt.strategy</h3>
+        <table class="bodyTable">
+          <thead>
+            <tr class="a">
+              <th colspan="2">Class</th>
+              <th>Tests</th>
+              <th>Errors</th>
+              <th>Failures</th>
+              <th>Success Rate</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tr class="b">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#Testi18nObjectStringConversion">Testi18nObjectStringConversion</a>
+            </td>
+            <td>5</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>0.637</td>
+          </tr>
+          <tr class="a">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestHyphenatedNameMapper">TestHyphenatedNameMapper</a>
+            </td>
+            <td>6</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>0.638</td>
+          </tr>
+          <tr class="b">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestSimpleTypeMapper">TestSimpleTypeMapper</a>
+            </td>
+            <td>4</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>1.118</td>
+          </tr>
+          <tr class="a">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestDefaultPluralStemmer">TestDefaultPluralStemmer</a>
+            </td>
+            <td>8</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>0.600</td>
+          </tr>
+          <tr class="b">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestDecapitalizeNameMapper">TestDecapitalizeNameMapper</a>
+            </td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>0.511</td>
+          </tr>
+          <tr class="a">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestElementsIO">TestElementsIO</a>
+            </td>
+            <td>4</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>1.045</td>
+          </tr>
+          <tr class="b">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestIdStorageStrategy">TestIdStorageStrategy</a>
+            </td>
+            <td>6</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>1.239</td>
+          </tr>
+          <tr class="a">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestMixedContentEncoding">TestMixedContentEncoding</a>
+            </td>
+            <td>12</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>1.057</td>
+          </tr>
+          <tr class="b">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestObjectStringConverters">TestObjectStringConverters</a>
+            </td>
+            <td>4</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>0.624</td>
+          </tr>
+          <tr class="a">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestBaseMappingStrategy">TestBaseMappingStrategy</a>
+            </td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>0.767</td>
+          </tr>
+          <tr class="b">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestBadCharacterReplacingNMapper">TestBadCharacterReplacingNMapper</a>
+            </td>
+            <td>8</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>0.583</td>
+          </tr>
+          <tr class="a">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestNamespaces">TestNamespaces</a>
+            </td>
+            <td>3</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>0.509</td>
+          </tr>
+          <tr class="b">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestConversionFlavour">TestConversionFlavour</a>
+            </td>
+            <td>2</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>1.424</td>
+          </tr>
+          <tr class="a">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestCapitalizeNameMapper">TestCapitalizeNameMapper</a>
+            </td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>0.769</td>
+          </tr>
+          <tr class="b">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestDefaultNameMapper">TestDefaultNameMapper</a>
+            </td>
+            <td>5</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>0.847</td>
+          </tr>
+          <tr class="a">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestValueSuppressionStrategy">TestValueSuppressionStrategy</a>
+            </td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>1.026</td>
+          </tr>
+        </table>
+      </div>
+      <a name="org_apache_commons_betwixt_io_read">
+      </a>
+      <div class="subsection"><a name="org_apache_commons_betwixt_io_read"></a><h3>org.apache.commons.betwixt.io.read</h3>
+        <table class="bodyTable">
+          <thead>
+            <tr class="b">
+              <th colspan="2">Class</th>
+              <th>Tests</th>
+              <th>Errors</th>
+              <th>Failures</th>
+              <th>Success Rate</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tr class="a">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestPolymorphic">TestPolymorphic</a>
+            </td>
+            <td>2</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>1.751</td>
+          </tr>
+          <tr class="b">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestMaps">TestMaps</a>
+            </td>
+            <td>3</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>1.725</td>
+          </tr>
+          <tr class="a">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestMappingActions">TestMappingActions</a>
+            </td>
+            <td>5</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>2.387</td>
+          </tr>
+          <tr class="b">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestReadData">TestReadData</a>
+            </td>
+            <td>2</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>4.765</td>
+          </tr>
+          <tr class="a">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestBindTimeTypeMapping">TestBindTimeTypeMapping</a>
+            </td>
+            <td>10</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>3.432</td>
+          </tr>
+          <tr class="b">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestReadContext">TestReadContext</a>
+            </td>
+            <td>8</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>1.420</td>
+          </tr>
+          <tr class="a">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestBeanCreation">TestBeanCreation</a>
+            </td>
+            <td>2</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>2.648</td>
+          </tr>
+        </table>
+      </div>
+      <a name="org_apache_commons_betwixt_io">
+      </a>
+      <div class="subsection"><a name="org_apache_commons_betwixt_io"></a><h3>org.apache.commons.betwixt.io</h3>
+        <table class="bodyTable">
+          <thead>
+            <tr class="b">
+              <th colspan="2">Class</th>
+              <th>Tests</th>
+              <th>Errors</th>
+              <th>Failures</th>
+              <th>Success Rate</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tr class="a">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestAttributeSuppression">TestAttributeSuppression</a>
+            </td>
+            <td>2</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>2.271</td>
+          </tr>
+          <tr class="b">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestIgnoreEmptyElements">TestIgnoreEmptyElements</a>
+            </td>
+            <td>2</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>3.354</td>
+          </tr>
+          <tr class="a">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestMapUpdater">TestMapUpdater</a>
+            </td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>2.669</td>
+          </tr>
+          <tr class="b">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestBeanWriter">TestBeanWriter</a>
+            </td>
+            <td>2</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>1.584</td>
+          </tr>
+          <tr class="a">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestPrettyPrint">TestPrettyPrint</a>
+            </td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>0.850</td>
+          </tr>
+          <tr class="b">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestSAXBeanWriter">TestSAXBeanWriter</a>
+            </td>
+            <td>3</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>2.410</td>
+          </tr>
+          <tr class="a">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestAbstractBeanWriter">TestAbstractBeanWriter</a>
+            </td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>1.238</td>
+          </tr>
+          <tr class="b">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestMixedCollection">TestMixedCollection</a>
+            </td>
+            <td>2</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>1.127</td>
+          </tr>
+          <tr class="a">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestSuppressElement">TestSuppressElement</a>
+            </td>
+            <td>4</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>1.177</td>
+          </tr>
+          <tr class="b">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestWriteIDs">TestWriteIDs</a>
+            </td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>0.868</td>
+          </tr>
+        </table>
+      </div>
+      <a name="org_apache_commons_betwixt_examples_rss">
+      </a>
+      <div class="subsection"><a name="org_apache_commons_betwixt_examples_rss"></a><h3>org.apache.commons.betwixt.examples.rss</h3>
+        <table class="bodyTable">
+          <thead>
+            <tr class="a">
+              <th colspan="2">Class</th>
+              <th>Tests</th>
+              <th>Errors</th>
+              <th>Failures</th>
+              <th>Success Rate</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tr class="b">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestRSS">TestRSS</a>
+            </td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>1.131</td>
+          </tr>
+        </table>
+      </div>
+      <a name="org_apache_commons_betwixt">
+      </a>
+      <div class="subsection"><a name="org_apache_commons_betwixt"></a><h3>org.apache.commons.betwixt</h3>
+        <table class="bodyTable">
+          <thead>
+            <tr class="a">
+              <th colspan="2">Class</th>
+              <th>Tests</th>
+              <th>Errors</th>
+              <th>Failures</th>
+              <th>Success Rate</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tr class="b">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestDescriptors">TestDescriptors</a>
+            </td>
+            <td>3</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>0.513</td>
+          </tr>
+          <tr class="a">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestXMLUtils">TestXMLUtils</a>
+            </td>
+            <td>3</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>0.571</td>
+          </tr>
+          <tr class="b">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestBeanReader">TestBeanReader</a>
+            </td>
+            <td>12</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>1.472</td>
+          </tr>
+          <tr class="a">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestCollectionMapping2">TestCollectionMapping2</a>
+            </td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>0.964</td>
+          </tr>
+          <tr class="b">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestMaps">TestMaps</a>
+            </td>
+            <td>2</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>0.997</td>
+          </tr>
+          <tr class="a">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestBeanWriter">TestBeanWriter</a>
+            </td>
+            <td>9</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>1.361</td>
+          </tr>
+          <tr class="b">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestCollectionMapping">TestCollectionMapping</a>
+            </td>
+            <td>2</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>1.039</td>
+          </tr>
+          <tr class="a">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestCollectives">TestCollectives</a>
+            </td>
+            <td>5</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>1.013</td>
+          </tr>
+          <tr class="b">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestAttributeQNameProblem">TestAttributeQNameProblem</a>
+            </td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>1.021</td>
+          </tr>
+          <tr class="a">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestConversion">TestConversion</a>
+            </td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>1.025</td>
+          </tr>
+          <tr class="b">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestArrays">TestArrays</a>
+            </td>
+            <td>5</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>1.135</td>
+          </tr>
+          <tr class="a">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestMultipleCollectionMappings">TestMultipleCollectionMappings</a>
+            </td>
+            <td>4</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>1.101</td>
+          </tr>
+          <tr class="b">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestReferenceMapping">TestReferenceMapping</a>
+            </td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>0.994</td>
+          </tr>
+          <tr class="a">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestOptions">TestOptions</a>
+            </td>
+            <td>3</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>0.524</td>
+          </tr>
+          <tr class="b">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestArrayMaps">TestArrayMaps</a>
+            </td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>0.693</td>
+          </tr>
+          <tr class="a">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestTextMapping">TestTextMapping</a>
+            </td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>1.077</td>
+          </tr>
+          <tr class="b">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestCyclicRegistration">TestCyclicRegistration</a>
+            </td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>0.819</td>
+          </tr>
+          <tr class="a">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestStringCollections">TestStringCollections</a>
+            </td>
+            <td>3</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>1.183</td>
+          </tr>
+          <tr class="b">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestMultiMapping">TestMultiMapping</a>
+            </td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>1.098</td>
+          </tr>
+          <tr class="a">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestClassProperty">TestClassProperty</a>
+            </td>
+            <td>2</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>1.064</td>
+          </tr>
+          <tr class="b">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestRSSRoundTrip">TestRSSRoundTrip</a>
+            </td>
+            <td>3</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>11.677</td>
+          </tr>
+          <tr class="a">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestDynaBeanSupport">TestDynaBeanSupport</a>
+            </td>
+            <td>3</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>1.106</td>
+          </tr>
+          <tr class="b">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestXMLBeanInfoDigester">TestXMLBeanInfoDigester</a>
+            </td>
+            <td>1</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>0.836</td>
+          </tr>
+        </table>
+      </div>
+      <a name="org_apache_commons_betwixt_poly">
+      </a>
+      <div class="subsection"><a name="org_apache_commons_betwixt_poly"></a><h3>org.apache.commons.betwixt.poly</h3>
+        <table class="bodyTable">
+          <thead>
+            <tr class="a">
+              <th colspan="2">Class</th>
+              <th>Tests</th>
+              <th>Errors</th>
+              <th>Failures</th>
+              <th>Success Rate</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tr class="b">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestPolyList">TestPolyList</a>
+            </td>
+            <td>3</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>1.218</td>
+          </tr>
+          <tr class="a">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestPolyListHolder">TestPolyListHolder</a>
+            </td>
+            <td>3</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>1.176</td>
+          </tr>
+        </table>
+      </div>
+      <a name="org_apache_commons_betwixt_versioning">
+      </a>
+      <div class="subsection"><a name="org_apache_commons_betwixt_versioning"></a><h3>org.apache.commons.betwixt.versioning</h3>
+        <table class="bodyTable">
+          <thead>
+            <tr class="b">
+              <th colspan="2">Class</th>
+              <th>Tests</th>
+              <th>Errors</th>
+              <th>Failures</th>
+              <th>Success Rate</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tr class="a">
+            <td>
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td>
+              <a href="#TestVersioning">TestVersioning</a>
+            </td>
+            <td>5</td>
+            <td>0</td>
+            <td>0</td>
+            <td>100.00%</td>
+            <td>1.209</td>
+          </tr>
+        </table>
+      </div>
+    </div><div class="section"><a name="Test_Cases"></a><h2>Test Cases</h2>
+      <p>[
+        <a href="#Summary">summary</a>] [
+        <a href="#Package_List">package list</a>] [
+        <a href="#Test_Cases">test cases</a>]</p>
+      <a name="TestWriteClass">
+      </a>
+      <div class="subsection"><a name="TestWriteClass"></a><h3>TestWriteClass</h3>
+        <table class="bodyTable">
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testDotBetwixtClass</td>
+            <td style="width:60px">0.45</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testPropertySuppressionStrategy</td>
+            <td style="width:60px">0.15</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestDerived">
+      </a>
+      <div class="subsection"><a name="TestDerived"></a><h3>TestDerived</h3>
+        <table class="bodyTable">
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testPersonList</td>
+            <td style="width:60px">0.54</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestNoWrap">
+      </a>
+      <div class="subsection"><a name="TestNoWrap"></a><h3>TestNoWrap</h3>
+        <table class="bodyTable">
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testRoundTrip</td>
+            <td style="width:60px">0.66</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestSchema">
+      </a>
+      <div class="subsection"><a name="TestSchema"></a><h3>TestSchema</h3>
+        <table class="bodyTable">
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testCombinedRoundTrip</td>
+            <td style="width:60px">0.59</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testRoundTripWithoutCollectionElement</td>
+            <td style="width:60px">0.03</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestSchemaTranscriber">
+      </a>
+      <div class="subsection"><a name="TestSchemaTranscriber"></a><h3>TestSchemaTranscriber</h3>
+        <table class="bodyTable">
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testEmpty</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testSimplestBeanAttribute</td>
+            <td style="width:60px">0.37</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testSimplestBeanElement</td>
+            <td style="width:60px">0.03</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testSimpleBean</td>
+            <td style="width:60px">0.01</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testOrderLine</td>
+            <td style="width:60px">0.02</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testOrder</td>
+            <td style="width:60px">0.02</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestSchemaValidity">
+      </a>
+      <div class="subsection"><a name="TestSchemaValidity"></a><h3>TestSchemaValidity</h3>
+        <table class="bodyTable">
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testSimplestBeanWithAttributes</td>
+            <td style="width:60px">1.05</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testSimplestBeanWithElements</td>
+            <td style="width:60px">0.07</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testSimpleBean</td>
+            <td style="width:60px">0.06</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testOrderLine</td>
+            <td style="width:60px">0.05</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testOrder</td>
+            <td style="width:60px">0.06</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testRSS</td>
+            <td style="width:60px">0.13</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestDataTypeMapper">
+      </a>
+      <div class="subsection"><a name="TestDataTypeMapper"></a><h3>TestDataTypeMapper</h3>
+        <table class="bodyTable">
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testDefaultDataTypeMapping</td>
+            <td style="width:60px">0.01</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testDefaultDataTypeTransciption</td>
+            <td style="width:60px">0.20</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestSchemaGeneration">
+      </a>
+      <div class="subsection"><a name="TestSchemaGeneration"></a><h3>TestSchemaGeneration</h3>
+        <table class="bodyTable">
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testSimplestBeanWithAttributes</td>
+            <td style="width:60px">0.64</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testSimplestBeanWithElement</td>
+            <td style="width:60px">0.06</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testSimpleBean</td>
+            <td style="width:60px">0.06</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testOrderLineBean</td>
+            <td style="width:60px">0.07</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testOrder</td>
+            <td style="width:60px">0.06</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestRecursiveBeanSchemaGeneration">
+      </a>
+      <div class="subsection"><a name="TestRecursiveBeanSchemaGeneration"></a><h3>TestRecursiveBeanSchemaGeneration</h3>
+        <table class="bodyTable">
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testLoopBeanWithAttributes</td>
+            <td style="width:60px">1.11</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testCyclicBean</td>
+            <td style="width:60px">0.09</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestXmlTestCase">
+      </a>
+      <div class="subsection"><a name="TestXmlTestCase"></a><h3>TestXmlTestCase</h3>
+        <table class="bodyTable">
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testXMLUnit</td>
+            <td style="width:60px">0.15</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testXMLUnit2</td>
+            <td style="width:60px">0.02</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testXMLUnit3</td>
+            <td style="width:60px">0.02</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testXMLUnit4</td>
+            <td style="width:60px">0.03</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testXMLUnit5</td>
+            <td style="width:60px">0.02</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testXMLUnit6</td>
+            <td style="width:60px">0.02</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testValidateSchemaValidOne</td>
+            <td style="width:60px">0.55</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testValidateSchemaInvalidOne</td>
+            <td style="width:60px">0.04</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testValidateSchemaValidTwo</td>
+            <td style="width:60px">0.09</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testValidateSchemaInvalidTwo</td>
+            <td style="width:60px">0.02</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestIDRead">
+      </a>
+      <div class="subsection"><a name="TestIDRead"></a><h3>TestIDRead</h3>
+        <table class="bodyTable">
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testSimpleRead</td>
+            <td style="width:60px">0.60</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testIDRead</td>
+            <td style="width:60px">0.02</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestOptionDigestion">
+      </a>
+      <div class="subsection"><a name="TestOptionDigestion"></a><h3>TestOptionDigestion</h3>
+        <table class="bodyTable">
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testGoodDigestion</td>
+            <td style="width:60px">0.10</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testTwoDigestions</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testGracefulBadMapping</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestDigestMultiMapping">
+      </a>
+      <div class="subsection"><a name="TestDigestMultiMapping"></a><h3>TestDigestMultiMapping</h3>
+        <table class="bodyTable">
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testDigestWithOptions</td>
+            <td style="width:60px">0.35</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestXMLIntrospectorHelper">
+      </a>
+      <div class="subsection"><a name="TestXMLIntrospectorHelper"></a><h3>TestXMLIntrospectorHelper</h3>
+        <table class="bodyTable">
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testCreateDescriptorWithHyphenatedElementNameMapper</td>
+            <td style="width:60px">0.12</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testNullParameters</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestDigestDotBetwixt">
+      </a>
+      <div class="subsection"><a name="TestDigestDotBetwixt"></a><h3>TestDigestDotBetwixt</h3>
+        <table class="bodyTable">
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testDigestWithOptions</td>
+            <td style="width:60px">0.34</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestRegistryPolymorphicResolution">
+      </a>
+      <div class="subsection"><a name="TestRegistryPolymorphicResolution"></a><h3>TestRegistryPolymorphicResolution</h3>
+        <table class="bodyTable">
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testRegisterThenResolve</td>
+            <td style="width:60px">0.43</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestXMLBeanInfoRegistry">
+      </a>
+      <div class="subsection"><a name="TestXMLBeanInfoRegistry"></a><h3>TestXMLBeanInfoRegistry</h3>
+        <table class="bodyTable">
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testNoCache</td>
+            <td style="width:60px">0.01</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testDefault</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestScarabSettings">
+      </a>
+      <div class="subsection"><a name="TestScarabSettings"></a><h3>TestScarabSettings</h3>
+        <table class="bodyTable">
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testRoundTrip</td>
+            <td style="width:60px">0.60</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestIntrospection">
+      </a>
+      <div class="subsection"><a name="TestIntrospection"></a><h3>TestIntrospection</h3>
+        <table class="bodyTable">
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testClassAttribute</td>
+            <td style="width:60px">0.37</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestMixedCollections">
+      </a>
+      <div class="subsection"><a name="TestMixedCollections"></a><h3>TestMixedCollections</h3>
+        <table class="bodyTable">
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testNoNameIntrospection</td>
+            <td style="width:60px">0.35</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testNoNameWrite</td>
+            <td style="width:60px">0.26</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestMap">
+      </a>
+      <div class="subsection"><a name="TestMap"></a><h3>TestMap</h3>
+        <table class="bodyTable">
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testMapWithDotBetwixtFile</td>
+            <td style="width:60px">0.64</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestCustomDotBetwixt">
+      </a>
+      <div class="subsection"><a name="TestCustomDotBetwixt"></a><h3>TestCustomDotBetwixt</h3>
+        <table class="bodyTable">
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testIntrospectWithCustomDotBetwixt</td>
+            <td style="width:60px">0.34</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testRegisterCustomDotBetwixt</td>
+            <td style="width:60px">0.01</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testWriteCustomDotBetwixt</td>
+            <td style="width:60px">0.23</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testReadCustomDotBetwixt</td>
+            <td style="width:60px">0.06</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestBeanToXml">
+      </a>
+      <div class="subsection"><a name="TestBeanToXml"></a><h3>TestBeanToXml</h3>
+        <table class="bodyTable">
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testOne</td>
+            <td style="width:60px">0.14</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testSimpleBean</td>
+            <td style="width:60px">0.48</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testWriteRecursiveBean</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testBadDotBetwixtNames</td>
+            <td style="width:60px">0.04</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testMixedContent</td>
+            <td style="width:60px">0.02</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testSimpleMixedContent</td>
+            <td style="width:60px">0.02</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testBasicInterfaceImpl</td>
+            <td style="width:60px">0.05</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestMsgParser">
+      </a>
+      <div class="subsection"><a name="TestMsgParser"></a><h3>TestMsgParser</h3>
+        <table class="bodyTable">
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testGetAsXml</td>
+            <td style="width:60px">0.52</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testParseMsg</td>
+            <td style="width:60px">0.09</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestDotBetwixtNamespace">
+      </a>
+      <div class="subsection"><a name="TestDotBetwixtNamespace"></a><h3>TestDotBetwixtNamespace</h3>
+        <table class="bodyTable">
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testWriteSimpleDotBetwixtWithNamespaces</td>
+            <td style="width:60px">0.58</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestLoopType">
+      </a>
+      <div class="subsection"><a name="TestLoopType"></a><h3>TestLoopType</h3>
+        <table class="bodyTable">
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testSimpleList</td>
+            <td style="width:60px">0.62</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testIgnoredProperty</td>
+            <td style="width:60px">0.02</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testIgnoredAdders</td>
+            <td style="width:60px">0.02</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestMultiMap">
+      </a>
+      <div class="subsection"><a name="TestMultiMap"></a><h3>TestMultiMap</h3>
+        <table class="bodyTable">
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testRegisterMultiMapping</td>
+            <td style="width:60px">0.36</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestXmlToBean">
+      </a>
+      <div class="subsection"><a name="TestXmlToBean"></a><h3>TestXmlToBean</h3>
+        <table class="bodyTable">
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testForceAccessibleSuper</td>
+            <td style="width:60px">0.38</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testCustomUpdaters</td>
+            <td style="width:60px">0.31</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testMixedContent</td>
+            <td style="width:60px">0.03</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestCollectionUpdater">
+      </a>
+      <div class="subsection"><a name="TestCollectionUpdater"></a><h3>TestCollectionUpdater</h3>
+        <table class="bodyTable">
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testUpdateNull</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testUpdateNotCollection</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testUpdateCollection</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestContextOptions">
+      </a>
+      <div class="subsection"><a name="TestContextOptions"></a><h3>TestContextOptions</h3>
+        <table class="bodyTable">
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testOptionInheritance</td>
+            <td style="width:60px">0.10</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestContext">
+      </a>
+      <div class="subsection"><a name="TestContext"></a><h3>TestContext</h3>
+        <table class="bodyTable">
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testOptions</td>
+            <td style="width:60px">0.09</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestDynaBeanUpdater">
+      </a>
+      <div class="subsection"><a name="TestDynaBeanUpdater"></a><h3>TestDynaBeanUpdater</h3>
+        <table class="bodyTable">
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testSimpleTest</td>
+            <td style="width:60px">0.20</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestUpdaters">
+      </a>
+      <div class="subsection"><a name="TestUpdaters"></a><h3>TestUpdaters</h3>
+        <table class="bodyTable">
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testMapUpdate</td>
+            <td style="width:60px">0.20</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestSharedIDGeneration">
+      </a>
+      <div class="subsection"><a name="TestSharedIDGeneration"></a><h3>TestSharedIDGeneration</h3>
+        <table class="bodyTable">
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testSharedChild</td>
+            <td style="width:60px">0.48</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestRecursion">
+      </a>
+      <div class="subsection"><a name="TestRecursion"></a><h3>TestRecursion</h3>
+        <table class="bodyTable">
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testReadwithCollectionsInElementRoundTrip</td>
+            <td style="width:60px">0.61</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testReadWithoutCollectionsInElementRoundTrip</td>
+            <td style="width:60px">0.04</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testBeanWithIdProperty</td>
+            <td style="width:60px">0.02</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testCyclicReferenceStack1</td>
+            <td style="width:60px">0.01</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testCyclicReferenceStack2</td>
+            <td style="width:60px">0.01</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testRegisterOverflow</td>
+            <td style="width:60px">0.01</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testRegisterOverflow2</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testCycleReferences</td>
+            <td style="width:60px">0.03</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestDeclarativeIntrospection">
+      </a>
+      <div class="subsection"><a name="TestDeclarativeIntrospection"></a><h3>TestDeclarativeIntrospection</h3>
+        <table class="bodyTable">
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testStandardPropertyIsHollow</td>
+            <td style="width:60px">0.19</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testSimpleElementIsHollow</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testWrappedCollective</td>
+            <td style="width:60px">0.01</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testUnwrappedCollective</td>
+            <td style="width:60px">0.01</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testUnwrappedMap</td>
+            <td style="width:60px">0.01</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testWrappedMap</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testIsSimpleForPrimitives</td>
+            <td style="width:60px">0.01</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testSimpleForRSS</td>
+            <td style="width:60px">0.20</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testMapWithSimpleKey</td>
+            <td style="width:60px">0.01</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testMapWithSimpleEntry</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testConcreteMapNoWrap</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testConcreteMapWithWrap</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestDynaBeanIntrospection">
+      </a>
+      <div class="subsection"><a name="TestDynaBeanIntrospection"></a><h3>TestDynaBeanIntrospection</h3>
+        <table class="bodyTable">
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testSimpleIntrospectionTest</td>
+            <td style="width:60px">0.18</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestXMLIntrospector">
+      </a>
+      <div class="subsection"><a name="TestXMLIntrospector"></a><h3>TestXMLIntrospector</h3>
+        <table class="bodyTable">
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testIntrospector</td>
+            <td style="width:60px">0.29</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testBeanWithBeanInfo</td>
+            <td style="width:60px">0.20</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testDefaultClassNormalizer</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testClassNormalizer</td>
+            <td style="width:60px">0.02</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testListedClassNormalizer</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testListedClassNormalizerWrite</td>
+            <td style="width:60px">0.02</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testBetwixtFileType</td>
+            <td style="width:60px">0.13</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testIgnoreAllBeanInfo</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestInterfaceIntrospection">
+      </a>
+      <div class="subsection"><a name="TestInterfaceIntrospection"></a><h3>TestInterfaceIntrospection</h3>
+        <table class="bodyTable">
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testSuperInterfaceIntrospection</td>
+            <td style="width:60px">0.18</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testSuperInterfaceIntrospectionWithDotBetwixt</td>
+            <td style="width:60px">0.19</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestElementsAlt">
+      </a>
+      <div class="subsection"><a name="TestElementsAlt"></a><h3>TestElementsAlt</h3>
+        <table class="bodyTable">
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testCapitalizeNameMapper</td>
+            <td style="width:60px">0.61</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testDecapitalizeNameMapper</td>
+            <td style="width:60px">0.02</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testDefaultElementMapper</td>
+            <td style="width:60px">0.03</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testHyphenatedNameMapper</td>
+            <td style="width:60px">0.02</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestPackageSuppressor">
+      </a>
+      <div class="subsection"><a name="TestPackageSuppressor"></a><h3>TestPackageSuppressor</h3>
+        <table class="bodyTable">
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testExact</td>
+            <td style="width:60px">0.05</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testWild</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+        </table>
+      </div>
+      <a name="Testi18nObjectStringConversion">
+      </a>
+      <div class="subsection"><a name="Testi18nObjectStringConversion"></a><h3>Testi18nObjectStringConversion</h3>
+        <table class="bodyTable">
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testFrenchDefaultLocale</td>
+            <td style="width:60px">0.02</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testBaseConverter</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testConvertUtilsConverter</td>
+            <td style="width:60px">0.10</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testDefaultOSConverter</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testDefaultOSConverterDates</td>
+            <td style="width:60px">0.02</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestHyphenatedNameMapper">
+      </a>
+      <div class="subsection"><a name="TestHyphenatedNameMapper"></a><h3>TestHyphenatedNameMapper</h3>
+        <table class="bodyTable">
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testLowerCase</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testLowerCaseViaBeanDescriptor</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testUpperCase</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testUpperCaseViaProperties</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testUpperCaseLongViaProperties</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testBeanWithAdd</td>
+            <td style="width:60px">0.13</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestSimpleTypeMapper">
+      </a>
+      <div class="subsection"><a name="TestSimpleTypeMapper"></a><h3>TestSimpleTypeMapper</h3>
+        <table class="bodyTable">
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testDefaultExceptionType</td>
+            <td style="width:60px">0.01</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testNewStrategy</td>
+            <td style="width:60px">0.19</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testWrite</td>
+            <td style="width:60px">0.29</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testRead</td>
+            <td style="width:60px">0.13</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestDefaultPluralStemmer">
+      </a>
+      <div class="subsection"><a name="TestDefaultPluralStemmer"></a><h3>TestDefaultPluralStemmer</h3>
+        <table class="bodyTable">
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testNullMap</td>
+            <td style="width:60px">0.04</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testFirstMatch</td>
+            <td style="width:60px">0.01</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testSecondMatch</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testSecondNonMatch</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testThirdMatch</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testMultipleMatches</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testESPluralEndingMatch</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testClosestMatch</td>
+            <td style="width:60px">0.04</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestDecapitalizeNameMapper">
+      </a>
+      <div class="subsection"><a name="TestDecapitalizeNameMapper"></a><h3>TestDecapitalizeNameMapper</h3>
+        <table class="bodyTable">
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testDecapitalize</td>
+            <td style="width:60px">0.01</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestElementsIO">
+      </a>
+      <div class="subsection"><a name="TestElementsIO"></a><h3>TestElementsIO</h3>
+        <table class="bodyTable">
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testCapitalizeNameMapper</td>
+            <td style="width:60px">0.50</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testDecapitalizeNameMapper</td>
+            <td style="width:60px">0.01</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testDefaultElementMapper</td>
+            <td style="width:60px">0.01</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testHyphenatedNameMapper</td>
+            <td style="width:60px">0.01</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestIdStorageStrategy">
+      </a>
+      <div class="subsection"><a name="TestIdStorageStrategy"></a><h3>TestIdStorageStrategy</h3>
+        <table class="bodyTable">
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testWrite</td>
+            <td style="width:60px">0.48</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testRead</td>
+            <td style="width:60px">0.13</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testWriteWithOptions</td>
+            <td style="width:60px">0.06</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testWriteWithParentOptions</td>
+            <td style="width:60px">0.04</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testWriteWithTargetOptions</td>
+            <td style="width:60px">0.01</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testWriteWithParentAndTargetOptions</td>
+            <td style="width:60px">0.02</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestMixedContentEncoding">
+      </a>
+      <div class="subsection"><a name="TestMixedContentEncoding"></a><h3>TestMixedContentEncoding</h3>
+        <table class="bodyTable">
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testBaseMixedEscapeCharacters</td>
+            <td style="width:60px">0.06</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testBaseMixedCDATAEncoding</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testBaseMixedEncode</td>
+            <td style="width:60px">0.01</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testDefaultImplementation</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testEscapedCharactersImplementation</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testCDATAImplementation</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testDefaultOutput</td>
+            <td style="width:60px">0.28</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testDefaultOutputWithCDATAOption</td>
+            <td style="width:60px">0.01</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testDefaultOutputWithCharacterEscapingOption</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testDefaultOutputWithDotBetwixtOptions</td>
+            <td style="width:60px">0.19</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testEscapedOutput</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testCDATAEncodedOutput</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestObjectStringConverters">
+      </a>
+      <div class="subsection"><a name="TestObjectStringConverters"></a><h3>TestObjectStringConverters</h3>
+        <table class="bodyTable">
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testBaseConverter</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testConvertUtilsConverter</td>
+            <td style="width:60px">0.10</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testDefaultOSConverter</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testDefaultOSConverterDates</td>
+            <td style="width:60px">0.02</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestBaseMappingStrategy">
+      </a>
+      <div class="subsection"><a name="TestBaseMappingStrategy"></a><h3>TestBaseMappingStrategy</h3>
+        <table class="bodyTable">
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testArrayMapping</td>
+            <td style="width:60px">0.26</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestBadCharacterReplacingNMapper">
+      </a>
+      <div class="subsection"><a name="TestBadCharacterReplacingNMapper"></a><h3>TestBadCharacterReplacingNMapper</h3>
+        <table class="bodyTable">
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testNoReplacementBadFirstNoChainedMapper</td>
+            <td style="width:60px">0.06</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testNoReplacementBadFirstWithChainedMapper</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testNoReplacementGoodFirstNoChainedMapper</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testNoReplacementGoodFirstWithChainedMapper</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testReplacementBadFirstNoChainedMapper</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testReplacementBadFirstWithChainedMapper</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testReplacementGoodFirstNoChainedMapper</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testReplacementGoodFirstWithChainedMapper</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestNamespaces">
+      </a>
+      <div class="subsection"><a name="TestNamespaces"></a><h3>TestNamespaces</h3>
+        <table class="bodyTable">
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testNamespacePrefixMapper</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testNamespacePrefixMapperPrefixGeneration</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testNamespacePrefixMapperMatchingPrefix</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestConversionFlavour">
+      </a>
+      <div class="subsection"><a name="TestConversionFlavour"></a><h3>TestConversionFlavour</h3>
+        <table class="bodyTable">
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testRead</td>
+            <td style="width:60px">0.78</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testWrite</td>
+            <td style="width:60px">0.14</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestCapitalizeNameMapper">
+      </a>
+      <div class="subsection"><a name="TestCapitalizeNameMapper"></a><h3>TestCapitalizeNameMapper</h3>
+        <table class="bodyTable">
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testDecapitalize</td>
+            <td style="width:60px">0.01</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestDefaultNameMapper">
+      </a>
+      <div class="subsection"><a name="TestDefaultNameMapper"></a><h3>TestDefaultNameMapper</h3>
+        <table class="bodyTable">
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testDefault</td>
+            <td style="width:60px">0.08</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testBadCharBadFirstOne</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testBadCharBadFirstTwo</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testBadCharGoodFirstOne</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testBadCharGoodFirstTwo</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestValueSuppressionStrategy">
+      </a>
+      <div class="subsection"><a name="TestValueSuppressionStrategy"></a><h3>TestValueSuppressionStrategy</h3>
+        <table class="bodyTable">
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testALLOW_ALL_VALUESStrategy</td>
+            <td style="width:60px">0.28</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestPolymorphic">
+      </a>
+      <div class="subsection"><a name="TestPolymorphic"></a><h3>TestPolymorphic</h3>
+        <table class="bodyTable">
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testWrite</td>
+            <td style="width:60px">0.89</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testRead</td>
+            <td style="width:60px">0.11</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestMaps">
+      </a>
+      <div class="subsection"><a name="TestMaps"></a><h3>TestMaps</h3>
+        <table class="bodyTable">
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testWriteConcreateMapImplementation</td>
+            <td style="width:60px">0.70</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testReadConcreateMapImplementation</td>
+            <td style="width:60px">0.20</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testMapWithArray</td>
+            <td style="width:60px">0.08</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestMappingActions">
+      </a>
+      <div class="subsection"><a name="TestMappingActions"></a><h3>TestMappingActions</h3>
+        <table class="bodyTable">
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testSimpleRead</td>
+            <td style="width:60px">1.31</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testPrimitiveCollective</td>
+            <td style="width:60px">0.05</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testBodyUpdateActionNoMatch</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testBodyUpdateActionMatch</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testCollection</td>
+            <td style="width:60px">0.26</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestReadData">
+      </a>
+      <div class="subsection"><a name="TestReadData"></a><h3>TestReadData</h3>
+        <table class="bodyTable">
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testReadInvalidDate</td>
+            <td style="width:60px">2.29</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testWritePrivateStaticClasses</td>
+            <td style="width:60px">0.38</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestBindTimeTypeMapping">
+      </a>
+      <div class="subsection"><a name="TestBindTimeTypeMapping"></a><h3>TestBindTimeTypeMapping</h3>
+        <table class="bodyTable">
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testDefaultMappingDerivationStrategy</td>
+            <td style="width:60px">0.38</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testIntrospectionTimeMappingDerivationStrategy</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testBindTypeMappingDerivationStrategy</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testBindTypeMappingDerivationDotBetwixt</td>
+            <td style="width:60px">0.41</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testIntrospectionTypeMappingDerivationDotBetwixt</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testMappingDerivationDotBetwixtAddDefaults</td>
+            <td style="width:60px">0.01</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testBindTimeTypeWrite</td>
+            <td style="width:60px">0.62</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testBindTimeTypeRead</td>
+            <td style="width:60px">0.15</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testIntrospectionTimeTypeWrite</td>
+            <td style="width:60px">0.56</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testIntrospectionTimeTypeRead</td>
+            <td style="width:60px">0.01</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestReadContext">
+      </a>
+      <div class="subsection"><a name="TestReadContext"></a><h3>TestReadContext</h3>
+        <table class="bodyTable">
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testElementStackPushPop</td>
+            <td style="width:60px">0.16</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testElementStackMarkedPushPop</td>
+            <td style="width:60px">0.12</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testLastMappedClassNoClass</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testGetCurrentElement</td>
+            <td style="width:60px">0.01</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testLastMappedClassBottomClass</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testLastMappedClassTwoClasses</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testLastMappedClassTopClass</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testNullElementNameMatchesAll</td>
+            <td style="width:60px">0.02</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestBeanCreation">
+      </a>
+      <div class="subsection"><a name="TestBeanCreation"></a><h3>TestBeanCreation</h3>
+        <table class="bodyTable">
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testCustomCreatorOne</td>
+            <td style="width:60px">1.33</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testCustomCreatorTwo</td>
+            <td style="width:60px">0.12</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestAttributeSuppression">
+      </a>
+      <div class="subsection"><a name="TestAttributeSuppression"></a><h3>TestAttributeSuppression</h3>
+        <table class="bodyTable">
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testEmptyStringSuppression</td>
+            <td style="width:60px">1.14</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testCustomStrategy</td>
+            <td style="width:60px">0.02</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestIgnoreEmptyElements">
+      </a>
+      <div class="subsection"><a name="TestIgnoreEmptyElements"></a><h3>TestIgnoreEmptyElements</h3>
+        <table class="bodyTable">
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testWritePersonBean</td>
+            <td style="width:60px">0.98</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testNestedWriteEmptyElements</td>
+            <td style="width:60px">1.24</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestMapUpdater">
+      </a>
+      <div class="subsection"><a name="TestMapUpdater"></a><h3>TestMapUpdater</h3>
+        <table class="bodyTable">
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testMapUpdater</td>
+            <td style="width:60px">1.17</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestBeanWriter">
+      </a>
+      <div class="subsection"><a name="TestBeanWriter"></a><h3>TestBeanWriter</h3>
+        <table class="bodyTable">
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testSetEndTagForEmptyElementTrue</td>
+            <td style="width:60px">0.26</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testSetEndTagForEmptyElementFalse</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestPrettyPrint">
+      </a>
+      <div class="subsection"><a name="TestPrettyPrint"></a><h3>TestPrettyPrint</h3>
+        <table class="bodyTable">
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testEndElement</td>
+            <td style="width:60px">0.16</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestSAXBeanWriter">
+      </a>
+      <div class="subsection"><a name="TestSAXBeanWriter"></a><h3>TestSAXBeanWriter</h3>
+        <table class="bodyTable">
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testWrite</td>
+            <td style="width:60px">1.53</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testDocumentElements</td>
+            <td style="width:60px">0.01</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testLocalNames</td>
+            <td style="width:60px">0.10</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestAbstractBeanWriter">
+      </a>
+      <div class="subsection"><a name="TestAbstractBeanWriter"></a><h3>TestAbstractBeanWriter</h3>
+        <table class="bodyTable">
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testContextCurrentElement</td>
+            <td style="width:60px">0.54</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestMixedCollection">
+      </a>
+      <div class="subsection"><a name="TestMixedCollection"></a><h3>TestMixedCollection</h3>
+        <table class="bodyTable">
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testWithDefaults</td>
+            <td style="width:60px">0.59</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testWithoutDefaults</td>
+            <td style="width:60px">0.02</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestSuppressElement">
+      </a>
+      <div class="subsection"><a name="TestSuppressElement"></a><h3>TestSuppressElement</h3>
+        <table class="bodyTable">
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testSuppressNothing</td>
+            <td style="width:60px">0.60</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testSuppressType</td>
+            <td style="width:60px">0.03</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testSuppressElementName</td>
+            <td style="width:60px">0.02</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testSuppressName</td>
+            <td style="width:60px">0.02</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestWriteIDs">
+      </a>
+      <div class="subsection"><a name="TestWriteIDs"></a><h3>TestWriteIDs</h3>
+        <table class="bodyTable">
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testTest</td>
+            <td style="width:60px">0.37</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestRSS">
+      </a>
+      <div class="subsection"><a name="TestRSS"></a><h3>TestRSS</h3>
+        <table class="bodyTable">
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testPrintTextSummary</td>
+            <td style="width:60px">0.63</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestDescriptors">
+      </a>
+      <div class="subsection"><a name="TestDescriptors"></a><h3>TestDescriptors</h3>
+        <table class="bodyTable">
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testElementDescriptorLazyInit</td>
+            <td style="width:60px">0.01</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testGetElementDescriptorByName</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testGetElementDescriptorByNameNullMatch</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestXMLUtils">
+      </a>
+      <div class="subsection"><a name="TestXMLUtils"></a><h3>TestXMLUtils</h3>
+        <table class="bodyTable">
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testXMLNameTest</td>
+            <td style="width:60px">0.06</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testAttributeEscaping</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testCDATAEscaping</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestBeanReader">
+      </a>
+      <div class="subsection"><a name="TestBeanReader"></a><h3>TestBeanReader</h3>
+        <table class="bodyTable">
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testBeanWriter</td>
+            <td style="width:60px">0.65</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testWriteThenRead</td>
+            <td style="width:60px">0.03</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testAdderButNoProperty</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testPersonList</td>
+            <td style="width:60px">0.02</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testWrapElements</td>
+            <td style="width:60px">0.02</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testSetDigesterRules</td>
+            <td style="width:60px">0.01</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testDateReadConversion</td>
+            <td style="width:60px">0.03</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testHyphenatedNameMapping</td>
+            <td style="width:60px">0.03</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testCustomDateReadConversion</td>
+            <td style="width:60px">0.04</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testReadMap</td>
+            <td style="width:60px">0.10</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testReadMap2</td>
+            <td style="width:60px">0.02</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testIndirectReference</td>
+            <td style="width:60px">0.04</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestCollectionMapping2">
+      </a>
+      <div class="subsection"><a name="TestCollectionMapping2"></a><h3>TestCollectionMapping2</h3>
+        <table class="bodyTable">
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testInvalidXML</td>
+            <td style="width:60px">0.45</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestMaps">
+      </a>
+      <div class="subsection"><a name="TestMaps"></a><h3>TestMaps</h3>
+        <table class="bodyTable">
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testHashMapWriteEmpty</td>
+            <td style="width:60px">0.48</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testHashMapWriteNotEmpty</td>
+            <td style="width:60px">0.02</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestBeanWriter">
+      </a>
+      <div class="subsection"><a name="TestBeanWriter"></a><h3>TestBeanWriter</h3>
+        <table class="bodyTable">
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testBeanWriter</td>
+            <td style="width:60px">0.41</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testLooping</td>
+            <td style="width:60px">0.18</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testEscaping</td>
+            <td style="width:60px">0.02</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testValidEndOfLine</td>
+            <td style="width:60px">0.01</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testSimpleWriteEmptyElements</td>
+            <td style="width:60px">0.02</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testArrayWrite</td>
+            <td style="width:60px">0.04</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testListedWriteEmptyElements</td>
+            <td style="width:60px">0.06</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testWriteNameMapperStrategy</td>
+            <td style="width:60px">0.11</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testBeanWriterWorksWithAnAddMethodAndACollection</td>
+            <td style="width:60px">0.01</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestCollectionMapping">
+      </a>
+      <div class="subsection"><a name="TestCollectionMapping"></a><h3>TestCollectionMapping</h3>
+        <table class="bodyTable">
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testRoundTripWithSingleMappingFile</td>
+            <td style="width:60px">0.50</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testInvalidXML</td>
+            <td style="width:60px">0.04</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestCollectives">
+      </a>
+      <div class="subsection"><a name="TestCollectives"></a><h3>TestCollectives</h3>
+        <table class="bodyTable">
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testWriteCategories</td>
+            <td style="width:60px">0.34</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testReadCategories</td>
+            <td style="width:60px">0.13</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testIntrospectListExtension</td>
+            <td style="width:60px">0.02</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testWriteListExtension</td>
+            <td style="width:60px">0.02</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testReadListExtension</td>
+            <td style="width:60px">0.01</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestAttributeQNameProblem">
+      </a>
+      <div class="subsection"><a name="TestAttributeQNameProblem"></a><h3>TestAttributeQNameProblem</h3>
+        <table class="bodyTable">
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testAttributeOutput</td>
+            <td style="width:60px">0.52</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestConversion">
+      </a>
+      <div class="subsection"><a name="TestConversion"></a><h3>TestConversion</h3>
+        <table class="bodyTable">
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testNullTimestampConversion</td>
+            <td style="width:60px">0.50</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestArrays">
+      </a>
+      <div class="subsection"><a name="TestArrays"></a><h3>TestArrays</h3>
+        <table class="bodyTable">
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testWriteArray</td>
+            <td style="width:60px">0.47</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testReadArray</td>
+            <td style="width:60px">0.13</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testWriteArrayWithSetter</td>
+            <td style="width:60px">0.02</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testReadArrayWithSetter</td>
+            <td style="width:60px">0.01</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testIntrospectArrayWithSetter</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestPolyList">
+      </a>
+      <div class="subsection"><a name="TestPolyList"></a><h3>TestPolyList</h3>
+        <table class="bodyTable">
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testWrite</td>
+            <td style="width:60px">0.56</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testRead</td>
+            <td style="width:60px">0.06</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testIntrospection</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestPolyListHolder">
+      </a>
+      <div class="subsection"><a name="TestPolyListHolder"></a><h3>TestPolyListHolder</h3>
+        <table class="bodyTable">
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testWrite</td>
+            <td style="width:60px">0.61</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testRead</td>
+            <td style="width:60px">0.06</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testIntrospection</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestVersioning">
+      </a>
+      <div class="subsection"><a name="TestVersioning"></a><h3>TestVersioning</h3>
+        <table class="bodyTable">
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testIntrospection</td>
+            <td style="width:60px">0.37</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testWrite1</td>
+            <td style="width:60px">0.21</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testWrite2</td>
+            <td style="width:60px">0.04</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testWrite3</td>
+            <td style="width:60px">0.05</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testWrite4</td>
+            <td style="width:60px">0.04</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestMultipleCollectionMappings">
+      </a>
+      <div class="subsection"><a name="TestMultipleCollectionMappings"></a><h3>TestMultipleCollectionMappings</h3>
+        <table class="bodyTable">
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testOnlyElements</td>
+            <td style="width:60px">0.51</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testOnlyNodes</td>
+            <td style="width:60px">0.03</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testMixed</td>
+            <td style="width:60px">0.03</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testInvalidXML</td>
+            <td style="width:60px">0.03</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestReferenceMapping">
+      </a>
+      <div class="subsection"><a name="TestReferenceMapping"></a><h3>TestReferenceMapping</h3>
+        <table class="bodyTable">
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testRoundTripWithSingleMappingFile</td>
+            <td style="width:60px">0.49</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestOptions">
+      </a>
+      <div class="subsection"><a name="TestOptions"></a><h3>TestOptions</h3>
+        <table class="bodyTable">
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testGetValue</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testGetNames</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testAddOptions</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestArrayMaps">
+      </a>
+      <div class="subsection"><a name="TestArrayMaps"></a><h3>TestArrayMaps</h3>
+        <table class="bodyTable">
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testIntrospection</td>
+            <td style="width:60px">0.19</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestTextMapping">
+      </a>
+      <div class="subsection"><a name="TestTextMapping"></a><h3>TestTextMapping</h3>
+        <table class="bodyTable">
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testRoundTripWithSingleMappingFile</td>
+            <td style="width:60px">0.58</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestCyclicRegistration">
+      </a>
+      <div class="subsection"><a name="TestCyclicRegistration"></a><h3>TestCyclicRegistration</h3>
+        <table class="bodyTable">
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testListReferenceCycle</td>
+            <td style="width:60px">0.31</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestStringCollections">
+      </a>
+      <div class="subsection"><a name="TestStringCollections"></a><h3>TestStringCollections</h3>
+        <table class="bodyTable">
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testIntrospection</td>
+            <td style="width:60px">0.35</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testWritePoem</td>
+            <td style="width:60px">0.26</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testReadPoem</td>
+            <td style="width:60px">0.06</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestMultiMapping">
+      </a>
+      <div class="subsection"><a name="TestMultiMapping"></a><h3>TestMultiMapping</h3>
+        <table class="bodyTable">
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testRoundTripWithSingleMappingFile</td>
+            <td style="width:60px">0.60</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestClassProperty">
+      </a>
+      <div class="subsection"><a name="TestClassProperty"></a><h3>TestClassProperty</h3>
+        <table class="bodyTable">
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testHasClassElementWithoutDotBetwixtFile</td>
+            <td style="width:60px">0.36</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testHasClassElementWithDotBetwixtFile</td>
+            <td style="width:60px">0.20</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestRSSRoundTrip">
+      </a>
+      <div class="subsection"><a name="TestRSSRoundTrip"></a><h3>TestRSSRoundTrip</h3>
+        <table class="bodyTable">
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testRoundTrip</td>
+            <td style="width:60px">10.76</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testBeanWriterRoundTrip</td>
+            <td style="width:60px">0.41</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testRSSRead</td>
+            <td style="width:60px">0.00</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestDynaBeanSupport">
+      </a>
+      <div class="subsection"><a name="TestDynaBeanSupport"></a><h3>TestDynaBeanSupport</h3>
+        <table class="bodyTable">
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testIntrospectDynaBean</td>
+            <td style="width:60px">0.18</td>
+          </tr>
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testWriteDynaBean</td>
+            <td style="width:60px">0.28</td>
+          </tr>
+          <tr class="b">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testOverrideWithDotBetwixt</td>
+            <td style="width:60px">0.15</td>
+          </tr>
+        </table>
+      </div>
+      <a name="TestXMLBeanInfoDigester">
+      </a>
+      <div class="subsection"><a name="TestXMLBeanInfoDigester"></a><h3>TestXMLBeanInfoDigester</h3>
+        <table class="bodyTable">
+          <tr class="a">
+            <td style="width:20px">
+              <img width="15" height="15" src="images/icon_success_sml.gif" alt="Success"></img>
+            </td>
+            <td style="width:98%">testDigester</td>
+            <td style="width:60px">0.33</td>
+          </tr>
+        </table>
+      </div>
+    </div></div></div><div class="clear"><hr></hr></div><div id="footer"><div class="xright">© 2002-2006, The Apache Software Foundation</div><div class="clear"><hr></hr></div></div></body></html>

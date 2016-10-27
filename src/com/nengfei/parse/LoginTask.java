@@ -53,7 +53,8 @@ public class LoginTask extends AsyncTask<Void, Void, Boolean> {
 		//result=new HttpClientTool("www.malloto.com").send("Login", map);
 		map.put("mac",NetWorkUtil.getCPUSerial(context));
 		
-		String s=MySocketClient.getInstance().send("LoginProcesser",map);
+		//String s=MySocketClient.getInstance().send("LoginProcesser",map);
+		String s=HttpClientTool.getInstance().send("LoginProcesser",map);
 		if(s==null||s.equals("")){
 			return false;
 		}

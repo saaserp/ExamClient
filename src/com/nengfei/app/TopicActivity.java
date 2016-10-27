@@ -378,7 +378,8 @@ public class TopicActivity extends FragmentActivity {
 										.toString();
 								int totalCount = tc.getRightCount()
 										+ tc.getWrongCount();
-								int totalScore = tc.getRightCount() * 2;
+								//每个题目1分，所以乘以1
+								int totalScore = tc.getRightCount() * 1;
 								Calendar c = Calendar.getInstance();
 								String dateTime = c.get(Calendar.YEAR) + "-"
 										+ ((Integer)c.get(Calendar.MONTH)+1) + "-"

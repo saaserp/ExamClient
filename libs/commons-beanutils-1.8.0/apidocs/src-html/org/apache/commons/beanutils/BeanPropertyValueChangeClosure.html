@@ -1,0 +1,305 @@
+<HTML>
+<BODY BGCOLOR="white">
+<PRE>
+<FONT color="green">001</FONT>    /*<a name="line.1"></a>
+<FONT color="green">002</FONT>     * Licensed to the Apache Software Foundation (ASF) under one or more<a name="line.2"></a>
+<FONT color="green">003</FONT>     * contributor license agreements.  See the NOTICE file distributed with<a name="line.3"></a>
+<FONT color="green">004</FONT>     * this work for additional information regarding copyright ownership.<a name="line.4"></a>
+<FONT color="green">005</FONT>     * The ASF licenses this file to You under the Apache License, Version 2.0<a name="line.5"></a>
+<FONT color="green">006</FONT>     * (the "License"); you may not use this file except in compliance with<a name="line.6"></a>
+<FONT color="green">007</FONT>     * the License.  You may obtain a copy of the License at<a name="line.7"></a>
+<FONT color="green">008</FONT>     *<a name="line.8"></a>
+<FONT color="green">009</FONT>     *      http://www.apache.org/licenses/LICENSE-2.0<a name="line.9"></a>
+<FONT color="green">010</FONT>     *<a name="line.10"></a>
+<FONT color="green">011</FONT>     * Unless required by applicable law or agreed to in writing, software<a name="line.11"></a>
+<FONT color="green">012</FONT>     * distributed under the License is distributed on an "AS IS" BASIS,<a name="line.12"></a>
+<FONT color="green">013</FONT>     * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.<a name="line.13"></a>
+<FONT color="green">014</FONT>     * See the License for the specific language governing permissions and<a name="line.14"></a>
+<FONT color="green">015</FONT>     * limitations under the License.<a name="line.15"></a>
+<FONT color="green">016</FONT>     */<a name="line.16"></a>
+<FONT color="green">017</FONT>     <a name="line.17"></a>
+<FONT color="green">018</FONT>    package org.apache.commons.beanutils;<a name="line.18"></a>
+<FONT color="green">019</FONT>    <a name="line.19"></a>
+<FONT color="green">020</FONT>    import org.apache.commons.collections.Closure;<a name="line.20"></a>
+<FONT color="green">021</FONT>    import org.apache.commons.logging.Log;<a name="line.21"></a>
+<FONT color="green">022</FONT>    import org.apache.commons.logging.LogFactory;<a name="line.22"></a>
+<FONT color="green">023</FONT>    <a name="line.23"></a>
+<FONT color="green">024</FONT>    import java.lang.reflect.InvocationTargetException;<a name="line.24"></a>
+<FONT color="green">025</FONT>    <a name="line.25"></a>
+<FONT color="green">026</FONT>    <a name="line.26"></a>
+<FONT color="green">027</FONT>    /**<a name="line.27"></a>
+<FONT color="green">028</FONT>     * &lt;p&gt;&lt;code&gt;Closure&lt;/code&gt; that sets a property.&lt;/p&gt;<a name="line.28"></a>
+<FONT color="green">029</FONT>     * &lt;p&gt;<a name="line.29"></a>
+<FONT color="green">030</FONT>     * An implementation of &lt;code&gt;org.apache.commons.collections.Closure&lt;/code&gt; that updates<a name="line.30"></a>
+<FONT color="green">031</FONT>     * a specified property on the object provided with a specified value.<a name="line.31"></a>
+<FONT color="green">032</FONT>     * The &lt;code&gt;BeanPropertyValueChangeClosure&lt;/code&gt; constructor takes two parameters which determine<a name="line.32"></a>
+<FONT color="green">033</FONT>     * what property will be updated and with what value.<a name="line.33"></a>
+<FONT color="green">034</FONT>     * &lt;dl&gt;<a name="line.34"></a>
+<FONT color="green">035</FONT>     *    &lt;dt&gt;<a name="line.35"></a>
+<FONT color="green">036</FONT>     *       &lt;b&gt;&lt;code&gt;<a name="line.36"></a>
+<FONT color="green">037</FONT>     *           &lt;pre&gt;public BeanPropertyValueChangeClosure( String propertyName, Object propertyValue )&lt;/pre&gt;<a name="line.37"></a>
+<FONT color="green">038</FONT>     *       &lt;/code&gt;&lt;/b&gt;<a name="line.38"></a>
+<FONT color="green">039</FONT>     *    &lt;/dt&gt;<a name="line.39"></a>
+<FONT color="green">040</FONT>     *    &lt;dd&gt;<a name="line.40"></a>
+<FONT color="green">041</FONT>     *       Will create a &lt;code&gt;Closure&lt;/code&gt; that will update an object by setting the property<a name="line.41"></a>
+<FONT color="green">042</FONT>     *       specified by &lt;code&gt;propertyName&lt;/code&gt; to the value specified by &lt;code&gt;propertyValue&lt;/code&gt;.<a name="line.42"></a>
+<FONT color="green">043</FONT>     *    &lt;/dd&gt;<a name="line.43"></a>
+<FONT color="green">044</FONT>     * &lt;/dl&gt;<a name="line.44"></a>
+<FONT color="green">045</FONT>     *<a name="line.45"></a>
+<FONT color="green">046</FONT>     * &lt;p/&gt;<a name="line.46"></a>
+<FONT color="green">047</FONT>     * &lt;strong&gt;Note:&lt;/strong&gt; Property names can be a simple, nested, indexed, or mapped property as defined by<a name="line.47"></a>
+<FONT color="green">048</FONT>     * &lt;code&gt;org.apache.commons.beanutils.PropertyUtils&lt;/code&gt;.  If any object in the property path<a name="line.48"></a>
+<FONT color="green">049</FONT>     * specified by &lt;code&gt;propertyName&lt;/code&gt; is &lt;code&gt;null&lt;/code&gt; then the outcome is based on the<a name="line.49"></a>
+<FONT color="green">050</FONT>     * value of the &lt;code&gt;ignoreNull&lt;/code&gt; attribute.<a name="line.50"></a>
+<FONT color="green">051</FONT>     *<a name="line.51"></a>
+<FONT color="green">052</FONT>     * &lt;p/&gt;<a name="line.52"></a>
+<FONT color="green">053</FONT>     * A typical usage might look like:<a name="line.53"></a>
+<FONT color="green">054</FONT>     * &lt;code&gt;&lt;pre&gt;<a name="line.54"></a>
+<FONT color="green">055</FONT>     * // create the closure<a name="line.55"></a>
+<FONT color="green">056</FONT>     * BeanPropertyValueChangeClosure closure =<a name="line.56"></a>
+<FONT color="green">057</FONT>     *    new BeanPropertyValueChangeClosure( "activeEmployee", Boolean.TRUE );<a name="line.57"></a>
+<FONT color="green">058</FONT>     *<a name="line.58"></a>
+<FONT color="green">059</FONT>     * // update the Collection<a name="line.59"></a>
+<FONT color="green">060</FONT>     * CollectionUtils.forAllDo( peopleCollection, closure );<a name="line.60"></a>
+<FONT color="green">061</FONT>     * &lt;/pre&gt;&lt;/code&gt;<a name="line.61"></a>
+<FONT color="green">062</FONT>     * &lt;p/&gt;<a name="line.62"></a>
+<FONT color="green">063</FONT>     *<a name="line.63"></a>
+<FONT color="green">064</FONT>     * This would take a &lt;code&gt;Collection&lt;/code&gt; of person objects and update the<a name="line.64"></a>
+<FONT color="green">065</FONT>     * &lt;code&gt;activeEmployee&lt;/code&gt; property of each object in the &lt;code&gt;Collection&lt;/code&gt; to<a name="line.65"></a>
+<FONT color="green">066</FONT>     * &lt;code&gt;true&lt;/code&gt;. Assuming...<a name="line.66"></a>
+<FONT color="green">067</FONT>     * &lt;ul&gt;<a name="line.67"></a>
+<FONT color="green">068</FONT>     *    &lt;li&gt;<a name="line.68"></a>
+<FONT color="green">069</FONT>     *       The top level object in the &lt;code&gt;peopleCollection&lt;/code&gt; is an object which represents a<a name="line.69"></a>
+<FONT color="green">070</FONT>     *       person.<a name="line.70"></a>
+<FONT color="green">071</FONT>     *    &lt;/li&gt;<a name="line.71"></a>
+<FONT color="green">072</FONT>     *    &lt;li&gt;<a name="line.72"></a>
+<FONT color="green">073</FONT>     *       The person object has a &lt;code&gt;setActiveEmployee( boolean )&lt;/code&gt; method which updates<a name="line.73"></a>
+<FONT color="green">074</FONT>     *       the value for the object's &lt;code&gt;activeEmployee&lt;/code&gt; property.<a name="line.74"></a>
+<FONT color="green">075</FONT>     *    &lt;/li&gt;<a name="line.75"></a>
+<FONT color="green">076</FONT>     * &lt;/ul&gt;<a name="line.76"></a>
+<FONT color="green">077</FONT>     *<a name="line.77"></a>
+<FONT color="green">078</FONT>     * @author Norm Deane<a name="line.78"></a>
+<FONT color="green">079</FONT>     * @see org.apache.commons.beanutils.PropertyUtils<a name="line.79"></a>
+<FONT color="green">080</FONT>     * @see org.apache.commons.collections.Closure<a name="line.80"></a>
+<FONT color="green">081</FONT>     */<a name="line.81"></a>
+<FONT color="green">082</FONT>    public class BeanPropertyValueChangeClosure implements Closure {<a name="line.82"></a>
+<FONT color="green">083</FONT>       <a name="line.83"></a>
+<FONT color="green">084</FONT>        /** For logging. */<a name="line.84"></a>
+<FONT color="green">085</FONT>        private final Log log = LogFactory.getLog(this.getClass());<a name="line.85"></a>
+<FONT color="green">086</FONT>    <a name="line.86"></a>
+<FONT color="green">087</FONT>        /**<a name="line.87"></a>
+<FONT color="green">088</FONT>         * The name of the property which will be updated when this &lt;code&gt;Closure&lt;/code&gt; executes.<a name="line.88"></a>
+<FONT color="green">089</FONT>         */<a name="line.89"></a>
+<FONT color="green">090</FONT>        private String propertyName;<a name="line.90"></a>
+<FONT color="green">091</FONT>    <a name="line.91"></a>
+<FONT color="green">092</FONT>        /**<a name="line.92"></a>
+<FONT color="green">093</FONT>         * The value that the property specified by &lt;code&gt;propertyName&lt;/code&gt;<a name="line.93"></a>
+<FONT color="green">094</FONT>         * will be updated to when this &lt;code&gt;Closure&lt;/code&gt; executes.<a name="line.94"></a>
+<FONT color="green">095</FONT>         */<a name="line.95"></a>
+<FONT color="green">096</FONT>        private Object propertyValue;<a name="line.96"></a>
+<FONT color="green">097</FONT>    <a name="line.97"></a>
+<FONT color="green">098</FONT>        /**<a name="line.98"></a>
+<FONT color="green">099</FONT>         * Determines whether &lt;code&gt;null&lt;/code&gt; objects in the property path will genenerate an<a name="line.99"></a>
+<FONT color="green">100</FONT>         * &lt;code&gt;IllegalArgumentException&lt;/code&gt; or not. If set to &lt;code&gt;true&lt;/code&gt; then if any objects<a name="line.100"></a>
+<FONT color="green">101</FONT>         * in the property path leading up to the target property evaluate to &lt;code&gt;null&lt;/code&gt; then the<a name="line.101"></a>
+<FONT color="green">102</FONT>         * &lt;code&gt;IllegalArgumentException&lt;/code&gt; throw by &lt;code&gt;PropertyUtils&lt;/code&gt; will be logged but<a name="line.102"></a>
+<FONT color="green">103</FONT>         * not rethrown.  If set to &lt;code&gt;false&lt;/code&gt; then if any objects in the property path leading<a name="line.103"></a>
+<FONT color="green">104</FONT>         * up to the target property evaluate to &lt;code&gt;null&lt;/code&gt; then the<a name="line.104"></a>
+<FONT color="green">105</FONT>         * &lt;code&gt;IllegalArgumentException&lt;/code&gt; throw by &lt;code&gt;PropertyUtils&lt;/code&gt; will be logged and<a name="line.105"></a>
+<FONT color="green">106</FONT>         * rethrown.<a name="line.106"></a>
+<FONT color="green">107</FONT>         */<a name="line.107"></a>
+<FONT color="green">108</FONT>        private boolean ignoreNull;<a name="line.108"></a>
+<FONT color="green">109</FONT>    <a name="line.109"></a>
+<FONT color="green">110</FONT>        /**<a name="line.110"></a>
+<FONT color="green">111</FONT>         * Constructor which takes the name of the property to be changed, the new value to set<a name="line.111"></a>
+<FONT color="green">112</FONT>         * the property to, and assumes &lt;code&gt;ignoreNull&lt;/code&gt; to be &lt;code&gt;false&lt;/code&gt;.<a name="line.112"></a>
+<FONT color="green">113</FONT>         *<a name="line.113"></a>
+<FONT color="green">114</FONT>         * @param propertyName The name of the property that will be updated with the value specified by<a name="line.114"></a>
+<FONT color="green">115</FONT>         * &lt;code&gt;propertyValue&lt;/code&gt;.<a name="line.115"></a>
+<FONT color="green">116</FONT>         * @param propertyValue The value that &lt;code&gt;propertyName&lt;/code&gt; will be set to on the target<a name="line.116"></a>
+<FONT color="green">117</FONT>         * object.<a name="line.117"></a>
+<FONT color="green">118</FONT>         * @throws IllegalArgumentException If the propertyName provided is null or empty.<a name="line.118"></a>
+<FONT color="green">119</FONT>         */<a name="line.119"></a>
+<FONT color="green">120</FONT>        public BeanPropertyValueChangeClosure(String propertyName, Object propertyValue) {<a name="line.120"></a>
+<FONT color="green">121</FONT>            this(propertyName, propertyValue, false);<a name="line.121"></a>
+<FONT color="green">122</FONT>        }<a name="line.122"></a>
+<FONT color="green">123</FONT>    <a name="line.123"></a>
+<FONT color="green">124</FONT>        /**<a name="line.124"></a>
+<FONT color="green">125</FONT>         * Constructor which takes the name of the property to be changed, the new value to set<a name="line.125"></a>
+<FONT color="green">126</FONT>         * the property to and a boolean which determines whether &lt;code&gt;null&lt;/code&gt; objects in the<a name="line.126"></a>
+<FONT color="green">127</FONT>         * property path will genenerate an &lt;code&gt;IllegalArgumentException&lt;/code&gt; or not.<a name="line.127"></a>
+<FONT color="green">128</FONT>         *<a name="line.128"></a>
+<FONT color="green">129</FONT>         * @param propertyName The name of the property that will be updated with the value specified by<a name="line.129"></a>
+<FONT color="green">130</FONT>         * &lt;code&gt;propertyValue&lt;/code&gt;.<a name="line.130"></a>
+<FONT color="green">131</FONT>         * @param propertyValue The value that &lt;code&gt;propertyName&lt;/code&gt; will be set to on the target<a name="line.131"></a>
+<FONT color="green">132</FONT>         * object.<a name="line.132"></a>
+<FONT color="green">133</FONT>         * @param ignoreNull Determines whether &lt;code&gt;null&lt;/code&gt; objects in the property path will<a name="line.133"></a>
+<FONT color="green">134</FONT>         * genenerate an &lt;code&gt;IllegalArgumentException&lt;/code&gt; or not.<a name="line.134"></a>
+<FONT color="green">135</FONT>         * @throws IllegalArgumentException If the propertyName provided is null or empty.<a name="line.135"></a>
+<FONT color="green">136</FONT>         */<a name="line.136"></a>
+<FONT color="green">137</FONT>        public BeanPropertyValueChangeClosure(String propertyName, Object propertyValue, boolean ignoreNull) {<a name="line.137"></a>
+<FONT color="green">138</FONT>            super();<a name="line.138"></a>
+<FONT color="green">139</FONT>    <a name="line.139"></a>
+<FONT color="green">140</FONT>            if ((propertyName != null) &amp;&amp; (propertyName.length() &gt; 0)) {<a name="line.140"></a>
+<FONT color="green">141</FONT>                this.propertyName = propertyName;<a name="line.141"></a>
+<FONT color="green">142</FONT>                this.propertyValue = propertyValue;<a name="line.142"></a>
+<FONT color="green">143</FONT>                this.ignoreNull = ignoreNull;<a name="line.143"></a>
+<FONT color="green">144</FONT>            } else {<a name="line.144"></a>
+<FONT color="green">145</FONT>                throw new IllegalArgumentException("propertyName cannot be null or empty");<a name="line.145"></a>
+<FONT color="green">146</FONT>            }<a name="line.146"></a>
+<FONT color="green">147</FONT>        }<a name="line.147"></a>
+<FONT color="green">148</FONT>    <a name="line.148"></a>
+<FONT color="green">149</FONT>        /**<a name="line.149"></a>
+<FONT color="green">150</FONT>         * Updates the target object provided using the property update criteria provided when this<a name="line.150"></a>
+<FONT color="green">151</FONT>         * &lt;code&gt;BeanPropertyValueChangeClosure&lt;/code&gt; was constructed.  If any object in the property<a name="line.151"></a>
+<FONT color="green">152</FONT>         * path leading up to the target property is &lt;code&gt;null&lt;/code&gt; then the outcome will be based on<a name="line.152"></a>
+<FONT color="green">153</FONT>         * the value of the &lt;code&gt;ignoreNull&lt;/code&gt; attribute. By default, &lt;code&gt;ignoreNull&lt;/code&gt; is<a name="line.153"></a>
+<FONT color="green">154</FONT>         * &lt;code&gt;false&lt;/code&gt; and would result in an &lt;code&gt;IllegalArgumentException&lt;/code&gt; if an object<a name="line.154"></a>
+<FONT color="green">155</FONT>         * in the property path leading up to the target property is &lt;code&gt;null&lt;/code&gt;.<a name="line.155"></a>
+<FONT color="green">156</FONT>         *<a name="line.156"></a>
+<FONT color="green">157</FONT>         * @param object The object to be updated.<a name="line.157"></a>
+<FONT color="green">158</FONT>         * @throws IllegalArgumentException If an IllegalAccessException, InvocationTargetException, or<a name="line.158"></a>
+<FONT color="green">159</FONT>         * NoSuchMethodException is thrown when trying to access the property specified on the object<a name="line.159"></a>
+<FONT color="green">160</FONT>         * provided. Or if an object in the property path provided is &lt;code&gt;null&lt;/code&gt; and<a name="line.160"></a>
+<FONT color="green">161</FONT>         * &lt;code&gt;ignoreNull&lt;/code&gt; is set to &lt;code&gt;false&lt;/code&gt;.<a name="line.161"></a>
+<FONT color="green">162</FONT>         */<a name="line.162"></a>
+<FONT color="green">163</FONT>        public void execute(Object object) {<a name="line.163"></a>
+<FONT color="green">164</FONT>           <a name="line.164"></a>
+<FONT color="green">165</FONT>            try {<a name="line.165"></a>
+<FONT color="green">166</FONT>                PropertyUtils.setProperty(object, propertyName, propertyValue);<a name="line.166"></a>
+<FONT color="green">167</FONT>            } catch (IllegalArgumentException e) {<a name="line.167"></a>
+<FONT color="green">168</FONT>                final String errorMsg = "Unable to execute Closure. Null value encountered in property path...";<a name="line.168"></a>
+<FONT color="green">169</FONT>    <a name="line.169"></a>
+<FONT color="green">170</FONT>                if (ignoreNull) {<a name="line.170"></a>
+<FONT color="green">171</FONT>                    log.warn("WARNING: " + errorMsg + e);<a name="line.171"></a>
+<FONT color="green">172</FONT>                } else {<a name="line.172"></a>
+<FONT color="green">173</FONT>                    IllegalArgumentException iae = new IllegalArgumentException(errorMsg);<a name="line.173"></a>
+<FONT color="green">174</FONT>                    if (!BeanUtils.initCause(iae, e)) {<a name="line.174"></a>
+<FONT color="green">175</FONT>                        log.error(errorMsg, e);<a name="line.175"></a>
+<FONT color="green">176</FONT>                    }<a name="line.176"></a>
+<FONT color="green">177</FONT>                    throw iae;<a name="line.177"></a>
+<FONT color="green">178</FONT>                }<a name="line.178"></a>
+<FONT color="green">179</FONT>            } catch (IllegalAccessException e) {<a name="line.179"></a>
+<FONT color="green">180</FONT>                final String errorMsg = "Unable to access the property provided.";<a name="line.180"></a>
+<FONT color="green">181</FONT>                IllegalArgumentException iae = new IllegalArgumentException(errorMsg);<a name="line.181"></a>
+<FONT color="green">182</FONT>                if (!BeanUtils.initCause(iae, e)) {<a name="line.182"></a>
+<FONT color="green">183</FONT>                    log.error(errorMsg, e);<a name="line.183"></a>
+<FONT color="green">184</FONT>                }<a name="line.184"></a>
+<FONT color="green">185</FONT>                throw iae;<a name="line.185"></a>
+<FONT color="green">186</FONT>            } catch (InvocationTargetException e) {<a name="line.186"></a>
+<FONT color="green">187</FONT>                final String errorMsg = "Exception occurred in property's getter";<a name="line.187"></a>
+<FONT color="green">188</FONT>                IllegalArgumentException iae = new IllegalArgumentException(errorMsg);<a name="line.188"></a>
+<FONT color="green">189</FONT>                if (!BeanUtils.initCause(iae, e)) {<a name="line.189"></a>
+<FONT color="green">190</FONT>                    log.error(errorMsg, e);<a name="line.190"></a>
+<FONT color="green">191</FONT>                }<a name="line.191"></a>
+<FONT color="green">192</FONT>                throw iae;<a name="line.192"></a>
+<FONT color="green">193</FONT>            } catch (NoSuchMethodException e) {<a name="line.193"></a>
+<FONT color="green">194</FONT>                final String errorMsg = "Property not found";<a name="line.194"></a>
+<FONT color="green">195</FONT>                IllegalArgumentException iae = new IllegalArgumentException(errorMsg);<a name="line.195"></a>
+<FONT color="green">196</FONT>                if (!BeanUtils.initCause(iae, e)) {<a name="line.196"></a>
+<FONT color="green">197</FONT>                    log.error(errorMsg, e);<a name="line.197"></a>
+<FONT color="green">198</FONT>                }<a name="line.198"></a>
+<FONT color="green">199</FONT>                throw iae;<a name="line.199"></a>
+<FONT color="green">200</FONT>            }<a name="line.200"></a>
+<FONT color="green">201</FONT>        }<a name="line.201"></a>
+<FONT color="green">202</FONT>    <a name="line.202"></a>
+<FONT color="green">203</FONT>        /**<a name="line.203"></a>
+<FONT color="green">204</FONT>         * Returns the name of the property which will be updated when this &lt;code&gt;Closure&lt;/code&gt; executes.<a name="line.204"></a>
+<FONT color="green">205</FONT>         *<a name="line.205"></a>
+<FONT color="green">206</FONT>         * @return The name of the property which will be updated when this &lt;code&gt;Closure&lt;/code&gt; executes.<a name="line.206"></a>
+<FONT color="green">207</FONT>         */<a name="line.207"></a>
+<FONT color="green">208</FONT>        public String getPropertyName() {<a name="line.208"></a>
+<FONT color="green">209</FONT>            return propertyName;<a name="line.209"></a>
+<FONT color="green">210</FONT>        }<a name="line.210"></a>
+<FONT color="green">211</FONT>    <a name="line.211"></a>
+<FONT color="green">212</FONT>        /**<a name="line.212"></a>
+<FONT color="green">213</FONT>         * Returns the value that the property specified by &lt;code&gt;propertyName&lt;/code&gt;<a name="line.213"></a>
+<FONT color="green">214</FONT>         * will be updated to when this &lt;code&gt;Closure&lt;/code&gt; executes.<a name="line.214"></a>
+<FONT color="green">215</FONT>         *<a name="line.215"></a>
+<FONT color="green">216</FONT>         * @return The value that the property specified by &lt;code&gt;propertyName&lt;/code&gt;<a name="line.216"></a>
+<FONT color="green">217</FONT>         * will be updated to when this &lt;code&gt;Closure&lt;/code&gt; executes.<a name="line.217"></a>
+<FONT color="green">218</FONT>         */<a name="line.218"></a>
+<FONT color="green">219</FONT>        public Object getPropertyValue() {<a name="line.219"></a>
+<FONT color="green">220</FONT>            return propertyValue;<a name="line.220"></a>
+<FONT color="green">221</FONT>        }<a name="line.221"></a>
+<FONT color="green">222</FONT>    <a name="line.222"></a>
+<FONT color="green">223</FONT>        /**<a name="line.223"></a>
+<FONT color="green">224</FONT>         * Returns the flag that determines whether &lt;code&gt;null&lt;/code&gt; objects in the property path will<a name="line.224"></a>
+<FONT color="green">225</FONT>         * genenerate an &lt;code&gt;IllegalArgumentException&lt;/code&gt; or not. If set to &lt;code&gt;true&lt;/code&gt; then<a name="line.225"></a>
+<FONT color="green">226</FONT>         * if any objects in the property path leading up to the target property evaluate to<a name="line.226"></a>
+<FONT color="green">227</FONT>         * &lt;code&gt;null&lt;/code&gt; then the &lt;code&gt;IllegalArgumentException&lt;/code&gt; throw by<a name="line.227"></a>
+<FONT color="green">228</FONT>         * &lt;code&gt;PropertyUtils&lt;/code&gt; will be logged but not rethrown.  If set to &lt;code&gt;false&lt;/code&gt; then<a name="line.228"></a>
+<FONT color="green">229</FONT>         * if any objects in the property path leading up to the target property evaluate to<a name="line.229"></a>
+<FONT color="green">230</FONT>         * &lt;code&gt;null&lt;/code&gt; then the &lt;code&gt;IllegalArgumentException&lt;/code&gt; throw by<a name="line.230"></a>
+<FONT color="green">231</FONT>         * &lt;code&gt;PropertyUtils&lt;/code&gt; will be logged and rethrown.<a name="line.231"></a>
+<FONT color="green">232</FONT>         *<a name="line.232"></a>
+<FONT color="green">233</FONT>         * @return The flag that determines whether &lt;code&gt;null&lt;/code&gt; objects in the property path will<a name="line.233"></a>
+<FONT color="green">234</FONT>         * genenerate an &lt;code&gt;IllegalArgumentException&lt;/code&gt; or not.<a name="line.234"></a>
+<FONT color="green">235</FONT>         */<a name="line.235"></a>
+<FONT color="green">236</FONT>        public boolean isIgnoreNull() {<a name="line.236"></a>
+<FONT color="green">237</FONT>            return ignoreNull;<a name="line.237"></a>
+<FONT color="green">238</FONT>        }<a name="line.238"></a>
+<FONT color="green">239</FONT>    }<a name="line.239"></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</PRE>
+</BODY>
+</HTML>

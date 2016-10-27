@@ -64,24 +64,24 @@ OnItemClickListener, OnDismissListener {
 	public static String uid="";
 
 	public static boolean haslogin(){
-		 
+
 		if(LoginActivity.uid==null){
 			return false;
 		}
-		 if(LoginActivity.uid.equals("anonymous")){
-			 return false;
-		 }
+		if(LoginActivity.uid.equals("anonymous")){
+			return false;
+		}
 		if(LoginActivity.uid.equals("")){
 			return false;
 		}
 		return true;
 	}
-	 
+
 	public static LoginActivity  m;
 	public static void logout(){
 		LoginActivity.uid="";
-		
-		 
+
+
 
 	}
 	@Override
@@ -94,7 +94,7 @@ OnItemClickListener, OnDismissListener {
 		setListener();
 		mLoginLinearLayout.startAnimation(mTranslate); 
 
-		
+
 		mUsers = Utils.getUserList(LoginActivity.this);
 
 		if (mUsers.size() > 0) {
@@ -263,13 +263,13 @@ OnItemClickListener, OnDismissListener {
 	}
 	@Override
 	public void onClick(View v) {
-		switch (v.getId()) {
-		case R.id.login_btnLogin:
+		int id = v.getId();
+		if (id == R.id.login_btnLogin) {
 			if(!Tools.isMobileNO(mIdString)){
 				mIdEditText.setError("请输入手机号码");
 				return ;
 			}
-			showLoginingDlg(); 
+			showLoginingDlg();
 			Log.i(TAG, mIdString + "  " + mPwdString);
 			if (mIdString == null || mIdString.equals("")) { 
 				Toast.makeText(LoginActivity.this, "账号不为空！", Toast.LENGTH_SHORT)
@@ -278,7 +278,7 @@ OnItemClickListener, OnDismissListener {
 				Toast.makeText(LoginActivity.this, "密码不为空！", Toast.LENGTH_SHORT)
 				.show();
 			} else {
-				
+
 				//Toast.makeText(this, NetWorkUtil.getCPUSerial() , Toast.LENGTH_LONG).show();
 				new LoginTask(LoginActivity.this,mIdString, mPwdString, new TaskCallBack() {
 
@@ -329,8 +329,7 @@ OnItemClickListener, OnDismissListener {
 
 
 			}
-			break;
-		case R.id.login_more_user:  
+		} else if (id == R.id.login_more_user) {
 			if (mPop == null) {
 				initPop();
 			}
@@ -339,9 +338,7 @@ OnItemClickListener, OnDismissListener {
 				mMoreUser.setImageResource(R.drawable.login_more_down);  
 				mPop.showAsDropDown(mUserIdLinearLayout, 2, 1);  
 			}
-			break;
-		default:
-			break;
+		} else {
 		}
 
 	}

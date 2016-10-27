@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd version="3.9" timestamp="2008-01-18T22:36:01.190" elapsedTime="0s">
+<file name="/home/jwi/workspace/commons-fileupload-1.2/src/java/org/apache/commons/fileupload/MultipartStream.java">
+<violation line="857" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="org.apache.commons.fileupload" class="ItemInputStream" method="read" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
+These nested if statements could be combined
+</violation>
+</file>
+<file name="/home/jwi/workspace/commons-fileupload-1.2/src/java/org/apache/commons/fileupload/ParameterParser.java">
+<violation line="103" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="org.apache.commons.fileupload" class="ParameterParser" method="getToken" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
+These nested if statements could be combined
+</violation>
+<violation line="237" rule="CollapsibleIfStatements" ruleset="Basic Rules" package="org.apache.commons.fileupload" class="ParameterParser" method="parse" externalInfoUrl="http://pmd.sourceforge.net/rules/basic.html#CollapsibleIfStatements" priority="3">
+These nested if statements could be combined
+</violation>
+</file>
+</pmd>

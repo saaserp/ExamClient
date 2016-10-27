@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.nengfei.app"
-    android:versionCode="11"
-    android:versionName="10.1" >
+    android:versionCode="13"
+    android:versionName="13.5" >
 
     <uses-sdk
         android:minSdkVersion="11"
@@ -12,6 +12,17 @@
         android:name="com.nengfei.app.permission.JPUSH_MESSAGE"
         android:protectionLevel="signature" />
 
+    <!-- Mob 短信验证 -->
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- Mob 短信验证 -->
     <!-- Required  一些系统要求的权限，如访问网络等 -->
     <uses-permission android:name="com.nengfei.app.permission.JPUSH_MESSAGE" />
     <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
@@ -26,6 +37,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <!-- Optional for location -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -58,15 +70,14 @@
     </uses-permission>
 
     <application
-        
         android:allowBackup="true"
         android:icon="@drawable/logo"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
             android:name=".WelcomeActivity"
-             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" 
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -83,8 +94,8 @@
         </activity>
         <activity
             android:name=".TopicActivity"
-             android:screenOrientation="portrait"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait" >
         </activity>
         <activity
             android:name=".MoreDetailsActivity"
@@ -104,8 +115,8 @@
         </activity>
         <activity
             android:name=".StatisticsActivity"
-              android:theme="@android:style/Theme.NoTitleBar.Fullscreen" 
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
         </activity>
         <activity
             android:name=".StatisticsTopicTab"
@@ -266,6 +277,13 @@
             android:name="com.nengfei.web.WebActivity"
             android:label="@string/title_activity_main" >
         </activity>
+        <!-- 短信验证 -->
+        <activity
+            android:name="cn.smssdk.SMSSDKUIShell"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
+        <!-- 短信验证 -->
     </application>
 
 </manifest>

@@ -13,7 +13,6 @@
         android:layout_margin="2dp"
         android:layout_weight="1"
         android:background="@drawable/btn1_selector"
-        android:fontFamily=""
         android:onClick="toPreTopic"
         android:text="@string/topic_preTopic"
         android:textColor="@color/black"
