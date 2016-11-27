@@ -63,10 +63,14 @@ public class GetSystemInfoTask extends AsyncTask<Void, Void, Boolean> {
 		mp.put("version", version);
 	//	String result = MySocketClient.getInstance().send("GetSystemInfo", mp);
 		String result = HttpClientTool.getInstance().send("GetSystemInfo", mp);
-		if (result == null) {
+		
+		if (result == null||result.equals("")) {
 			return false;
 		}
 		List<Map<String, String>> list = new JSONParser(result).parse();
+		if(list==null||list.size()==0){
+			return false;
+		}
 		Map<String, String> map1 = list.get(0);
 		String ver = map1.get("version");
 

@@ -18,10 +18,12 @@ public class JSONParser {
 	}
 	 
 	public List<Map<String,String>>parse(){
-		List<Map<String, String>> list = null;
+		List<Map<String, String>> list = new ArrayList<Map<String,String>>() ;
 		try {
 			///
 			//
+			if(jsonStr==null||jsonStr.equals(""))
+				return list;
 			JSONArray jsa=new JSONArray(jsonStr);
 			list = new ArrayList<Map<String,String>>();
 			String key;

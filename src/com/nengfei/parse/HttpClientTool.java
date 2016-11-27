@@ -21,7 +21,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
 
 public class HttpClientTool {
-	static String ip="http://malloto.com:8080/NengfeiServer4.0/";
+	static String ip="http://malloto.com:8080/NengfeiServer5.0/";
 	HttpClientTool(String ip){
 		this.ip=ip;
 	}

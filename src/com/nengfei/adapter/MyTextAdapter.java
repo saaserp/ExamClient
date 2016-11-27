@@ -31,6 +31,7 @@ public class MyTextAdapter extends BaseAdapter{
 			TextView tv=(TextView) convertView.findViewById(R.id.item_name);
 			tv.setTypeface(MainTabActivity.font_apple);
 			tv.setText(contents.get(position));
+			tv.setTextSize(14);
 			 
 		 
 		 

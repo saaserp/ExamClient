@@ -33,6 +33,7 @@ public class ClassicsActivity extends BaseActivity {
 		tv_classics_answer = (TextView) findViewById(R.id.tv_classics_answer);
 		btn_classics_show_answer = (Button) findViewById(R.id.btn_classics_show_answer);
 		tv_title.setText(getResources().getString(R.string.classics_title));
+		tv_title.setTextSize(16);
 		tv_classics_question.setText(enerty.get("question").toString());
 		tv_classics_question.setTypeface(MainTabActivity.font_apple);
 		tv_classics_question.setPadding(4, 5, 4, 10);

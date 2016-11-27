@@ -33,8 +33,8 @@ public class CheckWifi extends Service {
         CharSequence cs = "Wifi连接中断";  
         long when = System.currentTimeMillis();  
         final Notification notification = new Notification(icon, cs, when);  
-        CharSequence contentTitle = "能飞app系统提示";  
-        CharSequence contentText = "5分钟离线阅读时长已过，请重新联网！";  
+        CharSequence contentTitle = "能飞app提示";  
+        CharSequence contentText = "5分钟离线时长已过，请重新联网！";  
         Intent notificationIntent = new Intent();  
         PendingIntent contentIntent = PendingIntent.getActivity(this, 0,  
                 notificationIntent, 0);  
@@ -52,6 +52,7 @@ public class CheckWifi extends Service {
                         e.printStackTrace();  
                     }  
                     
+                  
                     
                     ConnectivityManager con=(ConnectivityManager)getSystemService(Activity.CONNECTIVITY_SERVICE);  
                     boolean wifi=con.getNetworkInfo(ConnectivityManager.TYPE_WIFI).isConnectedOrConnecting();  
@@ -61,6 +62,7 @@ public class CheckWifi extends Service {
                     }else{  
                     	 notificationManager.notify(1, notification);  
                          LoginActivity.logout();
+                        
                     }  
                     
                 
